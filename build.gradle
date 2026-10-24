@@ -1,0 +1,40 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.cairo3a.shareek'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.cairo3a.shareek'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+        // رابط التطبيق على GitHub Pages. يُغيَّر هنا فقط إن تغيّر الرابط
+        buildConfigField 'String', 'APP_URL', '"https://abdelrahmanzaki2024-lgtm.github.io/shareek/"'
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:33.1.2')
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.android.gms:play-services-location:21.3.0'
+}
