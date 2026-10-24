@@ -348,6 +348,64 @@ a.ext{display:inline-flex;gap:4px;align-items:center;font-size:12.5px;font-weigh
 .say.on{background:var(--red);color:#fff;border-color:var(--red)}
 .rep-box{background:#fff;color:#242424;border-radius:12px;padding:6px;overflow-x:auto}
 .btn.wl-say{width:100%;margin:8px 0 2px}
+
+/* ---- أسطول التجار: تبويب المشرف وشاشة السائق ---- */
+.fmap{height:300px;width:100%;border-radius:14px;overflow:hidden;background:var(--soft);z-index:1;border:1px solid var(--line)}
+.fl-mapbox{margin-top:6px}
+.fl-chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.fl-dot{width:14px;height:14px;border-radius:50%;background:var(--mut);flex:0 0 14px;margin-top:5px;box-shadow:0 0 0 3px var(--card)}
+.fl-card{padding:12px}
+.fl-card.fl-sel{border-color:var(--ink)}
+.fl-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.fl-sos{background:var(--bad-bg);border:1.5px solid var(--red);border-radius:16px;padding:12px;margin:6px 0;color:var(--txt)}
+.fl-sos .fl-dot{background:var(--red)}
+.fl-pts{display:flex;flex-direction:column;gap:8px}
+.fl-pt{display:flex;align-items:center;gap:6px;min-width:0}
+.fl-pt .in{min-width:0;flex:1}
+.fl-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;font-weight:800;flex:0 0 24px}
+.fl-addbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));width:min(460px,calc(100% - 24px));background:var(--ink);color:#fff;border-radius:16px;padding:10px 12px;display:flex;align-items:center;gap:10px;z-index:60;box-shadow:var(--shadow)}
+.fl-addbar span{flex:1;font-weight:700;font-size:14px}
+.rt-main{padding:12px 16px 40px;max-width:560px;margin:0 auto}
+.rt-status{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.rt-status .btn{margin-top:6px}
+.rt-big{min-height:72px;font-size:22px;background:var(--ok)}
+.rt-warn{background:var(--warn-bg);color:var(--warn);border-radius:14px;padding:12px;font-weight:800;margin-top:8px}
+.rt-alarm{background:var(--red);color:#fff;border-radius:14px;padding:12px;font-weight:800;margin-top:8px}
+.rt-alarm a{color:#fff;text-decoration:underline}
+.rt-note{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-top:8px}
+.rt-note.ok{border-color:var(--ok)}
+.rt-stops{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.rt-stops li{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-weight:700}
+.rt-sos{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom));width:min(480px,calc(100% - 28px));min-height:76px;border-radius:20px;border:0;background:var(--red);color:#fff;font-size:26px;font-weight:900;letter-spacing:1px;box-shadow:0 10px 30px rgba(234,35,41,.45);cursor:pointer;z-index:40}
+.warn-t{color:var(--warn);font-weight:700}
+.ok-t{color:var(--ok);font-weight:700}
+
+/* ============ الوضع بالصور للتاجر ============ */
+.pic-hello{padding:4px 2px 6px}
+.pic-big{display:flex;align-items:center;gap:14px;width:100%;min-height:92px;padding:16px 18px;margin:6px 0 14px;background:#242424;color:#fff;border:0;border-radius:20px;cursor:pointer;text-align:right;font-family:inherit}
+.pic-big b{display:block;font-size:20px;font-weight:900;line-height:1.3}
+.pic-big small{display:block;font-size:14px;opacity:.85;margin-top:3px}
+.pic-big-ic{width:58px;height:58px;border-radius:16px;background:var(--red,#EA2329);display:grid;place-items:center;flex:none;color:#fff}
+.pic-big .i{width:30px;height:30px}
+.pic-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pic-tile{display:flex;flex-direction:column;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;padding:0;cursor:pointer;text-align:right;font-family:inherit;color:inherit}
+.pic-tile img{width:100%;height:108px;object-fit:cover;display:block}
+.pic-tile .pic-ic{height:108px;display:grid;place-items:center;background:#F3F2EF;color:var(--red,#EA2329)}
+.pic-tile .pic-ic .i{width:38px;height:38px}
+.pic-t{display:block;padding:11px 12px 13px;font-weight:800;font-size:16px;line-height:1.35}
+.pic-back{margin-bottom:10px}
+.pic-choose{border:2px solid var(--red,#EA2329)}
+body.picmode .tabs button{min-height:66px}
+body.picmode .tabs button span{font-size:15px;font-weight:800}
+body.picmode .tabs .i{width:28px;height:28px}
+/* ============ لوحة الاستقرار وتحليلات الأسطول ============ */
+.card .segs{position:static;margin:0 0 8px;padding:0;background:none;border:0;flex-wrap:wrap;overflow:visible}
+.card .segs button{min-height:40px}
+.card .segs button.on{background:#242424;color:#fff}
+.k b{word-break:break-word}
+/* ============ صوت الشاشة ============ */
+.hdr .ib.on{background:var(--red,#EA2329);color:#fff}
+.hdr .ib.on .i{stroke:#fff}
 </style><div id="app"></div><div id="toast"></div><script>window.__STATIC={
 "ranks": [
 {
@@ -1735,6 +1793,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     }
     function keyOf(t) { return C.SCHEMA[t][0][0]; }
     function save() { if (persist) persist(tables); }
+    var snaps = {};   // نسخ احتياطية قبل إعادة التهيئة (في الذاكرة للاختبار؛ في الجداول تكون أوراقًا bk_)
     return {
       tables: tables,
       all: function (t) { return tables[t]; },
@@ -1747,6 +1806,19 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
         return null;
       },
       count: function (t) { return tables[t].length; },
+      replaceTable: function (t, rows) { tables[t] = rows.slice(); save(); },
+      snapshot: function (label, names) {
+        snaps[label] = {};
+        names.forEach(function (t) { snaps[label][t] = tables[t].map(function (r) { return JSON.parse(JSON.stringify(r)); }); });
+        return names;
+      },
+      snapshotLabels: function (prefix) { return Object.keys(snaps).filter(function (l) { return !prefix || l.charAt(0) === prefix; }).sort().reverse(); },
+      snapshotRows: function (label, t) { return snaps[label] && snaps[label][t] ? snaps[label][t].length : -1; },
+      pruneSnapshots: function (keep, prefix) {
+        var pf = prefix || 'R', drop = Object.keys(snaps).filter(function (l) { return l.charAt(0) === pf; }).sort().reverse().slice(keep);
+        drop.forEach(function (l) { delete snaps[l]; });
+        return drop.length;
+      },
       flush: save
     };
   }
@@ -2010,22 +2082,50 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   };
 
   /* ---------- الاتصال بالخادم ---------- */
+  /* القراءات فقط تُعاد بعد تعثّر الشبكة أو خطأ 5xx/429، بتأخير يتزايد (لا تُعاد الكتابات حتى لا تتكرر) */
+  var RETRY_OK = { sMe: 1, sFleet: 1, sTrack: 1, sNotes: 1, sStats: 1, sTraders: 1, sTraderGet: 1, sMarketGet: 1, sTeamList: 1, sGate: 1, sInbox: 1, sTicket: 1, sRewards: 1, sFind: 1, sReport: 1, sResetPreview: 1, routeGet: 1, routePing: 1 };
+  function waitMs(n) { return new Promise(function (res) { setTimeout(res, 700 * n * n); }); }
+  /* رسائل الشبكة مفصولة: «مفيش إنترنت» تظهر فعلًا لما الجهاز أوفلاين، ورسالة الخادم لما الجهاز أونلاين والطلب مش واصل */
+  var NET_OFFLINE = 'مفيش إنترنت دلوقتي. اتأكد من الشبكة وجرّب تاني';
+  var NET_SERVER = 'الإنترنت شغال، لكن الخادم مش بيرد على المتصفح ده. كلّم المسؤول عن التطبيق يتأكد إن نشر الخادم متاح لـ«أي حد» وإنه آخر نسخة';
+  var BAD_RESP = 'الخادم رد برد مش مفهوم. غالبًا محتاج إعادة نشر، كلّم المسؤول عن التطبيق';
+  var GAS_FRAME = 'الصفحة دي مقدرتش توصل للخادم. افتح رابط التطبيق الجديد من Chrome أو Safari (مش من داخل واتساب)، وجرّب تاني';
+  function netMsg() { return (typeof navigator !== 'undefined' && navigator.onLine === false) ? NET_OFFLINE : NET_SERVER; }
+  function httpCall(action, pj, n) {
+    var retryable = !!RETRY_OK[action] && n < 3;
+    return fetch(String(W.__API_URL), { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: action, token: S.tok, payload: pj }) })
+      .then(function (r) {
+        if (retryable && (r.status === 429 || r.status >= 500)) return { __retry: true };
+        return r.text().then(function (t) {
+          try { return JSON.parse(t); } catch (e) { return { __bad: true }; }
+        });
+      })
+      .then(function (r) {
+        if (r && r.__retry) return waitMs(n).then(function () { return httpCall(action, pj, n + 1); });
+        if (r && r.__bad) return { ok: false, err: 'badresp', msg: BAD_RESP };
+        return r;
+      }, function (e) {
+        if (retryable) return waitMs(n).then(function () { return httpCall(action, pj, n + 1); });
+        throw e;
+      });
+  }
   function rawCall(action, payload) {
     return new Promise(function (resolve) {
       var pj = JSON.stringify(payload || {});
       if (W.google && W.google.script && W.google.script.run) {
+        /* النسخة الداخلية (داخل إطار Apps Script): فشل الاتصال غالبًا من إعدادات المتصفح أو من رابط قديم، لا من الإنترنت نفسه */
+        var gasMsg = function () { return (typeof navigator !== 'undefined' && navigator.onLine === false) ? NET_OFFLINE : GAS_FRAME; };
         try {
           W.google.script.run
             .withSuccessHandler(function (r) { resolve(r || { ok: false, err: 'server', msg: 'رد فارغ من الخادم' }); })
-            .withFailureHandler(function (e) { resolve({ ok: false, err: 'net', msg: 'تعذّر الاتصال، تأكد من الإنترنت وجرّب تاني' }); })
+            .withFailureHandler(function (e) { resolve({ ok: false, err: 'net', msg: gasMsg() }); })
             .api(S.tok, action, pj);
-        } catch (e) { resolve({ ok: false, err: 'net', msg: 'تعذّر الاتصال' }); }
+        } catch (e) { resolve({ ok: false, err: 'net', msg: gasMsg() }); }
       } else if (W.__API_URL && /^https:\/\//.test(String(W.__API_URL))) {
-        /* النسخة المستضافة (GitHub Pages): طلب POST بنص خام لتفادي preflight */
-        fetch(String(W.__API_URL), { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: action, token: S.tok, payload: pj }) })
-          .then(function (r) { return r.json(); })
+        /* النسخة المستضافة (GitHub Pages): طلب POST بنص خام لتفادي preflight. القراءات فقط تُعاد عند تعثّر الشبكة */
+        httpCall(action, pj, 1)
           .then(function (r) { resolve(r || { ok: false, err: 'server', msg: 'رد فارغ من الخادم' }); })
-          .catch(function () { resolve({ ok: false, err: 'net', msg: 'تعذّر الاتصال، تأكد من الإنترنت وجرّب تاني' }); });
+          .catch(function () { resolve({ ok: false, err: 'net', msg: netMsg() }); });
       } else if (W.__DEMO_API) {
         setTimeout(function () { resolve(W.__DEMO_API(S.tok, action, pj)); }, 60);
       } else {
@@ -2102,11 +2202,115 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     S.tok = ''; S.role = ''; S.me = null; S.home = null; S.content = null; S.staff = null; S.tickets = null; S.rewards = null; S.sub = null; S.tab = 'today'; S.stab = 'gate';
     S.round = null; S.mz = null; S.visits = null; S.market = null; S.marketTs = 0; S.seg = {}; S.annShown = false;   /* لا نُبقي بيانات المستخدم السابق على نفس الجهاز */
     S.sme = null; S.sinbox = null; S.sstats = null; S.srw = null; S.str = null; S.smarket = null; S.ssub = null; S.sfilter = '';
-    lsSet('c3a_tok', null); lsSet('c3a_role', null);
+    if (W.APP.secClear) W.APP.secClear('c3a_tok'); lsSet('c3a_role', null);
     closeSheet();
+    if (W.APP.fleetReset) W.APP.fleetReset();   /* حالة الأسطول (الخريطة والتنبيهات والصلاحيات) تخص الجلسة السابقة */
     if (W.APP.render) W.APP.render();
   }
   W.APP.logout = logout;
+
+  /* تبليغ الأخطاء: لا يُرسل أكثر من خطأ كل 4 ثوانٍ، ولا يحمل إلا نصًا مقصوصًا. الفشل في الإبلاغ نفسه لا يوقف التطبيق */
+  var lastErrT = 0;
+  function reportErr(e, where) {
+    var t = Date.now();
+    if (t - lastErrT < 4000) return false;
+    lastErrT = t;
+    try {
+      var msg = String((e && (e.message || e.stack)) || e || 'unknown').substring(0, 300);
+      rawCall('clientError', { msg: msg, where: String(where || '').substring(0, 60) });
+    } catch (x) { /* ignore */ }
+    return true;
+  }
+  W.APP.reportErr = reportErr;
+  W.addEventListener('error', function (ev) { if (reportErr(ev.error || ev.message, 'window')) toast('حصلت مشكلة بسيطة، التطبيق لسه شغال', 'err'); });
+  W.addEventListener('unhandledrejection', function (ev) { reportErr(ev.reason, 'promise'); });
+})();
+
+/* ============================================================
+   تخزين الرموز على الجهاز: الرمز لا يُحفظ نصًا واضحًا في localStorage.
+   - على المتصفح: مفتاح AES-GCM غير قابل للتصدير داخل IndexedDB، والرمز مشفّر به.
+   - في تطبيق أندرويد: الرمز يُحفظ في Android Keystore عبر الجسر ShareekNative.saveSecret / readSecret.
+   حدود: هذا يمنع قراءة الرمز كنص واضح من ملفات التخزين، ولا يحمي من كود يعمل داخل الصفحة نفسها.
+   ============================================================ */
+(function () {
+  'use strict';
+  var A = window.APP, W = window;
+  var DB = 'c3a_secure', STORE = 'keys', KEY = 'k1', PFX = 'enc1:';
+
+  function hasNative() { try { var n = W.ShareekNative; return !!(n && typeof n.saveSecret === 'function' && typeof n.readSecret === 'function'); } catch (e) { return false; } }
+  function hasCrypto() { return !!(W.crypto && W.crypto.subtle && W.indexedDB && W.TextEncoder); }
+  function openDb() {
+    return new Promise(function (res, rej) {
+      var r = indexedDB.open(DB, 1);
+      r.onupgradeneeded = function () { r.result.createObjectStore(STORE); };
+      r.onsuccess = function () { res(r.result); };
+      r.onerror = function () { rej(r.error); };
+    });
+  }
+  function getKey() {
+    return openDb().then(function (db) {
+      return new Promise(function (res, rej) {
+        var q = db.transaction(STORE, 'readonly').objectStore(STORE).get(KEY);
+        q.onsuccess = function () { db.close(); res(q.result || null); };
+        q.onerror = function () { db.close(); rej(q.error); };
+      }).then(function (k) {
+        if (k) return k;
+        return W.crypto.subtle.generateKey({ name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']).then(function (nk) {
+          return openDb().then(function (db2) {
+            return new Promise(function (res, rej) {
+              var tx = db2.transaction(STORE, 'readwrite');
+              tx.objectStore(STORE).put(nk, KEY);
+              tx.oncomplete = function () { db2.close(); res(nk); };
+              tx.onerror = function () { db2.close(); rej(tx.error); };
+            });
+          });
+        });
+      });
+    });
+  }
+  function b64(buf) { var b = new Uint8Array(buf), s = ''; for (var i = 0; i < b.length; i++) s += String.fromCharCode(b[i]); return btoa(s); }
+  function unb64(s) { var r = atob(s), b = new Uint8Array(r.length); for (var i = 0; i < r.length; i++) b[i] = r.charCodeAt(i); return b; }
+  function enc(text) {
+    return getKey().then(function (k) {
+      var iv = W.crypto.getRandomValues(new Uint8Array(12));
+      return W.crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, k, new TextEncoder().encode(text)).then(function (ct) {
+        var all = new Uint8Array(12 + ct.byteLength); all.set(iv, 0); all.set(new Uint8Array(ct), 12);
+        return PFX + b64(all.buffer);
+      });
+    });
+  }
+  function dec(s) {
+    return getKey().then(function (k) {
+      var all = unb64(s.substring(PFX.length));
+      return W.crypto.subtle.decrypt({ name: 'AES-GCM', iv: all.slice(0, 12) }, k, all.slice(12)).then(function (pt) { return new TextDecoder().decode(pt); });
+    });
+  }
+
+  /* حفظ قيمة باسم؛ يرجع Promise تُحلّ بعد الكتابة. القيمة null تعني حذفها */
+  A.secSave = function (name, value) {
+    if (value === null || value === undefined || value === '') return A.secClear(name);
+    var v = String(value);
+    if (hasNative()) { try { W.ShareekNative.saveSecret(String(name), v); if (W.ShareekNative.readSecret(String(name)) === v) { A.lsSet(name, null); return Promise.resolve(true); } } catch (e) { /* ننتقل للتشفير بالمتصفح */ } }
+    if (hasCrypto()) return enc(v).then(function (s) { A.lsSet(name, s); return true; }, function () { A.lsSet(name, v); return false; });
+    A.lsSet(name, v);
+    return Promise.resolve(false);
+  };
+  /* قراءة قيمة؛ تحلّ بالنص أو null. النسخة القديمة الواضحة تُشفَّر تلقائيًا عند أول قراءة */
+  A.secLoad = function (name) {
+    if (hasNative()) { try { var nv = W.ShareekNative.readSecret(String(name)); if (nv) return Promise.resolve(String(nv)); } catch (e) { /* ignore */ } }
+    var raw = A.lsGet(name);
+    if (!raw) return Promise.resolve(null);
+    if (raw.indexOf(PFX) !== 0) {
+      return A.secSave(name, raw).then(function () { return raw; }, function () { return raw; });
+    }
+    if (!hasCrypto()) return Promise.resolve(null);
+    return dec(raw).then(function (t) { return t; }, function () { A.lsSet(name, null); return null; });
+  };
+  A.secClear = function (name) {
+    A.lsSet(name, null);
+    if (hasNative()) { try { W.ShareekNative.saveSecret(String(name), ''); } catch (e) { /* ignore */ } }
+    return Promise.resolve(true);
+  };
 })();
 
 /* ============================================================
@@ -2125,13 +2329,24 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   ];
 
   /* ---------- الرسم الرئيسي ---------- */
-  function render() {
+  function renderInner() {
     var app = $('#app');
     if (S.booting) { app.innerHTML = splash(); return; }
+    if (S.role === 'route') return A.screens.route();
     if (!S.role) { app.innerHTML = authView(); return; }
     if (S.role === 'trader') return A.screens.trader();
     if (S.role === 'staff') return A.screens.staff();
   }
+  /* حاجز الأخطاء: إن تعثّرت شاشة نعرض بطاقة استرداد بدل صفحة فارغة، ونبلّغ الخادم بنص مقصوص */
+  function render() {
+    try { renderInner(); }
+    catch (e) {
+      if (A.reportErr) A.reportErr(e, 'render');
+      var app = $('#app');
+      if (app) app.innerHTML = '<div class="hero" style="padding-bottom:30px"><div class="card tc col" style="margin:16px"><b>حصلت مشكلة مؤقتة في الشاشة دي</b><p class="mut sm">بياناتك محفوظة ومفيش حاجة اتمسحت. اضغط «حاول تاني».</p><div class="grid2"><button class="btn dk" data-act="recover">حاول تاني</button><button class="btn gh" data-act="logout">خروج</button></div></div></div>';
+    }
+  }
+  H.recover = function () { render(); };
   function splash() {
     return '<div class="hero" style="padding-bottom:40px;flex:1;display:flex;flex-direction:column;justify-content:center;border-radius:0">' + A.img('wordmark_dark', 'wm', 'العدو غير المرئي') + '<div class="spin"></div></div>';
   }
@@ -2193,7 +2408,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
         '<div class="err" id="l_err"></div><button class="btn" data-act="login">ادخل</button><p class="mut xs tc" style="margin:0">نسيت الرمز؟ اطلب من معاون المزرعة يعيّنه لك.</p><button class="lnk" data-act="authmode" data-m="staff">دخول الموظفين</button>';
     }
     return '<div class="hero">' + A.img('wordmark_dark', 'wm', 'العدو غير المرئي') + A.img('logo_company_dark', 'co', 'Cairo 3A Poultry') + '<p>شريك الدفاع · تطبيق التجار للأمن الحيوي</p></div>' +
-      '<div class="card authcard col">' + form + '</div><div style="padding:14px" class="col">' + demo + '<p class="mut xs tc" style="margin:6px 0 0">أنت خط الدفاع الأول</p></div>';
+      '<div class="card authcard col">' + form + '</div>' + (A.authExtra ? A.authExtra() : '') + '<div style="padding:14px" class="col">' + demo + '<p class="mut xs tc" style="margin:6px 0 0">أنت خط الدفاع الأول</p></div>';
   }
   function fld(id, label, input, help) { return '<div class="fld"><label for="' + id + '">' + label + '</label>' + input + (help ? '<span class="help">' + help + '</span>' : '') + '</div>'; }
   A.fld = fld;
@@ -2202,10 +2417,10 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   function setErr(id, msg) { var e = document.getElementById(id); if (e) e.textContent = msg || ''; }
 
   function enter(data, role) {
-    S.tok = data.token; S.role = role; A.lsSet('c3a_tok', data.token); A.lsSet('c3a_role', role);
+    S.tok = data.token; S.role = role; A.secSave('c3a_tok', data.token); A.lsSet('c3a_role', role);
     S.authMode = 'login'; S.tab = 'today'; S.stab = 'gate'; S.sub = null; S.seg = {}; S.annShown = false;
     if (role === 'trader') { S.me = data.me; return A.loadHome().then(function () { render(); window.scrollTo(0, 0); if (A.announce) A.announce(); }); }
-    S.staff = data.staff; return A.screens.staffInit().then(function () { render(); window.scrollTo(0, 0); });
+    S.staff = data.staff; return A.screens.staffInit().then(function () { render(); window.scrollTo(0, 0); if (A.fleetNotesStart) A.fleetNotesStart(); });
   }
   A.enter = enter;
 
@@ -2273,20 +2488,35 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   });
 
   /* ---------- الإقلاع ---------- */
+  /* بعد فتح الصفحة بلا جلسة: لو فيه رحلة سائق نشطة على الجهاز نكمّلها من حيث توقفت (الرابط محفوظ مشفّرًا) */
+  function resumeRoute() {
+    return A.secLoad('c3a_route').then(function (rt) {
+      if (rt && !A.routeMode && !S.tok) return A.startRoute(rt);
+      S.booting = false; render();
+    }, function () { S.booting = false; render(); });
+  }
   A.boot = function () {
+    /* رابط السائق: ?r=… يفتح شاشة الخط مباشرة بلا تسجيل دخول */
+    try { var rq = /[?&]r=([A-Za-z0-9]{16,80})(?:&|$)/.exec(location.search || ''); if (rq) return A.startRoute(rq[1]); } catch (e0) { /* ignore */ }
     S.booting = true; render();
-    try { if (window.google && google.script && google.script.url && google.script.url.getLocation) google.script.url.getLocation(function (loc) { if (loc && loc.parameter && loc.parameter.ref) { S.ref = String(loc.parameter.ref).substring(0, 6).toUpperCase(); S.authMode = 'register'; if (!S.role && !S.booting) render(); } }); } catch (e) { /* ignore */ }
+    try { if (window.google && google.script && google.script.url && google.script.url.getLocation) google.script.url.getLocation(function (loc) {
+      var rr = loc && loc.parameter && loc.parameter.r;
+      if (rr && /^[A-Za-z0-9]{16,80}$/.test(String(rr))) return A.startRoute(String(rr));
+      if (loc && loc.parameter && loc.parameter.ref) { S.ref = String(loc.parameter.ref).substring(0, 6).toUpperCase(); S.authMode = 'register'; if (!S.role && !S.booting) render(); } }); } catch (e) { /* ignore */ }
     try { var q = /[?&]ref=([A-Za-z0-9]{3,6})/.exec(location.search); if (q) { S.ref = q[1].toUpperCase(); S.authMode = 'register'; } } catch (e2) { /* ignore */ }
-    var tok = A.lsGet('c3a_tok'), role = A.lsGet('c3a_role');
-    if (!tok || !role) { S.booting = false; return render(); }
-    S.tok = tok;
-    var first = role === 'staff' ? call('sMe', {}, { quiet: true }) : call('home', {}, { quiet: true });
-    first.then(function (d) {
-      S.booting = false;
-      if (!d) { S.tok = ''; A.lsSet('c3a_tok', null); A.lsSet('c3a_role', null); return render(); }
-      S.role = role;
-      if (role === 'staff') { S.staff = d.staff; A.screens.staffInit(d).then(render); }
-      else { S.home = d; S.me = d.me; render(); if (A.announce) A.announce(); }
+    var role = A.lsGet('c3a_role');
+    A.secLoad('c3a_tok').then(function (tok) {
+      if (!tok || !role) return resumeRoute();
+      S.tok = tok;
+      var first = role === 'staff' ? call('sMe', {}, { quiet: true }) : call('home', {}, { quiet: true });
+      first.then(function (d) {
+        if (A.routeMode) return;   // فُتح رابط سائق في الأثناء: لا نكتب فوقه
+        S.booting = false;
+        if (!d) { S.tok = ''; A.secClear('c3a_tok'); A.lsSet('c3a_role', null); return render(); }
+        S.role = role;
+        if (role === 'staff') { S.staff = d.staff; A.screens.staffInit(d).then(render).then(function () { if (A.fleetNotesStart) A.fleetNotesStart(); }); }
+        else { S.home = d; S.me = d.me; render(); if (A.announce) A.announce(); }
+      });
     });
   };
 })();
@@ -2527,7 +2757,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var tr = c.cards.filter(function (k) { return k.forTrader; }), others = c.cards.filter(function (k) { return !k.forTrader; });
     function acc(k) {
       var ph = PH[k.id] && A.IMG[PH[k.id]] ? '<img class="ph" src="' + A.IMG[PH[k.id]] + '" alt="' + esc(k.tag) + '">' : '';
-      return '<div class="acc" id="acc_' + k.id + '"><button data-act="acc" data-id="' + k.id + '"><span class="chip">' + esc(k.tag) + '</span><b>' + esc(k.title) + '</b>' + (k.read ? '<span class="chip ok">' + ic('check', 'sm') + '</span>' : '<span class="chip red">+' + c.cardPts + '</span>') + ic('down', 'ch') + '</button><div class="bd">' + ph + '<div class="fact">' + esc(k.fact) + '</div><div class="why">' + esc(k.why) + '</div><a class="ext" target="_blank" rel="noopener" href="' + esc(k.url) + '">المصدر: ' + esc(k.src) + '</a></div></div>';
+      return '<div class="acc" id="acc_' + k.id + '"><button data-act="acc" data-id="' + k.id + '"><span class="chip">' + esc(k.tag) + '</span><b>' + esc(k.title) + '</b>' + (k.read ? '<span class="chip ok">' + ic('check', 'sm') + '</span>' : '<span class="chip red">+' + c.cardPts + '</span>') + ic('down', 'ch') + '</button><div class="bd">' + ph + '<div class="fact">' + esc(k.fact) + '</div>' + (A.voiceCard ? A.voiceCard(k) : '') + '<div class="why">' + esc(k.why) + '</div><a class="ext" target="_blank" rel="noopener" href="' + esc(k.url) + '">المصدر: ' + esc(k.src) + '</a></div></div>';
     }
     var foot = '<div class="xs mut">الصور من USDA وWikimedia Commons (ملك عام). المراجع: إرشادات هابرد للأمن الحيوي وبيانات كايرو ثري ايه.</div>';
     if (seg === 'why') return tabs + '<div class="col">' + tr.map(acc).join('') + '</div>' + foot;
@@ -3159,6 +3389,10 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       b.classList.toggle('on', VX.speaking);
       b.innerHTML = (VX.speaking ? ic('x', 'sm') + 'إيقاف' : ic('speaker', 'sm') + 'اسمع الأسعار');
     });
+    A.$$('[data-act="say_card"]').forEach(function (b) {
+      b.classList.toggle('on', VX.speaking);
+      b.innerHTML = (VX.speaking ? ic('x', 'sm') + 'إيقاف' : ic('speaker', 'sm') + 'اسمع الدرس');
+    });
   }
   function stopSay() {
     VX.gen++; VX.speaking = false;
@@ -3181,7 +3415,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
         if (gen !== VX.gen) return;
         if (i >= lines.length) { VX.speaking = false; syncBtns(); return; }
         var u = new window.SpeechSynthesisUtterance(lines[i++]);
-        u.lang = voice ? voice.lang : 'ar-EG'; if (voice) u.voice = voice; u.rate = 0.92; u.pitch = 1;
+        u.lang = voice ? voice.lang : 'ar-EG'; if (voice) u.voice = voice; u.rate = A.voiceRate ? A.voiceRate() : 0.92; u.pitch = 1;
         u.onstart = function () { started = true; };
         u.onend = next;
         u.onerror = function (e) { if (e && (e.error === 'canceled' || e.error === 'interrupted')) return; fail(); };
@@ -3192,6 +3426,8 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     });
   }
   A.stopSay = stopSay;
+  A.speakLines = say;
+  A.isSpeaking = function () { return VX.speaking; };
   A.voiceBtn = function (cls) {
     if (!on(feat().voice) || !canSpeak()) return '';
     var m = S.market || (S.home && S.home.market);
@@ -3201,6 +3437,17 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   H.say_prices = function () {
     if (VX.speaking) return stopSay();
     say(marketSpeech(S.market || (S.home && S.home.market)));
+  };
+  /* اسمع الدرس: يقرأ عنوان الدرس وخلاصته بصوت عربي. للتاجر الذي لا يقرأ، ويُعرض الزر فقط إن كانت الميزة مفعّلة والمتصفح يدعم الصوت */
+  A.voiceCard = function (k) {
+    if (!on(feat().voice) || !canSpeak() || !k) return '';
+    return '<button class="btn sm gh say" style="margin:8px 0" data-act="say_card" data-id="' + String(k.id).replace(/"/g, '') + '">' + ic('speaker', 'sm') + 'اسمع الدرس</button>';
+  };
+  H.say_card = function (el) {
+    if (VX.speaking) return stopSay();
+    var list = (S.content && S.content.cards) || [], id = el.dataset.id;
+    var k = list.filter(function (x) { return x.id === id; })[0];
+    if (k) say([String(k.title || ''), String(k.fact || '')].filter(Boolean));
   };
   document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') stopSay(); });
 
@@ -3267,6 +3514,14 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     x.fillStyle = '#fff'; x.textAlign = 'center'; x.font = '900 ' + Math.round(w * 0.46) + 'px ' + family; x.direction = 'ltr';
     x.fillText(String(n), cx, top + w * 0.72); x.direction = 'rtl';
   }
+  function drawQr(x, text, px, py, size) {
+    if (!text || !window.C3A || !C3A.QR) return;
+    var q; try { q = C3A.QR.matrix(text); } catch (e) { return; }
+    var n = q.size + 8, cell = size / n;
+    x.fillStyle = '#FFFFFF'; x.fillRect(px, py, size, size);
+    x.fillStyle = '#242424';
+    for (var r = 0; r < q.size; r++) for (var c = 0; c < q.size; c++) if (q.mod[r][c]) x.fillRect(px + (c + 4) * cell, py + (r + 4) * cell, cell + 0.5, cell + 0.5);
+  }
   function drawCert(spec) {
     var me = S.me, f = feat().cert || {}, W = 1080, H2 = 1350, FAM = 'Cairo, "Segoe UI", Tahoma, Arial, sans-serif';
     var c = document.createElement('canvas'); c.width = W; c.height = H2;
@@ -3277,7 +3532,9 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       x.fillStyle = '#FBFAF7'; x.fillRect(0, 0, W, H2);
       x.fillStyle = '#242424'; x.fillRect(0, 0, W, 250);
       x.fillStyle = '#EA2329'; x.fillRect(0, 250, W, 10);
-      if (wm) { var s = Math.min(640 / wm.width, 150 / wm.height); x.drawImage(wm, (W - wm.width * s) / 2, (250 - wm.height * s) / 2, wm.width * s, wm.height * s); }
+      if (wm) { var s = Math.min(600 / wm.width, 150 / wm.height); x.drawImage(wm, (W - wm.width * s) / 2, (250 - wm.height * s) / 2, wm.width * s, wm.height * s); }
+      /* رمز QR للتطبيق يظهر في ركن الشريط العلوي: من يرى الشهادة يفتح التطبيق بالكاميرا */
+      drawQr(x, (S.home && S.home.appUrl) || '', 40, 40, 170);
       x.strokeStyle = '#EA2329'; x.lineWidth = 4; x.strokeRect(40, 300, W - 80, H2 - 340);
       x.strokeStyle = '#D9D9DC'; x.lineWidth = 2; x.strokeRect(54, 314, W - 108, H2 - 368);
       /* العنوان */
@@ -3297,16 +3554,16 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       } else y += 20;
       /* الإنجاز */
       x.fillStyle = '#6D6E71'; x.font = '600 30px ' + FAM; x.fillText('عن', W / 2, y + 30);
-      x.font = '800 44px ' + FAM;
-      var lines = wrap(x, spec.what, 760), bh = lines.length * 62 + 38, by = y + 50;
+      x.font = '800 38px ' + FAM;
+      var lines = wrap(x, spec.what, 760).slice(0, 2), bh = lines.length * 54 + 34, by = y + 50;
       x.fillStyle = '#FFF1F1'; x.strokeStyle = '#EA2329'; x.lineWidth = 3;
       x.beginPath(); if (x.roundRect) x.roundRect(120, by, W - 240, bh, 22); else x.rect(120, by, W - 240, bh); x.fill(); x.stroke();
-      x.fillStyle = '#242424'; x.font = '800 44px ' + FAM;
-      lines.forEach(function (ln, i) { x.fillText(ln, W / 2, by + 62 + i * 62 - 4); });
+      x.fillStyle = '#242424'; x.font = '800 38px ' + FAM;
+      lines.forEach(function (ln, i) { x.fillText(ln, W / 2, by + 50 + i * 54); });
       /* نص التقدير */
-      var ty = by + bh + 54;
-      x.fillStyle = '#4A4B4E'; x.font = '600 32px ' + FAM;
-      wrap(x, f.body || '', 800).slice(0, 3).forEach(function (ln, i) { x.fillText(ln, W / 2, ty + i * 50); });
+      var ty = by + bh + 50;
+      x.fillStyle = '#4A4B4E'; x.font = '600 28px ' + FAM;
+      wrap(x, f.body || '', 820).slice(0, 2).forEach(function (ln, i) { x.fillText(ln, W / 2, ty + i * 40); });
       /* التذييل: التاريخ والتوقيع */
       var fy = 1168, date = '';
       try { date = new Date(A.nowMs()).toLocaleDateString('ar-EG-u-nu-latn', { timeZone: TZ, day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) { date = ''; }
@@ -3346,7 +3603,8 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   H.cert_share = function () {
     if (!S.certBlob) return;
     var f; try { f = new File([S.certBlob], certFile(), { type: 'image/png' }); } catch (e) { return A.toast('المشاركة غير متاحة، احفظ الصورة بدلًا منها'); }
-    navigator.share({ files: [f], title: 'شهادة تقدير', text: 'شهادة تقدير من ' + ((feat().cert || {}).issuer || 'كايرو ثري ايه') }).catch(function (e) {
+    var link = (S.home && S.home.appUrl) || '';
+    navigator.share({ files: [f], title: 'شهادة تقدير', text: 'شهادة تقدير من ' + ((feat().cert || {}).issuer || 'كايرو ثري ايه') + (link ? '\n' + link : '') }).catch(function (e) {
       if (e && e.name === 'AbortError') return;
       A.toast('المشاركة غير متاحة هنا، احفظ الصورة وابعتها يدويًا');
     });
@@ -3517,7 +3775,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   A.can = can;
   function tabOk(t) {
     if (t.id === 'market') return can('prices.publish') || can('prices.approve');
-    if (t.id === 'gate' || t.id === 'inbox' || t.id === 'farms' || t.id === 'dash') return can(t.id);
+    if (t.id === 'gate' || t.id === 'inbox' || t.id === 'farms' || t.id === 'dash' || t.id === 'fleet') return can(t.id);
     return false;
   }
 
@@ -3549,6 +3807,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   }
   A.sView = sView;
   var ST = {}, SS = {}, SP = {};
+  A.staffST = ST; A.staffSP = SP; A.staffSS = SS;   // يسجّل تبويبات إضافية (الأسطول) من ملف مستقل
   H.stab = function (el) { S.stab = el.dataset.id; S.ssub = null; A.screens.staff(); window.scrollTo(0, 0); };
 
   /* ============ البوابة ============ */
@@ -3602,15 +3861,67 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   };
   H.g_allok = function () { keepGateInputs(); ((S.sme && S.sme.gateItems) || A.ST.gateItems).forEach(function (it) { S.g.checks[it.id] = true; }); sView(); };
   function keepGateInputs() { var w = $('#g_wait'), n = $('#g_note'), f = $('#g_farm'); if (w) S.g.wait = w.value; if (n) S.g.note = n.value; if (f) S.g.farm = f.value; }
+  /* ---- صندوق الزيارات غير المتصلة: الزيارة تُحفظ على الجهاز بمعرّف ثابت، وتُرسل عند عودة النت.
+     الخادم يتعرّف على المعرّف المكرر ويرد بـ dup فلا تتكرر الزيارة ---- */
+  var OB_KEY = 'c3a_outbox';
+  function newClientId() { return 'g' + Date.now().toString(36) + Math.random().toString(36).slice(2, 9); }
+  function obRead() { try { var v = JSON.parse(A.lsGet(OB_KEY) || '[]'); return Array.isArray(v) ? v : []; } catch (e) { return []; } }
+  function obWrite(list) { try { A.lsSet(OB_KEY, list.length ? JSON.stringify(list.slice(0, 50)) : null); } catch (e) { /* ignore */ } }
+  A.outboxCount = function () { return obRead().length; };
+  A.outboxAdd = function (action, payload) {
+    var list = obRead();
+    if (!list.some(function (x) { return x.payload && x.payload.clientId === payload.clientId; })) list.push({ action: action, payload: payload, at: Date.now() });
+    obWrite(list);
+  };
+  var flushing = false;
+  A.outboxFlush = function () {
+    if (flushing) return Promise.resolve(0);
+    var list = obRead(); if (!list.length || !S.tok) return Promise.resolve(0);
+    flushing = true;
+    var sent = 0;
+    function next() {
+      var cur = obRead(); if (!cur.length) return Promise.resolve();
+      var item = cur[0];
+      return A.rawCall(item.action, item.payload).then(function (r) {
+        if (r && r.err === 'net') return;                       // ما زال بلا نت: نحتفظ بالباقي
+        var rest = obRead().filter(function (x) { return x.payload.clientId !== item.payload.clientId; });
+        obWrite(rest);
+        if (r && r.ok) sent++;
+        else if (r && r.msg) A.toast('زيارة ما اتقبلتش: ' + r.msg, 'err');
+        return next();
+      });
+    }
+    return next().then(function () { flushing = false; if (sent) A.toast('اتبعتت ' + sent + ' زيارة كانت مستنية النت', 'ok'); if (sent && S.role === 'staff' && A.sView && S.stab === 'gate') A.sView(true); return sent; }, function () { flushing = false; return 0; });
+  };
+  try {
+    window.addEventListener('online', function () { A.outboxFlush(); });
+    setTimeout(function () { A.outboxFlush(); }, 2000);
+  } catch (e) { /* ignore */ }
+
   H.g_submit = function (el) {
     keepGateInputs(); el.disabled = true;
-    call('sGate', { traderId: S.g.sel.id, farmId: S.g.farm, checks: S.g.checks, waitMin: S.g.wait, note: S.g.note }).then(function (d) {
-      if (!d) { el.disabled = false; return; }
-      S.g.result = d; S.g.list = null; S.g.sel = null; S.g.checks = {}; S.g.wait = ''; S.g.note = ''; S.g.q = '';
-      if (d.clean || d.ranked) A.confetti();
-      sView(); window.scrollTo(0, 0);
+    var payload = { traderId: S.g.sel.id, farmId: S.g.farm, checks: S.g.checks, waitMin: S.g.wait, note: S.g.note, clientId: S.g.clientId || (S.g.clientId = newClientId()) };
+    A.rawCall('sGate', payload).then(function (r) {
+      if (r && r.ok) return gateDone(r.data);
+      if (r && r.err === 'net') {
+        A.outboxAdd('sGate', payload);
+        gateReset();
+        A.toast('مفيش نت دلوقتي. الزيارة اتحفظت على الجهاز وهتتبعت أول ما النت يرجع.', 'ok');
+        sView(); window.scrollTo(0, 0);
+        return;
+      }
+      el.disabled = false;
+      if (r && r.err === 'auth') { A.toast(r.msg || 'سجّل دخولك من جديد', 'err'); if (A.logout) A.logout(true); return; }
+      A.toast((r && r.msg) || 'تعذّر تسجيل الزيارة، جرّب تاني', 'err');
     });
   };
+  function gateReset() { S.g.list = null; S.g.sel = null; S.g.checks = {}; S.g.wait = ''; S.g.note = ''; S.g.q = ''; S.g.clientId = null; }
+  function gateDone(d) {
+    if (!d) return;
+    S.g.result = d; gateReset();
+    if (d.clean || d.ranked) A.confetti();
+    sView(); window.scrollTo(0, 0);
+  }
   function resultView(r) {
     var tone = r.violation ? 'bad' : r.clean ? 'ok' : 'warn';
     return '<div class="card tc col"><div style="color:var(--' + (r.violation ? 'red' : r.clean ? 'ok' : 'warn') + ')">' + ic(r.violation ? 'warn' : 'check', 'lg') + '</div><h2 style="margin:0">' + esc(r.trader) + '</h2><div class="score" style="color:var(--' + (r.violation ? 'red' : r.clean ? 'ok' : 'warn') + ')">' + r.pass + '</div><div class="mut" style="font-size:20px;font-weight:700">من ' + r.total + ' خطوات</div><div><span class="chip ' + tone + '">' + (r.violation ? 'مخالفة موثّقة' : r.clean ? 'زيارة نظيفة' : 'زيارة مسجّلة') + '</span></div><div class="row" style="justify-content:center;gap:8px;flex-wrap:wrap">' + (r.points ? '<span class="chip red">+' + r.points + ' نقطة للتاجر</span>' : '') + (r.weekBonus ? '<span class="chip ok">وحقق هدف الأسبوع (+' + r.weekBonus + ')</span>' : '') + (r.capped ? '<span class="chip">وصل سقف نقاط البوابة اليومي</span>' : '') + '<span class="chip">' + r.cleanRun + ' نظيفة متتالية</span></div>' + (r.ranked ? '<div class="notice" style="background:var(--ok-bg)">' + ic('trophy') + '<div>ترقّى إلى <b>' + esc(r.rankAfter) + '</b>!</div></div>' : '') + '<button class="btn" data-act="g_next">زيارة جديدة</button></div>';
@@ -3891,7 +4202,39 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var out = ['<div class="card col" style="gap:8px"><div class="row sp"><b>الموظفون</b><button class="btn sm" data-act="t_new">' + ic('user', 'sm') + 'موظف جديد</button></div>' +
       '<div class="xs mut">الدور يعطي صلاحيات افتراضية، وتقدر تخصّص لكل موظف الصلاحيات اللي تناسبه بس. الحذف يوقف الدخول فورًا ويحفظ السجل لأن أرقامه مرتبطة برسائل وأسعار سابقة.</div></div>'];
     d.list.forEach(function (x) { out.push(teamRowCard(x, d)); });
+    if (S.staff && S.staff.role === 'manager') out.push('<div class="card col" style="gap:8px;border:2px solid #EA2329;margin-top:14px"><b>إعادة التهيئة من البداية</b><div class="xs mut">تمسح بيانات التجريب: التجار وزيارات البوابة والتذاكر والجوائز والمؤشرات والأسطول والمزارع وأسعار اليوم، وتُبقي الإعدادات والمحتوى وقائمة الأسعار وحسابك. قبل المسح تُحفظ نسخة كاملة في أوراق مخفية باسم bk_، ولا تُحفظ أكثر من نسختين.</div><button class="btn dk" data-act="reset_open">معاينة إعادة التهيئة</button></div>');
     return out.join('');
+  };
+  var RESET_LABEL = { Traders: 'التجار', Gate: 'زيارات البوابة', Tickets: 'التذاكر', TicketMsgs: 'ردود التذاكر', Events: 'سجل الأحداث', Rewards: 'طلبات الجوائز', Notifications: 'الإشعارات', Counters: 'العدّادات', Farms: 'المزارع', MarketDay: 'أسعار اليوم', MarketPending: 'أسعار بانتظار الاعتماد', FleetRoutes: 'خطوط السير', FleetPings: 'مواقع السائقين', FleetAlerts: 'تنبيهات الأسطول', FleetNotes: 'ملاحظات الأسطول', FleetDevices: 'أجهزة الإشعارات' };
+  var RESET_KEEP_LABEL = { Config: 'الإعدادات', Content: 'المحتوى والدروس', MarketItems: 'قائمة الأسعار' };
+  var RESET_PHRASE = 'أعد التهيئة الكاملة';
+  H.reset_open = function () {
+    call('sResetPreview', {}).then(function (p) {
+      if (!p) return;
+      var rows = Object.keys(p.clear).filter(function (t) { return p.clear[t] > 0; }).map(function (t) { return '<div class="row sp sm" style="padding:4px 0"><span>' + esc(RESET_LABEL[t] || t) + '</span><b>' + num(p.clear[t]) + '</b></div>'; }).join('') || '<div class="xs mut">لا توجد بيانات للمسح</div>';
+      var kept = Object.keys(p.keep).map(function (t) { return '<div class="row sp sm" style="padding:4px 0"><span>' + esc(RESET_KEEP_LABEL[t] || t) + '</span><b>' + num(p.keep[t]) + '</b></div>'; }).join('');
+      A.sheet('<h2>إعادة التهيئة من البداية</h2>' +
+        '<div class="xs mut" style="margin-bottom:6px">هيتمسح:</div><div class="card" style="padding:10px 14px">' + rows + '</div>' +
+        '<div class="xs mut" style="margin:10px 0 6px">هيفضل:</div><div class="card" style="padding:10px 14px">' + kept +
+        '<div class="row sp sm" style="padding:4px 0"><span>حسابك (' + esc(p.keeper.name) + ')</span><b>1</b></div>' +
+        '<div class="row sp sm" style="padding:4px 0"><span>حسابات الموظفين الأخرى هتتشال</span><b>' + num(p.staffRemoved) + '</b></div></div>' +
+        '<div class="xs mut" style="margin:10px 0">نسخ احتياطية موجودة: ' + num(p.backupsNow) + ' · هنحتفظ بآخر ' + num(p.keepBackups) + ' نسخ بس.</div>' +
+        '<div class="fld"><label for="rs_phrase">اكتب العبارة دي بالضبط: ' + esc(RESET_PHRASE) + '</label><input id="rs_phrase" class="in" autocomplete="off"></div>' +
+        '<div class="fld"><label for="rs_pin">رمزك السري</label><input id="rs_pin" class="in ltr" type="password" inputmode="numeric" maxlength="6" autocomplete="off"></div>' +
+        '<div class="err" id="rs_err"></div><button class="btn dk" data-act="reset_go">نفّذ إعادة التهيئة الآن</button><button class="btn gh" data-act="closesheet">إلغاء</button>');
+    });
+  };
+  H.reset_go = function () {
+    var ph = (document.getElementById('rs_phrase') || {}).value || '', pin = (document.getElementById('rs_pin') || {}).value || '';
+    var er = document.getElementById('rs_err');
+    if (ph.trim() !== RESET_PHRASE) { er.textContent = 'اكتب العبارة بالضبط: ' + RESET_PHRASE; return; }
+    if (!pin) { er.textContent = 'اكتب رمزك السري'; return; }
+    call('sFactoryReset', { phrase: ph, pin: pin }, { keepErr: true }).then(function (d) {
+      if (d && d.__err) { er.textContent = d.__err.msg; return; }
+      if (!d) return;
+      A.logout(true);   /* تفريغ كل الحالات المحفوظة في الجهاز، ثم دخول من جديد */
+      A.toast('تمت إعادة التهيئة. النسخة الاحتياطية: ' + d.backup + ' (مخفية). سجّل دخولك من جديد.', 'ok');
+    });
   };
   function teamRowCard(x, d) {
     var chips = (x.active ? '' : '<span class="chip warn">موقوف</span>') +
@@ -3978,10 +4321,1157 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   H.t_role = function () { captureForm(); if (!S.tform) return; S.tform.perms = (S.team.defaults[S.tform.role] || []).slice(); sView(true); };
   document.addEventListener('change', function (e) { if (e.target && e.target.id === 't_role' && H.t_role) H.t_role(); });
 })();
-</script><script>/* زر التثبيت: يظهر في النسخة المستضافة فقط (GitHub Pages).
-   أندرويد وويندوز ولابتوب كروم/إيدج: زر «تثبيت» مباشر. آيفون/آيباد: تعليمات الإضافة للشاشة الرئيسية. */
+
+/* ============================================================
+   أسطول التجار: تبويب «الأسطول» للمشرفين (خريطة + خطوط + طوارئ)،
+   شاشة السائق بالرابط (تتبّع وطوارئ بضغطة)، وإشعارات داخل التطبيق
+   ============================================================ */
 (function () {
   'use strict';
+  var A = window.APP, S = A.S, esc = A.esc, ic = A.ic, $ = A.$, call = A.call, H = A.handlers;
+  var W = window;
+  S.fl = S.fl || { data: null, sel: '', track: null, trackRoute: '', draft: null, addMode: false, seenAlerts: {}, seenNotes: {}, timer: null, notesTimer: null, ac: null, first: true };
+  S.fl.notes = S.fl.notes || { list: [], unread: 0 };
+
+  /* عند الخروج: نوقف المؤقتات ونفرّغ الحالة كلها حتى لا يرى المشرف التالي بيانات من كان قبله */
+  A.fleetReset = function () {
+    try { clearInterval(S.fl.timer); clearInterval(S.fl.notesTimer); } catch (e) { /* ignore */ }
+    try { if (A.fleetMap && A.fleetMap.m) A.fleetMap.m.map.remove(); } catch (e) { /* ignore */ }
+    A.fleetMap = null;
+    S.fl = { data: null, sel: '', track: null, trackRoute: '', draft: null, addMode: false, seenAlerts: {}, seenNotes: {}, timer: null, notesTimer: null, ac: null, first: true, notes: { list: [], unread: 0 } };
+  };
+
+  var STAT = {
+    planned: { t: 'لم تبدأ', c: '#8a8a8a', cls: '' }, active: { t: 'في الطريق', c: '#2E9E5B', cls: 'ok' },
+    off_route: { t: 'خارج الخط', c: '#F2A900', cls: 'warn' }, emergency: { t: 'طوارئ', c: '#EA2329', cls: 'red' },
+    done: { t: 'انتهت', c: '#242424', cls: 'dk' }, cancelled: { t: 'ملغاة', c: '#bbb', cls: '' }
+  };
+  function statOf(s) { return STAT[s] || STAT.planned; }
+  function can(k) { return A.can ? A.can(k) : false; }
+  function ago(ts) { return ts ? A.ago(ts) : '—'; }
+  function num(n) { return A.num ? A.num(n) : String(n); }
+
+  /* ---------- خريطة Leaflet تُحمَّل عند أول حاجة ---------- */
+  var leafP = null;
+  function loadLeaflet() {
+    if (W.L) return Promise.resolve(W.L);
+    if (leafP) return leafP;
+    leafP = new Promise(function (res, rej) {
+      var css = document.createElement('link'); css.rel = 'stylesheet'; css.href = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css';
+      document.head.appendChild(css);
+      var js = document.createElement('script'); js.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js';
+      js.onload = function () { res(W.L); };
+      js.onerror = function () { leafP = null; rej(new Error('leaflet')); };
+      document.head.appendChild(js);
+    });
+    return leafP;
+  }
+  function makeMap(el, center, zoom) {
+    var map = W.L.map(el, { zoomControl: true, attributionControl: true });
+    W.L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap' }).addTo(map);
+    map.setView(center, zoom);
+    return { map: map, layer: W.L.layerGroup().addTo(map), fitted: false };
+  }
+  function mapHost(id, fallbackMsg, onReady) {
+    var el = document.getElementById(id); if (!el) return;
+    if (!W.L) {
+      el.innerHTML = '<div class="mut sm" style="padding:14px">الخريطة بتتحمل… لو مفيش نت، القائمة تحت بتكفي.</div>';
+      loadLeaflet().then(function () { mapHost(id, fallbackMsg, onReady); }).catch(function () { el.innerHTML = '<div class="mut sm" style="padding:14px">' + esc(fallbackMsg) + '</div>'; });
+      return;
+    }
+    return onReady(el);
+  }
+
+  /* ============ تبويب المشرف ============ */
+  function flStats(d) {
+    var s = d.stats;
+    return '<div class="fl-chips">' +
+      '<span class="chip ok">في الطريق ' + num(s.active) + '</span>' +
+      '<span class="chip warn">خارج الخط ' + num(s.off) + '</span>' +
+      '<span class="chip red">طوارئ ' + num(s.emergency) + '</span>' +
+      '<span class="chip">بلا إشارة ' + num(s.stale) + '</span>' +
+      '<span class="chip">لم تبدأ ' + num(s.planned) + '</span></div>';
+  }
+  function flSos(d) {
+    var sos = d.alerts.filter(function (a) { return a.type === 'emergency'; });
+    if (!sos.length) return '';
+    return sos.map(function (a) {
+      return '<div class="fl-sos"><div class="row" style="gap:10px;align-items:flex-start"><span class="fl-dot"></span><div class="grow"><b>طوارئ: ' + esc(a.traderName || a.routeTitle) + '</b>' +
+        '<div class="sm">' + esc(a.reason || 'بدون سبب محدد') + ' · ' + ago(a.ts) + '</div>' +
+        '<div class="xs mut ltr">' + Number(a.lat).toFixed(5) + ', ' + Number(a.lng).toFixed(5) + '</div></div></div>' +
+        '<div class="grid2" style="margin-top:10px"><button class="btn sm gh" data-act="fl_sel" data-id="' + esc(a.routeId) + '">عرض على الخريطة</button><button class="btn sm ok" data-act="fl_resolve" data-id="' + esc(a.id) + '">تم الحل</button></div></div>';
+    }).join('');
+  }
+  function flList(d) {
+    if (!d.routes.length) return '<div class="card tc mut">مفيش خطوط نشطة دلوقتي.' + (d.canManage ? ' اضغط «خط سير جديد» وابدأ.' : '') + '</div>';
+    return d.routes.map(function (r) {
+      var st = statOf(r.status), ended = r.status === 'done' || r.status === 'cancelled';
+      var seen = r.lastTs ? (r.stale ? 'بلا إشارة منذ ' + ago(r.lastTs) : 'آخر إشارة ' + ago(r.lastTs)) : (ended ? '' : 'لم يبدأ الإرسال');
+      var sel = S.fl.sel === r.id ? ' fl-sel' : '';
+      var off = r.status === 'off_route' ? '<div class="sm" style="color:var(--warn);font-weight:700;margin-top:6px">بعيد عن الخط ~' + num(r.lastDist) + ' متر</div>' : '';
+      var btns = '<button class="btn xs gh" data-act="fl_sel" data-id="' + esc(r.id) + '">على الخريطة</button>';
+      if (d.canManage && !ended) btns += '<button class="btn xs dk" data-act="fl_share" data-id="' + esc(r.id) + '">' + ic('share', 'sm') + 'واتساب</button>';
+      if (d.canManage && (r.status === 'planned' || r.status === 'active')) btns += '<button class="btn xs gh" data-act="fl_edit" data-id="' + esc(r.id) + '">تعديل</button>';
+      if (d.canManage && !ended) btns += '<button class="btn xs gh" data-act="fl_cancel" data-id="' + esc(r.id) + '">إلغاء</button>';
+      return '<div class="card fl-card' + sel + '"><div class="row" style="gap:10px;align-items:flex-start"><span class="fl-dot" style="background:' + st.c + '"></span><div class="grow"><b>' + esc(r.title) + '</b><div class="xs mut">' + esc(r.traderName) + (r.plate ? ' · ' + esc(r.plate) : '') + '</div><div class="xs mut">' + esc(seen) + '</div>' + off + '</div><span class="chip ' + st.cls + '">' + st.t + '</span></div>' +
+        (d.canManage && !ended ? '<div class="xs mut" style="margin-top:8px">' + (r.tokenValid ? 'الرابط شغّال للتاجر' : 'لازم تبعت الرابط للتاجر على واتساب') + '</div>' : '') +
+        '<div class="fl-btns">' + btns + '</div></div>';
+    }).join('');
+  }
+  function flAlerts(d) {
+    var list = d.alerts.filter(function (a) { return a.type !== 'emergency'; });
+    if (!list.length) return '<div class="mut sm">مفيش تنبيهات خروج مفتوحة.</div>';
+    return list.map(function (a) {
+      return '<div class="card fl-card"><div class="row" style="gap:10px"><span class="fl-dot" style="background:#F2A900"></span><div class="grow"><b>خروج عن الخط: ' + esc(a.traderName || a.routeTitle) + '</b><div class="xs mut">بعيد ~' + num(a.dist) + ' متر · ' + ago(a.ts) + '</div></div></div><div class="fl-btns"><button class="btn xs gh" data-act="fl_sel" data-id="' + esc(a.routeId) + '">على الخريطة</button><button class="btn xs ok" data-act="fl_resolve" data-id="' + esc(a.id) + '">تم الحل</button></div></div>';
+    }).join('');
+  }
+  function flBell() {
+    var n = S.fl.notes.unread || 0;
+    var perm = W.Notification ? Notification.permission : 'unsupported';
+    var pbtn = perm === 'default' ? '<button class="btn xs gh" data-act="fl_notif">فعّل إشعارات الجهاز</button>' : (perm === 'granted' ? '<span class="xs mut">إشعارات الجهاز مفعّلة</span>' : '');
+    return '<div class="row" style="gap:10px;margin:4px 0"><span class="chip' + (n ? ' red' : '') + '">' + ic('bell', 'sm') + ' ' + num(n) + ' جديد</span><div class="grow"></div>' + pbtn + '</div>';
+  }
+
+  A.STABS.splice(4, 0, { id: 'fleet', t: 'الأسطول', i: 'truck' });
+  A.staffST.fleet = function () {
+    var d = S.fl.data;
+    if (!d) return '<div class="spin"></div>';
+    var manage = d.canManage ? '<button class="btn dk" data-act="fl_new" style="margin:4px 0">' + ic('plus') + 'خط سير جديد</button>' : '';
+    return flBell() + flStats(d) + '<div id="fl-sos">' + flSos(d) + '</div>' +
+      '<div class="fl-mapbox"><div id="fmap" class="fmap"></div></div>' +
+      '<div class="xs mut" style="margin:4px 2px">اضغط على النقطة الملوّنة لتعرف مكان التاجر. الخط الرمادي المتقطع هو خط السير.</div>' +
+      manage + '<div class="sec-t">الخطوط</div><div id="fl-list">' + flList(d) + '</div>' +
+      '<div class="sec-t">تنبيهات الخروج</div><div id="fl-alerts">' + flAlerts(d) + '</div>';
+  };
+  A.staffSP.fleet = function () {
+    flStart(); mapFor('fmap', drawFleetMap);
+    flLoad(true);
+    if (S.fl.notes.list.length && S.fl.notes.unread) markNotesRead();
+  };
+
+  function mapFor(id, draw) {
+    mapHost(id, 'الخريطة مش متاحة دلوقتي (محتاج إنترنت). القائمة تحت بتكفي.', function (el) {
+      if (!A.fleetMap || A.fleetMap.el !== el) {
+        if (A.fleetMap && A.fleetMap.m) { try { A.fleetMap.m.map.remove(); } catch (e) { /* ignore */ } }
+        var c = (S.fl.data && S.fl.data.center) || [30.0444, 31.2357], z = (S.fl.data && S.fl.data.zoom) || 6;
+        A.fleetMap = { el: el, m: makeMap(el, c, z) };
+        A.fleetMap.m.map.on('click', function (e) { if (S.fl.addMode) flAddPoint(e.latlng); });
+      }
+      draw(A.fleetMap.m);
+    });
+  }
+  function colorOfAlert(a) { return a.type === 'emergency' ? '#EA2329' : '#F2A900'; }
+  function drawFleetMap(M) {
+    var d = S.fl.data; if (!d || !W.L) return;
+    M.layer.clearLayers();
+    var bounds = [];
+    d.routes.forEach(function (r) {
+      var st = statOf(r.status), pts = (r.points || []).map(function (p) { return [p.lat, p.lng]; });
+      if (pts.length > 1) W.L.polyline(pts, { color: '#8a8a8a', weight: 3, dashArray: '6 6', opacity: .85 }).addTo(M.layer);
+      (r.points || []).forEach(function (p, i) {
+        W.L.circleMarker([p.lat, p.lng], { radius: 4, color: '#555', weight: 1, fillColor: '#fff', fillOpacity: 1 }).bindTooltip(esc((i + 1) + ') ' + p.name), { direction: 'top' }).addTo(M.layer);
+        bounds.push([p.lat, p.lng]);
+      });
+      if (r.lastTs && (r.lastLat || r.lastLng)) {
+        var mk = W.L.circleMarker([r.lastLat, r.lastLng], { radius: S.fl.sel === r.id ? 11 : 9, color: '#fff', weight: 2, fillColor: st.c, fillOpacity: 1 });
+        mk.bindTooltip(esc(r.traderName + ' · ' + st.t + ' · ' + (r.stale ? 'بلا إشارة' : ago(r.lastTs))), { direction: 'top' });
+        mk.on('click', function () { H.fl_sel({ dataset: { id: r.id } }); });
+        mk.addTo(M.layer); bounds.push([r.lastLat, r.lastLng]);
+      }
+    });
+    d.alerts.forEach(function (a) {
+      if (a.lat || a.lng) W.L.circleMarker([a.lat, a.lng], { radius: 13, color: colorOfAlert(a), weight: 3, fillColor: '#fff', fillOpacity: .6 }).bindTooltip(esc((a.type === 'emergency' ? 'طوارئ: ' : 'خروج: ') + (a.traderName || a.routeTitle)), { direction: 'top' }).addTo(M.layer);
+    });
+    if (S.fl.track && S.fl.track.length > 1) {
+      W.L.polyline(S.fl.track.map(function (p) { return [p.lat, p.lng]; }), { color: '#242424', weight: 4, opacity: .9 }).addTo(M.layer);
+    }
+    if (S.fl.draft) {
+      var dp = S.fl.draft.points || [];
+      if (dp.length > 1) W.L.polyline(dp.map(function (p) { return [p.lat, p.lng]; }), { color: '#EA2329', weight: 3 }).addTo(M.layer);
+      dp.forEach(function (p, i) { W.L.circleMarker([p.lat, p.lng], { radius: 6, color: '#EA2329', weight: 2, fillColor: '#fff', fillOpacity: 1 }).bindTooltip(esc((i + 1) + ') ' + p.name), { direction: 'top', permanent: false }).addTo(M.layer); bounds.push([p.lat, p.lng]); });
+    }
+    if (!M.fitted && bounds.length) { M.map.fitBounds(bounds, { padding: [30, 30], maxZoom: 14 }); M.fitted = true; }
+  }
+
+  /* يحدّث أجزاء الصفحة دون إعادة رسم التبويب كله (حتى لا تضيع المدخلات) */
+  function flPaint() {
+    var d = S.fl.data; if (!d) return;
+    var s = document.getElementById('fl-sos'); if (s) s.innerHTML = flSos(d);
+    var l = document.getElementById('fl-list'); if (l) l.innerHTML = flList(d);
+    var a = document.getElementById('fl-alerts'); if (a) a.innerHTML = flAlerts(d);
+    var c = document.querySelector('#view .fl-chips'); if (c) c.outerHTML = flStats(d);
+    if (A.fleetMap && document.getElementById('fmap') === A.fleetMap.el) drawFleetMap(A.fleetMap.m);
+  }
+  function flOnTab() { return S.stab === 'fleet' && !S.ssub && S.role === 'staff'; }
+  function flLoad(quiet) {
+    if (!can('fleet')) return Promise.resolve();
+    return call('sFleet', {}, { quiet: !!quiet }).then(function (d) {
+      if (!d) return;
+      S.fl.data = d;
+      d.alerts.forEach(function (a) {
+        if (a.type === 'emergency' && !S.fl.seenAlerts[a.id]) { S.fl.seenAlerts[a.id] = 1; if (!S.fl.first) flAlarm('طوارئ: ' + (a.traderName || a.routeTitle), a.reason || 'تنبيه طوارئ من تاجر', 'alert_sos'); }
+        else if (a.type !== 'emergency' && !S.fl.seenAlerts[a.id]) { S.fl.seenAlerts[a.id] = 1; if (!S.fl.first) flAlarm('خروج عن الخط: ' + (a.traderName || a.routeTitle), 'بعيد حوالي ' + num(a.dist) + ' متر', 'alert_off'); }
+      });
+      S.fl.first = false;
+      if (!flOnTab()) return;
+      if (!document.getElementById('fl-list')) { A.sView(true); mapFor('fmap', drawFleetMap); }   // أول تحميل: أعد رسم التبويب كله
+      else flPaint();
+      if (S.fl.sel && S.fl.trackRoute !== S.fl.sel) loadTrack(S.fl.sel);
+    });
+  }
+  function loadTrack(id) {
+    S.fl.trackRoute = id;
+    return call('sTrack', { routeId: id }, { quiet: true }).then(function (t) {
+      if (!t || S.fl.sel !== id) return;
+      S.fl.track = t.pings; if (flOnTab()) mapFor('fmap', drawFleetMap);
+    });
+  }
+  function flStart() {
+    if (S.fl.timer) return;
+    S.fl.timer = setInterval(function () {
+      if (!flOnTab()) { clearInterval(S.fl.timer); S.fl.timer = null; return; }
+      flLoad(true);
+    }, 15000);
+  }
+  H.fl_sel = function (el) {
+    var id = el.dataset.id;
+    S.fl.sel = S.fl.sel === id ? '' : id;
+    S.fl.track = null; S.fl.trackRoute = '';
+    if (S.fl.sel) loadTrack(S.fl.sel);
+    flPaint();
+    var m = document.getElementById('fmap'); if (m) m.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  /* ---------- إنشاء الخط وتعديله ---------- */
+  function draftFrom(r) {
+    return { id: r ? r.id : '', title: r ? r.title : '', traderId: r ? r.traderId : '', corridorM: r ? r.corridorM : 150, points: r ? (r.points || []).map(function (p) { return { lat: p.lat, lng: p.lng, name: p.name }; }) : [] };
+  }
+  H.fl_new = function () { S.fl.draft = draftFrom(null); openRouteSheet(); };
+  H.fl_edit = function (el) {
+    var r = (S.fl.data.routes || []).filter(function (x) { return x.id === el.dataset.id; })[0];
+    if (!r) return;
+    S.fl.draft = draftFrom(r); openRouteSheet();
+  };
+  function readDraft() {
+    var dft = S.fl.draft || draftFrom(null), t = $('#fl_title'), tr = $('#fl_trader'), c = $('#fl_corr');
+    if (t) dft.title = t.value;
+    if (tr) dft.traderId = tr.value;
+    if (c) dft.corridorM = Number(c.value) || 150;
+    var names = document.querySelectorAll('[data-pn]');
+    for (var i = 0; i < names.length; i++) { var k = Number(names[i].dataset.pn); if (dft.points[k]) dft.points[k].name = names[i].value; }
+    S.fl.draft = dft; return dft;
+  }
+  function openRouteSheet() {
+    var dft = S.fl.draft, d = S.fl.data || { traders: [] };
+    var opts = '<option value="">اختر التاجر</option>' + d.traders.map(function (t) { return '<option value="' + esc(t.id) + '"' + (t.id === dft.traderId ? ' selected' : '') + '>' + esc(t.name) + (t.plate ? ' · ' + esc(t.plate) : '') + '</option>'; }).join('');
+    var pts = dft.points.length ? dft.points.map(function (p, i) {
+      return '<div class="fl-pt"><span class="fl-num">' + (i + 1) + '</span><input class="in grow" data-pn="' + i + '" value="' + esc(p.name) + '" maxlength="40">' +
+        '<button class="ib" data-act="fl_pmove" data-i="' + i + '" data-d="-1" aria-label="أعلى">↑</button><button class="ib" data-act="fl_pmove" data-i="' + i + '" data-d="1" aria-label="أسفل">↓</button><button class="ib" data-act="fl_pdel" data-i="' + i + '" aria-label="حذف">✕</button></div>';
+    }).join('') : '<div class="mut sm">مفيش نقط بعد. اضغط «أضف محطات على الخريطة» واضغط على كل محطة في الطريق بالترتيب.</div>';
+    A.sheet('<h2>' + (dft.id ? 'تعديل خط السير' : 'خط سير جديد') + '</h2>' +
+      '<label class="fld"><span>اسم الخط</span><input id="fl_title" class="in" maxlength="60" value="' + esc(dft.title) + '" placeholder="مثال: من البوابة لمزرعة 5"></label>' +
+      '<label class="fld"><span>التاجر</span><select id="fl_trader" class="in">' + opts + '</select></label>' +
+      '<label class="fld"><span>عرض الممر المسموح (متر)</span><input id="fl_corr" class="in ltr" type="number" min="30" max="1000" value="' + esc(dft.corridorM) + '"><span class="xs mut">لو السيارة خرجت عن الممر ده أكتر من المسموح، يطلع تنبيه.</span></label>' +
+      '<div class="sec-t" style="margin-top:6px">المحطات بالترتيب (' + dft.points.length + ')</div><div class="fl-pts">' + pts + '</div>' +
+      '<button class="btn gh" data-act="fl_addmode" style="margin-top:8px">' + ic('plus', 'sm') + 'أضف محطات على الخريطة</button>' +
+      '<div class="grid2" style="margin-top:12px"><button class="btn dk" data-act="fl_save">حفظ الخط</button><button class="btn gh" data-act="closesheet">إلغاء</button></div>');
+  }
+  H.fl_pmove = function (el) {
+    var dft = readDraft(), i = Number(el.dataset.i), j = i + Number(el.dataset.d);
+    if (j < 0 || j >= dft.points.length) return;
+    var t = dft.points[i]; dft.points[i] = dft.points[j]; dft.points[j] = t;
+    S.fl.draft = dft; A.closeSheet(); openRouteSheet();
+  };
+  H.fl_pdel = function (el) {
+    var dft = readDraft(); dft.points.splice(Number(el.dataset.i), 1);
+    S.fl.draft = dft; A.closeSheet(); openRouteSheet();
+  };
+  H.fl_addmode = function () {
+    readDraft(); S.fl.addMode = true; A.closeSheet();
+    var bar = document.createElement('div'); bar.id = 'fl-addbar'; bar.className = 'fl-addbar';
+    bar.innerHTML = '<span id="fl-addn">اضغط على المحطات بالترتيب على الخريطة</span><button class="btn sm ok" data-act="fl_adddone">تم</button>';
+    document.body.appendChild(bar);
+    var m = document.getElementById('fmap'); if (m) m.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    mapFor('fmap', drawFleetMap);
+  };
+  function flAddPoint(ll) {
+    var dft = S.fl.draft || draftFrom(null), n = dft.points.length + 1;
+    dft.points.push({ lat: +ll.lat.toFixed(6), lng: +ll.lng.toFixed(6), name: 'محطة ' + n });
+    S.fl.draft = dft;
+    var lab = document.getElementById('fl-addn'); if (lab) lab.textContent = 'أضفت ' + n + ' محطة · اضغط المحطة التالية أو «تم»';
+    if (A.fleetMap) drawFleetMap(A.fleetMap.m);
+  }
+  H.fl_adddone = function () {
+    S.fl.addMode = false;
+    var bar = document.getElementById('fl-addbar'); if (bar) bar.parentNode.removeChild(bar);
+    openRouteSheet();
+  };
+  H.fl_save = function () {
+    var dft = readDraft();
+    var body = { id: dft.id || undefined, title: dft.title, traderId: dft.traderId, corridorM: dft.corridorM, points: dft.points };
+    call('sRouteSave', body).then(function (d) {
+      if (!d) return;
+      S.fl.draft = null; A.closeSheet(); A.toast('اتحفظ الخط', 'ok');
+      S.fl.sel = d.route.id; flLoad(true).then(function () { mapFor('fmap', drawFleetMap); });
+    });
+  };
+
+  /* ---------- الشير على واتساب ---------- */
+  H.fl_share = function (el) {
+    call('sRouteShare', { id: el.dataset.id }).then(function (d) {
+      if (!d) return;
+      A.sheet('<h2>أرسل الخط لـ ' + esc(d.traderName) + '</h2>' +
+        '<div class="xs mut" style="margin-bottom:8px">الرسالة جاهزة. اضغط «افتح واتساب» وابعتها للتاجر. الرابط صالح لحد ' + esc(new Date(d.expiresTs).toLocaleString('ar-EG')) + '.</div>' +
+        '<textarea class="in" readonly rows="8" style="direction:rtl;font-size:14px" onclick="this.select()">' + esc(d.message) + '</textarea>' +
+        '<div class="grid2" style="margin-top:12px"><a class="btn ok" href="' + esc(d.waUrl) + '" target="_blank" rel="noopener">' + ic('share', 'sm') + 'افتح واتساب</a><button class="btn gh" data-act="fl_copy" data-t="' + esc(d.link) + '">انسخ الرابط</button></div>' +
+        '<div class="xs mut" style="margin-top:10px">لو الرابط اتبعت قبل كده، الرابط القديم بيتوقف فورًا.</div>');
+      flLoad(true);
+    });
+  };
+  H.fl_copy = function (el) {
+    var t = el.dataset.t;
+    try { navigator.clipboard.writeText(t).then(function () { A.toast('اتنسخ الرابط', 'ok'); }, function () { A.toast('انسخه يدويًا من الرسالة', ''); }); }
+    catch (e) { A.toast('انسخه يدويًا من الرسالة', ''); }
+  };
+  H.fl_cancel = function (el) {
+    if (!el.dataset.armed) { el.dataset.armed = '1'; el.textContent = 'تأكيد الإلغاء'; el.classList.replace('gh', 'dk'); setTimeout(function () { delete el.dataset.armed; el.textContent = 'إلغاء'; el.classList.replace('dk', 'gh'); }, 3500); return; }
+    call('sRouteCancel', { id: el.dataset.id }).then(function (d) { if (d) { A.toast('اتلغى الخط', 'ok'); flLoad(true); } });
+  };
+
+  /* ---------- حل الطوارئ والتنبيهات ---------- */
+  H.fl_resolve = function (el) {
+    A.sheet('<h2>تم التأكد من السائق؟</h2><div class="xs mut" style="margin-bottom:8px">اكتب خلاصة سريعة: وصلت له؟ حصل إيه؟ هيتقفل التنبيه ويطمّن السائق.</div>' +
+      '<textarea id="fl_note" class="in" rows="3" maxlength="120" placeholder="مثال: وصلنا له، عطل بسيط وتم إصلاحه"></textarea>' +
+      '<div class="grid2" style="margin-top:12px"><button class="btn ok" data-act="fl_resolve_go" data-id="' + esc(el.dataset.id) + '">تم الحل وإغلاق التنبيه</button><button class="btn gh" data-act="closesheet">إلغاء</button></div>');
+  };
+  H.fl_resolve_go = function (el) {
+    var n = $('#fl_note');
+    call('sAlertResolve', { id: el.dataset.id, note: n ? n.value : '' }).then(function (d) {
+      if (!d) return;
+      A.closeSheet(); A.toast('اتقفل التنبيه والسائق اتطمّن', 'ok'); flLoad(true);
+    });
+  };
+  H.fl_notif = function () {
+    if (!W.Notification) return A.toast('المتصفح ده مش بيدعم إشعارات الجهاز', '');
+    Notification.requestPermission().then(function (p) { if (flOnTab()) flPaint(); if (p === 'granted') { A.toast('الإشعارات اتفعّلت', 'ok'); if (A.webPushInit) A.webPushInit(); } });
+  };
+
+  /* ---------- تنبيه صوتي واهتزاز وإشعار الجهاز ---------- */
+  function beep() {
+    try {
+      var AC = W.AudioContext || W.webkitAudioContext; if (!AC) return;
+      var ctx = S.fl.ac || (S.fl.ac = new AC());
+      var o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'square'; o.frequency.value = 880; g.gain.value = 0.25;
+      o.connect(g); g.connect(ctx.destination); o.start();
+      setTimeout(function () { o.frequency.value = 660; }, 220); setTimeout(function () { try { o.stop(); } catch (e) { /* ignore */ } }, 600);
+    } catch (e) { /* الصوت اختياري */ }
+  }
+  function flAlarm(title, body, kind) {
+    beep();
+    try { if (navigator.vibrate) navigator.vibrate(kind === 'alert_sos' ? [500, 200, 500, 200, 500] : [300, 150, 300]); } catch (e) { /* ignore */ }
+    A.toast(title + ' — ' + body, kind === 'alert_sos' ? 'err' : '');
+    try { if (W.Notification && Notification.permission === 'granted') new Notification(title, { body: body, tag: kind, renotify: true }); } catch (e) { /* ignore */ }
+  }
+  A.fleetAlarm = flAlarm;
+  A.flOpenDraft = function () { openRouteSheet(); };   // للاختبار الآلي فقط
+
+  /* ---------- الإشعارات الداخلية (تُستطلع كل 30 ثانية أثناء فتح التطبيق) ---------- */
+  function loadNotes() {
+    if (!can('fleet')) return;
+    call('sNotes', {}, { quiet: true }).then(function (d) {
+      if (!d) return;
+      var fresh = [];
+      d.list.forEach(function (n) { if (!S.fl.seenNotes[n.id]) { S.fl.seenNotes[n.id] = 1; if (!n.read && !S.fl.notesFirst) fresh.push(n); } });
+      S.fl.notes = { list: d.list, unread: d.unread };
+      S.fl.notesFirst = true;
+      fresh.forEach(function (n) { if (n.kind !== 'resolved') flAlarm(n.title, n.body, n.kind); });
+      if (S.stab === 'fleet' && S.role === 'staff') { var b = document.querySelector('#view .row .chip'); if (b) b.outerHTML = flBell(); }
+      updateTabDot(d.unread);
+    });
+  }
+  function markNotesRead() {
+    var ids = S.fl.notes.list.filter(function (n) { return !n.read; }).map(function (n) { return n.id; });
+    if (!ids.length) return;
+    call('sNoteRead', { ids: ids }, { quiet: true }).then(function () { S.fl.notes.unread = 0; S.fl.notes.list.forEach(function (n) { n.read = 1; }); if (flOnTab()) flPaint(); updateTabDot(0); });
+  }
+  function updateTabDot(n) {
+    var b = document.querySelector('nav.tabs button[data-id="fleet"]'); if (!b) return;
+    var e = b.querySelector('.tdot'); if (e) e.remove();
+    if (n) b.insertAdjacentHTML('beforeend', '<span class="tdot">' + n + '</span>');
+  }
+  A.fleetNotesStart = function () {
+    if (A.pushSync) A.pushSync();
+    if (S.fl.notesTimer || !can('fleet')) return;
+    loadNotes();
+    S.fl.notesTimer = setInterval(function () { if (S.role !== 'staff') { clearInterval(S.fl.notesTimer); S.fl.notesTimer = null; return; } loadNotes(); }, 30000);
+  };
+
+  /* ============ تسجيل جهاز الإشعارات (Firebase) ============
+     تطبيق أندرويد الأصلي يحصل على رمز FCM ويعطيه للصفحة عبر window.ShareekNative.fcmToken() أو يستدعي
+     window.ShareekOnPushToken(رمز). ثم تُسجَّل الرموز في الخادم لتصل الطوارئ والتنبيهات والتطبيق مغلق. */
+  var PUSH = { token: '', lastSent: '' };
+  function pushToken() {
+    if (PUSH.token) return PUSH.token;
+    try { var n = W.ShareekNative; if (n && typeof n.fcmToken === 'function') return String(n.fcmToken() || ''); } catch (e) { /* ignore */ }
+    return '';
+  }
+  A.pushSync = function () {
+    var t = pushToken();
+    if (!t || t.length < 20 || t === PUSH.lastSent) return;
+    if (S.role === 'staff' && can('fleet')) {
+      call('sPushRegister', { token: t, platform: 'android' }, { quiet: true }).then(function (d) { if (d) PUSH.lastSent = t; });
+    } else if (S.role === 'route' && A.routeMode) {
+      A.rawCall('routePushRegister', { token: t, platform: 'android' }).then(function (d) { if (d) PUSH.lastSent = t; });
+    }
+  };
+  W.ShareekOnPushToken = function (t) { PUSH.token = String(t || ''); PUSH.lastSent = ''; A.pushSync(); };
+
+  /* تطبيق أندرويد: يتابع الموقع في الخلفية والشاشة مقفولة. على الويب لا يوجد الجسر فلا يحدث شيء */
+  function nativeTrack(on) {
+    try {
+      var n = W.ShareekNative;
+      if (!n) return;
+      if (on && typeof n.startTracking === 'function' && S.tok) n.startTracking(String(S.tok), String(W.__API_URL || ''));
+      if (!on && typeof n.stopTracking === 'function') n.stopTracking();
+    } catch (e) { /* الجسر اختياري */ }
+  }
+
+  /* ============ شاشة السائق بالرابط ============ */
+  var RT = null;
+  function rtFix() { return RT && RT.pos ? { lat: RT.pos.lat, lng: RT.pos.lng, acc: RT.pos.acc } : null; }
+  A.startRoute = function (token) {
+    A.routeMode = true;
+    S.tok = token; S.role = 'route'; S.booting = false;
+    RT = { d: null, fatal: '', pos: null, gpsErr: '', watch: null, pingT: null, dataT: null, lastSent: 0, state: 'ok', dist: 0, reason: '', sheetOpen: false, endArmed: false, seenNotes: {}, notesReady: false, wake: null, offStart: 0, busy: false, sosDone: false, token: token, consentOk: false, consentGiven: false, resumed: false, savedTok: '' };
+    A.screens.route();
+    routeLoad();
+    if (A.pushSync) A.pushSync();
+    RT.dataT = setInterval(function () { routeLoad(); }, 30000);
+    document.addEventListener('visibilitychange', function () { if (!document.hidden && RT) { wakeLock(); routeLoad(); if (RT.d && RT.d.route.status !== 'planned') sendPing(); } });
+  };
+  function routeLoad() {
+    if (!RT || S.role !== 'route') return Promise.resolve();
+    return A.rawCall('routeGet', {}).then(function (r) {
+      if (!RT || S.role !== 'route') return;
+      if (!r || !r.ok) {
+        RT.fatal = r && r.err === 'auth' ? (r.msg || 'الرابط غير صالح أو انتهت صلاحيته، اطلب رابطًا جديدًا من المشرف') : 'تعذّر تحميل الخط، جرّب تحديث الصفحة';
+        RT.d = null; A.screens.route(); return;
+      }
+      RT.d = r.data; RT.fatal = '';
+      RT.consentOk = !!(r.data.consent && r.data.consent.ok);
+      /* الرحلة النشطة تُحفظ مشفّرة على الجهاز ليكمل السائق بعد إغلاق التطبيق، وتُمسح عند انتهائها */
+      if (RT.token && RT.savedTok !== RT.token) {
+        RT.savedTok = RT.token;
+        if (['done', 'cancelled'].indexOf(r.data.route.status) >= 0) A.secClear('c3a_route'); else A.secSave('c3a_route', RT.token);
+      }
+      if (RT.consentOk && ['active', 'off_route', 'emergency'].indexOf(r.data.route.status) >= 0 && !RT.resumed) { RT.resumed = true; resumeTrip(); }
+      r.data.notes.forEach(function (n) {
+        if (RT.seenNotes[n.id]) return;
+        RT.seenNotes[n.id] = 1;
+        if (RT.notesReady) { beep(); A.toast(n.title + ' — ' + n.body, n.kind === 'resolved' ? 'ok' : 'err'); try { if (navigator.vibrate) navigator.vibrate([300, 150, 300]); } catch (e) { /* ignore */ } }
+      });
+      RT.notesReady = true;
+      A.screens.route();
+    });
+  }
+  /* استئناف الرحلة بعد إعادة فتح التطبيق: الموقع والنبضات وتتبع الخلفية في الأندرويد */
+  function resumeTrip() {
+    gpsStart(); startTimers(); nativeTrack(true);
+    A.toast('رجعنا الرحلة من حيث وقفت. الموقع بيتبعت تلقائي', 'ok');
+  }
+  function gpsStart() {
+    if (!navigator.geolocation) { RT.gpsErr = 'الموبايل ده مش بيدعم تحديد الموقع'; return; }
+    if (RT.watch != null) return;
+    RT.watch = navigator.geolocation.watchPosition(function (p) {
+      RT.pos = { lat: p.coords.latitude, lng: p.coords.longitude, acc: p.coords.accuracy || 100, ts: Date.now() };
+      RT.gpsErr = ''; updateGpsLine();
+    }, function (e) {
+      RT.gpsErr = e && e.code === 1 ? 'الموقع مقفول. اسمح للمتصفح بالوصول للموقع من إعدادات الموبايل، وبعدين اضغط تحديث' : 'الموقع مش متاح دلوقتي، هنحاول تاني';
+      updateGpsLine();
+    }, { enableHighAccuracy: true, maximumAge: 5000, timeout: 20000 });
+  }
+  function waitFix(ms) {
+    return new Promise(function (res) {
+      var t0 = Date.now();
+      (function tick() { if (RT.pos && Date.now() - RT.pos.ts < 30000) return res(true); if (Date.now() - t0 > ms) return res(false); setTimeout(tick, 800); })();
+    });
+  }
+  function wakeLock() {
+    try { if (navigator.wakeLock && !document.hidden) navigator.wakeLock.request('screen').then(function (l) { RT.wake = l; }, function () { /* اختياري */ }); } catch (e) { /* ignore */ }
+  }
+  /* شاشة الموافقة على التتبع: تظهر قبل أول بدء للرحلة، ولأي رحلة قديمة بلا موافقة. الطوارئ لا تحتاجها */
+  function openConsent(mode) {
+    var days = (RT.d && RT.d.consent && RT.d.consent.retainDays) || 0;
+    A.sheet('<h2>قبل ما تبدأ الرحلة</h2>' +
+      '<div class="col sm" style="gap:8px;margin-bottom:12px">' +
+      '<div>• الرحلة دي بتتبع مكانك عشان المشرف يتأكد إنك على الخط، ويلحقك لو حصلت لك مشكلة.</div>' +
+      '<div>• الموقع بيتبعت كل 15 ثانية تقريبًا، وبس وانت في الرحلة.</div>' +
+      '<div>• اللي يشوف مكانك هم المشرفين والمدير المسؤولين عن الأسطول بس.</div>' +
+      '<div>• ' + (days ? 'نقط الحركة بتتمسح تلقائيًا بعد ' + days + ' يوم.' : 'نقط الحركة بتتحفظ للمراجعة وبتتمسح حسب سياسة الإدارة.') + ' الخط نفسه والتنبيهات بيفضلوا محفوظين.</div>' +
+      '<div>• زر الطوارئ بيبعت مكانك مرة واحدة حتى لو مش موافق على التتبع.</div>' +
+      '<div>• التتبع بيقف أول ما تنهي الرحلة.</div>' +
+      '<div>• لو مش موافق، ماتبدأش الرحلة من التطبيق، وكلّم المشرف.</div></div>' +
+      '<button class="btn" data-act="rt_consent_ok" data-m="' + mode + '">أوافق وأكمل</button>' +
+      '<button class="btn gh" style="margin-top:8px" data-act="closesheet">مش دلوقتي</button>');
+  }
+  H.rt_consent_open = function () { openConsent('live'); };
+  H.rt_consent_ok = function (el) {
+    RT.consentGiven = true; A.closeSheet();
+    if (el.dataset.m === 'start') return H.rt_start();
+    A.rawCall('routeStart', Object.assign({}, rtFix() || {}, { consent: true })).then(function (r) {
+      if (!r || !r.ok) { A.toast((r && r.msg) || 'تعذّر تسجيل الموافقة', 'err'); return; }
+      RT.consentOk = true; RT.resumed = true; resumeTrip(); routeLoad();
+    });
+  };
+  H.rt_start = function (el) {
+    if (!RT.consentOk && !RT.consentGiven) return openConsent('start');
+    if (RT.busy) return; RT.busy = true; if (el) el.disabled = true;
+    gpsStart(); wakeLock();
+    waitFix(20000).then(function (ok) {
+      RT.busy = false;
+      if (!ok) { RT.gpsErr = RT.gpsErr || 'مش قادر أحدد الموقع. اتأكد إن GPS شغال وإن الشاشة مفتوحة واضغط ابدأ تاني'; A.screens.route(); return; }
+      return A.rawCall('routeStart', Object.assign({}, rtFix() || {}, { consent: true })).then(function (r) {
+        if (!r || !r.ok) { A.toast((r && r.msg) || 'تعذّر بدء الرحلة', 'err'); return; }
+        RT.d = r.data; startTimers(); A.toast('بدأت الرحلة. الموقع بيتبعت تلقائي', 'ok');
+        nativeTrack(true);
+        A.screens.route(); drawDriverMap();
+      });
+    });
+  };
+  function startTimers() {
+    if (RT.pingT) return;
+    RT.pingT = setInterval(sendPing, 15000);
+    setTimeout(sendPing, 1500);
+  }
+  function sendPing() {
+    if (!RT || S.role !== 'route' || !RT.d || ['active', 'off_route', 'emergency'].indexOf(RT.d.route.status) < 0) return;
+    var f = rtFix();
+    if (!f || Date.now() - RT.pos.ts > 90000) { RT.gpsErr = 'الموقع قديم. تأكد إن GPS شغال والشاشة مفتوحة'; updateGpsLine(); return; }
+    A.rawCall('routePing', f).then(function (r) {
+      if (!r) return;
+      if (!r.ok) { if (r.err === 'state' || r.err === 'consent') routeLoad(); return; }
+      var prev = RT.state;
+      RT.state = r.data.state; RT.dist = r.data.dist; RT.lastSent = Date.now(); RT.gpsErr = '';
+      if (RT.state === 'off' && prev !== 'off') { beep(); try { if (navigator.vibrate) navigator.vibrate([300, 150, 300]); } catch (e) { /* ignore */ } }
+      if (r.data.status !== RT.d.route.status) routeLoad();
+      else updateGpsLine();
+      drawDriverMap();
+    });
+  }
+  function updateGpsLine() { var el = document.getElementById('rt-gps'); if (el) el.innerHTML = gpsLine(); }
+  function gpsLine() {
+    if (RT.gpsErr) return '<span class="warn-t">' + esc(RT.gpsErr) + '</span>';
+    if (!RT.lastSent) return '<span class="mut">بيتبع الموقع…</span>';
+    var s = Math.round((Date.now() - RT.lastSent) / 1000);
+    return '<span class="ok-t">الموقع اتبعت</span> <span class="mut">منذ ' + (s < 60 ? s + ' ثانية' : Math.round(s / 60) + ' دقيقة') + '</span>';
+  }
+  H.rt_reason = function (el) { RT.reason = el.dataset.r; document.querySelectorAll('[data-act="rt_reason"]').forEach(function (b) { b.classList.toggle('sel', b.dataset.r === RT.reason); }); };
+  H.rt_sos_open = function () {
+    var reasons = (RT.d && RT.d.reasons) || ['أخرى'];
+    RT.reason = RT.reason || reasons[0];
+    RT.sheetOpen = true;
+    A.sheet('<h2>طوارئ — بلّغ المسؤول</h2><div class="xs mut" style="margin-bottom:10px">هيوصل التنبيه للمشرفين فورًا ومعاه مكانك. اختار السبب:</div>' +
+      '<div class="fl-chips">' + reasons.map(function (x) { return '<button class="chip' + (x === RT.reason ? ' sel' : '') + '" data-act="rt_reason" data-r="' + esc(x) + '">' + esc(x) + '</button>'; }).join('') + '</div>' +
+      '<button class="btn gh" data-act="rt_sos_go" style="margin-top:14px;background:var(--red);color:#fff;border:0">أرسل الطوارئ الآن</button>' +
+      (RT.d && RT.d.hotline ? '<a class="btn dk" href="tel:' + esc(RT.d.hotline) + '" style="margin-top:8px">اتصل بالمسؤول: ' + esc(RT.d.hotline) + '</a>' : '') +
+      '<div class="xs mut" style="margin-top:10px">لو الوضع خطر عليك، ابعد عن الخطر الأول. الطوارئ مش بتوقف التتبع.</div>');
+  };
+  H.rt_sos_go = function () {
+    var f = rtFix() || { lat: 0, lng: 0, acc: 1000 };
+    if (!rtFix()) { A.toast('الموقع مش متاح، هيتبعت التنبيه من غير مكان دقيق', 'err'); }
+    A.rawCall('routeEmergency', Object.assign({}, f, { reason: RT.reason })).then(function (r) {
+      if (!r || !r.ok) { A.toast((r && r.msg) || 'تعذّر إرسال الطوارئ، كلّم المسؤول بالتليفون فورًا', 'err'); return; }
+      RT.sosDone = true; A.closeSheet(); A.toast('اتبعتت الطوارئ. المسؤول شايف مكانك', 'ok');
+      startTimers();
+      routeLoad();
+    });
+  };
+  H.rt_end = function (el) {
+    if (!el.dataset.armed) { el.dataset.armed = '1'; el.textContent = 'تأكيد إنهاء الرحلة'; setTimeout(function () { delete el.dataset.armed; el.textContent = 'إنهاء الرحلة'; }, 3500); return; }
+    var f = rtFix() || {};
+    A.rawCall('routeEnd', f).then(function (r) {
+      if (!r || !r.ok) { A.toast((r && r.msg) || 'تعذّر إنهاء الرحلة', 'err'); return; }
+      nativeTrack(false);
+      clearInterval(RT.pingT); RT.pingT = null;
+      if (RT.watch != null) { navigator.geolocation.clearWatch(RT.watch); RT.watch = null; }
+      A.toast('الرحلة اتقفلت. شكرًا', 'ok'); routeLoad();
+    });
+  };
+  H.rt_refresh = function () { gpsStart(); routeLoad(); if (RT.d && RT.d.route.status !== 'planned') sendPing(); };
+
+  var drawn = null;
+  function drawDriverMap() {
+    if (!RT || !RT.d || !document.getElementById('rmap')) return;
+    mapHost('rmap', 'الخريطة مش متاحة دلوقتي. الخط موجود في القائمة.', function (el) {
+      if (!drawn || drawn.el !== el) {
+        if (drawn && drawn.m) { try { drawn.m.map.remove(); } catch (e) { /* ignore */ } }
+        drawn = { el: el, m: makeMap(el, [30.0444, 31.2357], 12), me: null, fitted: false };
+      }
+      var M = drawn.m; M.layer.clearLayers();
+      var pts = (RT.d.route.points || []).map(function (p) { return [p.lat, p.lng]; }), bounds = pts.slice();
+      if (pts.length > 1) W.L.polyline(pts, { color: '#EA2329', weight: 4, opacity: .85 }).addTo(M.layer);
+      (RT.d.route.points || []).forEach(function (p, i) { W.L.circleMarker([p.lat, p.lng], { radius: 6, color: '#242424', weight: 2, fillColor: '#fff', fillOpacity: 1 }).bindTooltip(esc((i + 1) + ') ' + p.name), { direction: 'top' }).addTo(M.layer); });
+      if (RT.pos) { W.L.circleMarker([RT.pos.lat, RT.pos.lng], { radius: 9, color: '#fff', weight: 3, fillColor: RT.state === 'off' ? '#F2A900' : '#2E9E5B', fillOpacity: 1 }).bindTooltip('أنت هنا').addTo(M.layer); bounds.push([RT.pos.lat, RT.pos.lng]); }
+      if (!M.fitted && bounds.length) { M.map.fitBounds(bounds, { padding: [24, 24], maxZoom: 15 }); M.fitted = true; }
+    });
+  }
+
+  A.screens.route = function () {
+    var app = $('#app'); if (!app || !RT || S.role !== 'route') return;
+    var body = '';
+    if (RT.fatal && !RT.d) {
+      body = '<div class="card tc" style="margin-top:20px"><b>' + esc(RT.fatal) + '</b><div class="sm mut" style="margin-top:8px">اطلب من المشرف يبعتلك رابط جديد على واتساب.</div></div>';
+    } else if (!RT.d) {
+      body = '<div class="spin"></div>';
+    } else {
+      var r = RT.d.route, st = r.status, live = ['active', 'off_route', 'emergency'].indexOf(st) >= 0;
+      var head = '';
+      if (st === 'planned') head = '<div class="rt-status"><b>الرحلة لسه ماتبدأتش</b><div class="sm mut">اسمح بالموقع لما يطلب منك، وخلي الشاشة مفتوحة طول الطريق.</div><button class="btn rt-big" data-act="rt_start">ابدأ الرحلة</button>' + (RT.gpsErr ? '<div class="sm warn-t" style="margin-top:8px">' + esc(RT.gpsErr) + '</div>' : '') + '</div>';
+      else if (st === 'done') head = '<div class="rt-status"><b>الرحلة انتهت. شكرًا</b><div class="sm mut">متنساش تقفل الصفحة.</div></div>';
+      else if (st === 'cancelled') head = '<div class="rt-status"><b>الخط ده اتلغى</b><div class="sm mut">اتصل بالمشرف لو محتاج توضيح.</div></div>';
+      else {
+        var banner = '';
+        if (st === 'emergency') banner = '<div class="rt-alarm">طوارئ مُرسلة. المسؤول شايف مكانك دلوقتي، وتتبعك مستمر لحد ما يتأكد إنك بخير.' + (RT.d.hotline ? ' <a href="tel:' + esc(RT.d.hotline) + '">اتصل بالمسؤول: ' + esc(RT.d.hotline) + '</a>' : '') + '</div>';
+        else if (RT.state === 'off' || st === 'off_route') banner = '<div class="rt-warn">أنت خارج خط السير بحوالي ' + num(RT.dist || RT.d.route.lastDist) + ' متر. ارجع للمسار المحدد.</div>';
+        else if (RT.d.route.alert && RT.d.route.alert.type === 'emergency') banner = '<div class="rt-alarm">طوارئ مفتوحة عند المسؤول.</div>';
+        if (!RT.consentOk) banner += '<div class="rt-warn">لازم توافق على التتبع الأول عشان الموقع يتبعت.<button class="btn sm" style="margin-top:8px" data-act="rt_consent_open">أوافق على التتبع</button></div>';
+        head = '<div class="rt-status"><div class="row sp" style="gap:8px"><b>الرحلة شغالة</b><span class="chip ' + statOf(st).cls + '">' + statOf(st).t + '</span></div>' +
+          '<div class="sm" id="rt-gps" style="margin-top:6px">' + gpsLine() + '</div>' + banner +
+          '<button class="btn dk" data-act="rt_refresh" style="margin-top:10px">تحديث الموقع</button>' +
+          '<button class="btn gh" data-act="rt_end" style="margin-top:8px">إنهاء الرحلة</button></div>';
+      }
+      var stops = (r.stops || []).map(function (n, i) { return '<li><span class="fl-num">' + (i + 1) + '</span>' + esc(n) + '</li>'; }).join('');
+      var notes = (RT.d.notes || []).slice(0, 3).map(function (n) { return '<div class="rt-note ' + (n.kind === 'resolved' ? 'ok' : '') + '"><b>' + esc(n.title) + '</b><div class="sm">' + esc(n.body) + '</div><div class="xs mut">' + ago(n.ts) + '</div></div>'; }).join('');
+      body = head + (notes ? '<div class="sec-t" style="margin-top:12px">رسايل من المسؤول</div>' + notes : '') +
+        '<div class="fl-mapbox" style="margin-top:12px"><div id="rmap" class="fmap"></div></div>' +
+        '<div class="sec-t" style="margin-top:12px">محطات الخط</div><ol class="rt-stops">' + stops + '</ol>';
+      if (live) body += '<div style="height:90px"></div><button class="rt-sos" data-act="rt_sos_open">طوارئ</button>';
+    }
+    app.innerHTML = '<header class="hdr"><img class="logo" src="' + A.IMG.wordmark_dark + '" alt="العدو غير المرئي" style="height:34px"><div class="ttl">' + esc(RT.d ? RT.d.route.title : 'خط السير') + '<span class="sub">شريك الدفاع · كايرو ثري ايه</span></div></header><main class="rt-main">' + A.fx(body) + '</main>';
+    if (RT.d) drawDriverMap();
+  };
+})();
+
+/* ============================================================
+   شكل الشاشة للتاجر: بالصور أولًا أو بالكلام (القديم).
+   - أول مرة: بطاقة اختيار في «اليوم» تقول «تحب الشاشة تبقى إزاي؟».
+   - تقدر تغيّره وقت ما تحب من «حسابي».
+   - الوضع بالصور: زر كبير لخطوة النهاردة، وبلاطات صور لكل قسم، وتبويب سفلي أكبر.
+   الوضع بالكلام هو نفسه الشاشات القديمة بالضبط.
+   ============================================================ */
+(function () {
+  'use strict';
+  var A = window.APP, S = A.S, esc = A.esc, ic = A.ic, H = A.handlers, V = A.V;
+  var KEY = 'c3a_view';
+
+  function mode() { var v = A.lsGet(KEY); return v === 'pic' || v === 'txt' ? v : ''; }
+  A.picMode = function () { return mode() === 'pic'; };
+  A.viewMode = mode;
+
+  /* بلاطات الوضع بالصور. img = اسم صورة من A.IMG، وإن غابت تظهر الأيقونة */
+  var TILES = [
+    { id: 'today:round', t: 'جولتي', img: 'ph_vehwash1', icon: 'home' },
+    { id: 'today:farms', t: 'المزارع', img: 'ph_houses_ext', icon: 'truck' },
+    { id: 'learn', t: 'اتعلّم', img: 'cv_defend', icon: 'book' },
+    { id: 'play', t: 'العب', icon: 'game' },
+    { id: 'market', t: 'أسعار النهاردة', icon: 'trend' },
+    { id: 'talk', t: 'كلّمنا', icon: 'chat' },
+    { id: 'today:gain', t: 'مكسبك', icon: 'star' },
+    { id: '', act: 'account', t: 'حسابي وشهادتي', icon: 'trophy' }
+  ];
+
+  function tile(t) {
+    var src = t.img && A.IMG[t.img];
+    var pic = src ? '<img src="' + src + '" alt="">' : '<span class="pic-ic">' + ic(t.icon || 'home', 'lg') + '</span>';
+    var attrs = t.act ? 'data-act="' + t.act + '"' : 'data-act="pic_go" data-id="' + t.id + '"';
+    return '<button class="pic-tile" ' + attrs + '>' + pic + '<span class="pic-t">' + esc(t.t) + '</span></button>';
+  }
+
+  /* خطوة اليوم الكبيرة: أول خطوة لم تُنجز، وإن انتهت كلها تفتح الجولة */
+  function nextStep(me) {
+    var o = me.onboarding || {};
+    if (!o.launch) return { act: 'ob_video', t: 'شوف الفيديو الأول', s: '5 نقط · دقيقة واحدة', icon: 'play' };
+    if (!o.charter) return { act: 'ob_charter', t: 'وقّع ميثاق خط الدفاع', s: '20 نقطة', icon: 'shield' };
+    if (!o.baseline) return { act: 'ob_test', t: 'اختبر نفسك', s: '9 أسئلة · 20 نقطة', icon: 'check' };
+    return { act: 'pic_go', id: 'today:round', t: 'افتح جولة النهاردة', s: 'خطوات قصيرة قبل الشغل', icon: 'home' };
+  }
+
+  function picHome() {
+    var me = S.me, n = nextStep(me);
+    return '<div class="pic-hello"><div class="xs mut">النهاردة</div><div class="h2" style="margin:0">' + esc(A.firstName(me.name)) + '، خلّينا نبدأ</div></div>' +
+      '<button class="pic-big" data-act="' + n.act + '"' + (n.id ? ' data-id="' + n.id + '"' : '') + '>' +
+        '<span class="pic-big-ic">' + ic(n.icon, 'lg') + '</span><span class="grow"><b>' + esc(n.t) + '</b><small>' + esc(n.s) + '</small></span>' + ic('fwd') + '</button>' +
+      '<div class="pic-grid">' + TILES.map(tile).join('') + '</div>';
+  }
+
+  function chooser() {
+    return '<div class="card pic-choose"><b>تحب الشاشة تبقى إزاي؟</b>' +
+      '<p class="sm mut" style="margin:4px 0 10px">بالصور والأزرار الكبيرة، ولا بالكلام والقوايم؟ تقدر تغيّرها وقت ما تحب من حسابي.</p>' +
+      '<div class="grid2"><button class="btn" data-act="pic_set" data-id="pic">بالصور</button><button class="btn gh" data-act="pic_set" data-id="txt">بالكلام</button></div></div>';
+  }
+
+  function viewCard() {
+    var pic = A.picMode();
+    return '<div class="card"><div class="row sp"><b>شكل الشاشة</b><span class="chip">' + (pic ? 'بالصور' : 'بالكلام') + '</span></div>' +
+      '<div class="grid2" style="margin-top:10px"><button class="btn sm ' + (pic ? '' : 'gh') + '" data-act="pic_set" data-id="pic">بالصور</button>' +
+      '<button class="btn sm ' + (pic ? 'gh' : '') + '" data-act="pic_set" data-id="txt">بالكلام</button></div></div>';
+  }
+
+  /* ---------- ربط بالشاشات القائمة ---------- */
+  var prevToday = V.today;
+  V.today = function () {
+    if (A.picMode()) {
+      if (S.picDetail) return '<div class="pic-back"><button class="btn gh sm" data-act="pic_home">' + ic('back', 'sm') + ' رجوع للصور</button></div>' + prevToday();
+      return picHome();
+    }
+    return (mode() ? '' : chooser()) + prevToday();
+  };
+
+  var prevScreen = A.screens.trader;
+  A.screens.trader = function () {
+    prevScreen();
+    document.body.classList.toggle('picmode', A.picMode() && !S.sub);
+  };
+
+  var prevAcc = A.subs && A.subs.account;
+  if (prevAcc) A.subs.account = function (sub) { return viewCard() + prevAcc(sub); };
+
+  var prevTab = H.tab;
+  H.tab = function (el) { S.picDetail = false; prevTab(el); };
+
+  H.pic_go = function (el) {
+    var p = String(el.dataset.id || '').split(':');
+    if (A.cleanup) A.cleanup();
+    S.tab = p[0]; S.sub = null;
+    if (p[0] === 'today') {
+      S.picDetail = true;
+      if (p[1]) { S.seg = S.seg || {}; S.seg.today = p[1]; }
+    }
+    A.screens.trader(); window.scrollTo(0, 0);
+  };
+  H.pic_home = function () { S.picDetail = false; S.tab = 'today'; S.sub = null; A.screens.trader(); window.scrollTo(0, 0); };
+  H.pic_set = function (el) {
+    A.lsSet(KEY, el.dataset.id === 'pic' ? 'pic' : 'txt');
+    S.picDetail = false;
+    if (A.cleanup) A.cleanup();
+    A.screens.trader(); window.scrollTo(0, 0);
+    A.toast(A.picMode() ? 'الشاشة بقت بالصور' : 'الشاشة بقت بالكلام');
+  };
+})();
+
+/* ============================================================
+   الصوت لكل شاشة للتاجر بالعامية المصرية الشعبية.
+   - زر «اسمع الشاشة» في رأس كل شاشة يقرأ شرحها بالكلام المصري.
+   - السرعة تُختار من «حسابي» وتُحفظ على الجهاز (بطيء / عادي / أسرع).
+   - لو الإدارة ضبطت voice.baseUrl (https) يُجرَّب أولًا ملف مسجّل scr_<الشاشة>.mp3،
+     ولو غاب أو تعذّر تحميله يُستخدم صوت الجهاز.
+   - تصويب النطق: قائمة أزواج في voice.respell (JSON). الافتراضي أدناه يُستبدل بالإعداد إن وُجد.
+   حدّ: جودة الصوت تعتمد على الصوت العربي المتاح في الجهاز. لم يُختبر هنا على هاتف حقيقي.
+   ============================================================ */
+(function () {
+  'use strict';
+  var A = window.APP, S = A.S, esc = A.esc, ic = A.ic, $$ = A.$$, H = A.handlers;
+
+  /* نصوص الشاشات: جمل قصيرة، كل جملة تُقرأ وحدها */
+  var SCRIPTS = {
+    today: [
+      'أهلاً بيك في شريك الدفاع. الشاشة دي بتقولك النهاردة تعمل إيه.',
+      'لو لسه ماعملتش الخطوات الأولانية، ابدأ بيها. ولو خلّصتها، افتح جولة النهاردة.',
+      'الجولة فيها خطوات بسيطة: إيدك، وعربيتك، وأقفاصك، وجزمتك. كل خطوة بتحمي فراخك وبتحميك إنت.',
+      'افتكر: الميكروب مبيتشافش بالعين، بس الغسيل والتطهير بيوقفوه.'
+    ],
+    learn: [
+      'دي الفيديوهات اللي بتشرح الكلام ده بالصوت والصورة. اختار فيديو واتفرج عليه، وكل فيديو بيديك نقط.',
+      'لو عايز تفهم الحكاية من الأول، اختار «ليه بنعمل كده؟».'
+    ],
+    play: [
+      'دي ألعاب قصيرة تختبر معلوماتك. كل لعبة بتديك من عشر لتلاتين نقطة.',
+      'العب كل يوم وانت مرتاح، واللعب مش هيأخر شغلك.'
+    ],
+    market: [
+      'دي أسعار النهاردة من الشركة. اسمع الأسعار قبل ما تتفق مع أي حد.',
+      'السعر النهائي بيتأكد وقت الصفقة، مش دلوقتي.'
+    ],
+    talk: [
+      'لو عندك سؤال أو مشكلة، ابعتها هنا، وفريق الدعم هيرد عليك.'
+    ],
+    account: [
+      'دي حسابك. هنا بطاقتك وشهادتك ورتبتك.',
+      'تقدر تختار الشاشة تبقى بالصور ولا بالكلام، وتختار سرعة الصوت اللي يريحك.'
+    ],
+    video: [
+      'اتفرج على الفيديو لحد آخره، وبعدين جاوب على الأسئلة القصيرة عشان تاخد النقط.'
+    ],
+    generic: [
+      'الشاشة دي فيها معلومات تهمك. اتفرج عليها بهدوء، ولو فيه حاجة مش واضحة اسأل المعاون.'
+    ]
+  };
+  /* تصويب افتراضي: كلمات تُكتب بصيغة تنطق أقرب للعامية. الإدارة تستبدلها من voice.respell */
+  var RESPELL = [['النهاردة', 'النهارده'], ['إيدك', 'ايدك']];
+
+  var VOICE = { timer: null, audio: null, playing: false, gen: 0 };
+
+  function cfgVoice() { return (S.home && S.home.feat && S.home.feat.voice) || {}; }
+  function respellList() {
+    var raw = cfgVoice().respell;
+    if (raw) {
+      try {
+        var arr = JSON.parse(raw);
+        if (Array.isArray(arr)) return arr.filter(function (p) { return Array.isArray(p) && p.length === 2 && p[0]; });
+      } catch (e) { /* JSON غير صالح: نستخدم الافتراضي */ }
+    }
+    return RESPELL;
+  }
+  function respell(text) {
+    var out = String(text);
+    respellList().forEach(function (p) { out = out.split(String(p[0])).join(String(p[1])); });
+    return out;
+  }
+  A.voiceRate = function () {
+    var r = A.lsGet('c3a_rate');
+    return r === 'slow' ? 0.8 : r === 'fast' ? 1.04 : 0.92;
+  };
+  A.voiceScripts = SCRIPTS;
+
+  function screenKey() { return S.sub ? S.sub.type : S.tab; }
+  function linesFor(key) { return SCRIPTS[key] || SCRIPTS.generic; }
+
+  function markBtns(on) {
+    $$('[data-act="scr_say"]').forEach(function (b) {
+      b.classList.toggle('on', !!on);
+      b.setAttribute('aria-label', on ? 'إيقاف الصوت' : 'اسمع الشاشة');
+      b.innerHTML = on ? ic('x', 'sm') : ic('speaker', 'sm');
+    });
+  }
+  function watch() {
+    clearInterval(VOICE.timer);
+    VOICE.timer = setInterval(function () {
+      var busy = VOICE.playing || (A.isSpeaking && A.isSpeaking());
+      if (!busy) { clearInterval(VOICE.timer); VOICE.timer = null; markBtns(false); }
+    }, 400);
+  }
+  function stopAll() {
+    VOICE.gen++; VOICE.playing = false;
+    if (VOICE.audio) { try { VOICE.audio.pause(); } catch (e) { /* ignore */ } VOICE.audio = null; }
+    if (A.stopSay) A.stopSay();
+    markBtns(false);
+  }
+  function speakTts(lines, gen) {
+    if (gen !== VOICE.gen) return;
+    if (!A.speakLines) return;
+    A.speakLines(lines.map(respell));
+    watch(); markBtns(true);
+  }
+  function speakFile(key, lines, gen) {
+    var base = cfgVoice().baseUrl;
+    if (!base) return speakTts(lines, gen);
+    var a;
+    try { a = new Audio(String(base).replace(/\/?$/, '/') + 'scr_' + key + '.mp3'); } catch (e) { return speakTts(lines, gen); }
+    var failed = false;
+    function fallback() { if (failed || gen !== VOICE.gen) return; failed = true; VOICE.audio = null; VOICE.playing = false; speakTts(lines, gen); }
+    a.playbackRate = A.voiceRate();
+    a.onended = function () { VOICE.audio = null; VOICE.playing = false; markBtns(false); };
+    a.onerror = fallback;
+    VOICE.audio = a; VOICE.playing = true;
+    var p = a.play();
+    if (p && p.catch) p.catch(fallback);
+    watch(); markBtns(true);
+  }
+
+  H.scr_say = function (el) {
+    if (VOICE.playing || (A.isSpeaking && A.isSpeaking())) { stopAll(); return; }
+    var key = el && el.dataset && el.dataset.id ? el.dataset.id : screenKey();
+    var gen = ++VOICE.gen;
+    speakFile(key, linesFor(key), gen);
+  };
+  H.scr_rate = function (el) {
+    A.lsSet('c3a_rate', el.dataset.id === 'slow' ? 'slow' : el.dataset.id === 'fast' ? 'fast' : 'normal');
+    A.screens.trader();
+  };
+
+  /* زر الشاشة في الرأس */
+  var prevScreen = A.screens.trader;
+  A.screens.trader = function () {
+    prevScreen();
+    var h = document.querySelector('#app .hdr');
+    if (h && !h.querySelector('[data-act="scr_say"]') && (cfgVoice().on !== false)) {
+      h.insertAdjacentHTML('beforeend', '<button class="ib" data-act="scr_say" data-id="' + esc(screenKey()) + '" aria-label="اسمع الشاشة">' + ic('speaker', 'sm') + '</button>');
+    }
+  };
+
+  /* بطاقة السرعة داخل «حسابي» */
+  var prevAcc = A.subs && A.subs.account;
+  if (prevAcc) A.subs.account = function (sub) {
+    var r = A.lsGet('c3a_rate') || 'normal';
+    var card = '<div class="card"><div class="row sp"><b>سرعة الصوت</b><span class="chip">' + (r === 'slow' ? 'بطيء' : r === 'fast' ? 'أسرع' : 'عادي') + '</span></div>' +
+      '<div class="segs" style="margin-top:10px">' + [['slow', 'بطيء'], ['normal', 'عادي'], ['fast', 'أسرع']].map(function (x) {
+        return '<button class="' + (x[0] === r ? 'on' : '') + '" data-act="scr_rate" data-id="' + x[0] + '">' + x[1] + '</button>';
+      }).join('') + '</div></div>';
+    return card + prevAcc(sub);
+  };
+})();
+
+/* ============================================================
+   لوحة الاستقرار للمدير ومسؤول النظام:
+   - لوحة الأخطاء (تُجمع بالموضع والرسالة وتُقيَّد)، وفحص الصحة الدوري وتشغيله يدويًا.
+   - النسخ الاحتياطي الأسبوعي: قائمته، وإنشاء نسخة الآن.
+   - سجل الإجراءات (من فعل ماذا)، وتصدير CSV (تجار / أسطول / سجل / أخطاء / تقرير).
+   - استرجاع التاجر المحذوف.
+   - تحليلات الأسطول داخل تبويب الأسطول.
+   ============================================================ */
+(function () {
+  'use strict';
+  var A = window.APP, S = A.S, esc = A.esc, ic = A.ic, num = A.num, call = A.call, H = A.handlers;
+  var ST = A.staffST, SS = A.staffSS, SP = A.staffSP;
+
+  function isOps() { return !!(S.staff && (S.staff.role === 'manager' || S.staff.role === 'admin')); }
+  function canTraders() { return !!(S.staff && (S.staff.role === 'manager' || S.staff.role === 'admin' || (S.staff.perms && S.staff.perms.indexOf && S.staff.perms.indexOf('traders.delete') >= 0))); }
+  function redraw() { if (A.sView) A.sView(true); }
+  function fmt(ts) { try { return new Date(Number(ts)).toLocaleString('ar-EG', { timeZone: 'Africa/Cairo', dateStyle: 'short', timeStyle: 'short' }); } catch (e) { return ''; } }
+  function fmtDay(ts) { try { return new Date(Number(ts)).toLocaleDateString('ar-EG', { timeZone: 'Africa/Cairo', day: 'numeric', month: 'short' }); } catch (e) { return ''; } }
+
+  var AUDIT_FILTERS = [['', 'الكل'], ['trader_', 'التجار'], ['market_', 'السوق'], ['reward_', 'الجوائز'], ['backup', 'النسخ'], ['errors', 'الأخطاء'], ['team', 'الفريق']];
+
+  /* ---------- تحميل البيانات (بطلبات صامتة؛ أي طلب يفشل يُترك فارغًا) ---------- */
+  function loadOps() {
+    if (!S.ops) S.ops = {};
+    var f = S.ops.filter || '';
+    return Promise.all([
+      call('sErrors', {}, { quiet: true }),
+      call('sHealth', {}, { quiet: true }),
+      call('sBackups', {}, { quiet: true }),
+      call('sAudit', { action: f }, { quiet: true }),
+      canTraders() ? call('sDeletedTraders', {}, { quiet: true }) : Promise.resolve(null)
+    ]).then(function (r) {
+      S.ops = Object.assign({}, S.ops, { err: r[0], health: r[1], backups: r[2], audit: r[3], deleted: r[4], filter: f, loaded: true });
+      redraw();
+    });
+  }
+  SP.ops = function () { loadOps(); };
+  SS.ops = function () {
+    var o = S.ops || {};
+    if (!o.loaded) return A.loading();
+    return opsErrors(o.err) + opsHealth(o.health) + opsBackups(o.backups) + opsExports() + opsAudit(o.audit, o.filter) + opsDeleted(o.deleted);
+  };
+
+  function card(title, body, extra) { return '<div class="card"><div class="row sp" style="margin-bottom:8px"><b>' + title + '</b>' + (extra || '') + '</div>' + body + '</div>'; }
+  function confirmBtn(key, label, act, id) {
+    var armed = S.ops && S.ops.confirm === key;
+    return '<button class="btn sm ' + (armed ? 'dk' : 'gh') + '" data-act="' + act + '" data-id="' + esc(id || '') + '">' + (armed ? 'تأكيد: ' : '') + label + '</button>';
+  }
+
+  function opsErrors(e) {
+    if (!e) return card('لوحة الأخطاء', '<div class="xs mut">ما قدرناش نحمّل الأخطاء دلوقتي.</div>');
+    var head = '<div class="kpi">' + kpi(num(e.today), 'خطأ آخر 24 ساعة', e.today ? 'red-d' : 'ok') + kpi(num(e.total), 'إجمالي مسجّل') + kpi(num(e.distinct), 'نوع مختلف') + '</div>';
+    var list = e.list.length ? e.list.slice(0, 12).map(function (x) {
+      return '<div class="row" style="padding:8px 0;border-bottom:1px solid var(--line);align-items:flex-start"><div class="grow"><b class="sm">' + esc(x.msg) + '</b><div class="xs mut">' + esc(x.where) + ' · ' + x.count + ' مرة · آخر مرة ' + fmt(x.lastTs) + '</div></div></div>';
+    }).join('') : '<div class="xs mut" style="padding:8px 0">مفيش أخطاء مسجّلة. ده الوضع المثالي.</div>';
+    return card('لوحة الأخطاء', head + list + '<div class="row" style="margin-top:10px;gap:8px">' + confirmBtn('err', 'امسح السجل', 'ops_err_clear') + '</div>');
+  }
+  function opsHealth(h) {
+    if (!h) return card('فحص الصحة', '<div class="xs mut">ما قدرناش نحمّل نتيجة الفحص.</div>');
+    var last = h.list[0];
+    var body = '';
+    if (!last) body = '<div class="xs mut">لسه ماتعملش فحص. الفحص بيتعمل تلقائيًا كل يوم، أو اضغط «شغّل الفحص» دلوقتي.</div>';
+    else {
+      body = '<div class="row" style="gap:8px"><span class="chip ' + (last.ok ? 'ok' : 'bad') + '">' + (last.ok ? 'سليم' : 'به مشكلة') + '</span><span class="xs mut">' + fmt(last.ts) + ' · ' + (last.by === 'auto' ? 'تلقائي' : 'من لوحتك') + '</span></div>' +
+        '<div class="xs" style="margin-top:6px">' + esc(last.summary || '') + '</div>' +
+        '<div style="margin-top:8px">' + (last.checks || []).map(function (c) {
+          return '<div class="row" style="padding:5px 0;align-items:flex-start"><span class="chip ' + (c.skip ? '' : c.ok ? 'ok' : 'bad') + '">' + (c.skip ? 'متجاوز' : c.ok ? 'سليم' : 'مشكلة') + '</span><div class="grow sm"><b>' + esc(c.n) + '</b>' + (c.note ? '<div class="xs mut">' + esc(c.note) + '</div>' : '') + '</div></div>';
+        }).join('') + '</div>';
+    }
+    return card('فحص الصحة الدوري', body, '<button class="btn sm dk" data-act="ops_health">شغّل الفحص</button>');
+  }
+  function opsBackups(b) {
+    if (!b) return card('النسخ الاحتياطي', '<div class="xs mut">ما قدرناش نحمّل قائمة النسخ.</div>');
+    var list = b.weekly.length ? b.weekly.map(function (l) { return '<span class="chip">' + esc(l) + '</span>'; }).join(' ') : '<div class="xs mut">مفيش نسخ أسبوعية لسه. أول نسخة بتتعمل يوم الأحد الساعة 3 الفجر، أو اضغط «انسخ الآن».</div>';
+    return card('النسخ الاحتياطي الأسبوعي', '<div class="xs mut" style="margin-bottom:8px">بيتحفظ آخر 4 نسخ تلقائيًا، وكل نسخة ورقات مخفية باسم يبدأ بـ bk_W.</div><div class="row" style="flex-wrap:wrap;gap:6px">' + list + '</div>', '<button class="btn sm dk" data-act="ops_backup">انسخ الآن</button>');
+  }
+  function opsExports() {
+    var kinds = [['traders', 'التجار'], ['fleet', 'الأسطول'], ['audit', 'سجل الإجراءات'], ['errors', 'الأخطاء'], ['report', 'التقرير الأسبوعي']];
+    return card('تصدير CSV', '<div class="xs mut" style="margin-bottom:8px">يفتح في Excel مباشرة بالعربي. الصفوف لا تتعدى 5000.</div><div class="grid2">' + kinds.map(function (k) {
+      return '<button class="btn sm gh" data-act="ops_export" data-id="' + k[0] + '">' + ic('share', 'sm') + k[1] + '</button>';
+    }).join('') + '</div>');
+  }
+  function opsAudit(a, f) {
+    var chips = '<div class="segs" style="margin-bottom:8px">' + AUDIT_FILTERS.map(function (x) {
+      return '<button class="' + ((f || '') === x[0] ? 'on' : '') + '" data-act="ops_filter" data-id="' + esc(x[0]) + '">' + x[1] + '</button>';
+    }).join('') + '</div>';
+    var rows = a && a.list.length ? a.list.slice(0, 40).map(function (x) {
+      return '<div class="row" style="padding:7px 0;border-bottom:1px solid var(--line);align-items:flex-start"><div class="grow sm"><b>' + esc(x.action) + '</b> · ' + esc(x.staffName || x.staffId || '') + '<div class="xs mut">' + (x.target ? esc(x.target) + ' · ' : '') + fmt(x.ts) + '</div></div></div>';
+    }).join('') : '<div class="xs mut">مفيش إجراءات بالفلتر ده.</div>';
+    return card('سجل الإجراءات', chips + rows);
+  }
+  function opsDeleted(d) {
+    if (!d) return '';
+    var rows = d.list.length ? d.list.map(function (t) {
+      var key = 'restore:' + t.id, armed = S.ops && S.ops.confirm === key;
+      return '<div class="row" style="padding:8px 0;border-bottom:1px solid var(--line)"><div class="grow"><b>' + esc(t.name) + '</b><div class="xs mut">' + esc(t.code) + (t.plate ? ' · ' + esc(t.plate) : '') + (t.deletedTs ? ' · اتحذف ' + fmtDay(t.deletedTs) : '') + '</div></div>' +
+        '<button class="btn sm ' + (armed ? 'dk' : 'gh') + '" data-act="ops_restore" data-id="' + esc(t.id) + '">' + (armed ? 'تأكيد الاسترجاع' : 'استرجع') + '</button></div>';
+    }).join('') : '<div class="xs mut">مفيش تجار محذوفين.</div>';
+    return card('التجار المحذوفين', rows + '<div class="xs mut" style="margin-top:8px">الاسترجاع يرجّع التاجر بكل بياناته ونقطه، لكن سجلات الزيارات والجوائز بتفضل زي ما هي.</div>');
+  }
+  function kpi(v, l, tone) { return '<div class="k"><b' + (tone ? ' style="color:var(--' + tone.replace('-d', '') + ')"' : '') + '>' + v + '</b><span>' + l + '</span></div>'; }
+
+  /* ---------- كارت الدخول من لوحة المؤشرات ---------- */
+  var prevDash = ST.dash;
+  ST.dash = function () {
+    var h = prevDash ? prevDash() : '';
+    if (!isOps()) return h;
+    return h + '<button class="tkt" data-act="ops_open">' + ic('shield') + '<div class="grow"><b>الاستقرار والنسخ والتصدير</b><div class="xs mut">الأخطاء، فحص الصحة، النسخ الأسبوعي، سجل الإجراءات، وتصدير الملفات</div></div>' + ic('back') + '</button>';
+  };
+
+  H.ops_open = function () { S.ssub = { type: 'ops', title: 'الاستقرار والنسخ' }; S.ops = { filter: '' }; A.screens.staff(); window.scrollTo(0, 0); };
+  H.ops_health = function () {
+    call('sHealth', { run: true }).then(function (d) {
+      if (!d) return;
+      S.ops = Object.assign({}, S.ops, { health: d });
+      A.toast(d.last && d.last.ok ? 'الفحص سليم' : 'الفحص لقى مشكلة، شوف التفاصيل', d.last && d.last.ok ? 'ok' : 'err');
+      redraw();
+    });
+  };
+  H.ops_backup = function () {
+    call('sBackupNow', {}).then(function (d) {
+      if (!d) return;
+      A.toast('اتعملت نسخة: ' + d.label + ' (' + d.tables + ' جدول)', 'ok');
+      loadOps();
+    });
+  };
+  H.ops_err_clear = function () {
+    if (!S.ops || S.ops.confirm !== 'err') { S.ops = Object.assign({}, S.ops, { confirm: 'err' }); redraw(); return; }
+    S.ops.confirm = null;
+    call('sErrorsClear', {}).then(function (d) { if (d) { A.toast('اتمسح السجل (' + d.removed + ')', 'ok'); loadOps(); } });
+  };
+  H.ops_filter = function (el) { S.ops = Object.assign({}, S.ops, { filter: el.dataset.id || '' }); loadOps(); };
+  H.ops_restore = function (el) {
+    var id = el.dataset.id, key = 'restore:' + id;
+    if (!S.ops || S.ops.confirm !== key) { S.ops = Object.assign({}, S.ops, { confirm: key }); redraw(); return; }
+    S.ops.confirm = null;
+    call('sTraderRestore', { id: id }).then(function (d) { if (d) { A.toast('اتسترجع التاجر ' + d.name, 'ok'); loadOps(); } });
+  };
+  H.ops_export = function (el) {
+    var kind = el.dataset.id;
+    call('sExport', { kind: kind }).then(function (res) {
+      if (!res || !res.csv) return;
+      var blob = new Blob([res.csv], { type: 'text/csv;charset=utf-8' });
+      try {
+        var url = URL.createObjectURL(blob), a = document.createElement('a');
+        a.href = url; a.download = res.filename; document.body.appendChild(a); a.click();
+        setTimeout(function () { try { a.remove(); URL.revokeObjectURL(url); } catch (e) { /* ignore */ } }, 4000);
+        A.toast('اتنزّل الملف (' + res.count + ' صف)', 'ok');
+      } catch (e) {
+        A.sheet('<h2>الملف جاهز</h2><p class="sm mut">التنزيل المباشر مش متاح هنا. انسخ النص ده والصقه في ملف جديد بامتداد csv.</p><textarea class="in" rows="8" readonly style="direction:ltr;font-size:12px">' + esc(res.csv) + '</textarea>');
+      }
+    });
+  };
+
+  /* ---------- تحليلات الأسطول داخل تبويب الأسطول ---------- */
+  var FDAYS = 30;
+  function loadFleetStats() {
+    call('sFleetStats', { days: FDAYS }, { quiet: true }).then(function (d) {
+      if (!d) return;
+      S.fstats = d;
+      var box = document.getElementById('fstats');
+      if (box) box.innerHTML = fleetCard(d);
+    });
+  }
+  function fleetCard(d) {
+    var pc = function (v) { return v === null || v === undefined ? '—' : v + '%'; };
+    var days = [[7, '7 أيام'], [30, '30 يوم'], [90, '90 يوم']].map(function (x) {
+      return '<button class="' + (x[0] === FDAYS ? 'on' : '') + '" data-act="fst_days" data-id="' + x[0] + '">' + x[1] + '</button>';
+    }).join('');
+    var drivers = d.drivers.length ? d.drivers.map(function (x) {
+      return '<div class="row" style="padding:7px 0;border-bottom:1px solid var(--line)"><b class="grow sm">' + esc(x.name || '—') + '</b><span class="xs mut">' + x.routes + ' خط</span><span class="xs mut">' + (x.avgMin === null ? '—' : x.avgMin + ' د') + '</span><span class="chip ' + (x.offPct >= 20 ? 'bad' : '') + '">خروج ' + pc(x.offPct) + '</span></div>';
+    }).join('') : '<div class="xs mut">مفيش حركة في الفترة دي.</div>';
+    var rep = d.repeats.length ? '<div class="xs" style="margin-top:10px"><b>خطوط متكررة:</b> ' + d.repeats.map(function (r) { return esc(r.title) + ' (' + r.count + ')'; }).join('، ') + '</div>' : '';
+    return '<div class="segs" style="margin-bottom:8px">' + days + '</div>' +
+      '<div class="kpi">' + kpi(num(d.trips), 'رحلة مكتملة') + kpi(d.avgMin === null ? '—' : d.avgMin + ' د', 'متوسط المدة') + kpi(pc(d.offPct), 'نقاط خارج الخط', d.offPct >= 10 ? 'red-d' : 'ok') + kpi(num(d.alerts.open), 'تنبيه مفتوح', d.alerts.open ? 'red-d' : '') + kpi(num(d.alerts.sos), 'طوارئ') + '</div>' +
+      '<div class="sec-t" style="margin-top:12px">أكتر السواقين خروجًا عن الخط</div>' + drivers + rep;
+  }
+  var prevFleet = ST.fleet;
+  if (prevFleet) ST.fleet = function () {
+    var h = prevFleet();
+    if (!isOps()) return h;
+    return h + '<div class="card"><div class="row sp" style="margin-bottom:8px"><b>تحليلات الأسطول</b><span class="xs mut">آخر تحديث الآن</span></div><div id="fstats">' + (S.fstats ? fleetCard(S.fstats) : '<div class="spin"></div>') + '</div></div>';
+  };
+  var prevFleetPost = SP.fleet;
+  SP.fleet = function (sub) {
+    if (prevFleetPost) prevFleetPost(sub);
+    if (isOps()) loadFleetStats();
+  };
+  H.fst_days = function (el) { FDAYS = Number(el.dataset.id) || 30; S.fstats = null; loadFleetStats(); };
+})();
+
+/* ============================================================
+   إشعارات الويب (اختيارية): تُفعَّل فقط عند ضبط window.__FCM_WEB في config.js.
+   - تحميل مكتبة Firebase عند الحاجة، وتسجيل عامل الخدمة في نطاق fcm/ ثم طلب رمز الجهاز.
+   - الرمز يُرسل للخادم عبر ShareekOnPushToken (نفس مسار تطبيق أندرويد).
+   - بدون الإعداد أو بدون إذن الإشعارات لا يحدث شيء.
+   حدّ: لم يُختبر مع Firebase حقيقي من بيئة الإعداد (محجوبة عن Google).
+   ============================================================ */
+(function () {
+  'use strict';
+  var A = window.APP, W = window, LIB = 'https://www.gstatic.com/firebasejs/10.12.2/';
+  var libsP = null, inited = false;
+
+  function loadScript(src) {
+    return new Promise(function (res, rej) {
+      var s = document.createElement('script'); s.src = src; s.async = true;
+      s.onload = function () { res(); }; s.onerror = function () { rej(new Error('load ' + src)); };
+      document.head.appendChild(s);
+    });
+  }
+  function libs() {
+    if (!libsP) libsP = loadScript(LIB + 'firebase-app-compat.js').then(function () { return loadScript(LIB + 'firebase-messaging-compat.js'); });
+    return libsP;
+  }
+  function enabled() {
+    var c = W.__FCM_WEB;
+    return !!(c && c.apiKey && c.projectId && c.messagingSenderId && c.appId && c.vapidKey && 'serviceWorker' in navigator && W.Notification);
+  }
+  function whenActive(reg) {
+    if (reg.active) return Promise.resolve(reg.active);
+    var w = reg.installing || reg.waiting;
+    return new Promise(function (res) {
+      if (!w) return res(null);
+      if (w.state === 'activated') return res(w);
+      w.addEventListener('statechange', function () { if (w.state === 'activated') res(w); });
+    });
+  }
+
+  /* يُستدعى بعد منح الإذن (من زر «فعّل إشعارات الجهاز») وعند فتح الصفحة لو الإذن ممنوح من قبل */
+  A.webPushInit = function () {
+    if (!enabled() || inited || W.Notification.permission !== 'granted') return Promise.resolve(false);
+    inited = true;
+    return navigator.serviceWorker.register('firebase-messaging-sw.js', { scope: './fcm/' }).then(function (reg) {
+      return libs().then(function () { return whenActive(reg); }).then(function (worker) {
+        if (!firebase.apps.length) firebase.initializeApp(W.__FCM_WEB);
+        if (worker) worker.postMessage({ type: 'fcm-config', config: W.__FCM_WEB });
+        var messaging = firebase.messaging();
+        messaging.onMessage(function (payload) {
+          var n = payload.notification || {}, d = payload.data || {};
+          A.toast((n.title || d.title || 'شريك الدفاع') + (n.body || d.body ? ': ' + (n.body || d.body) : ''), 'ok');
+        });
+        return messaging.getToken({ vapidKey: W.__FCM_WEB.vapidKey, serviceWorkerRegistration: reg });
+      });
+    }).then(function (token) {
+      if (token && W.ShareekOnPushToken) W.ShareekOnPushToken(token);
+      return !!token;
+    }).catch(function () { inited = false; return false; });
+  };
+
+  /* فتح الصفحة بعد ثوانٍ من الدخول: لو الإذن ممنوح من قبل نسجّل الجهاز بصمت */
+  setTimeout(function () { if (A.S && A.S.role) A.webPushInit(); }, 4000);
+})();
+</script><script>/* تثبيت التطبيق (النسخة المستضافة على GitHub Pages فقط).
+   1) بطاقة «ثبّت التطبيق» دايمًا ظاهرة في شاشة الدخول وفي حسابي، بخطوات تناسب الجهاز (أندرويد، آيفون، لابتوب، أو متصفح تطبيق مثل واتساب).
+      لا تعتمد على ظهور زر المتصفح نفسه، لأن المتصفح لا يعرضه في كل الحالات.
+   2) شريط تثبيت سفلي يظهر فقط لما المتصفح يسمح بالتثبيت المباشر (أندرويد وكروم وإيدج)، ويتذكر الإخفاء.
+   البطاقة والشريط مخفيان تمامًا لو التطبيق متثبّت بالفعل ويشتغل كتطبيق مستقل. */
+(function () {
+  'use strict';
+  var A = window.APP, H = A.handlers;
   var KEY = 'c3a_install_hide';
   var deferred = null, bar = null;
 
@@ -3990,21 +5480,67 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   }
   function dismissed() { try { return localStorage.getItem(KEY) === '1'; } catch (e) { return false; } }
   function remember() { try { localStorage.setItem(KEY, '1'); } catch (e) { /* ignore */ } }
-  function close() {
-    remember();
-    if (bar && bar.parentNode) bar.parentNode.removeChild(bar);
-    bar = null;
+  function platform() {
+    var ua = window.navigator.userAgent || '';
+    var mac = window.navigator.platform === 'MacIntel' && window.navigator.maxTouchPoints > 1;
+    return {
+      ios: /iphone|ipad|ipod/i.test(ua) || mac,
+      android: /android/i.test(ua),
+      inApp: /FBAN|FBAV|Instagram|WhatsApp|Line\/|MicroMessenger|Snapchat|TikTok/i.test(ua)
+    };
   }
-  function btn(label, fn, primary) {
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.textContent = label;
-    b.style.cssText = 'font:700 13px Cairo,system-ui,sans-serif;border:0;border-radius:10px;padding:8px 12px;cursor:pointer;white-space:nowrap;' +
-      (primary ? 'background:#EA2329;color:#fff' : 'background:transparent;color:#fff;padding:6px 8px');
-    b.onclick = fn;
-    return b;
+  function stepsText(p) {
+    if (p.inApp) return 'الصفحة اتفتحت من تطبيق تاني (واتساب أو فيسبوك). اضغط القايمة واختار «فتح في المتصفح» (Chrome أو Safari)، وبعدين ثبّته من هنا.';
+    if (p.ios) return 'افتح الرابط في Safari. اضغط زر المشاركة (المربع اللي فيه سهم لفوق) ← «إضافة إلى الشاشة الرئيسية» ← «إضافة».';
+    if (p.android) return 'اضغط النقط التلاتة فوق يمين الشاشة ← «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية». (في Samsung Internet: القايمة ← إضافة الصفحة إلى ← الشاشة الرئيسية.)';
+    return 'في Chrome أو Edge: اضغط أيقونة التثبيت جوه شريط العنوان، أو من القايمة ← «تثبيت شريك الدفاع».';
   }
-  function show(text, primary) {
+  function promptBtn() {
+    return deferred ? '<button class="btn dk" data-act="inst_prompt">ثبّت دلوقتي</button>' : '';
+  }
+  /* البطاقة: لا تتوقف على ظهور زر المتصفح، والخطوات جاهزة دايمًا */
+  function cardHtml() {
+    if (standalone()) return '';
+    return '<div class="card col" id="inst-card" role="region" aria-label="بطاقة تثبيت التطبيق على موبايلك" style="margin:12px 16px">' +
+      '<b>ثبّت التطبيق على موبايلك</b>' +
+      '<p class="mut sm" style="margin:0">بيفتح من الشاشة الرئيسية زي أي تطبيق، ومن غير ما تدور على الرابط كل مرة.</p>' +
+      '<div id="inst-slot" class="col">' + promptBtn() + '</div>' +
+      '<p class="sm" style="margin:0">' + stepsText(platform()) + '</p>' +
+      '<button class="lnk" data-act="inst_copy">انسخ رابط التطبيق عشان تبعته لزمايلك</button>' +
+      '</div>';
+  }
+  A.authExtra = cardHtml;
+
+  /* في حسابي: البطاقة تحت الحساب */
+  var prevAcc = A.subs && A.subs.account;
+  if (prevAcc) A.subs.account = function (sub) { return prevAcc(sub) + cardHtml(); };
+
+  H.inst_copy = function () {
+    A.copyText(window.location.origin + window.location.pathname);
+  };
+  H.inst_prompt = function () {
+    var d = deferred;
+    if (!d) { A.toast('الزر ده مش متاح على المتصفح ده، اتبع الخطوات اللي تحت', 'err'); return; }
+    deferred = null;
+    removeCardPrompt();
+    try {
+      d.prompt();
+      d.userChoice.then(function (c) { if (c && c.outcome === 'accepted') close(); }, function () { /* ignore */ });
+    } catch (e) { /* ignore */ }
+  };
+
+  function removeCardPrompt() {
+    var b = document.querySelector('[data-act="inst_prompt"]');
+    if (b && b.parentNode) b.parentNode.removeChild(b);
+  }
+  function addCardPrompt() {
+    var slot = document.getElementById('inst-slot');
+    if (!slot || slot.querySelector('[data-act="inst_prompt"]')) return;
+    slot.innerHTML = promptBtn();
+  }
+
+  /* شريط سفلي للمتصفحات التي تدعم التثبيت المباشر */
+  function show(text) {
     if (bar || standalone() || dismissed()) return;
     bar = document.createElement('div');
     bar.setAttribute('role', 'region');
@@ -4016,25 +5552,38 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     span.style.cssText = 'flex:1;min-width:0';
     span.textContent = text;
     bar.appendChild(span);
-    if (primary) bar.appendChild(primary);
-    bar.appendChild(btn('×', close, false));
+    var go = document.createElement('button');
+    go.type = 'button';
+    go.textContent = 'تثبيت';
+    go.style.cssText = 'font:700 13px Cairo,system-ui,sans-serif;border:0;border-radius:10px;padding:8px 12px;cursor:pointer;white-space:nowrap;background:#EA2329;color:#fff';
+    go.onclick = function () { H.inst_prompt(); };
+    bar.appendChild(go);
+    var x = document.createElement('button');
+    x.type = 'button';
+    x.textContent = '×';
+    x.setAttribute('aria-label', 'إخفاء');
+    x.style.cssText = 'font:700 16px Cairo,system-ui,sans-serif;border:0;background:transparent;color:#fff;padding:6px 8px;cursor:pointer';
+    x.onclick = function () { remember(); hideBar(); };
+    bar.appendChild(x);
     document.body.appendChild(bar);
+  }
+  function hideBar() {
+    if (bar && bar.parentNode) bar.parentNode.removeChild(bar);
+    bar = null;
+  }
+  function close() {
+    hideBar();
+    removeCardPrompt();
+    var c = document.getElementById('inst-card');
+    if (c && c.parentNode) c.parentNode.removeChild(c);
   }
 
   window.addEventListener('beforeinstallprompt', function (e) {
     e.preventDefault();
     deferred = e;
-    show('ثبّت «شريك الدفاع» على موبايلك أو لابتوبك وافتحه زي أي تطبيق', btn('تثبيت', function () {
-      if (!deferred) return;
-      deferred.prompt();
-      deferred.userChoice.then(function () { deferred = null; close(); }, function () { deferred = null; });
-    }, true));
+    addCardPrompt();
+    show('ثبّت «شريك الدفاع» على موبايلك أو لابتوبك وافتحه زي أي تطبيق');
   });
-  window.addEventListener('appinstalled', close);
-
-  var ios = /iphone|ipad|ipod/i.test(window.navigator.userAgent || '');
-  if (ios) setTimeout(function () {
-    show('ثبّته على الآيفون: اضغط زر المشاركة ثم «إضافة إلى الشاشة الرئيسية»');
-  }, 2000);
+  window.addEventListener('appinstalled', function () { deferred = null; remember(); close(); });
 })();
 </script><script>APP.boot();</script></body></html>

@@ -1,6 +1,6 @@
 /* عامل الخدمة: يخزّن الواجهة ليفتح التطبيق المثبّت حتى مع ضعف الإنترنت.
    بيانات التجار والأسعار لا تُخزَّن أبدًا: طلبات الخادم كلها POST ولا يتدخل فيها العامل. */
-const CACHE = 'c3a-shareek-__BUILD__';
+const CACHE = 'c3a-shareek-04f58b30';
 const SHELL = ['./', './index.html', './config.js', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png'];
 
