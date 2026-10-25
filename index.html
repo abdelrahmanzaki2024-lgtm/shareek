@@ -1,4 +1,4 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#242424"><title>شريك الدفاع | كايرو ثري ايه</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"><script>window.__BUILD='2026-10-25.52e854';</script><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="شريك الدفاع"><meta name="apple-mobile-web-app-status-bar-style" content="default"><script src="config.js"></script><script>if('serviceWorker' in navigator){window.addEventListener('load',function(){var sw=navigator.serviceWorker,had=!!sw.controller,done=false;sw.addEventListener('controllerchange',function(){if(had&&!done){done=true;location.reload();}had=true;});sw.register('sw.js').then(function(r){var last=Date.now();document.addEventListener('visibilitychange',function(){if(!document.hidden&&Date.now()-last>1800000){last=Date.now();r.update().catch(function(){});}});}).catch(function(){});});}</script></head><body><style>:root{
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#242424"><title>شريك الدفاع | كايرو ثري ايه</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"><script>window.__BUILD='2026-10-25.8221b8';</script><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="شريك الدفاع"><meta name="apple-mobile-web-app-status-bar-style" content="default"><script src="config.js"></script><script>if('serviceWorker' in navigator){window.addEventListener('load',function(){var sw=navigator.serviceWorker,had=!!sw.controller,done=false;sw.addEventListener('controllerchange',function(){if(had&&!done){done=true;location.reload();}had=true;});sw.register('sw.js').then(function(r){var last=Date.now();document.addEventListener('visibilitychange',function(){if(!document.hidden&&Date.now()-last>1800000){last=Date.now();r.update().catch(function(){});}});}).catch(function(){});});}</script></head><body><style>:root{
   --red:#EA2329;--red-d:#B81E25;--ink:#242424;--gray:#6D6E71;
   --bg:#F4F4F5;--card:#fff;--line:#E4E4E6;--soft:#F0F0F2;--txt:#242424;--mut:#6D6E71;
   --ok:#2E9E5B;--ok-bg:#E6F5EC;--warn:#C98200;--warn-bg:#FFF4D9;--bad-bg:#FDE8E9;
@@ -556,6 +556,41 @@ body.picmode .tabs .i{width:28px;height:28px}
 .rc-mark{background:#FFB020!important;border-color:#FFB020!important;color:#1A1200!important;font-size:16px!important;flex:1.2!important}
 .rc-save{background:var(--mgo)!important;border-color:var(--mgo)!important;color:#fff!important}
 .rc-kinds{display:flex;flex-wrap:wrap;gap:6px}
+/* ===== استوديو الصوت ===== */
+.vst{position:fixed;inset:0;z-index:58;background:var(--bg);display:flex;flex-direction:column;max-width:620px;margin:0 auto}
+.vst-top{display:flex;align-items:center;gap:10px;background:var(--hdr);color:#fff;padding:10px 12px;padding-top:calc(10px + env(safe-area-inset-top))}
+.vst-top .xs{opacity:.85}.vst-top .btn{color:#fff;border-color:rgba(255,255,255,.35);background:transparent}
+.vst-x{color:#fff;transform:scaleX(-1)}
+.vst-bar{height:5px;background:var(--line)}.vst-bar i{display:block;height:100%;background:var(--ok);transition:width .4s}
+.vst-body{flex:1;overflow:auto;padding:12px 14px}
+.vst-tips{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-bottom:10px;font-size:14px}
+.vst-tips summary{font-weight:800;cursor:pointer}.vst-tips ul{margin:8px 0 0;padding-inline-start:18px;line-height:1.7}
+.vst-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 -14px 10px;padding:0 14px}
+.vst-tabs button{flex:none;display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--card);color:var(--txt);border-radius:999px;padding:7px 12px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer}
+.vst-tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.vst-tabs i{font-style:normal;font-size:11.5px;background:var(--soft);color:var(--mut);border-radius:999px;padding:0 7px}
+.vst-tabs button.on i{background:rgba(255,255,255,.18);color:#fff}.vst-tabs i.ok{background:var(--ok-bg);color:var(--ok)}
+.vst-list{display:flex;flex-direction:column;gap:6px}
+.vst-row{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 10px}
+.vst-row.cur{border:2px solid var(--red)}
+.vst-t{flex:1;min-width:0;text-align:right;background:none;border:0;padding:6px 0;font:inherit;color:var(--txt);cursor:pointer;display:flex;flex-direction:column}
+.vst-t b{font-size:15.5px;line-height:1.5;font-weight:800}
+.vst-pl{flex:none}.vst-row .chip{flex:none}.vst-row .chip .i{width:14px;height:14px}
+.vst-panel{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:min(620px,100%);background:var(--card);border-top:1px solid var(--line);border-radius:22px 22px 0 0;box-shadow:0 -12px 34px rgba(0,0,0,.18);padding:14px 16px calc(12px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:10px;z-index:59}
+.vst-say{font-size:clamp(20px,6vw,26px);font-weight:900;line-height:1.45;text-align:center;text-wrap:balance;max-height:30vh;overflow:auto}
+.vst-say.long{font-size:17px;font-weight:800;line-height:1.7;text-align:right}
+.vst-mid{display:flex;align-items:center;gap:12px}
+.vst-rec{flex:none;width:92px;height:92px;border-radius:50%;border:0;background:var(--red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font:inherit;font-weight:900;font-size:14px;cursor:pointer;box-shadow:0 8px 22px rgba(234,35,41,.35)}
+.vst-rec i{width:26px;height:26px;border-radius:50%;background:#fff}
+.vst-rec.on{animation:vstpulse 1s ease-in-out infinite}.vst-rec.on i{border-radius:5px;width:22px;height:22px}
+.vst-rec:disabled{opacity:.5}
+@keyframes vstpulse{50%{box-shadow:0 0 0 12px rgba(234,35,41,.18)}}
+.vst-meter{flex:1;height:12px;border-radius:99px;background:var(--soft);overflow:hidden}.vst-meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ok),#F2A900,var(--red));transition:width .08s}
+.vst-sec{flex:none;min-width:70px;text-align:center;font-weight:800;font-size:13px;color:var(--mut);font-variant-numeric:tabular-nums}
+.vst-err{background:var(--bad-bg);color:var(--red-d);border-radius:12px;padding:8px 12px;font-weight:800;font-size:13.5px}
+.vst-acts{display:grid;grid-template-columns:1fr 1.4fr;gap:8px}
+.vst-nav{display:flex;justify-content:space-between}
+@media (prefers-reduced-motion:reduce){.vst-rec.on{animation:none}}
 </style><div id="app"></div><div id="toast"></div><script>window.__STATIC={
 "ranks": [
 {
@@ -3610,20 +3645,22 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   }
   function stopSay() {
     VX.gen++; VX.speaking = false;
+    if (A.vp) A.vp.stop();
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (e) { /* ignore */ }
     syncBtns();
   }
   function say(lines) {
-    if (!canSpeak() || !lines.length) return;
+    if (!canSpeak() || !lines.length || (A.vp && !A.vp.ttsMaybe())) return;
     var gen = ++VX.gen, ss = window.speechSynthesis;
     try { ss.cancel(); } catch (e) { /* ignore */ }
     VX.speaking = true; syncBtns();
     withVoice(function (voice) {
       if (gen !== VX.gen) return;
       var started = false, i = 0;
+      /* لو صوت الموبايل مااشتغلش نسكت بهدوء: التاجر مش هيعرف يظبط إعدادات الموبايل، والكلام مكتوب قدامه */
       function fail() {
         if (gen !== VX.gen) return;
-        stopSay(); A.toast('تعذّر تشغيل الصوت. ارفع صوت الجهاز وتأكد إن فيه صوت عربي مفعّل (إعدادات الجهاز ← تحويل النص إلى كلام).');
+        stopSay();
       }
       function next() {
         if (gen !== VX.gen) return;
@@ -3642,26 +3679,43 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   A.stopSay = stopSay;
   A.speakLines = say;
   A.isSpeaking = function () { return VX.speaking; };
+  /* الأسعار: التسجيلات الأول، وصوت الموبايل لو ناقص تسجيل */
+  function priceKeys(m) { if (!A.vp) return null; var flat = []; A.vp.marketTokens(m).forEach(function (t) { flat = flat.concat(t); }); return flat.length ? A.vp.build(flat).keys : null; }
+  function canSayAny() { return A.vp ? A.vp.ttsMaybe() : canSpeak(); }
+  function vpWatch() { var t0 = Date.now(), iv = setInterval(function () { if ((!A.vp.speaking() && Date.now() - t0 > 1200) || !VX.speaking) { clearInterval(iv); if (VX.speaking) { VX.speaking = false; syncBtns(); } } }, 300); }
   A.voiceBtn = function (cls) {
-    if (!on(feat().voice) || !canSpeak()) return '';
     var m = S.market || (S.home && S.home.market);
-    if (!marketSpeech(m).length) return '';
+    if (!on(feat().voice) || !marketSpeech(m).length) return '';
+    if (!priceKeys(m) && !canSayAny()) return '';
     return '<button class="btn sm gh say ' + (cls || '') + '" data-act="say_prices">' + ic('speaker', 'sm') + 'اسمع الأسعار</button>';
   };
   H.say_prices = function () {
-    if (VX.speaking) return stopSay();
-    say(marketSpeech(S.market || (S.home && S.home.market)));
+    if (VX.speaking || (A.vp && A.vp.speaking())) return stopSay();
+    var m = S.market || (S.home && S.home.market), keys = priceKeys(m);
+    if (keys && keys.length) {
+      var gen = ++VX.gen; VX.speaking = true; syncBtns();
+      A.vp.play(keys).then(function (ok) { if (gen !== VX.gen) return; if (ok) vpWatch(); else { VX.speaking = false; say(A.vp.marketTokens(m).map(A.vp.text)); } });
+      return;
+    }
+    say(A.vp ? A.vp.marketTokens(m).map(A.vp.text) : marketSpeech(m));
   };
   /* اسمع الدرس: يقرأ عنوان الدرس وخلاصته بصوت عربي. للتاجر الذي لا يقرأ، ويُعرض الزر فقط إن كانت الميزة مفعّلة والمتصفح يدعم الصوت */
   A.voiceCard = function (k) {
-    if (!on(feat().voice) || !canSpeak() || !k) return '';
+    if (!on(feat().voice) || !k || !((A.vp && A.vp.has('kc_' + A.vp.idk(k.id))) || canSayAny())) return '';
     return '<button class="btn sm gh say" style="margin:8px 0" data-act="say_card" data-id="' + String(k.id).replace(/"/g, '') + '">' + ic('speaker', 'sm') + 'اسمع الدرس</button>';
   };
   H.say_card = function (el) {
     if (VX.speaking) return stopSay();
     var list = (S.content && S.content.cards) || [], id = el.dataset.id;
     var k = list.filter(function (x) { return x.id === id; })[0];
-    if (k) say([String(k.title || ''), String(k.fact || '')].filter(Boolean));
+    if (!k) return;
+    var ck = A.vp ? 'kc_' + A.vp.idk(k.id) : '';
+    if (ck && A.vp.has(ck)) {
+      var gen = ++VX.gen; VX.speaking = true; syncBtns();
+      A.vp.play([ck]).then(function (ok) { if (gen !== VX.gen) return; if (ok) vpWatch(); else { VX.speaking = false; say([String(k.title || ''), String(k.fact || '')].filter(Boolean)); } });
+      return;
+    }
+    say([String(k.title || ''), String(k.fact || '')].filter(Boolean));
   };
   document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') stopSay(); });
 
@@ -5540,12 +5594,13 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   function watch() {
     clearInterval(VOICE.timer);
     VOICE.timer = setInterval(function () {
-      var busy = VOICE.playing || (A.isSpeaking && A.isSpeaking());
+      var busy = VOICE.playing || (A.isSpeaking && A.isSpeaking()) || (A.vp && (A.vp.speaking() || Date.now() - (VOICE.vpTs || 0) < 1500));
       if (!busy) { clearInterval(VOICE.timer); VOICE.timer = null; markBtns(false); }
     }, 400);
   }
   function stopAll() {
-    VOICE.gen++; VOICE.playing = false;
+    VOICE.gen++; VOICE.playing = false; VOICE.vpTs = 0;
+    if (A.vp) A.vp.stop();
     if (VOICE.audio) { try { VOICE.audio.pause(); } catch (e) { /* ignore */ } VOICE.audio = null; }
     if (A.stopSay) A.stopSay();
     markBtns(false);
@@ -5572,12 +5627,20 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     watch(); markBtns(true);
   }
 
+  /* التسجيل المتسجّل من «استوديو الصوت» الأول (من غير نت ومن غير إعدادات)، وبعده الملف المرفوع، وبعده صوت الموبايل */
   H.scr_say = function (el) {
-    if (VOICE.playing || (A.isSpeaking && A.isSpeaking())) { stopAll(); return; }
+    if (VOICE.playing || (A.isSpeaking && A.isSpeaking()) || (A.vp && A.vp.speaking())) { stopAll(); return; }
     var key = el && el.dataset && el.dataset.id ? el.dataset.id : screenKey();
     var gen = ++VOICE.gen;
+    if (A.vp && A.vp.has('scr_' + key)) {
+      VOICE.vpTs = Date.now(); watch(); markBtns(true);
+      A.vp.play(['scr_' + key]).then(function (ok) { if (!ok && gen === VOICE.gen) { VOICE.vpTs = 0; speakFile(key, linesFor(key), gen); } });
+      return;
+    }
     speakFile(key, linesFor(key), gen);
   };
+  /* الزرار يظهر بس لو فيه صوت فعلًا: تسجيل، أو ملف مرفوع، أو صوت عربي في الموبايل */
+  function canVoice(key) { return !!((A.vp && (A.vp.has('scr_' + key) || A.vp.ttsMaybe())) || cfgVoice().baseUrl || (!A.vp && window.speechSynthesis)); }
   H.scr_rate = function (el) {
     A.lsSet('c3a_rate', el.dataset.id === 'slow' ? 'slow' : el.dataset.id === 'fast' ? 'fast' : 'normal');
     A.screens.trader();
@@ -5588,7 +5651,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   A.screens.trader = function () {
     prevScreen();
     var h = document.querySelector('#app .hdr');
-    if (h && !h.querySelector('[data-act="scr_say"]') && (cfgVoice().on !== false)) {
+    if (h && !h.querySelector('[data-act="scr_say"]') && (cfgVoice().on !== false) && canVoice(screenKey())) {
       /* زرار واضح بكلمة «اسمع» (مش أيقونة بس) عشان التاجر يلاقيه */
       h.insertAdjacentHTML('beforeend', '<button class="ib say-pill" data-act="scr_say" data-id="' + esc(screenKey()) + '" aria-label="اسمع الشاشة">' + ic('speaker', 'sm') + '<span>اسمع</span></button>');
     }
@@ -5603,6 +5666,522 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
         return '<button class="' + (x[0] === r ? 'on' : '') + '" data-act="scr_rate" data-id="' + x[0] + '">' + x[1] + '</button>';
       }).join('') + '</div></div>';
     return card + prevAcc(sub);
+  };
+})();
+
+/* ============================================================
+   الصوت المتسجّل («باقة الصوت») + «استوديو الصوت» للمدير
+   المشكلة: صوت الموبايل (تحويل النص لكلام) ممكن مايكونش فيه عربي، والتاجر مش هيعرف يظبطه.
+   الحل: المدير بيسجّل جمل التطبيق بصوته مرة واحدة من «اللوحة ← استوديو الصوت»، والتطبيق
+   بينزّلها عند كل التجار ويحفظها على الموبايل، ويشغّلها من غير إنترنت ومن غير أي إعداد.
+   - الجمل اللي بتتغير (المسافات والأسعار) بتتركّب من تسجيلات صغيرة: «بعد» + «ميتين» + «متر» + «لف يمين».
+   - لو جملة ناقصة تسجيل: يجرّب صوت الموبايل العربي لو موجود، ولو مش موجود يسكت (الكلام مكتوب على الشاشة).
+   - التشغيل بـ Web Audio: يقص السكوت اللي قبل وبعد الكلام، ويوحّد علوّ الصوت بين التسجيلات.
+   ============================================================ */
+(function () {
+  'use strict';
+  var A = window.APP, S = A.S, esc = A.esc, ic = A.ic, H = A.handlers, W = window;
+
+  /* ---------- الأرقام والمسافات بالكلام المصري ---------- */
+  var ONES = ['صفر', 'واحد', 'اتنين', 'تلاتة', 'أربعة', 'خمسة', 'ستة', 'سبعة', 'تمانية', 'تسعة', 'عشرة', 'حداشر', 'اتناشر', 'تلتاشر', 'أربعتاشر', 'خمستاشر', 'ستاشر', 'سبعتاشر', 'تمنتاشر', 'تسعتاشر'];
+  var TENS = ['', '', 'عشرين', 'تلاتين', 'أربعين', 'خمسين', 'ستين', 'سبعين', 'تمانين', 'تسعين'];
+  var HUND = ['', 'مية', 'ميتين', 'تلتمية', 'ربعمية', 'خمسمية', 'ستمية', 'سبعمية', 'تمنمية', 'تسعمية'];
+  function eg(n) {
+    n = Math.max(0, Math.round(n));
+    if (n < 20) return ONES[n];
+    if (n < 100) { var t = Math.floor(n / 10), o = n % 10; return o ? ONES[o] + ' و' + TENS[t] : TENS[t]; }
+    if (n < 1000) { var h = Math.floor(n / 100), r = n % 100; return r ? HUND[h] + ' و' + eg(r) : HUND[h]; }
+    return String(n);
+  }
+  function numKeys(n) {
+    n = Math.round(Number(n) || 0);
+    if (n < 0 || n > 999) return null;
+    if (n < 20) return ['n' + n];
+    if (n < 100) { var t = Math.floor(n / 10), o = n % 10; return o ? ['n' + o, 'wt' + t] : ['t' + t]; }
+    var h = Math.floor(n / 100), r = n % 100;
+    return r ? ['h' + h].concat(wKeys(r)) : ['h' + h];
+  }
+  function wKeys(n) { if (n < 20) return ['wn' + n]; var t = Math.floor(n / 10), o = n % 10; return o ? ['wn' + o, 'wt' + t] : ['wt' + t]; }
+  function distParts(m) {
+    m = Math.max(0, Number(m) || 0);
+    if (m >= 9750) { var km = m >= 100000 ? Math.round(m / 10000) * 10 : Math.round(m / 1000); return { t: eg(km) + ' كيلو', k: numKeys(km) && numKeys(km).concat(['u_kilo']) }; }
+    if (m >= 1250) {
+      var h = Math.round(m / 500) / 2, k = Math.floor(h), half = h - k >= 0.5;
+      var t = (k === 1 ? 'كيلو' : k === 2 ? 'اتنين كيلو' : eg(k) + ' كيلو') + (half ? ' ونص' : '');
+      var keys = (k === 1 ? ['u_kilo'] : numKeys(k).concat(['u_kilo'])); if (half) keys.push('w_half');
+      return { t: t, k: keys };
+    }
+    if (m >= 900) return { t: 'كيلو', k: ['u_kilo'] };
+    var r = m >= 300 ? Math.round(m / 100) * 100 : m >= 100 ? Math.round(m / 50) * 50 : Math.max(10, Math.round(m / 10) * 10);
+    return { t: eg(r) + ' متر', k: numKeys(r).concat(['u_meter']) };
+  }
+  function moneyParts(v) {
+    v = Math.round(Math.abs(Number(v) || 0) * 100) / 100;
+    var whole = Math.floor(v), pia = Math.round((v - whole) * 100), t = '', k = [];
+    if (!whole && pia === 50) return { t: 'نص جنيه', k: ['w_half_pound'] };
+    if (whole) { t = whole === 1 ? 'جنيه' : eg(whole) + ' جنيه'; k = whole === 1 ? ['u_pound'] : (numKeys(whole) || [null]).concat(['u_pound']); }
+    if (pia === 50 && whole) { t += ' ونص'; k.push('w_half'); }
+    else if (pia) { t += (whole ? ' و' : '') + eg(pia) + ' قرش'; k = k.concat(whole ? wKeys(pia) : numKeys(pia)).concat(['u_piaster']); }
+    if (!t) return { t: 'صفر جنيه', k: ['n0', 'u_pound'] };
+    return { t: t, k: k };
+  }
+  function idk(id) { return String(id || '').toLowerCase().replace(/[^a-z0-9_]/g, '_').slice(0, 40); }
+
+  /* ---------- قائمة الجمل اللي بتتسجّل ---------- */
+  var CAT = [], CT = {};
+  function add(g, k, t, max, hint) { var o = { g: g, k: k, t: t, max: max || 8, h: hint || '' }; CAT.push(o); CT[k] = o; }
+  (function () {
+    var N = 'nav';
+    [['n_take', 'هوصّلك لـ'], ['n_mode_road', 'على الطريق المتسجّل، لفة بلفة.'], ['n_mode_arrow', 'بص على السهم، وامشي ناحيته.'],
+      ['n_after', 'بعد'], ['n_now', 'دلوقتي'], ['n_at', 'عند'], ['n_at_fork', 'عند المفرق'],
+      ['m_straight', 'كمّل على طول'], ['m_slight_r', 'ميّل يمين'], ['m_slight_l', 'ميّل شمال'], ['m_turn_r', 'لف يمين'], ['m_turn_l', 'لف شمال'],
+      ['m_sharp_r', 'لفة حادة يمين'], ['m_sharp_l', 'لفة حادة شمال'], ['m_uturn', 'لف وارجع'],
+      ['t_slight_r', 'ميّل يمين شوية'], ['t_slight_l', 'ميّل شمال شوية'], ['t_back', 'إنت ماشي عكس الاتجاه. لف وارجع.'],
+      ['n_arrived', 'وصلت'], ['n_next_pt', 'النقطة الجاية'], ['n_away', 'على بعد'], ['n_has_road', 'وليها طريق متسجّل.'], ['n_passed', 'عدّيت'],
+      ['n_dest', 'وصلت لوجهتك،'], ['n_salama', 'حمد الله على السلامة.'], ['n_back_done', 'رجعت لأول نقطة بدأت منها. لو محتاج مساعدة كلّم المسؤول.'],
+      ['n_wrong', 'إنت ماشي عكس الطريق. لف وارجع.'], ['n_on_road', 'رجعت على الطريق. كمّل.'], ['n_ok_cont', 'تمام. كمّل على الطريق'],
+      ['n_left', 'فاضل'], ['n_to', 'على'], ['n_near', 'قربت توصل'], ['n_pass', 'هتعدّي على'], ['n_ok', 'إنت على الطريق الصح.'], ['n_cont', 'كمّل.'],
+      ['n_off_road', 'إنت طلعت من الطريق.'], ['n_road', 'الطريق'], ['n_go_back', 'ارجع له بالراحة.'], ['n_road_start', 'بداية الطريق المتسجّل'],
+      ['n_road_rec', 'الطريق المتسجّل'], ['n_join_tail', 'اوصل له وأنا هكمّل معاك.'], ['n_off_line', 'إنت بعدت عن الخط. السهم هيرجعك للنقطة الجاية.'],
+      ['n_on_line', 'رجعت على الخط. كمّل.'], ['n_correct', 'إنت ماشي صح.'], ['n_farther', 'إنت بتبعد عن'], ['n_look_arrow', 'بص على السهم.'],
+      ['n_weak', 'إشارة الموقع ضعيفة. لو تقدر، اقف في مكان مفتوح.'], ['n_far_gm', 'افتح خرائط جوجل لحد هناك، ولما تقرّب أنا هكمّل معاك.'],
+      ['n_far_gm2', 'افتح خرائط جوجل للطريق العمومي.'], ['n_lost', 'ولا يهمك. اقف على جنب في مكان آمن، وأنا هرجّعك.'], ['n_sent', 'اتبعت مكانك للمسؤول.'],
+      ['n_voice_on', 'الصوت رجع.'], ['n_back_dest', 'رجعنا للوجهة.'], ['n_trail', 'هرجّعك على نفس الأثر اللي جيت منه، لفة بلفة.'], ['n_station', 'المحطة'],
+      ['sd_front', 'قدامك'], ['sd_back', 'وراك'], ['sd_right', 'على يمينك'], ['sd_left', 'على شمالك'],
+      ['dir0', 'ناحية الشمال'], ['dir1', 'ناحية الشمال الشرقي'], ['dir2', 'ناحية الشرق'], ['dir3', 'ناحية الجنوب الشرقي'], ['dir4', 'ناحية الجنوب'],
+      ['dir5', 'ناحية الجنوب الغربي'], ['dir6', 'ناحية الغرب'], ['dir7', 'ناحية الشمال الغربي'],
+      ['mk_fork', 'المفرق'], ['mk_turn', 'اللفّة'], ['mk_gate', 'البوابة'], ['mk_tank', 'خزان المية'], ['mk_sign', 'اللافتة'], ['mk_guard', 'كشك الأمن'],
+      ['mk_tower', 'البرج'], ['mk_bump', 'المطب'], ['mk_danger', 'المكان الخطر'], ['mk_note', 'العلامة']
+    ].forEach(function (x) { add(N, x[0], x[1], 8); });
+    var i;
+    for (i = 0; i < 20; i++) add('num', 'n' + i, ONES[i], 4, 'الرقم لوحده');
+    for (i = 2; i < 10; i++) add('num', 't' + i, TENS[i], 4, 'من غير واو');
+    for (i = 2; i < 10; i++) add('num', 'wt' + i, 'و' + TENS[i], 4, 'بالواو في الأول');
+    for (i = 1; i < 10; i++) add('num', 'h' + i, HUND[i], 4);
+    for (i = 1; i < 20; i++) add('num', 'wn' + i, 'و' + ONES[i], 4, 'بالواو في الأول');
+    [['u_meter', 'متر'], ['u_kilo', 'كيلو'], ['w_half', 'ونص'], ['u_pound', 'جنيه'], ['u_piaster', 'قرش'], ['w_half_pound', 'نص جنيه']].forEach(function (x) { add('num', x[0], x[1], 4); });
+    [['p_today', 'أسعار النهارده من كايرو ثري ايه.'], ['p_stale', 'أسعار النهارده لسه ماتنشرتش. دي آخر أسعار منشورة.'], ['p_up', 'زاد عن امبارح'], ['p_down', 'نقص عن امبارح'],
+      ['p_flat', 'وهو ثابت زي امبارح'], ['p_final', 'السعر النهائي بيتأكد وقت الصفقة.'], ['per_kilo', 'للكيلو'], ['per_chick', 'للكتكوت'], ['per_egg', 'للبيضة'], ['per_carton', 'للكرتونة']
+    ].forEach(function (x) { add('price', x[0], x[1], 8); });
+  })();
+  var PERK = { 'كجم': 'per_kilo', 'كيلو': 'per_kilo', 'كتكوت': 'per_chick', 'بيضة': 'per_egg', 'كرتونة': 'per_carton' };
+  function scrCat() { var sc = A.voiceScripts || {}; return Object.keys(sc).map(function (k) { return { g: 'scr', k: 'scr_' + k, t: sc[k].join(' '), max: 45, h: '' }; }); }
+
+  /* ---------- التخزين على الموبايل ---------- */
+  function lsGet(k) { try { return W.localStorage.getItem(k); } catch (e) { return null; } }
+  function lsSet(k, v) { try { W.localStorage.setItem(k, v); } catch (e) { /* ignore */ } }
+  var IDX = null, HAVE = {};
+  try { IDX = JSON.parse(lsGet('c3a_vp_idx') || 'null'); HAVE = JSON.parse(lsGet('c3a_vp_have') || '{}') || {}; } catch (e) { IDX = null; HAVE = {}; }
+  if (!IDX || !IDX.clips) IDX = { ver: -1, clips: {} };
+  function saveMeta() { lsSet('c3a_vp_idx', JSON.stringify(IDX)); lsSet('c3a_vp_have', JSON.stringify(HAVE)); }
+  var DBP = null;
+  function db() {
+    if (DBP) return DBP;
+    DBP = new Promise(function (res, rej) {
+      try {
+        var r = W.indexedDB.open('c3a_voice', 1);
+        r.onupgradeneeded = function () { r.result.createObjectStore('clips'); };
+        r.onsuccess = function () { res(r.result); };
+        r.onerror = function () { rej(r.error); };
+      } catch (e) { rej(e); }
+    });
+    DBP.catch(function () { DBP = null; });
+    return DBP;
+  }
+  function idb(mode, fn) {
+    return db().then(function (d) {
+      return new Promise(function (res, rej) {
+        var tx = d.transaction('clips', mode), st = tx.objectStore('clips'), out = fn(st);
+        tx.oncomplete = function () { res(out && out.result !== undefined ? out.result : null); };
+        tx.onerror = function () { rej(tx.error); };
+      });
+    });
+  }
+  function idbGet(k) { return idb('readonly', function (st) { return st.get(k); }).catch(function () { return null; }); }
+  function idbPut(k, v) { return idb('readwrite', function (st) { st.put(v, k); }).catch(function () { return null; }); }
+  function has(k) { var m = IDX.clips[k]; return !!(m && HAVE[k] === m[0]); }
+  function b64ToAb(b64) { var bin = W.atob(b64), n = bin.length, u = new Uint8Array(n); for (var i = 0; i < n; i++) u[i] = bin.charCodeAt(i); return u.buffer; }
+  function abToB64(ab) { var u = new Uint8Array(ab), s = '', CH = 0x8000; for (var i = 0; i < u.length; i += CH) s += String.fromCharCode.apply(null, u.subarray(i, i + CH)); return W.btoa(s); }
+
+  /* ---------- تنزيل الباقة: الفهرس، وبعدين التسجيلات الناقصة على دفعات ---------- */
+  var SY = { busy: null, ts: 0 };
+  function sync(force) {
+    if (SY.busy) return SY.busy;
+    if (!A.rawCall || (!force && Date.now() - SY.ts < 5 * 60000)) return Promise.resolve(false);
+    SY.ts = Date.now();
+    SY.busy = A.rawCall('voiceIndex', {}).then(function (r) {
+      if (!r || !r.ok || !r.data || !r.data.clips) return false;
+      IDX = r.data; saveMeta();
+      var miss = Object.keys(IDX.clips).filter(function (k) { return !has(k); });
+      var step = function () {
+        if (!miss.length) return true;
+        var batch = miss.splice(0, 12);
+        return A.rawCall('voiceGet', { keys: batch }).then(function (g) {
+          if (!g || !g.ok) return false;
+          var puts = Object.keys(g.data.clips || {}).map(function (k) {
+            var c = g.data.clips[k];
+            return idbPut(k, { m: c.m, ab: b64ToAb(c.b64) }).then(function () { HAVE[k] = c.m[0]; delete BUF[k]; });
+          });
+          return Promise.all(puts).then(function () { saveMeta(); return step(); });
+        });
+      };
+      return step();
+    }).catch(function () { return false; }).then(function (x) { SY.busy = null; return x; });
+    return SY.busy;
+  }
+  /* أول ما يدخل أي حد (تاجر أو موظف أو سائق برابط): ننزّل الباقة في الخلفية، ونراجعها كل 3 ساعات */
+  setTimeout(function tick() { if (S.role) sync(Date.now() - SY.ts > 3 * 3600000); setTimeout(tick, SY.ts ? 15 * 60000 : 8000); }, 6000);
+  W.addEventListener('online', function () { if (S.role) sync(true); });
+
+  /* ---------- التشغيل ---------- */
+  var AC = null, BUF = {}, BUFQ = [], PL = { gen: 0, srcs: [], until: 0 };
+  function ctx() {
+    if (AC) return AC;
+    var C = W.AudioContext || W.webkitAudioContext;
+    if (!C) return null;
+    try { AC = new C(); } catch (e) { AC = null; return null; }
+    try { if (W.navigator.audioSession) W.navigator.audioSession.type = 'playback'; } catch (e) { /* آيفون: يشتغل حتى والموبايل صامت */ }
+    return AC;
+  }
+  function unlock() {
+    var c = ctx(); if (!c) return;
+    try { if (c.state !== 'running') c.resume(); var s = c.createBufferSource(); s.buffer = c.createBuffer(1, 1, 22050); s.connect(c.destination); s.start(0); } catch (e) { /* ignore */ }
+  }
+  ['pointerdown', 'touchend', 'keydown'].forEach(function (ev) { W.addEventListener(ev, unlock, { capture: true, passive: true }); });
+  function decode(ab) {
+    var c = ctx(); if (!c) return Promise.reject(new Error('no audio'));
+    return new Promise(function (res, rej) {
+      try { var p = c.decodeAudioData(ab.slice(0), res, rej); if (p && p.then) p.then(res, rej); } catch (e) { rej(e); }
+    });
+  }
+  function buf(k) {
+    if (BUF[k]) return Promise.resolve(BUF[k]);
+    return idbGet(k).then(function (v) {
+      if (!v || !v.ab) return null;
+      return decode(v.ab).then(function (b) {
+        BUF[k] = b; BUFQ.push(k);
+        while (BUFQ.length > 60) delete BUF[BUFQ.shift()];
+        return b;
+      });
+    }).catch(function () { return null; });
+  }
+  function stop() { PL.gen++; PL.srcs.forEach(function (s) { try { s.stop(); } catch (e) { /* ignore */ } }); PL.srcs = []; PL.until = 0; }
+  function speaking() { return !!(AC && PL.until && AC.currentTime < PL.until); }
+  /* يشغّل التسجيلات ورا بعض. بيرجع true لو اشتغلت، false لو تسجيل ناقص أو الموبايل مش بيعرف يفكّه */
+  function playKeys(keys) {
+    var gen = ++PL.gen;
+    PL.srcs.forEach(function (s) { try { s.stop(); } catch (e) { /* ignore */ } }); PL.srcs = [];
+    var c = ctx(); if (!c || !keys.length) return Promise.resolve(false);
+    try { if (c.state !== 'running') c.resume(); } catch (e) { /* ignore */ }
+    return Promise.all(keys.map(buf)).then(function (bs) {
+      if (gen !== PL.gen) return true;
+      if (bs.some(function (b) { return !b; })) return false;
+      var t = c.currentTime + 0.06;
+      bs.forEach(function (b, i) {
+        var m = IDX.clips[keys[i]] || [0, '', 0, 0, 1], s0 = Math.min(m[2] || 0, b.duration - 0.05), s1 = m[3] && m[3] > s0 ? Math.min(m[3], b.duration) : b.duration, dur = Math.max(0.05, s1 - s0);
+        var src = c.createBufferSource(), g = c.createGain();
+        src.buffer = b; g.gain.value = m[4] || 1;
+        src.connect(g); g.connect(c.destination);
+        src.start(t, s0, dur);
+        PL.srcs.push(src);
+        var txt = (CT[keys[i]] && CT[keys[i]].t) || '';
+        t += dur + (/[.،]$/.test(txt) ? 0.22 : 0.05);
+      });
+      PL.until = t;
+      return true;
+    });
+  }
+
+  /* ---------- صوت الموبايل كبديل (لو موجود عربي) ---------- */
+  function voices() { try { return W.speechSynthesis.getVoices() || []; } catch (e) { return []; } }
+  function arVoice() { var vs = voices(); for (var i = 0; i < vs.length; i++) if (/^ar/i.test(String(vs[i].lang || ''))) return vs[i]; return null; }
+  /* لو قايمة الأصوات لسه ماتحمّلتش بنجرّب؛ لو اتحمّلت ومافيهاش عربي مانقولش حاجة (أحسن من كلام بلغة غلط) */
+  function ttsMaybe() { if (!(W.speechSynthesis && W.SpeechSynthesisUtterance)) return false; return !voices().length || !!arVoice(); }
+  function tts(text, rate) {
+    if (!text || !ttsMaybe()) return false;
+    try {
+      var ss = W.speechSynthesis, u = new W.SpeechSynthesisUtterance(text), v = arVoice();
+      ss.cancel(); u.lang = v ? v.lang : 'ar-EG'; if (v) u.voice = v;
+      u.rate = rate || (A.voiceRate ? A.voiceRate() : 0.92); u.pitch = 1;
+      ss.speak(u); return true;
+    } catch (e) { return false; }
+  }
+
+  /* لما قايمة أصوات الموبايل تتحمّل: لو مافيهاش عربي، نشيل زرار «اسمع» من الشاشات اللي مالهاش تسجيل */
+  try {
+    if (W.speechSynthesis && W.speechSynthesis.addEventListener) W.speechSynthesis.addEventListener('voiceschanged', function () {
+      if (ttsMaybe()) return;
+      A.$$('[data-act="scr_say"]').forEach(function (b) { if (!has('scr_' + (b.dataset.id || ''))) b.parentNode.removeChild(b); });
+    });
+  } catch (e) { /* ignore */ }
+
+  /* ---------- الكلام بالقطع (tokens) ----------
+     القطعة: 'مفتاح' | {n: رقم} | {d: متر} | {money: جنيه} | {st: محطة} | {mk: علامة} | {t: نص, k: مفتاح بديل, opt: تتشال لو مالهاش تسجيل} */
+  function build(tokens) {
+    var keys = [], text = [], ok = true;
+    (tokens || []).forEach(function (tk) {
+      if (tk === null || tk === undefined || tk === '') return;
+      if (typeof tk === 'string') { var c = CT[tk]; text.push(c ? c.t : tk); keys.push(tk); return; }
+      if (tk.n !== undefined) { text.push(eg(tk.n)); var nk = numKeys(tk.n); if (nk) keys = keys.concat(nk); else ok = false; return; }
+      if (tk.d !== undefined) { var dp = distParts(tk.d); text.push(dp.t); if (dp.k) keys = keys.concat(dp.k); else ok = false; return; }
+      if (tk.money !== undefined) { var mp = moneyParts(tk.money); text.push(mp.t); keys = keys.concat(mp.k); return; }
+      if (tk.st) { text.push(tk.st.name || ''); var sk = tk.st.sid ? 'st_' + idk(tk.st.sid) : ''; keys.push(sk && has(sk) ? sk : 'n_station'); return; }
+      if (tk.mk) { var mk = tk.mk; text.push(mk.t || (CT['mk_' + mk.k] || {}).t || 'العلامة'); keys.push('mk_' + (CT['mk_' + mk.k] ? mk.k : 'note')); return; }
+      if (tk.t !== undefined) { text.push(String(tk.t)); if (tk.k && has(tk.k)) keys.push(tk.k); else if (!tk.opt) ok = false; }
+    });
+    if (keys.some(function (k) { return !k || !has(k); })) ok = false;
+    return { keys: ok ? keys : null, text: text.join(' ').replace(/\s+([.،])/g, '$1').replace(/\s+/g, ' ').trim() };
+  }
+  /* يقول الجملة: التسجيل لو كامل، وإلا صوت الموبايل العربي، وإلا يسكت. بيرجع النص المكتوب */
+  function say(tokens, o) {
+    o = o || {};
+    var b = build(tokens);
+    if (b.keys && b.keys.length && ctx()) {
+      playKeys(b.keys).then(function (played) { if (!played && !o.noTts) tts(b.text, o.rate); });
+      return b.text;
+    }
+    if (!o.noTts) tts(b.text, o.rate);
+    return b.text;
+  }
+  function canSay(tokens) { var b = build(tokens); return !!(b.keys && b.keys.length) || ttsMaybe(); }
+  function textOf(tokens) { return build(tokens).text; }
+
+  /* الأسعار: جملة لكل صنف */
+  function marketTokens(m) {
+    if (!m || !m.items) return [];
+    var priced = m.items.filter(function (x) { return x.price !== null && x.price !== undefined; });
+    if (!priced.length) return [];
+    var out = [[m.state === 'fresh' ? 'p_today' : 'p_stale']];
+    priced.forEach(function (it) {
+      var u = String(it.unit || ''), per = u.split('/')[1] || '', tk = [{ t: it.short || it.name, k: 'mi_' + idk(it.id) }];
+      if (/^جنيه\//.test(u)) { tk.push({ money: it.price }); tk.push(PERK[per] ? PERK[per] : { t: 'لل' + per, opt: true }); }
+      else { tk.push({ n: it.price }); tk.push({ t: u, opt: true }); }
+      if (it.chg !== null && it.chg !== undefined && it.fresh !== false) {
+        var amt = Math.abs(Number(it.chg));
+        if (it.dir === 'flat') tk.push('p_flat');
+        else if (amt) { tk.push(it.dir === 'up' ? 'p_up' : 'p_down'); tk.push(/^جنيه\//.test(u) ? { money: amt } : { n: amt }); }
+      }
+      out.push(tk);
+    });
+    if (m.note) out.push([{ t: 'ملاحظة: ' + String(m.note), opt: true }]);
+    out.push(['p_final']);
+    return out;
+  }
+  /* يقول كذا جملة ورا بعض (الأسعار)؛ لو أي جملة ناقصة يقول الكل بصوت الموبايل */
+  function sayAll(list, o) {
+    var flat = [];
+    list.forEach(function (tk) { flat = flat.concat(tk); });
+    var b = build(flat);
+    if (b.keys && b.keys.length && ctx()) { playKeys(b.keys).then(function (p) { if (!p) ttsLines(list); }); return true; }
+    return ttsLines(list);
+    function ttsLines(l) { var lines = l.map(textOf); if (A.speakLines && ttsMaybe()) { A.speakLines(lines); return true; } return false; }
+  }
+
+  A.vp = {
+    say: say, sayAll: sayAll, canSay: canSay, text: textOf, build: build, has: has, play: playKeys, stop: stop, speaking: speaking, sync: sync,
+    ttsMaybe: ttsMaybe, marketTokens: marketTokens, eg: eg, numKeys: numKeys, distParts: distParts, moneyParts: moneyParts, idk: idk,
+    count: function () { return Object.keys(IDX.clips).length; }, catalog: function () { return scrCat().concat(CAT); }
+  };
+
+  /* ============================================================
+     استوديو الصوت (للمدير): كل جملة قدامها زرار تسجيل
+     ============================================================ */
+  var VS = null;
+  function groups() {
+    var dyn = (VS && VS.dyn) || { stations: [], items: [], cards: [] };
+    return [
+      { id: 'scr', t: 'شاشات التاجر', items: scrCat() },
+      { id: 'nav', t: 'الملاحة', items: CAT.filter(function (x) { return x.g === 'nav'; }) },
+      { id: 'num', t: 'الأرقام والمسافات', items: CAT.filter(function (x) { return x.g === 'num'; }) },
+      { id: 'st', t: 'أسماء المحطات', items: dyn.stations.map(function (x) { return { g: 'st', k: 'st_' + idk(x.id), t: x.name, max: 8, h: '' }; }) },
+      { id: 'price', t: 'الأسعار', items: CAT.filter(function (x) { return x.g === 'price'; }).concat(dyn.items.map(function (x) { return { g: 'price', k: 'mi_' + idk(x.id), t: x.short, max: 5, h: 'اسم الصنف' }; })) },
+      { id: 'kc', t: 'الدروس', items: dyn.cards.map(function (x) { return { g: 'kc', k: 'kc_' + idk(x.id), t: x.title + '. ' + x.fact, max: 45, h: '' }; }) }
+    ];
+  }
+  function allItems() { var a = []; groups().forEach(function (g) { a = a.concat(g.items); }); return a; }
+  function isRec(k) { return !!IDX.clips[k]; }
+  A.vstudioOpen = function () {
+    if (VS) return;
+    VS = { g: 'scr', cur: null, dyn: null, stream: null, mr: null, chunks: [], rec: false, t0: 0, take: null, busy: false, err: '', raf: 0, an: null, timer: null };
+    var el = document.createElement('div');
+    el.id = 'vst'; el.className = 'vst'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'استوديو الصوت');
+    document.body.appendChild(el);
+    try { W.history.pushState({ c3avst: 1 }, ''); W.addEventListener('popstate', onPop); } catch (e) { /* ignore */ }
+    paint();
+    A.call('sVoiceList', {}).then(function (d) {
+      if (!VS || !d) return;
+      VS.dyn = d; IDX = d.index; saveMeta(); paint();
+    });
+  };
+  function onPop() { if (VS) close(true); }
+  function close(fromPop) {
+    if (!VS) return;
+    stopRec(true);
+    if (VS.stream) VS.stream.getTracks().forEach(function (t) { try { t.stop(); } catch (e) { /* ignore */ } });
+    W.removeEventListener('popstate', onPop);
+    var el = document.getElementById('vst'); if (el) el.parentNode.removeChild(el);
+    VS = null;
+    if (!fromPop) try { if (W.history.state && W.history.state.c3avst) W.history.back(); } catch (e) { /* ignore */ }
+    if (A.sView) A.sView(true);
+  }
+  function curItem() { var k = VS && VS.cur; return k ? allItems().filter(function (x) { return x.k === k; })[0] : null; }
+  function paint() {
+    var el = document.getElementById('vst'); if (!el || !VS) return;
+    var gs = groups(), all = allItems(), done = all.filter(function (x) { return isRec(x.k); }).length, g = gs.filter(function (x) { return x.id === VS.g; })[0] || gs[0];
+    var head = '<div class="vst-top"><button class="ib vst-x" data-act="vs_close" aria-label="رجوع">' + ic('back') + '</button><div class="grow"><b>استوديو الصوت</b><div class="xs">' +
+      (VS.dyn ? 'اتسجّل ' + done + ' من ' + all.length + ' جملة' : 'بنحمّل القايمة…') + '</div></div><button class="btn xs gh" data-act="vs_demo">' + ic('speaker', 'sm') + 'جرّب جملة</button></div>' +
+      '<div class="vst-bar"><i style="width:' + (all.length ? Math.round(done * 100 / all.length) : 0) + '%"></i></div>';
+    var tips = '<details class="vst-tips"><summary>إزاي تسجّل صح</summary><ul><li>مكان هادي، والموبايل على بعد شبر من بُقّك.</li><li>اقرا الجملة بالراحة وبصوت واضح، زي ما بتكلّم تاجر قدامك.</li><li>الأرقام والكلمات الصغيرة: قولها لوحدها من غير ما تمطّها. التطبيق بيركّبها جنب بعض: «بعد» + «ميتين» + «متر».</li><li>اضغط ● وابدأ الكلام، واضغط تاني لما تخلّص. التطبيق بيقص السكوت لوحده.</li></ul></details>';
+    var tabs = '<div class="vst-tabs">' + gs.map(function (x) {
+      var n = x.items.filter(function (y) { return isRec(y.k); }).length;
+      return '<button class="' + (x.id === g.id ? 'on' : '') + '" data-act="vs_g" data-id="' + x.id + '">' + esc(x.t) + '<i class="' + (n === x.items.length && n ? 'ok' : '') + '">' + n + '/' + x.items.length + '</i></button>';
+    }).join('') + '</div>';
+    var rows = g.items.length ? g.items.map(function (x) {
+      var r = isRec(x.k);
+      return '<div class="vst-row' + (VS.cur === x.k ? ' cur' : '') + '"><button class="vst-t" data-act="vs_pick" data-id="' + esc(x.k) + '"><b>' + esc(x.t) + '</b>' + (x.h ? '<span class="xs mut">' + esc(x.h) + '</span>' : '') + '</button>' +
+        (r ? '<button class="ib vst-pl" data-act="vs_play" data-id="' + esc(x.k) + '" aria-label="اسمع">' + ic('play', 'sm') + '</button><span class="chip ok">' + ic('check', 'sm') + '</span>' : '<span class="chip">لسه</span>') + '</div>';
+    }).join('') : '<div class="card tc mut sm">مفيش حاجة هنا دلوقتي.</div>';
+    el.innerHTML = head + '<div class="vst-body">' + tips + tabs + '<div class="vst-list">' + rows + '</div><div style="height:260px"></div></div>' + panel();
+    if (VS.rec) meter();
+  }
+  function panel() {
+    var it = curItem(); if (!it) return '';
+    var st = VS.rec ? 'rec' : VS.take ? 'take' : 'idle', sec = VS.rec ? Math.floor((Date.now() - VS.t0) / 1000) : 0;
+    var btn = VS.rec ? '<button class="vst-rec on" data-act="vs_rec" aria-label="وقّف التسجيل"><i></i><span>وقّف</span></button>' :
+      '<button class="vst-rec" data-act="vs_rec" aria-label="ابدأ التسجيل"' + (VS.busy ? ' disabled' : '') + '><i></i><span>' + (VS.take ? 'سجّل تاني' : 'سجّل') + '</span></button>';
+    var acts = VS.take && !VS.rec ? '<div class="vst-acts"><button class="btn gh" data-act="vs_take_play">' + ic('play', 'sm') + 'اسمعها</button><button class="btn ok" data-act="vs_save"' + (VS.busy ? ' disabled' : '') + '>' + (VS.busy ? 'بيحفظ…' : ic('check', 'sm') + 'احفظ وكمّل') + '</button></div>' : '';
+    return '<div class="vst-panel ' + st + '"><div class="vst-say' + (it.t.length > 110 ? ' long' : '') + '">' + esc(it.t) + '</div>' + (it.h ? '<div class="xs mut tc">' + esc(it.h) + '</div>' : '') +
+      '<div class="vst-mid">' + btn + '<div class="vst-meter"><i id="vs-lvl"></i></div><div class="vst-sec" id="vs-sec">' + (VS.rec ? sec + ' / ' + it.max + ' ث' : VS.take ? (VS.take.s1 - VS.take.s0).toFixed(1) + ' ث كلام' : '') + '</div></div>' +
+      (VS.err ? '<div class="vst-err">' + esc(VS.err) + '</div>' : '') + acts +
+      '<div class="vst-nav"><button class="btn xs gh" data-act="vs_prev">‹ اللي قبلها</button><button class="btn xs gh" data-act="vs_skip">اللي بعدها ›</button></div></div>';
+  }
+  H.vs_close = function () { close(); };
+  H.vs_g = function (el) { if (!VS || VS.rec) return; VS.g = el.dataset.id; VS.cur = null; VS.take = null; VS.err = ''; paint(); var b = document.querySelector('#vst .vst-body'); if (b) b.scrollTop = 0; };
+  H.vs_pick = function (el) { if (!VS || VS.rec) return; VS.cur = el.dataset.id; VS.take = null; VS.err = ''; paint(); };
+  H.vs_play = function (el) { var k = el.dataset.id; (has(k) ? Promise.resolve() : sync(true)).then(function () { playKeys([k]).then(function (p) { if (!p) A.toast('مش قادر أشغّلها على الموبايل ده', 'err'); }); }); };
+  function move(dir, onlyMissing) {
+    var g = groups().filter(function (x) { return x.id === VS.g; })[0], list = g ? g.items : [], i = list.map(function (x) { return x.k; }).indexOf(VS.cur);
+    for (var j = i + dir; j >= 0 && j < list.length; j += dir) { if (!onlyMissing || !isRec(list[j].k)) { VS.cur = list[j].k; VS.take = null; VS.err = ''; paint(); scrollCur(); return true; } }
+    if (onlyMissing) { VS.cur = null; VS.take = null; paint(); A.toast('خلّصت «' + (g ? g.t : '') + '». اختار قسم تاني من فوق', 'ok'); }
+    return false;
+  }
+  function scrollCur() { var r = document.querySelector('#vst .vst-row.cur'); if (r && r.scrollIntoView) try { r.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) { /* ignore */ } }
+  H.vs_prev = function () { if (VS && !VS.rec) move(-1, false); };
+  H.vs_skip = function () { if (VS && !VS.rec) move(1, false); };
+
+  /* التسجيل */
+  function pickMime() {
+    var R = W.MediaRecorder; if (!R) return '';
+    var list = ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg;codecs=opus'];
+    for (var i = 0; i < list.length; i++) { try { if (!R.isTypeSupported || R.isTypeSupported(list[i])) return list[i]; } catch (e) { /* ignore */ } }
+    return '';
+  }
+  function getStream() {
+    if (VS.stream && VS.stream.active) return Promise.resolve(VS.stream);
+    if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)) return Promise.reject(new Error('nomic'));
+    return navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true, channelCount: 1 } }).then(function (s) { VS.stream = s; return s; });
+  }
+  H.vs_rec = function () {
+    if (!VS || VS.busy) return;
+    if (VS.rec) return stopRec(false);
+    var it = curItem(); if (!it) return;
+    if (!W.MediaRecorder) { VS.err = 'المتصفح ده مش بيسجّل صوت. افتح التطبيق من Chrome على أندرويد أو Safari على آيفون'; paint(); return; }
+    unlock();
+    getStream().then(function (stream) {
+      if (!VS) return;
+      var mime = pickMime(), mr;
+      try { mr = new W.MediaRecorder(stream, mime ? { mimeType: mime, audioBitsPerSecond: 32000 } : { audioBitsPerSecond: 32000 }); } catch (e) { mr = new W.MediaRecorder(stream); }
+      VS.mr = mr; VS.chunks = []; VS.rec = true; VS.t0 = Date.now(); VS.take = null; VS.err = ''; VS.mime = mr.mimeType || mime || 'audio/webm';
+      mr.ondataavailable = function (e) { if (e.data && e.data.size) VS.chunks.push(e.data); };
+      mr.onstop = function () { finish(); };
+      mr.start(250);
+      try { var c = ctx(), src = c.createMediaStreamSource(stream), an = c.createAnalyser(); an.fftSize = 512; src.connect(an); VS.an = an; } catch (e) { VS.an = null; }
+      VS.timer = setInterval(function () {
+        if (!VS || !VS.rec) return;
+        var s = document.getElementById('vs-sec'); if (s) s.textContent = Math.floor((Date.now() - VS.t0) / 1000) + ' / ' + it.max + ' ث';
+        if (Date.now() - VS.t0 > it.max * 1000) stopRec(false);
+      }, 250);
+      paint();
+    }, function () { VS.err = 'محتاجين إذن المايك. اسمح للتطبيق باستخدام الميكروفون من رسالة المتصفح، وجرّب تاني'; paint(); });
+  };
+  function meter() {
+    if (!VS || !VS.rec) return;
+    var lv = document.getElementById('vs-lvl');
+    if (lv && VS.an) { var a = new Uint8Array(VS.an.fftSize); VS.an.getByteTimeDomainData(a); var m = 0; for (var i = 0; i < a.length; i++) m = Math.max(m, Math.abs(a[i] - 128)); lv.style.width = Math.min(100, Math.round(m * 100 / 90)) + '%'; }
+    VS.raf = W.requestAnimationFrame(meter);
+  }
+  function stopRec(discard) {
+    if (!VS) return;
+    clearInterval(VS.timer); if (VS.raf) W.cancelAnimationFrame(VS.raf);
+    if (VS.rec && VS.mr) { VS.discard = !!discard; VS.rec = false; try { VS.mr.stop(); } catch (e) { /* ignore */ } }
+    VS.rec = false;
+    if (!discard) paint();
+  }
+  /* بعد التسجيل: نقص السكوت ونوحّد العلو، ونسمّعهاله */
+  function finish() {
+    if (!VS || VS.discard) return;
+    var blob = new Blob(VS.chunks, { type: VS.mime });
+    VS.busy = true; paint();
+    blob.arrayBuffer().then(function (ab) {
+      return decode(ab).then(function (b) {
+        var d = b.getChannelData(0), sr = b.sampleRate, win = Math.max(1, Math.round(sr * 0.02)), rms = [], mx = 0, i, j;
+        for (i = 0; i < d.length; i += win) { var s = 0, n = 0; for (j = i; j < Math.min(d.length, i + win); j++) { s += d[j] * d[j]; n++; } var r = Math.sqrt(s / Math.max(1, n)); rms.push(r); if (r > mx) mx = r; }
+        var thr = Math.max(0.006, mx * 0.12), a = -1, z = -1;
+        for (i = 0; i < rms.length; i++) if (rms[i] > thr) { if (a < 0) a = i; z = i; }
+        if (a < 0 || mx < 0.004) throw new Error('quiet');
+        var s0 = Math.max(0, a * win / sr - 0.1), s1 = Math.min(b.duration, (z + 1) * win / sr + 0.16), pk = 0;
+        for (i = Math.floor(s0 * sr); i < Math.min(d.length, Math.ceil(s1 * sr)); i++) pk = Math.max(pk, Math.abs(d[i]));
+        if (s1 - s0 < 0.2) throw new Error('quiet');
+        VS.take = { ab: ab, buf: b, s0: +s0.toFixed(2), s1: +s1.toFixed(2), gain: +Math.max(0.5, Math.min(4, 0.85 / Math.max(pk, 0.01))).toFixed(2), mime: VS.mime };
+        VS.busy = false; paint(); playTake();
+      });
+    }).catch(function (e) {
+      if (!VS) return;
+      VS.busy = false; VS.take = null;
+      VS.err = e && e.message === 'quiet' ? 'مفيش كلام واضح في التسجيل. قرّب الموبايل وسجّل تاني' : 'ماقدرناش نقرأ التسجيل على الموبايل ده. جرّب تاني';
+      paint();
+    });
+  }
+  function playTake() {
+    var t = VS && VS.take, c = ctx(); if (!t || !c) return;
+    stop();
+    try { if (c.state !== 'running') c.resume(); } catch (e) { /* ignore */ }
+    var src = c.createBufferSource(), g = c.createGain(); src.buffer = t.buf; g.gain.value = t.gain; src.connect(g); g.connect(c.destination);
+    src.start(c.currentTime + 0.05, t.s0, Math.max(0.05, t.s1 - t.s0)); PL.srcs.push(src);
+  }
+  H.vs_take_play = function () { playTake(); };
+  H.vs_save = function () {
+    var t = VS && VS.take, it = curItem(); if (!t || !it || VS.busy) return;
+    VS.busy = true; paint();
+    A.call('sVoiceSave', { key: it.k, mime: t.mime, b64: abToB64(t.ab), s0: t.s0, s1: t.s1, gain: t.gain }, { keepErr: true }).then(function (d) {
+      if (!VS) return;
+      VS.busy = false;
+      if (!d || d.__err) { VS.err = (d && d.__err && d.__err.msg) || 'ماتحفظتش. اتأكد من النت وجرّب تاني'; paint(); return; }
+      IDX.clips[it.k] = d.m; IDX.ver = d.ver; HAVE[it.k] = d.m[0]; BUF[it.k] = t.buf; BUFQ.push(it.k); saveMeta();
+      idbPut(it.k, { m: d.m, ab: t.ab });
+      VS.take = null; VS.err = '';
+      move(1, true);
+    });
+  };
+  /* «جرّب جملة»: يركّب جملة ملاحة وجملة سعر من اللي اتسجّل */
+  H.vs_demo = function () {
+    var tk = ['n_after', { d: 250 }, 'm_turn_r', 'n_at', { mk: { k: 'tank' } }];
+    var b = build(tk);
+    if (!b.keys) {
+      var miss = []; tk.forEach(function (x) { var bb = build([x]); if (!bb.keys) miss.push(bb.text); });
+      A.toast('لسه ناقص تسجيل: ' + miss.join('، '), 'err'); return;
+    }
+    playKeys(b.keys); A.toast('«' + b.text + '»', 'ok');
+  };
+
+  /* زرار الاستوديو في «اللوحة» للي معاه الصلاحية */
+  H.vs_open = function () { A.vstudioOpen(); };
+  var prevDash = A.staffST && A.staffST.dash;
+  if (prevDash) A.staffST.dash = function () {
+    var h = prevDash.apply(this, arguments);
+    if (!(A.can && A.can('voice')) || typeof h !== 'string' || h.indexOf('<div class="sec-t">التجار والمشاركة') < 0) return h;
+    var n = A.vp.count(), card = '<button class="tkt" data-act="vs_open">' + ic('speaker') + '<div class="grow"><b>استوديو الصوت</b><div class="xs mut">سجّل جمل التطبيق بصوتك مرة واحدة، فتشتغل عند كل التجار من غير إعدادات ومن غير نت' + (n ? ' · متسجّل ' + n : '') + '</div></div>' + ic('back') + '</button>';
+    return h.replace('<div class="sec-t">التجار والمشاركة', card + '<div class="sec-t">التجار والمشاركة');
   };
 })();
 
@@ -5864,13 +6443,25 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     for (var k = 0; k < vs.length; k++) if (lang(vs[k]).indexOf('ar') === 0) return vs[k];
     return null;
   }
-  function speak(text, pri) {
-    if (!N || !text) return;
+  /* الكلام بالقطع: التسجيلات المتسجّلة من «استوديو الصوت» الأول، وصوت الموبايل العربي لو مفيش، وإلا سكوت.
+     القطعة: مفتاح جملة، أو {d: متر}، أو {st: نقطة}، أو {mk: علامة}، أو {t: نص} */
+  function ST(p) { return { st: { sid: (p && p.sid) || '', name: (p && p.name) || 'المحطة' } }; }
+  function D(m) { return { d: m }; }
+  function MK(mk) { return { mk: mk }; }
+  function speak(tokens, pri) {
+    if (!N || !tokens) return;
+    if (typeof tokens === 'string') tokens = [{ t: tokens }];
+    var text = A.vp ? A.vp.text(tokens) : tokens.map(function (x) { return typeof x === 'string' ? x : (x.t || (x.st && x.st.name) || (x.d !== undefined ? sayD(x.d) : '')); }).join(' ');
     N.lastSaidTs = Date.now();
     if (!N.voice) return;
     pri = pri || 1;
     var now = Date.now();
-    if (now < VO.until && pri < VO.pri) return;
+    /* جملة أهم شغالة: نأجّل دي لحد ما تخلص (مانضيعهاش)، ولو استنت أكتر من 8 ثواني تتلغي */
+    if (now < VO.until && pri < VO.pri) { if (!N.pend || pri >= N.pend.pri) N.pend = { tokens: tokens, pri: pri, ts: now }; return; }
+    N.pend = null;
+    VO.pri = pri; VO.until = now + Math.max(1600, text.length * 95);
+    N.said.push(text); if (N.said.length > 40) N.said.shift();
+    if (A.vp) { A.vp.say(tokens, { rate: A.voiceRate ? A.voiceRate() : 0.92 }); return; }
     if (!(W.speechSynthesis && W.SpeechSynthesisUtterance)) { N.noVoice = true; return; }
     try {
       var ss = W.speechSynthesis, u = new W.SpeechSynthesisUtterance(text), v = pickVoice();
@@ -5878,9 +6469,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       u.lang = v ? v.lang : 'ar-EG'; if (v) u.voice = v;
       u.rate = A.voiceRate ? A.voiceRate() : 0.92; u.pitch = 1;
       u.onend = function () { VO.until = 0; };
-      VO.pri = pri; VO.until = now + Math.max(1600, text.length * 95);
       ss.speak(u);
-      N.said.push(text); if (N.said.length > 40) N.said.shift();
     } catch (e) { N.noVoice = true; }
   }
   function buzz(p) { try { if (navigator.vibrate) navigator.vibrate(p); } catch (e) { /* ignore */ } }
@@ -6001,7 +6590,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     W.addEventListener('resize', onResize);
     try { W.history.pushState({ c3anav: 1 }, ''); W.addEventListener('popstate', onPop); } catch (e) { /* ignore */ }
     var lg = leg();
-    speak('هوصّلك لـ ' + cur().name + '.' + (lg && lg.roads.length ? ' على الطريق المتسجّل، لفة بلفة.' : ' بص على السهم، وامشي ناحيته.'), 3);
+    speak(['n_take', ST(cur()), lg && lg.roads.length ? 'n_mode_road' : 'n_mode_arrow'], 3);
     update();
     loop();
     return true;
@@ -6106,11 +6695,11 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       N.arrivedTs = Date.now();
       setTxt('nv-arr-n', was.name);
       buzz([200, 100, 200, 100, 400]);
-      speak('وصلت ' + was.name + '.' + (nx ? ' النقطة الجاية ' + nx.name + '، على بعد ' + sayD(N.pos ? dist(N.pos, nx) : dist(was, nx)) + (lg && lg.roads.length ? '، وليها طريق متسجّل.' : '.') : ''), 5);
+      speak(['n_arrived', ST(was)].concat(nx ? ['n_next_pt', ST(nx), 'n_away', D(N.pos ? dist(N.pos, nx) : dist(was, nx))].concat(lg && lg.roads.length ? ['n_has_road'] : []) : []), 5);
     } else if (why === 'skip') {
-      speak('عدّيت ' + was.name + '. النقطة الجاية ' + nx.name + '.', 3);
+      speak(['n_passed', ST(was), 'n_next_pt', ST(nx)], 3);
     } else if (nx) {
-      speak('النقطة الجاية ' + nx.name + '.', 3);
+      speak(['n_next_pt', ST(nx)], 3);
     }
   }
   function finish() {
@@ -6119,7 +6708,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     ssSet('c3a_nav_idx_' + N.key, '0');
     setTxt('nv-arr-n', was.name);
     buzz([200, 100, 200, 100, 600]);
-    speak(N.back ? 'رجعت لأول نقطة بدأت منها. لو محتاج مساعدة كلّم المسؤول.' : 'وصلت لوجهتك، ' + was.name + '. حمد الله على السلامة.', 5);
+    speak(N.back ? ['n_back_done'] : ['n_dest', ST(was), 'n_salama'], 5);
   }
 
   /* ---------- قلب الملاحة: بيحسب «إنت فين من الطريق» واللفة الجاية ---------- */
@@ -6175,6 +6764,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   function update() {
     if (!N || !document.getElementById('nav')) return;
     var now = Date.now(), tg = cur(), r = rt();
+    if (N.pend && now >= VO.until) { var pd = N.pend; N.pend = null; if (now - pd.ts < 8000) speak(pd.tokens, pd.pri); }
     var nav = document.getElementById('nav');
     nav.className = 'nav ' + (N.night ? 'night' : 'day') + (N.done ? ' done' : '') + (N.view === 'map' ? ' vmap' : '');
     setTxt('nv-lbl', N.back ? 'راجع على أثرك لـ' : (N.done ? 'وصلت' : 'رايح لـ'));
@@ -6257,10 +6847,10 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       setHtml('nv-far', '<b>' + (g.road ? 'خطوة 1 من 2: الطريق العمومي' : 'المكان بعيد عن هنا') + '</b><span>' + (g.road ? 'خرائط جوجل هتوصلك لحد بداية الطريق المتسجّل. أول ما تقرّب (أقل من 3 كم) هكمّل معاك أنا لحد المحطة.' : 'خرائط جوجل أحسن للطرق العمومية. لما تقرّب ارجع هنا.') + '</span><a class="nv-farb" target="_blank" rel="noopener" href="' + gm + dst.lat.toFixed(6) + ',' + dst.lng.toFixed(6) + '">' + ic('truck', 'sm') + 'افتح خرائط جوجل</a>');
       setHtml('nv-then', ''); setHtml('nv-chip', g.road ? chip('road', 'المحطة ليها طريق متسجّل') : chip('direct', 'مافيش طريق متسجّل للمكان ده'));
       var fk = g.road ? 'r' : 'd';
-      if (N.farSaidK !== fk) { N.farSaidK = fk; speak(g.road ? 'بداية الطريق المتسجّل على بعد ' + sayD(dd) + '. افتح خرائط جوجل لحد هناك، ولما تقرّب أنا هكمّل معاك.' : tg.name + ' على بعد ' + sayD(dd) + '. افتح خرائط جوجل للطريق العمومي.', 3); }
+      if (N.farSaidK !== fk) { N.farSaidK = fk; speak(g.road ? ['n_road_start', 'n_away', D(dd), 'n_far_gm'] : [ST(tg), 'n_away', D(dd), 'n_far_gm2'], 3); }
     } else directUi(g, hd, now, trend, d, tg);
     if (g.kind !== 'far') setHtml('nv-far', '');
-    if (N.pos.acc > 100) { if (!N.weakTs) N.weakTs = now; if (now - N.weakTs > 15000 && !N.weakSaid) { N.weakSaid = true; speak('إشارة الموقع ضعيفة. لو تقدر، اقف في مكان مفتوح.', 2); } }
+    if (N.pos.acc > 100) { if (!N.weakTs) N.weakTs = now; if (now - N.weakTs > 15000 && !N.weakSaid) { N.weakSaid = true; speak(['n_weak'], 2); } }
     else N.weakTs = 0;
   }
   function chip(k, t) { return '<span class="nvc ' + k + '">' + (k === 'road' ? CHECK : '') + esc(t) + '</span>'; }
@@ -6285,12 +6875,12 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   function roadUi(g, hd, now, trend) {
     var rd = g.road, m = g.man, tg = g.tg;
     setHtml('nv-chip', rd.trail ? chip('road', 'راجع على نفس أثرك') : chip('road', 'على الطريق المتسجّل'));
-    if (N.off) { N.off = false; speak('رجعت على الطريق. كمّل.', 3); }
+    if (N.off) { N.off = false; speak(['n_on_road'], 3); }
     if (g.kind === 'wrong') {
       card('bad', 'uturn', null, 'إنت ماشي عكس الطريق', 'لِف وارجع بالراحة، والطريق هيفضل قدامك على الشاشة.', '');
       cls('nv-arrow', 'nav-arrow bad');
       setHtml('nv-then', '');
-      if (now - N.wrongSaid > 12000) { N.wrongSaid = now; buzz([600]); speak('إنت ماشي عكس الطريق. لف وارجع.', 4); }
+      if (now - N.wrongSaid > 12000) { N.wrongSaid = now; buzz([600]); speak(['n_wrong'], 4); }
       return;
     }
     var far = m.type !== 'arrive' && g.manD > 900;
@@ -6301,37 +6891,39 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     setHtml('nv-then', g.then && !far ? '<span>وبعدها على طول</span><i>' + glyph(g.then.type) + '</i><b>' + esc(manText(g.then, tg.name)) + '</b>' : '');
     /* الصوت: كل لفة ليها 3 تنبيهات بالكتير (بعيد، قريب، دلوقتي) */
     var key = rd.id + ':' + m.n, said = N.said3[key] || (N.said3[key] = {}), v = N.speed || 0;
-    var line = manText(m, tg.name, true), lm = manSub(m);
+    var line = (m.fork ? ['n_at_fork'] : []).concat(['m_' + (m.type === 'straight' ? 'straight' : m.type)]);
+    var lm = m.mark && m.type !== 'arrive' ? (m.fork ? (m.mark.t ? [{ t: m.mark.t, opt: true }] : []) : [m.mark.k === 'gate' || m.mark.k === 'sign' ? 'n_after' : 'n_at', MK(m.mark)]) : [];
     if (N.lastManN !== m.n) {
-      if (N.lastManN >= 0 && g.manD > 600 && m.type !== 'arrive') speak('تمام. كمّل على الطريق ' + sayD(g.manD) + '.', 2);
+      if (N.lastManN >= 0 && g.manD > 600 && m.type !== 'arrive') speak(['n_ok_cont', D(g.manD)], 2);
       N.lastManN = m.n;
     }
     if (m.type === 'arrive') {
-      if (g.manD <= 300 && g.manD > 120 && !said.a) { said.a = 1; speak('فاضل ' + sayD(g.manD) + ' على ' + tg.name + '.', 3); }
-      if (g.manD <= 120 && !said.b) { said.b = 1; speak('قربت توصل ' + tg.name + '.', 3); }
+      if (g.manD <= 300 && g.manD > 120 && !said.a) { said.a = 1; speak(['n_left', D(g.manD), 'n_to', ST(tg)], 3); }
+      if (g.manD <= 120 && !said.b) { said.b = 1; speak(['n_near', ST(tg)], 3); }
     } else {
-      if (!said.f && g.manD <= 450 && g.manD > 250 && v >= 7) { said.f = 1; speak('بعد ' + sayD(g.manD) + '، ' + line + (lm ? ' ' + lm : '') + '.', 3); }
-      if (!said.n && g.manD <= 170 && g.manD > Math.max(45, v * 5)) { said.n = 1; speak('بعد ' + sayD(g.manD) + '، ' + line + (lm ? ' ' + lm : '') + '.', 3); }
-      if (!said.x && g.manD <= Math.max(45, v * 5)) { said.x = 1; buzz([120]); speak(line + ' دلوقتي' + (lm ? '، ' + lm : '') + '.', 4); }
+      if (!said.f && g.manD <= 450 && g.manD > 250 && v >= 7) { said.f = 1; speak(['n_after', D(g.manD)].concat(line, lm), 3); }
+      if (!said.n && g.manD <= 170 && g.manD > Math.max(45, v * 5)) { said.n = 1; speak(['n_after', D(g.manD)].concat(line, lm), 3); }
+      if (!said.x && g.manD <= Math.max(45, v * 5)) { said.x = 1; buzz([120]); speak(line.concat(['n_now'], lm), 4); }
     }
     /* علامات بنعدّي عليها */
     rd.pass.forEach(function (mk, k) {
       var dd = mk.s - g.s, kk = rd.id + ':p' + k;
-      if (dd > 40 && dd <= 160 && !N.said3[kk]) { N.said3[kk] = 1; speak('هتعدّي على ' + markLabel(mk) + '.', 2); }
+      if (dd > 40 && dd <= 160 && !N.said3[kk]) { N.said3[kk] = 1; speak(['n_pass', MK(mk)], 2); }
     });
-    if (now - N.lastSaidTs > 90000 && g.manD > 300 && N.speed >= 2) speak('إنت على الطريق الصح. فاضل ' + sayD(g.rem) + '.', 1);
+    if (now - N.lastSaidTs > 90000 && g.manD > 300 && N.speed >= 2) speak(['n_ok', 'n_left', D(g.rem)], 1);
   }
   /* بعيد عن الطريق المتسجّل: يرجّعه لأقرب نقطة عليه */
   function joinUi(g, hd, now) {
     var lg = leg(), pr = g.pr, jp = g.joinPt, rel = hd ? norm(bearing(N.pos, jp) - hd.h) : null;
     var side = rel == null ? 'ناحية ' + dirWord(bearing(N.pos, jp)) : Math.abs(rel) <= 30 ? 'قدامك' : Math.abs(rel) >= 140 ? 'وراك' : rel > 0 ? 'على يمينك' : 'على شمالك';
+    var sideK = rel == null ? 'dir' + (Math.round(((bearing(N.pos, jp) % 360) + 360) % 360 / 45) % 8) : Math.abs(rel) <= 30 ? 'sd_front' : Math.abs(rel) >= 140 ? 'sd_back' : rel > 0 ? 'sd_right' : 'sd_left';
     var start = pr.s < 40 && !lg.everOn;
     arrowTo(rel == null ? bearing(N.pos, jp) : rel, 'mid');
     card('mid', null, pr.d, lg.everOn ? 'ارجع للطريق' : (start ? 'اوصل لبداية الطريق' : 'اوصل للطريق المتسجّل'), 'الطريق ' + side + (rel == null ? '. امشي كام متر عشان السهم يعرف اتجاهك.' : ''), '');
     setHtml('nv-then', ''); setHtml('nv-chip', chip('join', lg.everOn ? 'طلعت برّه الطريق' : 'الطريق المتسجّل قريب منك'));
-    if (lg.everOn && !N.off) { N.off = true; N.offTs = now; buzz([300, 150, 300]); speak('إنت طلعت من الطريق. الطريق ' + side + '، ' + sayD(pr.d) + '. ارجع له بالراحة.', 4); lg.joinSaid = now; }
-    else if (!lg.everOn && !lg.joinSaid) { lg.joinSaid = now; speak((start ? 'بداية الطريق المتسجّل ' : 'الطريق المتسجّل ') + side + '، على بعد ' + sayD(pr.d) + '. اوصل له وأنا هكمّل معاك.', 3); }
-    else if (now - lg.joinSaid > 30000) { lg.joinSaid = now; speak('الطريق ' + side + '، ' + sayD(pr.d) + '.', 2); }
+    if (lg.everOn && !N.off) { N.off = true; N.offTs = now; buzz([300, 150, 300]); speak(['n_off_road', 'n_road', sideK, D(pr.d), 'n_go_back'], 4); lg.joinSaid = now; }
+    else if (!lg.everOn && !lg.joinSaid) { lg.joinSaid = now; speak([start ? 'n_road_start' : 'n_road_rec', sideK, 'n_away', D(pr.d), 'n_join_tail'], 3); }
+    else if (now - lg.joinSaid > 30000) { lg.joinSaid = now; speak(['n_road', sideK, D(pr.d)], 2); }
   }
   /* مافيش طريق متسجّل: سهم على خط مستقيم */
   function directUi(g, hd, now, trend, d, tg) {
@@ -6351,24 +6943,24 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       var sg = segInfo(N.pos, N.prevPt, tg);
       off = sg.d > Math.max(N.base.corridor, Math.min(1500, 0.15 * sg.len)) + Math.min(N.pos.acc, 100);
     }
-    if (off && !N.off) { N.off = true; N.offTs = now; buzz([300, 150, 300]); speak('إنت بعدت عن الخط. السهم هيرجعك للنقطة الجاية.', 4); }
-    else if (!off && N.off && now - N.offTs > 10000) { N.off = false; speak('رجعت على الخط. كمّل.', 2); }
+    if (off && !N.off) { N.off = true; N.offTs = now; buzz([300, 150, 300]); speak(['n_off_line'], 4); }
+    else if (!off && N.off && now - N.offTs > 10000) { N.off = false; speak(['n_on_line'], 2); }
     if (turn) {
       if (turn !== N.turn) { N.turn = turn; N.turnTs = now; }
       var gapT = turn === 'back' ? 4000 : 7000;
       if (now - N.turnTs >= 2500 && N.turnSaid !== turn && now - N.turnSaidTs >= gapT && d > arriveR() * 1.5) {
         N.turnSaid = turn; N.turnSaidTs = now;
         if (turn === 'back') buzz([600]);
-        speak(TURN[turn].s, turn === 'back' ? 4 : 2);
+        speak([{ straight: 'm_straight', slight_r: 't_slight_r', slight_l: 't_slight_l', right: 'm_turn_r', left: 'm_turn_l', back: 't_back' }[turn]], turn === 'back' ? 4 : 2);
       }
     }
     [5000, 3000, 2000, 1000, 500, 200, 100].forEach(function (m) {
-      if (N.lastD != null && N.lastD > m && d <= m && !N.ms[m]) { N.ms[m] = 1; speak('فاضل ' + sayD(m) + ' على ' + tg.name + '.', 3); }
+      if (N.lastD != null && N.lastD > m && d <= m && !N.ms[m]) { N.ms[m] = 1; speak(['n_left', D(m), 'n_to', ST(tg)], 3); }
     });
-    if (!N.introDone && N.lastD == null) { N.introDone = true; speak(tg.name + ' على بعد ' + sayD(d) + (hd ? '' : '، ناحية ' + dirWord(br)) + '.', 3); }
+    if (!N.introDone && N.lastD == null) { N.introDone = true; speak([ST(tg), 'n_away', D(d)].concat(hd ? [] : ['dir' + (Math.round(((br % 360) + 360) % 360 / 45) % 8)]), 3); }
     N.lastD = d;
-    if (trend === 'closer' && turn === 'straight' && now - N.lastSaidTs > 75000) speak('إنت ماشي صح. فاضل ' + sayD(d) + '.', 1);
-    if (trend === 'farther') { if (!N.farTs) N.farTs = now; if (now - N.farTs > 20000 && now - N.farSaid > 60000) { N.farSaid = now; speak('إنت بتبعد عن ' + tg.name + '. بص على السهم.', 3); } }
+    if (trend === 'closer' && turn === 'straight' && now - N.lastSaidTs > 75000) speak(['n_correct', 'n_left', D(d)], 1);
+    if (trend === 'farther') { if (!N.farTs) N.farTs = now; if (now - N.farTs > 20000 && now - N.farSaid > 60000) { N.farSaid = now; speak(['n_farther', ST(tg), 'n_look_arrow'], 3); } }
     else N.farTs = 0;
   }
 
@@ -6746,7 +7338,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var p = N.pos, g = N.G || {}, route = N.mode === 'route', hot = N.base.hotline;
     var ll = p ? p.lat.toFixed(5) + ', ' + p.lng.toFixed(5) : '';
     var lg = leg(), hasRoad = lg && lg.roads.length && g.pr;
-    speak('ولا يهمك. اقف على جنب في مكان آمن، وأنا هرجّعك.', 4);
+    speak(['n_lost'], 6);
     A.sheet('<h2>ولا يهمك — هنرجّعك</h2>' +
       '<div class="lost-calm">' + ic('shield', 'sm') + '<span>اقف على جنب في مكان آمن وشغّل الفلاشر. الموبايل بيحدد مكانك من الأقمار الصناعية حتى من غير إنترنت.</span></div>' +
       '<div class="lost-list">' +
@@ -6762,7 +7354,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     A.closeSheet();
     if (!N) return;
     var g = N.G || {};
-    if (g.kind === 'road') { A.toast('إنت على الطريق دلوقتي. كمّل على الكارت اللي فوق', 'ok'); speak('إنت على الطريق الصح. كمّل.', 4); return; }
+    if (g.kind === 'road') { A.toast('إنت على الطريق دلوقتي. كمّل على الكارت اللي فوق', 'ok'); speak(['n_ok', 'n_cont'], 6); return; }
     var lg = leg(); if (lg) lg.joinSaid = 0;
     update();
   };
@@ -6774,7 +7366,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       if (el) el.disabled = false;
       if (!r || !r.ok) { A.toast((r && r.msg) || 'ماقدرناش نبعت دلوقتي (ممكن مافيش شبكة). اتصل بالمسؤول', 'err'); return; }
       A.closeSheet(); A.toast('اتبعت مكانك للمسؤول. خليك مكانك أو كمّل على الطريق', 'ok');
-      speak('اتبعت مكانك للمسؤول.', 4);
+      speak(['n_sent'], 6);
     });
   };
   H.nav_copy_ll = function (el) {
@@ -6790,8 +7382,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     if (!N) return;
     N.voice = !N.voice; lsSet('c3a_nav_voice', N.voice ? '1' : '0');
     if (!N.voice) { try { W.speechSynthesis.cancel(); } catch (e) { /* ignore */ } }
-    else { var g = N.G; speak(N.pos && g ? 'الصوت رجع. ' + g.tg.name + ' على بعد ' + sayD(g.rem) + '.' : 'الصوت رجع.', 5); }
-    if (N.voice && N.noVoice) A.toast('الموبايل ده مافيهوش صوت عربي. فعّله من الإعدادات ← تحويل النص إلى كلام', 'err');
+    else { var g = N.G; speak(N.pos && g ? ['n_voice_on', ST(g.tg), 'n_away', D(g.rem)] : ['n_voice_on'], 6); }
     update();
   };
   H.nav_radar = H.nav_view;
@@ -6806,7 +7397,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     if (N.back) {
       N.targets = N.back.targets; N.legs = N.back.legs; N.idx = N.back.idx; N.prevPt = N.back.prevPt; N.back = null;
       N.done = false; N.arrivedTs = 0; N.totalMax = 0; resetLegVoice();
-      speak('رجعنا للوجهة. ' + cur().name + '.', 4); update(); return;
+      speak(['n_back_dest', ST(cur())], 6); update(); return;
     }
     var pts = TR.pts;
     if (!pts || pts.length < 2) { A.toast('لسه مافيش طريق متسجّل. التسجيل بيبدأ أول ما تتحرك والملاحة أو الرحلة شغالة', 'err'); return; }
@@ -6817,7 +7408,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     N.targets = [{ lat: first.lat, lng: first.lng, name: 'أول نقطة بدأت منها', sid: 'trail' }];
     N.legs = [{ roads: [rd], road: null, onRoad: false, everOn: false, sLast: null, offTs: 0, offSaid: 0, joinSaid: 0 }];
     N.idx = 0; N.prevPt = N.pos; N.done = false; N.arrivedTs = 0; N.totalMax = 0; resetLegVoice();
-    speak('هرجّعك على نفس الأثر اللي جيت منه، لفة بلفة.', 4);
+    speak(['n_trail'], 6);
     update();
   };
 
