@@ -11,6 +11,8 @@ self.addEventListener('message', function (e) {
     firebase.initializeApp(d.config);
     var messaging = firebase.messaging();
     messaging.onBackgroundMessage(function (payload) {
+      /* رسالة فيها notification يعرضها Firebase بنفسه؛ نعرض نحن فقط رسائل البيانات حتى لا يتكرر الإشعار */
+      if (payload && payload.notification) return;
       var n = payload.notification || {}, data = payload.data || {};
       var title = n.title || data.title || 'شريك الدفاع';
       var opts = {

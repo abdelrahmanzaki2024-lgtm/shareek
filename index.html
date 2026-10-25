@@ -1,4 +1,4 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#242424"><title>شريك الدفاع | كايرو ثري ايه</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="شريك الدفاع"><meta name="apple-mobile-web-app-status-bar-style" content="default"><script src="config.js"></script><script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script></head><body><style>:root{
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#242424"><title>شريك الدفاع | كايرو ثري ايه</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"><script>window.__BUILD='2026-10-25.ab3e49';</script><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="شريك الدفاع"><meta name="apple-mobile-web-app-status-bar-style" content="default"><script src="config.js"></script><script>if('serviceWorker' in navigator){window.addEventListener('load',function(){var sw=navigator.serviceWorker,had=!!sw.controller,done=false;sw.addEventListener('controllerchange',function(){if(had&&!done){done=true;location.reload();}had=true;});sw.register('sw.js').then(function(r){var last=Date.now();document.addEventListener('visibilitychange',function(){if(!document.hidden&&Date.now()-last>1800000){last=Date.now();r.update().catch(function(){});}});}).catch(function(){});});}</script></head><body><style>:root{
   --red:#EA2329;--red-d:#B81E25;--ink:#242424;--gray:#6D6E71;
   --bg:#F4F4F5;--card:#fff;--line:#E4E4E6;--soft:#F0F0F2;--txt:#242424;--mut:#6D6E71;
   --ok:#2E9E5B;--ok-bg:#E6F5EC;--warn:#C98200;--warn-bg:#FFF4D9;--bad-bg:#FDE8E9;
@@ -406,6 +406,26 @@ body.picmode .tabs .i{width:28px;height:28px}
 /* ============ صوت الشاشة ============ */
 .hdr .ib.on{background:var(--red,#EA2329);color:#fff}
 .hdr .ib.on .i{stroke:#fff}
+/* ============ خط السير والطوارئ للتاجر ============ */
+.tq{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 12px}
+.tq .btn{min-height:48px;font-size:15.5px}
+.tq .btn.rt{background:var(--ink)}
+.tq .btn.sos{background:var(--red)}
+.pic-tile.sos .pic-ic{background:var(--red,#EA2329);color:#fff}
+.pic-tile.sos .pic-ic .i{stroke:#fff}
+.pic-tile.sos .pic-t{color:var(--red,#EA2329)}
+.fl-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:6px 0}
+.fl-acts .btn{min-height:46px;font-size:14.5px}
+.fl-stbtn{width:100%;margin:0 0 6px}
+.fl-sts{display:flex;flex-direction:column;gap:8px;margin-top:10px;max-height:55vh;overflow:auto}
+.fl-st{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;padding:8px 10px;background:var(--card)}
+.fl-st.off{opacity:.55}
+.fl-st .ltr{direction:ltr;text-align:right}
+.rt-nav{margin-top:8px}
+.rt-stops li .lnk{margin-inline-start:auto}
+.tr-routes{margin:0 0 12px}
+.tr-route{border:2px solid var(--ink)}
+.tr-route.live{border-color:var(--ok)}
 </style><div id="app"></div><div id="toast"></div><script>window.__STATIC={
 "ranks": [
 {
@@ -2133,11 +2153,18 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       }
     });
   }
+  /* الخادم يرجّع جلسة جديدة (renew) لما القديمة تكبر، فنحفظها مكانها والدخول يفضل شغال من غير رقم ورمز */
+  function takeRenew(d) {
+    if (!d || typeof d !== 'object' || !d.renew || typeof d.renew !== 'string') return;
+    if (S.role === 'route') return;
+    S.tok = d.renew; if (W.APP.secSave) W.APP.secSave('c3a_tok', d.renew);
+    delete d.renew;
+  }
   /* يرجع data عند النجاح، ويعرض رسالة الخطأ ويرجع null عند الفشل */
   function call(action, payload, opts) {
     opts = opts || {};
     return rawCall(action, payload).then(function (r) {
-      if (r && r.ok) return r.data;
+      if (r && r.ok) { takeRenew(r.data); return r.data; }
       if (r && (r.err === 'auth')) { if (!opts.quiet) toast(r.msg || 'سجّل دخولك من جديد'); logout(true); return null; }
       if (!opts.quiet) toast((r && r.msg) || 'حصل خطأ، جرّب تاني', 'err');
       if (opts.keepErr) return { __err: r };
@@ -2193,7 +2220,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
 
   W.APP = {
     fx: fx, S: S, ST: ST, IMG: IMG, esc: esc, $: $, $$: $$, num: num, arDigits: arDigits, fdate: fdate, ftime: ftime, fdt: fdt, ago: ago, nowMs: nowMs, firstName: firstName,
-    lsGet: lsGet, lsSet: lsSet, ic: ic, call: call, rawCall: rawCall, toast: toast, popPts: popPts, confetti: confetti, sheet: sheet, closeSheet: closeSheet,
+    lsGet: lsGet, lsSet: lsSet, ic: ic, call: call, rawCall: rawCall, takeRenew: takeRenew, toast: toast, popPts: popPts, confetti: confetti, sheet: sheet, closeSheet: closeSheet,
     copyText: copyText, loading: loading, bar: bar, rankBadge: rankBadge, img: img, handlers: {}, screens: {}
   };
 
@@ -2201,7 +2228,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   function logout(silent) {
     S.tok = ''; S.role = ''; S.me = null; S.home = null; S.content = null; S.staff = null; S.tickets = null; S.rewards = null; S.sub = null; S.tab = 'today'; S.stab = 'gate';
     S.round = null; S.mz = null; S.visits = null; S.market = null; S.marketTs = 0; S.seg = {}; S.annShown = false;   /* لا نُبقي بيانات المستخدم السابق على نفس الجهاز */
-    S.sme = null; S.sinbox = null; S.sstats = null; S.srw = null; S.str = null; S.smarket = null; S.ssub = null; S.sfilter = '';
+    S.sme = null; S.sinbox = null; S.sstats = null; S.srw = null; S.str = null; S.smarket = null; S.ssub = null; S.sfilter = ''; S.reconnect = null;
     if (W.APP.secClear) W.APP.secClear('c3a_tok'); lsSet('c3a_role', null);
     closeSheet();
     if (W.APP.fleetReset) W.APP.fleetReset();   /* حالة الأسطول (الخريطة والتنبيهات والصلاحيات) تخص الجلسة السابقة */
@@ -2332,6 +2359,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   function renderInner() {
     var app = $('#app');
     if (S.booting) { app.innerHTML = splash(); return; }
+    if (S.reconnect && !S.role) { app.innerHTML = A.reconnectView(); return; }
     if (S.role === 'route') return A.screens.route();
     if (!S.role) { app.innerHTML = authView(); return; }
     if (S.role === 'trader') return A.screens.trader();
@@ -2408,7 +2436,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
         '<div class="err" id="l_err"></div><button class="btn" data-act="login">ادخل</button><p class="mut xs tc" style="margin:0">نسيت الرمز؟ اطلب من معاون المزرعة يعيّنه لك.</p><button class="lnk" data-act="authmode" data-m="staff">دخول الموظفين</button>';
     }
     return '<div class="hero">' + A.img('wordmark_dark', 'wm', 'العدو غير المرئي') + A.img('logo_company_dark', 'co', 'Cairo 3A Poultry') + '<p>شريك الدفاع · تطبيق التجار للأمن الحيوي</p></div>' +
-      '<div class="card authcard col">' + form + '</div>' + (A.authExtra ? A.authExtra() : '') + '<div style="padding:14px" class="col">' + demo + '<p class="mut xs tc" style="margin:6px 0 0">أنت خط الدفاع الأول</p></div>';
+      '<div class="card authcard col">' + form + '</div>' + (A.authExtra ? A.authExtra() : '') + '<div style="padding:14px" class="col">' + demo + '<p class="mut xs tc" style="margin:6px 0 0">أنت خط الدفاع الأول</p>' + (A.verLine ? A.verLine() : '') + '</div>';
   }
   function fld(id, label, input, help) { return '<div class="fld"><label for="' + id + '">' + label + '</label>' + input + (help ? '<span class="help">' + help + '</span>' : '') + '</div>'; }
   A.fld = fld;
@@ -2419,6 +2447,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   function enter(data, role) {
     S.tok = data.token; S.role = role; A.secSave('c3a_tok', data.token); A.lsSet('c3a_role', role);
     S.authMode = 'login'; S.tab = 'today'; S.stab = 'gate'; S.sub = null; S.seg = {}; S.annShown = false;
+    setTimeout(function () { if (A.afterEnter) A.afterEnter(); }, 2500);   /* تسجيل جهاز الإشعارات للحساب الجديد */
     if (role === 'trader') { S.me = data.me; return A.loadHome().then(function () { render(); window.scrollTo(0, 0); if (A.announce) A.announce(); }); }
     S.staff = data.staff; return A.screens.staffInit().then(function () { render(); window.scrollTo(0, 0); if (A.fleetNotesStart) A.fleetNotesStart(); });
   }
@@ -2507,18 +2536,46 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var role = A.lsGet('c3a_role');
     A.secLoad('c3a_tok').then(function (tok) {
       if (!tok || !role) return resumeRoute();
-      S.tok = tok;
-      var first = role === 'staff' ? call('sMe', {}, { quiet: true }) : call('home', {}, { quiet: true });
-      first.then(function (d) {
-        if (A.routeMode) return;   // فُتح رابط سائق في الأثناء: لا نكتب فوقه
-        S.booting = false;
-        if (!d) { S.tok = ''; A.secClear('c3a_tok'); A.lsSet('c3a_role', null); return render(); }
-        S.role = role;
-        if (role === 'staff') { S.staff = d.staff; A.screens.staffInit(d).then(render).then(function () { if (A.fleetNotesStart) A.fleetNotesStart(); }); }
-        else { S.home = d; S.me = d.me; render(); if (A.announce) A.announce(); }
-      });
+      restore(tok, role, 0);
     });
   };
+  /* فتح التطبيق بدخول محفوظ. الدخول لا يُمسح إلا لو الخادم قال صراحةً إن الجلسة انتهت (auth).
+     لو الإنترنت فاصل أو الخادم بطيء: شاشة «بنحاول نوصل» ومحاولة تلقائية، من غير ما نطلب الرقم والرمز */
+  var retryT = null;
+  function restore(tok, role, tries) {
+    clearTimeout(retryT);
+    S.tok = tok;
+    A.rawCall(role === 'staff' ? 'sMe' : 'home', {}).then(function (r) {
+      if (A.routeMode) return;   // فُتح رابط سائق في الأثناء: لا نكتب فوقه
+      if (r && r.ok) {
+        var d = r.data; A.takeRenew(d);
+        S.booting = false; S.reconnect = null; S.role = role;
+        if (role === 'staff') { S.staff = d.staff; A.screens.staffInit(d).then(render).then(function () { if (A.fleetNotesStart) A.fleetNotesStart(); }); }
+        else { S.home = d; S.me = d.me; render(); if (A.announce) A.announce(); }
+        return;
+      }
+      S.booting = false;
+      if (r && r.err === 'auth') {
+        S.tok = ''; S.reconnect = null; A.secClear('c3a_tok'); A.lsSet('c3a_role', null); render();
+        return A.toast(r.msg || 'سجّل دخولك من جديد', 'err');
+      }
+      S.reconnect = { tok: tok, role: role, tries: tries + 1, msg: (r && r.msg) || '' };
+      render();
+      var wait = Math.min(30000, 3000 * Math.pow(2, Math.min(tries, 4)));
+      retryT = setTimeout(function () { if (S.reconnect) restore(tok, role, tries + 1); }, wait);
+    });
+  }
+  function reconnectView() {
+    var rc = S.reconnect;
+    return '<div class="hero" style="padding-bottom:30px;flex:1;display:flex;flex-direction:column;justify-content:center;border-radius:0">' + A.img('wordmark_dark', 'wm', 'العدو غير المرئي') +
+      '<div class="card tc col" style="margin:16px"><b>بنحاول نوصل للخادم…</b>' +
+      '<p class="mut sm" style="margin:0">دخولك محفوظ ومش محتاج تكتب الرقم والرمز. ' + esc(rc.msg || '') + '</p>' +
+      '<div class="spin"></div><button class="btn" data-act="boot_retry">حاول دلوقتي</button>' +
+      '<button class="lnk" data-act="logout">الدخول بحساب تاني</button></div></div>';
+  }
+  A.reconnectView = reconnectView;
+  H.boot_retry = function () { if (S.reconnect) { S.booting = true; render(); restore(S.reconnect.tok, S.reconnect.role, 0); } };
+  window.addEventListener('online', function () { if (S.reconnect) restore(S.reconnect.tok, S.reconnect.role, 0); });
 })();
 
 /* ============================================================
@@ -4436,7 +4493,9 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   A.staffST.fleet = function () {
     var d = S.fl.data;
     if (!d) return '<div class="spin"></div>';
-    var manage = d.canManage ? '<button class="btn dk" data-act="fl_new" style="margin:4px 0">' + ic('plus') + 'خط سير جديد</button>' : '';
+    var nst = (d.stations || []).length;
+    var manage = d.canManage ? '<div class="fl-acts"><button class="btn dk" data-act="fl_send">' + ic('truck', 'sm') + 'ابعت نقطة لتاجر</button><button class="btn gh" data-act="fl_new">' + ic('plus', 'sm') + 'خط سير بمحطات</button></div>' : '';
+    manage += (d.canManage || d.canStations) ? '<button class="btn gh sm fl-stbtn" data-act="fl_stations">المحطات وإحداثياتها (' + num(nst) + ')</button>' : '';
     return flBell() + flStats(d) + '<div id="fl-sos">' + flSos(d) + '</div>' +
       '<div class="fl-mapbox"><div id="fmap" class="fmap"></div></div>' +
       '<div class="xs mut" style="margin:4px 2px">اضغط على النقطة الملوّنة لتعرف مكان التاجر. الخط الرمادي المتقطع هو خط السير.</div>' +
@@ -4478,6 +4537,12 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
         mk.on('click', function () { H.fl_sel({ dataset: { id: r.id } }); });
         mk.addTo(M.layer); bounds.push([r.lastLat, r.lastLng]);
       }
+    });
+    (d.stations || []).forEach(function (x) {
+      var col = x.kind === 'disinfect' ? '#2E9E5B' : x.kind === 'service' ? '#6D6E71' : '#1F6FB2';
+      var mk = W.L.circleMarker([x.lat, x.lng], { radius: 7, color: '#fff', weight: 2, fillColor: col, fillOpacity: .95 }).bindTooltip(esc(x.name), { direction: 'top' });
+      mk.on('click', function () { if (S.fl.addMode) flAddStation(x); });
+      mk.addTo(M.layer); if (!d.routes.length) bounds.push([x.lat, x.lng]);
     });
     d.alerts.forEach(function (a) {
       if (a.lat || a.lng) W.L.circleMarker([a.lat, a.lng], { radius: 13, color: colorOfAlert(a), weight: 3, fillColor: '#fff', fillOpacity: .6 }).bindTooltip(esc((a.type === 'emergency' ? 'طوارئ: ' : 'خروج: ') + (a.traderName || a.routeTitle)), { direction: 'top' }).addTo(M.layer);
@@ -4544,7 +4609,9 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
 
   /* ---------- إنشاء الخط وتعديله ---------- */
   function draftFrom(r) {
-    return { id: r ? r.id : '', title: r ? r.title : '', traderId: r ? r.traderId : '', corridorM: r ? r.corridorM : 150, points: r ? (r.points || []).map(function (p) { return { lat: p.lat, lng: p.lng, name: p.name }; }) : [] };
+    var pts = r ? (r.points || []).filter(function (p) { return !p.st; }) : [];
+    return { id: r ? r.id : '', title: r ? r.title : '', traderId: r ? r.traderId : '', corridorM: r ? r.corridorM : 150, fromHere: r ? !!(pts[0] && pts[0].fh) : true,
+      points: pts.map(function (p) { var o = { lat: p.lat, lng: p.lng, name: p.name }; if (p.sid) o.sid = p.sid; return o; }) };
   }
   H.fl_new = function () { S.fl.draft = draftFrom(null); openRouteSheet(); };
   H.fl_edit = function (el) {
@@ -4557,6 +4624,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     if (t) dft.title = t.value;
     if (tr) dft.traderId = tr.value;
     if (c) dft.corridorM = Number(c.value) || 150;
+    var fh = $('#fl_fh'); if (fh) dft.fromHere = !!fh.checked;
     var names = document.querySelectorAll('[data-pn]');
     for (var i = 0; i < names.length; i++) { var k = Number(names[i].dataset.pn); if (dft.points[k]) dft.points[k].name = names[i].value; }
     S.fl.draft = dft; return dft;
@@ -4567,13 +4635,16 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var pts = dft.points.length ? dft.points.map(function (p, i) {
       return '<div class="fl-pt"><span class="fl-num">' + (i + 1) + '</span><input class="in grow" data-pn="' + i + '" value="' + esc(p.name) + '" maxlength="40">' +
         '<button class="ib" data-act="fl_pmove" data-i="' + i + '" data-d="-1" aria-label="أعلى">↑</button><button class="ib" data-act="fl_pmove" data-i="' + i + '" data-d="1" aria-label="أسفل">↓</button><button class="ib" data-act="fl_pdel" data-i="' + i + '" aria-label="حذف">✕</button></div>';
-    }).join('') : '<div class="mut sm">مفيش نقط بعد. اضغط «أضف محطات على الخريطة» واضغط على كل محطة في الطريق بالترتيب.</div>';
+    }).join('') : '<div class="mut sm">مفيش نقط بعد. اختار محطة من القائمة واضغط «أضف»، أو اضغط على الخريطة بالترتيب.</div>';
     A.sheet('<h2>' + (dft.id ? 'تعديل خط السير' : 'خط سير جديد') + '</h2>' +
       '<label class="fld"><span>اسم الخط</span><input id="fl_title" class="in" maxlength="60" value="' + esc(dft.title) + '" placeholder="مثال: من البوابة لمزرعة 5"></label>' +
       '<label class="fld"><span>التاجر</span><select id="fl_trader" class="in">' + opts + '</select></label>' +
       '<label class="fld"><span>عرض الممر المسموح (متر)</span><input id="fl_corr" class="in ltr" type="number" min="30" max="1000" value="' + esc(dft.corridorM) + '"><span class="xs mut">لو السيارة خرجت عن الممر ده أكتر من المسموح، يطلع تنبيه.</span></label>' +
+      '<label class="chk" style="margin:4px 0 8px"><input type="checkbox" id="fl_fh"' + (dft.fromHere ? ' checked' : '') + '><span><b>يبدأ من مكان السائق</b><br><span class="xs mut">أول ما يضغط «ابدأ الرحلة» مكانه بيتحط أول نقطة في الخط، فتكفي محطة واحدة.</span></span></label>' +
       '<div class="sec-t" style="margin-top:6px">المحطات بالترتيب (' + dft.points.length + ')</div><div class="fl-pts">' + pts + '</div>' +
-      '<button class="btn gh" data-act="fl_addmode" style="margin-top:8px">' + ic('plus', 'sm') + 'أضف محطات على الخريطة</button>' +
+      stationPicker('fl_stpick') +
+      '<button class="btn gh" data-act="fl_addst" style="margin-top:8px">' + ic('plus', 'sm') + 'أضف المحطة المختارة</button>' +
+      '<button class="btn gh" data-act="fl_addmode" style="margin-top:8px">' + ic('plus', 'sm') + 'أو اضغط نقط على الخريطة</button>' +
       '<div class="grid2" style="margin-top:12px"><button class="btn dk" data-act="fl_save">حفظ الخط</button><button class="btn gh" data-act="closesheet">إلغاء</button></div>');
   }
   H.fl_pmove = function (el) {
@@ -4601,6 +4672,112 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var lab = document.getElementById('fl-addn'); if (lab) lab.textContent = 'أضفت ' + n + ' محطة · اضغط المحطة التالية أو «تم»';
     if (A.fleetMap) drawFleetMap(A.fleetMap.m);
   }
+  /* محطة من القائمة: تُضاف بإحداثياتها واسمها ورقمها (sid) */
+  function flAddStation(x) {
+    var dft = S.fl.draft || draftFrom(null);
+    dft.points.push({ lat: x.lat, lng: x.lng, name: x.name, sid: x.id });
+    S.fl.draft = dft;
+    var lab = document.getElementById('fl-addn'); if (lab) lab.textContent = 'أضفت «' + x.name + '» · كمّل أو «تم»';
+    if (A.fleetMap) drawFleetMap(A.fleetMap.m);
+  }
+  function stationsList() { return (S.fl.data && S.fl.data.stations) || []; }
+  function stationPicker(id, sel) {
+    var list = stationsList();
+    if (!list.length) return '<div class="xs mut">مفيش محطات متسجلة. ضيفها من «المحطات وإحداثياتها».</div>';
+    var groups = { farm: 'المزارع', disinfect: 'مناطق التطهير', service: 'الخدمات' }, out = '<select id="' + id + '" class="in"><option value="">اختار المحطة</option>';
+    Object.keys(groups).forEach(function (k) {
+      var g = list.filter(function (x) { return (x.kind || 'farm') === k; });
+      if (g.length) out += '<optgroup label="' + groups[k] + '">' + g.map(function (x) { return '<option value="' + esc(x.id) + '"' + (sel === x.id ? ' selected' : '') + '>' + esc(x.name) + '</option>'; }).join('') + '</optgroup>';
+    });
+    return out + '</select>';
+  }
+  H.fl_addst = function () {
+    var dft = readDraft(), v = ($('#fl_stpick') || {}).value, x = stationsList().filter(function (y) { return y.id === v; })[0];
+    if (!x) return A.toast('اختار محطة من القائمة الأول', 'err');
+    dft.points.push({ lat: x.lat, lng: x.lng, name: x.name, sid: x.id });
+    if (!dft.title) dft.title = (dft.fromHere ? 'إلى ' : '') + x.name;
+    S.fl.draft = dft; A.closeSheet(); openRouteSheet();
+  };
+
+  /* ---------- إرسال نقطة واحدة للتاجر: تظهر له في التطبيق أول ما يفتحه ---------- */
+  H.fl_send = function () {
+    var d = S.fl.data || { traders: [] };
+    var opts = '<option value="">اختر التاجر</option>' + d.traders.map(function (t) { return '<option value="' + esc(t.id) + '">' + esc(t.name) + (t.plate ? ' · ' + esc(t.plate) : '') + '</option>'; }).join('');
+    A.sheet('<h2>ابعت نقطة لتاجر</h2>' +
+      '<div class="xs mut" style="margin-bottom:8px">الخط هيبدأ من مكان التاجر لحظة ما يضغط «ابدأ الرحلة» لحد المحطة. هيظهر له في «اليوم» أول ما يفتح التطبيق، ولو الإشعارات مفعّلة يوصله إشعار.</div>' +
+      '<label class="fld"><span>التاجر</span><select id="fs_trader" class="in">' + opts + '</select></label>' +
+      '<label class="fld"><span>المحطة</span>' + stationPicker('fs_station') + '</label>' +
+      '<div class="grid2" style="margin-top:12px"><button class="btn dk" data-act="fl_send_go">ابعت</button><button class="btn gh" data-act="closesheet">إلغاء</button></div>');
+  };
+  H.fl_send_go = function (el) {
+    var tr = ($('#fs_trader') || {}).value, st = ($('#fs_station') || {}).value;
+    if (!tr) return A.toast('اختار التاجر', 'err');
+    if (!st) return A.toast('اختار المحطة', 'err');
+    el.disabled = true;
+    call('sRouteSave', { traderId: tr, fromHere: true, points: [{ sid: st }] }).then(function (d) {
+      el.disabled = false;
+      if (!d) return;
+      A.closeSheet();
+      A.sheet('<h2>اتبعتت للتاجر</h2><div class="sm" style="margin-bottom:10px">«' + esc(d.route.title) + '» ظاهر دلوقتي عند ' + esc(d.route.traderName) + ' في التطبيق.</div>' +
+        '<div class="xs mut" style="margin-bottom:10px">لو التاجر مش منزّل التطبيق، ابعتله الرابط على واتساب.</div>' +
+        '<div class="grid2"><button class="btn ok" data-act="fl_share" data-id="' + esc(d.route.id) + '">' + ic('share', 'sm') + 'كمان على واتساب</button><button class="btn gh" data-act="closesheet">تمام</button></div>');
+      S.fl.sel = d.route.id; flLoad(true).then(function () { mapFor('fmap', drawFleetMap); });
+    });
+  };
+
+  /* ---------- المحطات وإحداثياتها ---------- */
+  H.fl_stations = function () {
+    call('sStations', {}).then(function (d) {
+      if (!d) return;
+      S.fl.st = d;
+      var KL = { farm: 'مزرعة', disinfect: 'تطهير', service: 'خدمات' };
+      var rows = d.stations.map(function (x) {
+        return '<div class="fl-st' + (x.active ? '' : ' off') + '"><div class="grow"><b>' + esc(x.name) + '</b><div class="xs mut ltr">' + x.lat.toFixed(4) + ', ' + x.lng.toFixed(4) + '</div></div>' +
+          '<span class="chip">' + (x.active ? (KL[x.kind] || 'محطة') : 'مخفية') + '</span>' +
+          (d.canEdit ? '<button class="btn xs gh" data-act="fl_st_edit" data-id="' + esc(x.id) + '">تعديل</button>' : '') + '</div>';
+      }).join('');
+      A.sheet('<h2>المحطات وإحداثياتها</h2>' +
+        '<div class="xs mut" style="margin-bottom:8px">نقاط عامة لكل خطوط السير. ' + (d.canEdit ? 'تقدر تضيف وتعدّل وتخفي.' : 'التعديل محتاج صلاحية «إدارة المحطات» من مدير الإدارة.') + '</div>' +
+        (d.canEdit ? '<button class="btn dk sm" data-act="fl_st_edit" data-id="">' + ic('plus', 'sm') + 'محطة جديدة</button>' : '') +
+        '<div class="fl-sts">' + rows + '</div><button class="btn gh" data-act="closesheet" style="margin-top:10px">قفل</button>');
+    });
+  };
+  H.fl_st_edit = function (el) {
+    var d = S.fl.st || { stations: [] }, x = d.stations.filter(function (y) { return y.id === el.dataset.id; })[0] || { id: '', name: '', lat: '', lng: '', kind: 'farm', active: 1 };
+    var kinds = [['farm', 'مزرعة'], ['disinfect', 'منطقة تطهير'], ['service', 'خدمات']].map(function (k) { return '<option value="' + k[0] + '"' + (x.kind === k[0] ? ' selected' : '') + '>' + k[1] + '</option>'; }).join('');
+    A.sheet('<h2>' + (x.id ? 'تعديل محطة' : 'محطة جديدة') + '</h2>' +
+      '<label class="fld"><span>اسم المحطة</span><input id="se_name" class="in" maxlength="60" value="' + esc(x.name) + '" placeholder="مثال: تسمين الواحات - محطة 5"></label>' +
+      '<label class="fld"><span>النوع</span><select id="se_kind" class="in">' + kinds + '</select></label>' +
+      '<div class="grid2"><label class="fld"><span>خط العرض</span><input id="se_lat" class="in ltr" inputmode="decimal" value="' + esc(x.lat) + '" placeholder="28.7167"></label>' +
+      '<label class="fld"><span>خط الطول</span><input id="se_lng" class="in ltr" inputmode="decimal" value="' + esc(x.lng) + '" placeholder="29.0471"></label></div>' +
+      '<button class="btn gh sm" data-act="fl_st_here">' + ic('truck', 'sm') + 'استخدم مكاني الحالي</button>' +
+      (x.id ? '<label class="chk" style="margin-top:8px"><input type="checkbox" id="se_hide"' + (x.active ? '' : ' checked') + '><span>إخفاء المحطة (تفضل محفوظة ومتظهرش في الاختيار)</span></label>' : '') +
+      '<div class="err" id="se_err"></div>' +
+      '<div class="grid2" style="margin-top:12px"><button class="btn dk" data-act="fl_st_save" data-id="' + esc(x.id) + '">حفظ</button><button class="btn gh" data-act="fl_stations">رجوع</button></div>');
+  };
+  H.fl_st_here = function (el) {
+    if (!navigator.geolocation) return A.toast('الجهاز مش بيدعم تحديد الموقع', 'err');
+    el.disabled = true;
+    navigator.geolocation.getCurrentPosition(function (p) {
+      el.disabled = false;
+      $('#se_lat').value = p.coords.latitude.toFixed(6); $('#se_lng').value = p.coords.longitude.toFixed(6);
+      A.toast('اتحط مكانك الحالي (دقة حوالي ' + Math.round(p.coords.accuracy) + ' متر)', 'ok');
+    }, function () { el.disabled = false; A.toast('مش قادر أحدد مكانك. اسمح بالموقع وجرّب تاني', 'err'); }, { enableHighAccuracy: true, timeout: 20000, maximumAge: 10000 });
+  };
+  H.fl_st_save = function (el) {
+    var hide = $('#se_hide');
+    var body = { id: el.dataset.id || undefined, name: $('#se_name').value, kind: $('#se_kind').value, lat: String($('#se_lat').value).replace(/[٠-٩]/g, function (c) { return '٠١٢٣٤٥٦٧٨٩'.indexOf(c); }).replace('٫', '.'), lng: String($('#se_lng').value).replace(/[٠-٩]/g, function (c) { return '٠١٢٣٤٥٦٧٨٩'.indexOf(c); }).replace('٫', '.'), active: hide && hide.checked ? 0 : 1 };
+    el.disabled = true;
+    call('sStationSave', body, { keepErr: true }).then(function (d) {
+      el.disabled = false;
+      if (d && d.__err) { var e = $('#se_err'); if (e) e.textContent = d.__err.msg; return; }
+      if (!d) return;
+      S.fl.st = d; A.toast('اتحفظت المحطة', 'ok');
+      flLoad(true).then(function () { mapFor('fmap', drawFleetMap); });
+      H.fl_stations();
+    });
+  };
+
   H.fl_adddone = function () {
     S.fl.addMode = false;
     var bar = document.getElementById('fl-addbar'); if (bar) bar.parentNode.removeChild(bar);
@@ -4608,10 +4785,10 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   };
   H.fl_save = function () {
     var dft = readDraft();
-    var body = { id: dft.id || undefined, title: dft.title, traderId: dft.traderId, corridorM: dft.corridorM, points: dft.points };
+    var body = { id: dft.id || undefined, title: dft.title, traderId: dft.traderId, corridorM: dft.corridorM, points: dft.points, fromHere: !!dft.fromHere };
     call('sRouteSave', body).then(function (d) {
       if (!d) return;
-      S.fl.draft = null; A.closeSheet(); A.toast('اتحفظ الخط', 'ok');
+      S.fl.draft = null; A.closeSheet(); A.toast('اتحفظ الخط وظهر للتاجر في التطبيق', 'ok');
       S.fl.sel = d.route.id; flLoad(true).then(function () { mapFor('fmap', drawFleetMap); });
     });
   };
@@ -4716,16 +4893,21 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     try { var n = W.ShareekNative; if (n && typeof n.fcmToken === 'function') return String(n.fcmToken() || ''); } catch (e) { /* ignore */ }
     return '';
   }
+  /* يسجّل الجهاز للحساب المفتوح: موظف أو تاجر أو سائق. المفتاح يشمل الحساب، فالدخول بحساب تاني على نفس الجهاز يعيد التسجيل */
+  function pushKey(t) { return S.role + ':' + ((S.staff && S.staff.id) || (S.me && S.me.id) || '') + ':' + t; }
   A.pushSync = function () {
     var t = pushToken();
-    if (!t || t.length < 20 || t === PUSH.lastSent) return;
-    if (S.role === 'staff' && can('fleet')) {
-      call('sPushRegister', { token: t, platform: 'android' }, { quiet: true }).then(function (d) { if (d) PUSH.lastSent = t; });
-    } else if (S.role === 'route' && A.routeMode) {
-      A.rawCall('routePushRegister', { token: t, platform: 'android' }).then(function (d) { if (d) PUSH.lastSent = t; });
-    }
+    if (!t || t.length < 20) return Promise.resolve(false);
+    var key = pushKey(t);
+    if (key === PUSH.lastSent) return Promise.resolve(true);
+    var plat = W.ShareekNative ? 'android' : 'web', p = null;
+    if (S.role === 'staff') p = call('sPushRegister', { token: t, platform: plat }, { quiet: true });
+    else if (S.role === 'route' && A.routeMode) p = rcall('routePushRegister', { token: t, platform: plat }).then(function (r) { return r && r.ok ? r.data : null; });
+    else if (S.role === 'trader') p = call('tPushRegister', { token: t, platform: plat }, { quiet: true });
+    if (!p) return Promise.resolve(false);
+    return p.then(function (d) { if (d) PUSH.lastSent = key; return !!d; });
   };
-  W.ShareekOnPushToken = function (t) { PUSH.token = String(t || ''); PUSH.lastSent = ''; A.pushSync(); };
+  W.ShareekOnPushToken = function (t) { PUSH.token = String(t || ''); return A.pushSync(); };
 
   /* تطبيق أندرويد: يتابع الموقع في الخلفية والشاشة مقفولة. على الويب لا يوجد الجسر فلا يحدث شيء */
   function nativeTrack(on) {
@@ -4738,12 +4920,21 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   }
 
   /* ============ شاشة السائق بالرابط ============ */
+  /* كل طلبات الرحلة تمر من هنا: في وضع التاجر داخل التطبيق يتضاف رقم الخط للطلب */
+  function rcall(action, p) {
+    p = Object.assign({}, p || {});
+    if (RT && RT.rid) p.routeId = RT.rid;
+    return A.rawCall(action, p);
+  }
+  A.routeCall = rcall;
   var RT = null;
   function rtFix() { return RT && RT.pos ? { lat: RT.pos.lat, lng: RT.pos.lng, acc: RT.pos.acc } : null; }
-  A.startRoute = function (token) {
+  /* token: رابط السائق (?r=). rid: التاجر بيفتح خطه من جوه التطبيق بجلسته العادية (من غير رابط) */
+  A.startRoute = function (token, rid) {
     A.routeMode = true;
-    S.tok = token; S.role = 'route'; S.booting = false;
-    RT = { d: null, fatal: '', pos: null, gpsErr: '', watch: null, pingT: null, dataT: null, lastSent: 0, state: 'ok', dist: 0, reason: '', sheetOpen: false, endArmed: false, seenNotes: {}, notesReady: false, wake: null, offStart: 0, busy: false, sosDone: false, token: token, consentOk: false, consentGiven: false, resumed: false, savedTok: '' };
+    if (!rid) S.tok = token;
+    S.role = 'route'; S.booting = false;
+    RT = { d: null, fatal: '', pos: null, gpsErr: '', watch: null, pingT: null, dataT: null, lastSent: 0, state: 'ok', dist: 0, reason: '', sheetOpen: false, endArmed: false, seenNotes: {}, notesReady: false, wake: null, offStart: 0, busy: false, sosDone: false, token: rid ? '' : token, rid: rid || '', consentOk: false, consentGiven: false, resumed: false, savedTok: '' };
     A.screens.route();
     routeLoad();
     if (A.pushSync) A.pushSync();
@@ -4752,7 +4943,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   };
   function routeLoad() {
     if (!RT || S.role !== 'route') return Promise.resolve();
-    return A.rawCall('routeGet', {}).then(function (r) {
+    return rcall('routeGet', {}).then(function (r) {
       if (!RT || S.role !== 'route') return;
       if (!r || !r.ok) {
         RT.fatal = r && r.err === 'auth' ? (r.msg || 'الرابط غير صالح أو انتهت صلاحيته، اطلب رابطًا جديدًا من المشرف') : 'تعذّر تحميل الخط، جرّب تحديث الصفحة';
@@ -4819,7 +5010,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   H.rt_consent_ok = function (el) {
     RT.consentGiven = true; A.closeSheet();
     if (el.dataset.m === 'start') return H.rt_start();
-    A.rawCall('routeStart', Object.assign({}, rtFix() || {}, { consent: true })).then(function (r) {
+    rcall('routeStart', Object.assign({}, rtFix() || {}, { consent: true })).then(function (r) {
       if (!r || !r.ok) { A.toast((r && r.msg) || 'تعذّر تسجيل الموافقة', 'err'); return; }
       RT.consentOk = true; RT.resumed = true; resumeTrip(); routeLoad();
     });
@@ -4831,7 +5022,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     waitFix(20000).then(function (ok) {
       RT.busy = false;
       if (!ok) { RT.gpsErr = RT.gpsErr || 'مش قادر أحدد الموقع. اتأكد إن GPS شغال وإن الشاشة مفتوحة واضغط ابدأ تاني'; A.screens.route(); return; }
-      return A.rawCall('routeStart', Object.assign({}, rtFix() || {}, { consent: true })).then(function (r) {
+      return rcall('routeStart', Object.assign({}, rtFix() || {}, { consent: true })).then(function (r) {
         if (!r || !r.ok) { A.toast((r && r.msg) || 'تعذّر بدء الرحلة', 'err'); return; }
         RT.d = r.data; startTimers(); A.toast('بدأت الرحلة. الموقع بيتبعت تلقائي', 'ok');
         nativeTrack(true);
@@ -4848,7 +5039,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     if (!RT || S.role !== 'route' || !RT.d || ['active', 'off_route', 'emergency'].indexOf(RT.d.route.status) < 0) return;
     var f = rtFix();
     if (!f || Date.now() - RT.pos.ts > 90000) { RT.gpsErr = 'الموقع قديم. تأكد إن GPS شغال والشاشة مفتوحة'; updateGpsLine(); return; }
-    A.rawCall('routePing', f).then(function (r) {
+    rcall('routePing', f).then(function (r) {
       if (!r) return;
       if (!r.ok) { if (r.err === 'state' || r.err === 'consent') routeLoad(); return; }
       var prev = RT.state;
@@ -4880,7 +5071,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   H.rt_sos_go = function () {
     var f = rtFix() || { lat: 0, lng: 0, acc: 1000 };
     if (!rtFix()) { A.toast('الموقع مش متاح، هيتبعت التنبيه من غير مكان دقيق', 'err'); }
-    A.rawCall('routeEmergency', Object.assign({}, f, { reason: RT.reason })).then(function (r) {
+    rcall('routeEmergency', Object.assign({}, f, { reason: RT.reason })).then(function (r) {
       if (!r || !r.ok) { A.toast((r && r.msg) || 'تعذّر إرسال الطوارئ، كلّم المسؤول بالتليفون فورًا', 'err'); return; }
       RT.sosDone = true; A.closeSheet(); A.toast('اتبعتت الطوارئ. المسؤول شايف مكانك', 'ok');
       startTimers();
@@ -4890,7 +5081,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   H.rt_end = function (el) {
     if (!el.dataset.armed) { el.dataset.armed = '1'; el.textContent = 'تأكيد إنهاء الرحلة'; setTimeout(function () { delete el.dataset.armed; el.textContent = 'إنهاء الرحلة'; }, 3500); return; }
     var f = rtFix() || {};
-    A.rawCall('routeEnd', f).then(function (r) {
+    rcall('routeEnd', f).then(function (r) {
       if (!r || !r.ok) { A.toast((r && r.msg) || 'تعذّر إنهاء الرحلة', 'err'); return; }
       nativeTrack(false);
       clearInterval(RT.pingT); RT.pingT = null;
@@ -4941,7 +5132,14 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
           '<button class="btn dk" data-act="rt_refresh" style="margin-top:10px">تحديث الموقع</button>' +
           '<button class="btn gh" data-act="rt_end" style="margin-top:8px">إنهاء الرحلة</button></div>';
       }
-      var stops = (r.stops || []).map(function (n, i) { return '<li><span class="fl-num">' + (i + 1) + '</span>' + esc(n) + '</li>'; }).join('');
+      /* اتجاهات القيادة: خرائط جوجل تفتح الطريق من مكانه للمحطة (تطبيق الخرائط على الموبايل) */
+      var dir = function (p) { return 'https://www.google.com/maps/dir/?api=1&travelmode=driving&destination=' + Number(p.lat).toFixed(6) + ',' + Number(p.lng).toFixed(6); };
+      var rpts = (r.points || []), dest = rpts.filter(function (p) { return !p.st; });
+      var last = dest[dest.length - 1];
+      var stops = rpts.map(function (p, i) {
+        return '<li><span class="fl-num">' + (i + 1) + '</span><span class="grow">' + esc(p.name) + '</span>' + (p.st ? '' : '<a class="lnk xs" target="_blank" rel="noopener" href="' + esc(dir(p)) + '">الطريق</a>') + '</li>';
+      }).join('');
+      if (last && st !== 'done' && st !== 'cancelled') head += '<a class="btn gh rt-nav" target="_blank" rel="noopener" href="' + esc(dir(last)) + '">' + ic('truck', 'sm') + 'افتح الطريق لـ«' + esc(last.name) + '» في الخرائط</a>';
       var notes = (RT.d.notes || []).slice(0, 3).map(function (n) { return '<div class="rt-note ' + (n.kind === 'resolved' ? 'ok' : '') + '"><b>' + esc(n.title) + '</b><div class="sm">' + esc(n.body) + '</div><div class="xs mut">' + ago(n.ts) + '</div></div>'; }).join('');
       body = head + (notes ? '<div class="sec-t" style="margin-top:12px">رسايل من المسؤول</div>' + notes : '') +
         '<div class="fl-mapbox" style="margin-top:12px"><div id="rmap" class="fmap"></div></div>' +
@@ -4978,6 +5176,8 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     { id: 'market', t: 'أسعار النهاردة', icon: 'trend' },
     { id: 'talk', t: 'كلّمنا', icon: 'chat' },
     { id: 'today:gain', t: 'مكسبك', icon: 'star' },
+    { id: '', act: 'tr_route', t: 'خط السير', icon: 'truck' },
+    { id: '', act: 'tr_sos', t: 'طوارئ', icon: 'warn', cls: 'sos' },
     { id: '', act: 'account', t: 'حسابي وشهادتي', icon: 'trophy' }
   ];
 
@@ -4985,7 +5185,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var src = t.img && A.IMG[t.img];
     var pic = src ? '<img src="' + src + '" alt="">' : '<span class="pic-ic">' + ic(t.icon || 'home', 'lg') + '</span>';
     var attrs = t.act ? 'data-act="' + t.act + '"' : 'data-act="pic_go" data-id="' + t.id + '"';
-    return '<button class="pic-tile" ' + attrs + '>' + pic + '<span class="pic-t">' + esc(t.t) + '</span></button>';
+    return '<button class="pic-tile' + (t.cls ? ' ' + t.cls : '') + '" ' + attrs + '>' + pic + '<span class="pic-t">' + esc(t.t) + '</span></button>';
   }
 
   /* خطوة اليوم الكبيرة: أول خطوة لم تُنجز، وإن انتهت كلها تفتح الجولة */
@@ -5413,7 +5613,20 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
 (function () {
   'use strict';
   var A = window.APP, W = window, LIB = 'https://www.gstatic.com/firebasejs/10.12.2/';
-  var libsP = null, inited = false;
+  var libsP = null, initP = null;
+  /* إعداد Firebase: من config.js لو موجود، وإلا من الخادم (ورقة Config: webpush.*) ويتحفظ على الجهاز */
+  var CK = 'c3a_fcmweb', fromFile = !!(W.__FCM_WEB && W.__FCM_WEB.apiKey);
+  try { if (!fromFile) { var cached = A.lsGet(CK); if (cached) W.__FCM_WEB = JSON.parse(cached); } } catch (e) { /* ignore */ }
+  A.loadPushCfg = function () {
+    if (fromFile) return Promise.resolve(true);
+    return A.rawCall('pushCfg', {}).then(function (r) {
+      if (!r || !r.ok) return !!W.__FCM_WEB;
+      var w = r.data && r.data.web;
+      W.__FCM_WEB = w || null;
+      try { A.lsSet(CK, w ? JSON.stringify(w) : null); } catch (e) { /* ignore */ }
+      return !!w;
+    });
+  };
 
   function loadScript(src) {
     return new Promise(function (res, rej) {
@@ -5428,7 +5641,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   }
   function enabled() {
     var c = W.__FCM_WEB;
-    return !!(c && c.apiKey && c.projectId && c.messagingSenderId && c.appId && c.vapidKey && 'serviceWorker' in navigator && W.Notification);
+    return !!(c && c.apiKey && c.projectId && c.messagingSenderId && c.appId && 'serviceWorker' in navigator && W.Notification);
   }
   function whenActive(reg) {
     if (reg.active) return Promise.resolve(reg.active);
@@ -5442,9 +5655,9 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
 
   /* يُستدعى بعد منح الإذن (من زر «فعّل إشعارات الجهاز») وعند فتح الصفحة لو الإذن ممنوح من قبل */
   A.webPushInit = function () {
-    if (!enabled() || inited || W.Notification.permission !== 'granted') return Promise.resolve(false);
-    inited = true;
-    return navigator.serviceWorker.register('firebase-messaging-sw.js', { scope: './fcm/' }).then(function (reg) {
+    if (!enabled() || W.Notification.permission !== 'granted') return Promise.resolve(false);
+    if (initP) return initP;   /* نفس التسجيل لو اتطلب أكتر من مرة */
+    initP = navigator.serviceWorker.register('firebase-messaging-sw.js', { scope: './fcm/' }).then(function (reg) {
       return libs().then(function () { return whenActive(reg); }).then(function (worker) {
         if (!firebase.apps.length) firebase.initializeApp(W.__FCM_WEB);
         if (worker) worker.postMessage({ type: 'fcm-config', config: W.__FCM_WEB });
@@ -5453,16 +5666,240 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
           var n = payload.notification || {}, d = payload.data || {};
           A.toast((n.title || d.title || 'شريك الدفاع') + (n.body || d.body ? ': ' + (n.body || d.body) : ''), 'ok');
         });
-        return messaging.getToken({ vapidKey: W.__FCM_WEB.vapidKey, serviceWorkerRegistration: reg });
+        var opt = { serviceWorkerRegistration: reg };
+        if (W.__FCM_WEB.vapidKey) opt.vapidKey = W.__FCM_WEB.vapidKey;   /* بدون مفتاح VAPID تستخدم المكتبة المفتاح الافتراضي لـ Firebase */
+        return messaging.getToken(opt);
       });
     }).then(function (token) {
-      if (token && W.ShareekOnPushToken) W.ShareekOnPushToken(token);
-      return !!token;
-    }).catch(function () { inited = false; return false; });
+      if (!token) return false;
+      /* ننتظر تسجيل الجهاز في الخادم قبل ما نقول «اتفعّلت» */
+      return Promise.resolve(W.ShareekOnPushToken ? W.ShareekOnPushToken(token) : false).then(function () { return true; }, function () { return true; });
+    }).catch(function () { return false; }).then(function (ok) { if (!ok) initP = null; return ok; });
+    return initP;
   };
 
   /* فتح الصفحة بعد ثوانٍ من الدخول: لو الإذن ممنوح من قبل نسجّل الجهاز بصمت */
-  setTimeout(function () { if (A.S && A.S.role) A.webPushInit(); }, 4000);
+  setTimeout(function () {
+    A.loadPushCfg().then(function () { if (A.S && A.S.role) A.webPushInit(); });
+  }, 3000);
+})();
+
+/* ============================================================
+   أدوات ظاهرة للتاجر والموظف:
+   - «خط السير» و«طوارئ» للتاجر: في أول «اليوم» وفي بلاطات الصور.
+   - «الإشعارات»: تفعيل وتجربة من «حسابي» (التاجر) ومن جرس الرأس (الموظف)، وتنبيه لطيف في «اليوم».
+   - شاشة خط السير: زر رجوع للحساب لو فيه دخول محفوظ على الجهاز.
+   - رقم الإصدار في الإعدادات وفي ورقة الإشعارات.
+   الإشعارات تشتغل بعد ضبط window.__FCM_WEB في config.js ومفتاح FCM_SERVICE_ACCOUNT في الخادم.
+   ============================================================ */
+(function () {
+  'use strict';
+  var A = window.APP, S = A.S, esc = A.esc, ic = A.ic, H = A.handlers, V = A.V, call = A.call, W = window;
+
+  H.sheet_close = function () { A.closeSheet(); };
+
+  /* ---------- الإشعارات ---------- */
+  function cfgOk() { var c = W.__FCM_WEB; return !!(c && c.apiKey && c.projectId && c.messagingSenderId && c.appId); }
+  function supported() { return 'serviceWorker' in navigator && 'Notification' in W && 'PushManager' in W; }
+  function isIos() {
+    var ua = navigator.userAgent || '';
+    return /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  }
+  function standalone() { return (W.matchMedia && W.matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true; }
+  function perm() { try { return W.Notification ? W.Notification.permission : 'unsupported'; } catch (e) { return 'unsupported'; } }
+  /* off: لسه ماتفعّلتش من الإدارة | ios_install: آيفون من غير تثبيت | unsupported | denied | ask | on */
+  A.pushState = function () {
+    if (!cfgOk()) return 'off';
+    if (!supported()) return isIos() && !standalone() ? 'ios_install' : 'unsupported';
+    var p = perm();
+    return p === 'granted' ? 'on' : p === 'denied' ? 'denied' : 'ask';
+  };
+  function ver() { return W.__BUILD ? '<p class="xs mut tc" style="margin:10px 0 0">الإصدار <span dir="ltr">' + esc(W.__BUILD) + '</span></p>' : ''; }
+  A.verLine = ver;
+
+  function pushCard(forStaff) {
+    var st = A.pushState(), body, btns = '';
+    if (st === 'off') {
+      if (!forStaff) return '';
+      body = 'إشعارات الموبايل لسه ماتفعّلتش للتطبيق. محتاجة إعداد Firebase مرة واحدة من مسؤول النظام، ولحد كده الرسائل والطوارئ بتظهر جوه التطبيق وبالبريد.';
+    } else if (st === 'ios_install') body = 'على الآيفون: ثبّت التطبيق الأول على الشاشة الرئيسية من Safari، وافتحه من الأيقونة، وبعدين فعّل الإشعارات من هنا.';
+    else if (st === 'unsupported') body = 'المتصفح ده مش بيدعم الإشعارات. جرّب Chrome على أندرويد، أو ثبّت التطبيق على الشاشة الرئيسية.';
+    else if (st === 'denied') body = 'الإشعارات مقفولة للتطبيق من إعدادات المتصفح. افتح إعدادات الموقع واسمح بالإشعارات، وبعدين ارجع هنا.';
+    else if (st === 'ask') {
+      body = forStaff ? 'فعّلها عشان توصلك الرسائل الجديدة والطوارئ على الموبايل حتى والتطبيق مقفول.' : 'فعّلها عشان يوصلك سعر النهارده ورد الفريق على رسايلك حتى والتطبيق مقفول.';
+      btns = '<button class="btn" data-act="push_on">' + ic('bell', 'sm') + 'فعّل الإشعارات</button>';
+    } else {
+      body = 'الإشعارات مفعّلة على الجهاز ده.';
+      btns = '<button class="btn gh sm" data-act="push_test">ابعت إشعار تجربة</button>';
+    }
+    return '<div class="card" id="push-card"><div class="row sp"><b>الإشعارات</b><span class="chip ' + (st === 'on' ? 'ok' : '') + '">' + (st === 'on' ? 'مفعّلة' : 'مش مفعّلة') + '</span></div>' +
+      '<p class="sm mut" style="margin:6px 0 10px">' + body + '</p>' + btns + '</div>';
+  }
+  A.pushCard = pushCard;
+  function repaintPush() {
+    var c = document.getElementById('push-card'); if (c) c.outerHTML = A.fx(pushCard(S.role === 'staff'));
+    var n = document.getElementById('push-nudge'); if (n && A.pushState() !== 'ask') n.parentNode.removeChild(n);
+  }
+  H.push_on = function (el) {
+    if (!W.Notification) return;
+    if (el) el.disabled = true;
+    W.Notification.requestPermission().then(function (p) {
+      if (p !== 'granted') { if (el) el.disabled = false; repaintPush(); A.toast('من غير إذن الإشعارات مش هيوصلك حاجة والتطبيق مقفول', 'err'); return; }
+      A.toast('بنفعّل الإشعارات…');
+      (A.webPushInit ? A.webPushInit() : Promise.resolve(false)).then(function (ok) {
+        repaintPush();
+        A.toast(ok ? 'الإشعارات اتفعّلت على الجهاز ده' : 'الإذن اتسجّل، بس تسجيل الجهاز ماكملش. جرّب تاني بعد شوية', ok ? 'ok' : 'err');
+      });
+    }, function () { if (el) el.disabled = false; });
+  };
+  H.push_test = function (el) {
+    if (el) el.disabled = true;
+    (A.webPushInit ? A.webPushInit() : Promise.resolve(false)).then(function () {
+      return call(S.role === 'staff' ? 'sPushTest' : 'tPushTest', {});
+    }).then(function (d) {
+      if (el) el.disabled = false;
+      if (!d) return;
+      if (!d.server) return A.toast('الخادم لسه محتاج مفتاح Firebase (FCM_SERVICE_ACCOUNT) من مسؤول النظام', 'err');
+      if (!d.devices) return A.toast('الجهاز ده لسه ماتسجّلش. اقفل التطبيق وافتحه تاني وجرّب', 'err');
+      A.toast(d.sent ? 'اتبعت إشعار تجربة. لو ماظهرش خلال دقيقة راجع إعدادات الإشعارات في الموبايل' : 'ماقدرناش نبعت للجهاز ده. فعّل الإشعارات تاني', d.sent ? 'ok' : 'err');
+    });
+  };
+  /* تنبيه صغير في «اليوم» للتاجر لو الإشعارات متاحة ولسه ماتفعّلتش. «مش دلوقتي» تأجله أسبوع */
+  var SNOOZE = 'c3a_push_snooze';
+  function nudge() {
+    if (A.pushState() !== 'ask') return '';
+    var t = Number(A.lsGet(SNOOZE) || 0);
+    if (t && Date.now() - t < 7 * 86400000) return '';
+    return '<div class="card" id="push-nudge"><div class="row" style="gap:10px"><span style="color:var(--red)">' + ic('bell') + '</span><div class="grow"><b>خلّي سعر النهارده يوصلك</b><div class="sm mut">فعّل الإشعارات ويوصلك السعر ورد الفريق حتى والتطبيق مقفول.</div></div></div>' +
+      '<div class="grid2" style="margin-top:10px"><button class="btn sm" data-act="push_on">فعّل</button><button class="btn gh sm" data-act="push_later">مش دلوقتي</button></div></div>';
+  }
+  /* بعد الدخول: لو الإذن ممنوح من قبل يتسجّل الجهاز للحساب الجديد بصمت */
+  A.afterEnter = function () {
+    (A.loadPushCfg ? A.loadPushCfg() : Promise.resolve()).then(function () {
+      if (S.role === 'trader' && S.tab === 'today' && !S.sub && A.renderView && A.pushState() === 'ask') A.renderView(true);   /* يظهر تنبيه التفعيل */
+      if (A.pushState() !== 'on' || !A.webPushInit) return;
+      A.webPushInit().then(function () { return A.pushSync ? A.pushSync() : false; });
+    });
+  };
+  H.push_later = function () { A.lsSet(SNOOZE, String(Date.now())); var n = document.getElementById('push-nudge'); if (n) n.parentNode.removeChild(n); };
+
+  /* ---------- خط السير والطوارئ للتاجر ---------- */
+  /* الخطوط اللي الإدارة بعتتها للتاجر بتيجي مع بيانات «اليوم» (home.routes) وتظهر له أول ما يفتح التطبيق */
+  function myRoutes() { return (S.home && S.home.routes) || []; }
+  var LIVE = { active: 1, off_route: 1, emergency: 1 };
+  var RST = { planned: ['لسه ماتبدأش', ''], active: ['شغالة', 'ok'], off_route: ['خارج الخط', 'warn'], emergency: ['طوارئ', 'red'] };
+  function savedRoute() { return A.secLoad('c3a_route').then(function (t) { return t || ''; }, function () { return ''; }); }
+  function openLink(tok) { W.location.href = W.location.pathname + '?r=' + encodeURIComponent(tok); }
+  function openInApp(id) { A.closeSheet(); if (A.cleanup) A.cleanup(); A.startRoute('', id); W.scrollTo(0, 0); }
+  H.tr_open = function (el) { openInApp(el.dataset.id); };
+  H.tr_route = function () {
+    A.closeSheet();
+    var list = myRoutes();
+    if (list.length === 1) return openInApp(list[0].id);
+    if (list.length > 1) {
+      return A.sheet('<h3 style="margin:0 0 8px">خطوط السير بتاعتك</h3>' + list.map(routeRow).join('') + '<button class="btn gh" data-act="sheet_close">قفل</button>');
+    }
+    savedRoute().then(function (tok) {
+      if (tok) return openLink(tok);
+      A.sheet('<h3 style="margin:0 0 6px">خط السير</h3>' +
+        '<p class="sm">لسه مفيش خط سير ليك. لما مسؤول الأمن الحيوي يبعتلك محطة أو خط، هيظهر هنا وفي أول «اليوم» على طول، ولو الإشعارات مفعّلة هيوصلك إشعار.</p>' +
+        '<p class="sm">منه تضغط «ابدأ الرحلة»، والتطبيق يرسم الطريق من مكانك للمحطة، وتلاقي زرار «طوارئ» طول الرحلة.</p>' +
+        '<button class="btn gh" data-act="sheet_close">تمام</button>');
+    });
+  };
+  function routeRow(r) {
+    var st = RST[r.status] || RST.planned;
+    return '<div class="card tr-route' + (LIVE[r.status] ? ' live' : '') + '"><div class="row sp" style="gap:8px"><b>' + esc(r.title) + '</b><span class="chip ' + st[1] + '">' + st[0] + '</span></div>' +
+      (r.stops && r.stops.length ? '<div class="xs mut" style="margin:4px 0 8px">' + r.stops.map(esc).join(' ← ') + '</div>' : '') +
+      '<button class="btn ' + (LIVE[r.status] ? '' : 'dk') + '" data-act="tr_open" data-id="' + esc(r.id) + '">' + ic('truck', 'sm') + (LIVE[r.status] ? 'كمّل الرحلة' : 'افتح خط السير') + '</button></div>';
+  }
+  function routesCard() {
+    var list = myRoutes();
+    if (!list.length) return '';
+    return '<div class="tr-routes"><div class="sec-t" style="margin-top:0">' + (list.length > 1 ? 'خطوط سير ليك' : 'خط سير ليك') + '</div>' + list.map(routeRow).join('') + '</div>';
+  }
+  /* تحديث خفيف للخطوط وانت فاتح «اليوم» (مرة كل دقيقة على الأكثر) */
+  var rtAt = 0;
+  function refreshRoutes() {
+    if (S.role !== 'trader' || Date.now() - rtAt < 60000) return;
+    rtAt = Date.now();
+    call('tRoutes', {}, { quiet: true }).then(function (d) {
+      if (!d || !S.home) return;
+      var before = JSON.stringify(myRoutes()), after = JSON.stringify(d.routes || []);
+      S.home.routes = d.routes || [];
+      if (before !== after && S.tab === 'today' && !S.sub && A.renderView) A.renderView(true);
+    });
+  }
+  H.tr_sos = function () {
+    var list = myRoutes().filter(function (r) { return LIVE[r.status]; });
+    savedRoute().then(function (tok) {
+      var hasRoute = list.length || tok;
+      A.sheet('<h3 style="margin:0 0 6px;color:var(--red)">طوارئ</h3>' +
+        (hasRoute ? '<p class="sm">لو انت في رحلة على خط السير: افتح الخط واضغط زرار «طوارئ» الأحمر، ومكانك بيوصل للمسؤول فورًا.</p><button class="btn" data-act="' + (list.length ? 'tr_open" data-id="' + esc(list[0].id) : 'tr_route') + '">' + ic('truck', 'sm') + 'افتح خط السير</button><div style="height:10px"></div>' : '') +
+        '<p class="sm">أو ابعت بلاغ عاجل لفريق الأمن الحيوي. بيوصل للمسؤولين على طول على الموبايل والبريد.</p>' +
+        '<button class="btn ' + (hasRoute ? 'dk' : '') + '" data-act="tr_urgent">' + ic('warn', 'sm') + 'ابعت بلاغ عاجل</button>' +
+        '<p class="xs mut" style="margin-top:10px">لو فيه خطر على حياة حد: اتصل بالإسعاف 123 أو النجدة 122 الأول.</p>');
+    });
+  };
+  H.tr_urgent = function () {
+    A.closeSheet();
+    var open = function () { A.openSub({ type: 'newticket', title: 'بلاغ عاجل', hidePts: true, tsel: 'urgent' }); };
+    if (S.tickets) return open();
+    call('ticketList', {}, { quiet: true }).then(function (d) { if (d) S.tickets = d; open(); });
+  };
+  function quickRow() {
+    return '<div class="tq"><button class="btn rt" data-act="tr_route">' + ic('truck', 'sm') + 'خط السير</button><button class="btn sos" data-act="tr_sos">' + ic('warn', 'sm') + 'طوارئ</button></div>';
+  }
+
+  /* «اليوم»: الخطوط المبعوتة أول حاجة، وبعدها زرار الخط والطوارئ (في الصور ليهم بلاطات) */
+  var prevToday = V.today;
+  V.today = function () {
+    var base = prevToday();
+    var pic = A.picMode && A.picMode() && !S.picDetail;
+    setTimeout(refreshRoutes, 0);
+    return routesCard() + nudge() + (pic ? '' : quickRow()) + base;
+  };
+
+  /* «حسابي»: بطاقة الإشعارات في البطاقة الأولى لو محتاجة تفعيل، ودايمًا في الإعدادات مع رقم الإصدار */
+  var prevAcc = A.subs && A.subs.account;
+  if (prevAcc) A.subs.account = function (sub) {
+    var html = prevAcc(sub), seg = A.seg ? A.seg('account', 'card') : 'card';
+    if (seg === 'set') return html + pushCard(false) + ver();
+    var st = A.pushState();
+    return (seg === 'card' && (st === 'ask' || st === 'ios_install') ? pushCard(false) : '') + html;
+  };
+
+  /* الموظف: جرس في الرأس يفتح ورقة الإشعارات */
+  var prevStaff = A.screens.staff;
+  A.screens.staff = function () {
+    prevStaff();
+    if (S.ssub) return;
+    var out = document.querySelector('#app .hdr [data-act="logout"]');
+    if (out && !document.querySelector('#app .hdr [data-act="push_sheet"]')) {
+      out.insertAdjacentHTML('beforebegin', '<button class="ib" data-act="push_sheet" aria-label="الإشعارات">' + ic('bell') + '</button>');
+    }
+  };
+  H.push_sheet = function () {
+    A.sheet('<h3 style="margin:0 0 8px">الإشعارات</h3>' + pushCard(true) + ver() + '<div style="height:10px"></div><button class="btn gh" data-act="sheet_close">قفل</button>');
+  };
+
+  /* شاشة الخط: رجوع للحساب لو فيه دخول محفوظ. أثناء الرحلة يحتاج ضغطتين لأن الموقع هيقف */
+  var prevRoute = A.screens.route;
+  if (prevRoute) A.screens.route = function () {
+    prevRoute();
+    if (!A.lsGet('c3a_role')) return;
+    var h = document.querySelector('#app .hdr');
+    if (h && !h.querySelector('[data-act="rt_home"]')) h.insertAdjacentHTML('beforeend', '<button class="ib" data-act="rt_home" aria-label="رجوع لحسابي">' + ic('back') + '</button>');
+  };
+  var homeArmed = 0;
+  H.rt_home = function () {
+    var live = !!document.querySelector('.rt-sos');
+    if (live && Date.now() - homeArmed > 4000) {
+      homeArmed = Date.now();
+      return A.toast('الرحلة شغالة: لو رجعت هيقف إرسال الموقع. اضغط رجوع تاني للتأكيد', 'err');
+    }
+    W.location.href = W.location.pathname;
+  };
 })();
 </script><script>/* تثبيت التطبيق (النسخة المستضافة على GitHub Pages فقط).
    1) بطاقة «ثبّت التطبيق» دايمًا ظاهرة في شاشة الدخول وفي حسابي، بخطوات تناسب الجهاز (أندرويد، آيفون، لابتوب، أو متصفح تطبيق مثل واتساب).

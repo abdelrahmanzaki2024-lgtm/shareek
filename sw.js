@@ -1,16 +1,20 @@
 /* عامل الخدمة: يخزّن الواجهة ليفتح التطبيق المثبّت حتى مع ضعف الإنترنت.
    بيانات التجار والأسعار لا تُخزَّن أبدًا: طلبات الخادم كلها POST ولا يتدخل فيها العامل. */
-const CACHE = 'c3a-shareek-04f58b30';
+const CACHE = 'c3a-shareek-72e6779c';
 const SHELL = ['./', './index.html', './config.js', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png'];
 
-/* كل ملف يُخزَّن على حدة: ملف واحد ناقص لا يُفشل تثبيت العامل كله (لو فشل التثبيت لا يعمل التطبيق كتطبيق مثبّت) */
+/* كل ملف يُخزَّن على حدة: ملف واحد ناقص لا يُفشل تثبيت العامل كله (لو فشل التثبيت لا يعمل التطبيق كتطبيق مثبّت).
+   cache: 'reload' يتخطى ذاكرة المتصفح المؤقتة (GitHub Pages يحتفظ بالملف 10 دقايق)، فالنسخة المخزّنة هي الجديدة فعلًا */
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE)
-    .then((c) => Promise.all(SHELL.map((u) => c.add(u).catch(() => null))))
+    .then((c) => Promise.all(SHELL.map((u) => fetch(new Request(u, { cache: 'reload' }))
+      .then((r) => (r.ok ? c.put(u, r) : null)).catch(() => null))))
     .then(() => self.skipWaiting()));
 });
 
+/* عند وصول إصدار جديد: تُمسح النسخ القديمة ويتحكم العامل الجديد فورًا. الصفحة نفسها تعيد تحميل نفسها مرة واحدة
+   لما تلاحظ تغيّر العامل (controllerchange في index.html)، فلا يفضل حد على إصدار قديم */
 self.addEventListener('activate', (e) => {
   e.waitUntil(caches.keys()
     .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
@@ -21,9 +25,13 @@ self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET') return;
   if (new URL(req.url).origin !== self.location.origin) return;
-  /* الشبكة أولًا حتى تصل التحديثات، ثم النسخة المخزّنة عند انقطاع الإنترنت */
-  e.respondWith(fetch(req)
-    .then((res) => { if (res.ok) caches.open(CACHE).then((c) => c.put(req, res.clone())); return res; })
+  /* الشبكة أولًا مع تحقق من الخادم (no-cache) حتى تصل التحديثات فورًا، ثم النسخة المخزّنة عند انقطاع الإنترنت.
+     طلبات فتح الصفحة لا تقبل خيارات مع الطلب نفسه، فتُطلب بالرابط */
+  const net = req.mode === 'navigate'
+    ? fetch(req.url, { cache: 'no-cache', credentials: 'same-origin' })
+    : fetch(req, { cache: 'no-cache' });
+  e.respondWith(net
+    .then((res) => { if (res.ok) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(req, copy)); } return res; })
     .catch(() => caches.match(req).then((r) => r || caches.match('./index.html'))));
 });
 
