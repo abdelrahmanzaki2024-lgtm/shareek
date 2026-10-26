@@ -1,4 +1,4 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#242424"><title>شريك الدفاع | كايرو ثري ايه</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"><script>window.__BUILD='2026-10-25.8221b8';</script><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="شريك الدفاع"><meta name="apple-mobile-web-app-status-bar-style" content="default"><script src="config.js"></script><script>if('serviceWorker' in navigator){window.addEventListener('load',function(){var sw=navigator.serviceWorker,had=!!sw.controller,done=false;sw.addEventListener('controllerchange',function(){if(had&&!done){done=true;location.reload();}had=true;});sw.register('sw.js').then(function(r){var last=Date.now();document.addEventListener('visibilitychange',function(){if(!document.hidden&&Date.now()-last>1800000){last=Date.now();r.update().catch(function(){});}});}).catch(function(){});});}</script></head><body><style>:root{
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#242424"><title>شريك الدفاع | كايرو ثري ايه</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"><script>window.__BUILD='2026-10-26.667614';</script><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="شريك الدفاع"><meta name="apple-mobile-web-app-status-bar-style" content="default"><script src="config.js"></script><script>if('serviceWorker' in navigator){window.addEventListener('load',function(){var sw=navigator.serviceWorker,had=!!sw.controller,done=false;sw.addEventListener('controllerchange',function(){if(had&&!done){done=true;location.reload();}had=true;});sw.register('sw.js').then(function(r){var last=Date.now();document.addEventListener('visibilitychange',function(){if(!document.hidden&&Date.now()-last>1800000){last=Date.now();r.update().catch(function(){});}});}).catch(function(){});});}</script></head><body><style>:root{
   --red:#EA2329;--red-d:#B81E25;--ink:#242424;--gray:#6D6E71;
   --bg:#F4F4F5;--card:#fff;--line:#E4E4E6;--soft:#F0F0F2;--txt:#242424;--mut:#6D6E71;
   --ok:#2E9E5B;--ok-bg:#E6F5EC;--warn:#C98200;--warn-bg:#FFF4D9;--bad-bg:#FDE8E9;
@@ -411,6 +411,10 @@ body.picmode .tabs .i{width:28px;height:28px}
 .tq .btn{min-height:48px;font-size:15.5px}
 .tq .btn.rt{background:var(--ink)}
 .tq .btn.sos{background:var(--red)}
+.tq.one{grid-template-columns:1fr}
+.pic-tile.wide{grid-column:1/-1;flex-direction:row;align-items:center}
+.pic-tile.wide .pic-ic{height:72px;width:84px;flex:none}
+.pic-tile.wide .pic-t{flex:1}
 .pic-tile.sos .pic-ic{background:var(--red,#EA2329);color:#fff}
 .pic-tile.sos .pic-ic .i{stroke:#fff}
 .pic-tile.sos .pic-t{color:var(--red,#EA2329)}
@@ -591,6 +595,51 @@ body.picmode .tabs .i{width:28px;height:28px}
 .vst-acts{display:grid;grid-template-columns:1fr 1.4fr;gap:8px}
 .vst-nav{display:flex;justify-content:space-between}
 @media (prefers-reduced-motion:reduce){.vst-rec.on{animation:none}}
+
+/* ---------- «وصّلني» في الصفحة الرئيسية للتاجر ---------- */
+.wsl-home{margin:0 0 12px;display:flex;flex-direction:column;gap:8px}
+.wsl-main{display:flex;align-items:center;gap:14px;width:100%;min-height:86px;padding:14px 16px;background:var(--ink);color:#fff;border:1px solid rgba(255,255,255,.06);border-radius:20px;cursor:pointer;text-align:right;font-family:inherit;position:relative;overflow:hidden;box-shadow:0 8px 22px rgba(36,36,36,.18)}
+.wsl-main:active{transform:scale(.99)}
+.wsl-main b{display:block;font-size:21px;font-weight:900;line-height:1.25}
+.wsl-main small{display:block;font-size:13.5px;opacity:.86;margin-top:3px;line-height:1.5;font-weight:600}
+.wsl-main>svg.i{opacity:.7}
+.wsl-ic{width:58px;height:58px;border-radius:17px;background:var(--red);display:grid;place-items:center;flex:none;box-shadow:0 6px 16px rgba(234,35,41,.4)}
+.wsl-arw{width:30px;height:30px;fill:#fff;transform:rotate(-30deg)}
+.wsl-new{position:absolute;top:9px;left:12px;background:var(--red);color:#fff;font-style:normal;font-size:11px;font-weight:800;border-radius:999px;padding:1px 9px;line-height:1.7}
+.wsl-home.off .wsl-main{background:var(--card);color:var(--txt);border:1.5px dashed var(--line);box-shadow:none}
+.wsl-home.off .wsl-ic{background:var(--soft);box-shadow:none}.wsl-home.off .wsl-arw{fill:var(--mut)}
+.wsl-home.off .wsl-main b{font-size:18px}
+.wsl-last{display:flex;align-items:center;gap:8px;width:100%;min-height:46px;padding:8px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--txt);font-family:inherit;font-size:14.5px;font-weight:700;text-align:right;cursor:pointer}
+.wsl-last b{font-weight:900}.wsl-last svg{color:var(--mut)}
+.wsl-foot{font-size:12.5px;color:var(--mut);font-weight:700;padding:0 6px}
+.wsl-list{display:flex;flex-direction:column;gap:8px;margin:12px 0;max-height:min(58vh,480px);overflow:auto;padding:2px}
+.wsl-row{display:flex;align-items:center;gap:12px;width:100%;min-height:68px;padding:10px 12px;border-radius:16px;border:1.5px solid var(--line);background:var(--card);color:var(--txt);text-align:right;cursor:pointer;font-family:inherit}
+.wsl-row:active{background:var(--soft)}
+.wsl-row.near{border-color:var(--ok);box-shadow:0 0 0 3px var(--ok-bg)}
+.wsl-row .grow{min-width:0}
+.wsl-row b{display:block;font-size:16px;font-weight:900;line-height:1.35}
+.wsl-row small{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12.5px;color:var(--mut);font-weight:700;margin-top:2px}
+.wsl-k{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;flex:none;background:var(--soft);color:#1F6FB2}
+.wsl-k.disinfect{color:var(--ok)}.wsl-k.service{color:var(--mut)}
+.wsl-d{flex:none;min-width:58px;text-align:center;font-weight:900;font-size:15px;font-variant-numeric:tabular-nums;line-height:1.2}
+.wsl-d small{display:block;font-size:11px;color:var(--mut);margin:0}
+.wsl-zone,.zn-t{display:inline-block;background:var(--warn-bg);color:var(--warn);border-radius:999px;padding:0 8px;font-size:11.5px;font-weight:800;line-height:1.7}
+.zn-t{white-space:nowrap}
+/* نوع الطريق في تسجيل الطرق وقايمة الطرق */
+.zn-dot{width:30px;height:30px;border-radius:50%;flex:none;border:4px solid var(--card);box-shadow:0 0 0 2px var(--line)}
+.zn-dot.d{background:#B26A00}.zn-dot.c{background:#1F6FFF}
+.lost-b.zn-d{border:2px solid #B26A00}
+.zn-seg{display:inline-flex;gap:6px}
+button.chip.zn{border:1.5px solid var(--line);background:var(--card)}
+button.chip.zn.dirty.sel{background:#B26A00;border-color:#B26A00;color:#fff}
+button.chip.zn.clean.sel{background:#1F6FFF;border-color:#1F6FFF;color:#fff}
+.chip.zn.dirty{color:#B26A00}.chip.zn.clean{color:#1F6FFF}.chip.zn.none{color:var(--mut)}
+button.chip.zn.sel{color:#fff}
+.rc-note{background:var(--warn-bg);color:var(--warn);border-radius:12px;padding:8px 12px;font-weight:800;font-size:13px;margin-bottom:8px}
+.fl-sos.lost .fl-btns .btn{flex:1 1 auto}
+
+.fl-calm{margin:6px 0;display:flex;flex-direction:column;gap:4px;border-style:dashed}
+.fl-stbtn.dk{width:100%;margin:8px 0}
 </style><div id="app"></div><div id="toast"></div><script>window.__STATIC={
 "ranks": [
 {
@@ -2295,7 +2344,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
 
   /* ---------- الاتصال بالخادم ---------- */
   /* القراءات فقط تُعاد بعد تعثّر الشبكة أو خطأ 5xx/429، بتأخير يتزايد (لا تُعاد الكتابات حتى لا تتكرر) */
-  var RETRY_OK = { sMe: 1, sFleet: 1, sTrack: 1, sNotes: 1, sStats: 1, sTraders: 1, sTraderGet: 1, sMarketGet: 1, sTeamList: 1, sGate: 1, sInbox: 1, sTicket: 1, sRewards: 1, sFind: 1, sReport: 1, sResetPreview: 1, routeGet: 1, routePing: 1 };
+  var RETRY_OK = { sMe: 1, sFleet: 1, sTrack: 1, sNotes: 1, sStats: 1, sTraders: 1, sTraderGet: 1, sMarketGet: 1, sTeamList: 1, sGate: 1, sInbox: 1, sTicket: 1, sRewards: 1, sFind: 1, sReport: 1, sResetPreview: 1, routeGet: 1, routePing: 1, tRoutes: 1, tNavPlaces: 1 };
   function waitMs(n) { return new Promise(function (res) { setTimeout(res, 700 * n * n); }); }
   /* رسائل الشبكة مفصولة: «مفيش إنترنت» تظهر فعلًا لما الجهاز أوفلاين، ورسالة الخادم لما الجهاز أونلاين والطلب مش واصل */
   var NET_OFFLINE = 'مفيش إنترنت دلوقتي. اتأكد من الشبكة وجرّب تاني';
@@ -4652,18 +4701,33 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
 
   /* ============ تبويب المشرف ============ */
   function flStats(d) {
-    var s = d.stats;
+    var s = d.stats, help = d.alerts.filter(function (a) { return a.type === 'lost' || a.type === 'emergency'; }).length, dirty = {};
+    (d.roads || []).forEach(function (r) { if (r.zone === 'dirty') dirty[r.sid] = 1; });
+    var nW = (d.stations || []).filter(function (x) { return dirty[x.id]; }).length;
     return '<div class="fl-chips">' +
-      '<span class="chip ok">في الطريق ' + num(s.active) + '</span>' +
-      '<span class="chip warn">خارج الخط ' + num(s.off) + '</span>' +
-      '<span class="chip red">طوارئ ' + num(s.emergency) + '</span>' +
-      '<span class="chip">بلا إشارة ' + num(s.stale) + '</span>' +
-      '<span class="chip">لم تبدأ ' + num(s.planned) + '</span></div>';
+      '<span class="chip ' + (help ? 'red' : '') + '">طلبات مساعدة ' + num(help) + '</span>' +
+      '<span class="chip ok">محطات في «وصّلني» ' + num(nW) + (d.stations && d.stations.length ? ' من ' + num(d.stations.length) : '') + '</span>' +
+      (d.routes.length ? '<span class="chip">خطوط قديمة ' + num(d.routes.length) + '</span>' + (s.off ? '<span class="chip warn">خارج الخط ' + num(s.off) + '</span>' : '') : '') +
+      '</div>';
+  }
+  /* «تاجر تايه» من «وصّلني» (من غير خط سير): مكانه على خرائط جوجل ورقمه */
+  function flLost(a) {
+    var has = !!(a.lat || a.lng), ll = has ? Number(a.lat).toFixed(5) + ',' + Number(a.lng).toFixed(5) : '';
+    var sos = /طوارئ/.test(a.reason || '');
+    return '<div class="fl-sos lost"><div class="row" style="gap:10px;align-items:flex-start"><span class="fl-dot"></span><div class="grow"><b>' + (sos ? 'طوارئ من تاجر: ' : 'تاجر تايه: ') + esc(a.traderName || 'تاجر') + '</b>' +
+      '<div class="sm">' + esc(a.reason || 'تايه في الطريق') + ' · ' + ago(a.ts) + (sos ? '' : ' · من «وصّلني»') + '</div>' +
+      '<div class="xs mut ltr">' + (has ? esc(ll) + (a.acc ? ' (±' + num(a.acc) + ' م)' : '') : 'المكان مش متاح (الموقع مقفول على موبايله)') + '</div></div></div>' +
+      '<div class="fl-btns" style="margin-top:10px">' +
+        (has ? '<a class="btn sm gh" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=' + esc(ll) + '">افتح مكانه</a>' : '') +
+        (a.phone ? '<a class="btn sm dk" href="tel:' + esc(a.phone) + '">' + ic('phone', 'sm') + 'اتصل بيه</a>' : '') +
+        '<button class="btn sm ok" data-act="fl_resolve" data-id="' + esc(a.id) + '">تم الحل</button></div></div>';
   }
   function flSos(d) {
+    var lost = d.alerts.filter(function (a) { return a.type === 'lost'; }).map(flLost).join('');
     var sos = d.alerts.filter(function (a) { return a.type === 'emergency'; });
-    if (!sos.length) return '';
-    return sos.map(function (a) {
+    if (!sos.length && !lost) return '<div class="card fl-calm"><b>مفيش طلبات مساعدة دلوقتي</b><div class="xs mut">التاجر بيختار المحطة بنفسه من «وصّلني». لو ضغط «أنا تايه» أو «طوارئ» هيظهر هنا بمكانه ورقمه، وهيوصلك إشعار.</div></div>';
+    if (!sos.length) return lost;
+    return lost + sos.map(function (a) {
       return '<div class="fl-sos"><div class="row" style="gap:10px;align-items:flex-start"><span class="fl-dot"></span><div class="grow"><b>طوارئ: ' + esc(a.traderName || a.routeTitle) + '</b>' +
         '<div class="sm">' + esc(a.reason || 'بدون سبب محدد') + ' · ' + ago(a.ts) + '</div>' +
         '<div class="xs mut ltr">' + Number(a.lat).toFixed(5) + ', ' + Number(a.lng).toFixed(5) + '</div></div></div>' +
@@ -4671,8 +4735,8 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     }).join('');
   }
   function flList(d) {
-    if (!d.routes.length) return '<div class="card tc mut">مفيش خطوط نشطة دلوقتي.' + (d.canManage ? ' اضغط «خط سير جديد» وابدأ.' : '') + '</div>';
-    return d.routes.map(function (r) {
+    if (!d.routes.length) return '';   // «خط السير» اتشال؛ بتظهر بس الخطوط اللي اتبعتت قبل كده لحد ما تخلص
+    return '<div class="sec-t">خطوط سير اتبعتت قبل كده</div>' + d.routes.map(function (r) {
       var st = statOf(r.status), ended = r.status === 'done' || r.status === 'cancelled';
       var seen = r.lastTs ? (r.stale ? 'بلا إشارة منذ ' + ago(r.lastTs) : 'آخر إشارة ' + ago(r.lastTs)) : (ended ? '' : 'لم يبدأ الإرسال');
       var sel = S.fl.sel === r.id ? ' fl-sel' : '';
@@ -4687,9 +4751,9 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     }).join('');
   }
   function flAlerts(d) {
-    var list = d.alerts.filter(function (a) { return a.type !== 'emergency'; });
-    if (!list.length) return '<div class="mut sm">مفيش تنبيهات خروج مفتوحة.</div>';
-    return list.map(function (a) {
+    var list = d.alerts.filter(function (a) { return a.type === 'off_route'; });
+    if (!list.length) return '';
+    return '<div class="sec-t">تنبيهات الخروج</div>' + list.map(function (a) {
       return '<div class="card fl-card"><div class="row" style="gap:10px"><span class="fl-dot" style="background:#F2A900"></span><div class="grow"><b>خروج عن الخط: ' + esc(a.traderName || a.routeTitle) + '</b><div class="xs mut">بعيد ~' + num(a.dist) + ' متر · ' + ago(a.ts) + '</div></div></div><div class="fl-btns"><button class="btn xs gh" data-act="fl_sel" data-id="' + esc(a.routeId) + '">على الخريطة</button><button class="btn xs ok" data-act="fl_resolve" data-id="' + esc(a.id) + '">تم الحل</button></div></div>';
     }).join('');
   }
@@ -4705,13 +4769,13 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var d = S.fl.data;
     if (!d) return '<div class="spin"></div>';
     var nst = (d.stations || []).length;
-    var manage = d.canManage ? '<div class="fl-acts"><button class="btn dk" data-act="fl_send">' + ic('truck', 'sm') + 'ابعت نقطة لتاجر</button><button class="btn gh" data-act="fl_new">' + ic('plus', 'sm') + 'خط سير بمحطات</button></div>' : '';
-    manage += (d.canManage || d.canStations) ? '<button class="btn gh sm fl-stbtn" data-act="fl_stations">المحطات والطرق المتسجّلة (' + num(nst) + ')</button>' : '';
+    /* «خط السير» اتشال من التطبيق («وصّلني» أغنى عنه): الأسطول بقى للمحطات والطرق الديرتي وطلبات المساعدة */
+    var manage = (d.canManage || d.canStations) ? '<button class="btn dk fl-stbtn" data-act="fl_stations">' + ic('truck', 'sm') + 'المحطات والطرق المتسجّلة (' + num(nst) + ')</button>' : '';
     return flBell() + flStats(d) + '<div id="fl-sos">' + flSos(d) + '</div>' +
       '<div class="fl-mapbox"><div id="fmap" class="fmap"></div></div>' +
-      '<div class="xs mut" style="margin:4px 2px">اضغط على النقطة الملوّنة لتعرف مكان التاجر. الخط الرمادي المتقطع هو خط السير.</div>' +
-      manage + '<div class="sec-t">الخطوط</div><div id="fl-list">' + flList(d) + '</div>' +
-      '<div class="sec-t">تنبيهات الخروج</div><div id="fl-alerts">' + flAlerts(d) + '</div>';
+      '<div class="xs mut" style="margin:4px 2px">النقط الملوّنة هي المحطات. الطريق البني هو الديرتي اللي التجار بيتوجّهوا عليه في «وصّلني»، والأزرق كلين. الدايرة الحمرا تاجر طلب مساعدة.</div>' +
+      manage + '<div id="fl-list">' + flList(d) + '</div>' +
+      '<div id="fl-alerts">' + flAlerts(d) + '</div>';
   };
   A.staffSP.fleet = function () {
     flStart(); mapFor('fmap', drawFleetMap);
@@ -4730,7 +4794,8 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       draw(A.fleetMap.m);
     });
   }
-  function colorOfAlert(a) { return a.type === 'emergency' ? '#EA2329' : '#F2A900'; }
+  function colorOfAlert(a) { return a.type === 'emergency' || a.type === 'lost' ? '#EA2329' : '#F2A900'; }
+  var ALBL = { emergency: 'طوارئ: ', lost: 'تايه: ', off_route: 'خروج: ' };
   function drawFleetMap(M) {
     var d = S.fl.data; if (!d || !W.L) return;
     M.layer.clearLayers();
@@ -4752,7 +4817,8 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     /* الطرق المتسجّلة بالأزرق */
     var dec = W.C3A && W.C3A.U && W.C3A.U.polyDec;
     if (dec) (d.roads || []).forEach(function (r) {
-      var pts = dec(r.poly); if (pts.length > 1) W.L.polyline(pts, { color: '#1F6FFF', weight: 4, opacity: .75 }).bindTooltip(esc(r.name + ' · ' + (r.lenM >= 1000 ? (r.lenM / 1000).toFixed(1) + ' كم' : r.lenM + ' م')), { direction: 'top' }).addTo(M.layer);
+      var pts = dec(r.poly), zc = r.zone === 'dirty' ? '#B26A00' : '#1F6FFF', zl = r.zone === 'dirty' ? ' · ديرتي' : r.zone === 'clean' ? ' · كلين' : '';
+      if (pts.length > 1) W.L.polyline(pts, { color: zc, weight: 4, opacity: .8, dashArray: r.zone ? null : '8 6' }).bindTooltip(esc(r.name + zl + ' · ' + (r.lenM >= 1000 ? (r.lenM / 1000).toFixed(1) + ' كم' : r.lenM + ' م')), { direction: 'top' }).addTo(M.layer);
     });
     (d.stations || []).forEach(function (x) {
       var col = x.kind === 'disinfect' ? '#2E9E5B' : x.kind === 'service' ? '#6D6E71' : '#1F6FB2';
@@ -4761,7 +4827,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       mk.addTo(M.layer); if (!d.routes.length) bounds.push([x.lat, x.lng]);
     });
     d.alerts.forEach(function (a) {
-      if (a.lat || a.lng) W.L.circleMarker([a.lat, a.lng], { radius: 13, color: colorOfAlert(a), weight: 3, fillColor: '#fff', fillOpacity: .6 }).bindTooltip(esc((a.type === 'emergency' ? 'طوارئ: ' : 'خروج: ') + (a.traderName || a.routeTitle)), { direction: 'top' }).addTo(M.layer);
+      if (a.lat || a.lng) W.L.circleMarker([a.lat, a.lng], { radius: 13, color: colorOfAlert(a), weight: 3, fillColor: '#fff', fillOpacity: .6 }).bindTooltip(esc((ALBL[a.type] || 'خروج: ') + (a.traderName || a.routeTitle)), { direction: 'top' }).addTo(M.layer);
     });
     if (S.fl.track && S.fl.track.length > 1) {
       W.L.polyline(S.fl.track.map(function (p) { return [p.lat, p.lng]; }), { color: '#242424', weight: 4, opacity: .9 }).addTo(M.layer);
@@ -4790,7 +4856,8 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       if (!d) return;
       S.fl.data = d;
       d.alerts.forEach(function (a) {
-        if (a.type === 'emergency' && !S.fl.seenAlerts[a.id]) { S.fl.seenAlerts[a.id] = 1; if (!S.fl.first) flAlarm('طوارئ: ' + (a.traderName || a.routeTitle), a.reason || 'تنبيه طوارئ من تاجر', 'alert_sos'); }
+        if (a.type === 'lost' && !S.fl.seenAlerts[a.id]) { S.fl.seenAlerts[a.id] = 1; if (!S.fl.first) flAlarm((/طوارئ/.test(a.reason || '') ? 'طوارئ من تاجر: ' : 'تاجر تايه: ') + (a.traderName || ''), a.reason || 'تايه في الطريق', 'alert_sos'); }
+        else if (a.type === 'emergency' && !S.fl.seenAlerts[a.id]) { S.fl.seenAlerts[a.id] = 1; if (!S.fl.first) flAlarm('طوارئ: ' + (a.traderName || a.routeTitle), a.reason || 'تنبيه طوارئ من تاجر', 'alert_sos'); }
         else if (a.type !== 'emergency' && !S.fl.seenAlerts[a.id]) { S.fl.seenAlerts[a.id] = 1; if (!S.fl.first) flAlarm('خروج عن الخط: ' + (a.traderName || a.routeTitle), 'بعيد حوالي ' + num(a.dist) + ' متر', 'alert_off'); }
       });
       S.fl.first = false;
@@ -4949,15 +5016,15 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       S.fl.st = d;
       var KL = { farm: 'مزرعة', disinfect: 'تطهير', service: 'خدمات' };
       var rows = d.stations.map(function (x) {
-        var rc = (d.roads || []).filter(function (r) { return r.sid === x.id; }).length;
-        return '<div class="fl-st' + (x.active ? '' : ' off') + '"><div class="grow"><b>' + esc(x.name) + '</b><div class="xs mut"><span class="ltr">' + x.lat.toFixed(4) + ', ' + x.lng.toFixed(4) + '</span>' + (rc ? ' · <span class="ok-t">✓ طريق متسجّل' + (rc > 1 ? ' (' + rc + ')' : '') + '</span>' : '') + '</div></div>' +
+        var mine = (d.roads || []).filter(function (r) { return r.sid === x.id; }), rc = mine.length, dc = mine.filter(function (r) { return r.zone === 'dirty'; }).length;
+        return '<div class="fl-st' + (x.active ? '' : ' off') + '"><div class="grow"><b>' + esc(x.name) + '</b><div class="xs mut"><span class="ltr">' + x.lat.toFixed(4) + ', ' + x.lng.toFixed(4) + '</span>' + (rc ? ' · <span class="ok-t">✓ طريق متسجّل' + (rc > 1 ? ' (' + rc + ')' : '') + '</span>' : '') + (dc ? ' · <span class="zn-t">ديرتي' + (dc > 1 ? ' (' + dc + ')' : '') + ' — ظاهرة في «وصّلني»</span>' : '') + '</div></div>' +
           (x.active ? '<button class="btn xs gh" data-act="fl_roads" data-id="' + esc(x.id) + '">' + (rc ? 'الطرق' : (d.canEdit ? 'سجّل طريق' : 'الطرق')) + '</button>' : '') +
           '<span class="chip">' + (x.active ? (KL[x.kind] || 'محطة') : 'مخفية') + '</span>' +
           (x.active ? '<button class="btn xs ok" data-act="fl_st_go" data-id="' + esc(x.id) + '">وصّلني</button>' : '') +
           (d.canEdit ? '<button class="btn xs gh" data-act="fl_st_edit" data-id="' + esc(x.id) + '">تعديل</button>' : '') + '</div>';
       }).join('');
       A.sheet('<h2>المحطات والطرق المتسجّلة</h2>' +
-        '<div class="xs mut" style="margin-bottom:8px">نقاط عامة لكل خطوط السير. ' + (d.canEdit ? 'تقدر تضيف وتعدّل وتخفي، وتسجّل الطريق الحقيقي لكل محطة بالعربية عشان الملاحة توجّه التجار عليه لفة بلفة.' : 'التعديل محتاج صلاحية «إدارة المحطات» من مدير الإدارة.') + '</div>' +
+        '<div class="xs mut" style="margin-bottom:8px">المحطات اللي التجار بيروحوها. ' + (d.canEdit ? 'تقدر تضيف وتعدّل وتخفي، وتسجّل الطريق الحقيقي لكل محطة بالعربية عشان الملاحة توجّه التجار عليه لفة بلفة.' : 'التعديل محتاج صلاحية «إدارة المحطات» من مدير الإدارة.') + '</div>' +
         (d.canEdit ? '<button class="btn dk sm" data-act="fl_st_edit" data-id="">' + ic('plus', 'sm') + 'محطة جديدة</button>' : '') +
         '<div class="fl-sts">' + rows + '</div><button class="btn gh" data-act="closesheet" style="margin-top:10px">قفل</button>');
     });
@@ -5088,7 +5155,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       d.list.forEach(function (n) { if (!S.fl.seenNotes[n.id]) { S.fl.seenNotes[n.id] = 1; if (!n.read && !S.fl.notesFirst) fresh.push(n); } });
       S.fl.notes = { list: d.list, unread: d.unread };
       S.fl.notesFirst = true;
-      fresh.forEach(function (n) { if (n.kind !== 'resolved') flAlarm(n.title, n.body, n.kind); });
+      fresh.forEach(function (n) { if (n.kind !== 'resolved') flAlarm(n.title, String(n.body || '').replace(/\s*مكانه على الخريطة[^:]*:\s*\S+/, ''), n.kind); });
       if (S.stab === 'fleet' && S.role === 'staff') { var b = document.querySelector('#view .row .chip'); if (b) b.outerHTML = flBell(); }
       updateTabDot(d.unread);
     });
@@ -5423,9 +5490,8 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     { id: 'market', t: 'أسعار النهاردة', icon: 'trend' },
     { id: 'talk', t: 'كلّمنا', icon: 'chat' },
     { id: 'today:gain', t: 'مكسبك', icon: 'star' },
-    { id: '', act: 'tr_route', t: 'خط السير', icon: 'truck' },
-    { id: '', act: 'tr_sos', t: 'طوارئ', icon: 'warn', cls: 'sos' },
-    { id: '', act: 'account', t: 'حسابي وشهادتي', icon: 'trophy' }
+    { id: '', act: 'account', t: 'حسابي وشهادتي', icon: 'trophy' },
+    { id: '', act: 'tr_sos', t: 'طوارئ', icon: 'warn', cls: 'sos wide' }   // «خط السير» اتشال: «وصّلني» فوق البلاطات أغنى عنه
   ];
 
   function tile(t) {
@@ -5449,6 +5515,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     return '<div class="pic-hello"><div class="xs mut">النهاردة</div><div class="h2" style="margin:0">' + esc(A.firstName(me.name)) + '، خلّينا نبدأ</div></div>' +
       '<button class="pic-big" data-act="' + n.act + '"' + (n.id ? ' data-id="' + n.id + '"' : '') + '>' +
         '<span class="pic-big-ic">' + ic(n.icon, 'lg') + '</span><span class="grow"><b>' + esc(n.t) + '</b><small>' + esc(n.s) + '</small></span>' + ic('fwd') + '</button>' +
+      (A.wslCard ? A.wslCard() : '') +
       '<div class="pic-grid">' + TILES.map(tile).join('') + '</div>';
   }
 
@@ -6567,7 +6634,8 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       if (!base) { A.toast('الخط ده لسه مافيهوش نقط للملاحة', 'err'); return false; }
     } else {
       if (!opts.targets || !opts.targets.length) return false;
-      base = { targets: opts.targets.map(function (p) { return { lat: +p.lat, lng: +p.lng, name: String(p.name || 'الوجهة'), sid: p.sid || '' }; }), start: null, all: opts.targets, roads: opts.roads || [], title: opts.title || opts.targets[0].name, key: 'free:' + opts.targets.map(function (p) { return (+p.lat).toFixed(4) + ',' + (+p.lng).toFixed(4); }).join('|'), corridor: 0, hotline: opts.hotline || '' };
+      base = { targets: opts.targets.map(function (p) { return { lat: +p.lat, lng: +p.lng, name: String(p.name || 'الوجهة'), sid: p.sid || '' }; }), start: null, all: opts.targets, roads: opts.roads || [], title: opts.title || opts.targets[0].name, key: 'free:' + opts.targets.map(function (p) { return (+p.lat).toFixed(4) + ',' + (+p.lng).toFixed(4); }).join('|'), corridor: 0, hotline: opts.hotline || '',
+        onLost: typeof opts.onLost === 'function' ? opts.onLost : null };   // «وصّلني» من الرئيسية: «ابعت مكاني للمسؤول» من غير خط سير
     }
     var saved = Number(ssGet('c3a_nav_idx_' + base.key) || 0);
     var idx = opts.idx != null ? Math.max(0, Math.min(base.targets.length - 1, opts.idx)) : (saved > 0 && saved < base.targets.length ? saved : 0);
@@ -6668,7 +6736,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
         '<div class="nv-prog" aria-hidden="true"><i id="nv-prog"></i></div>' +
       '</div>' +
       '<div class="nav-bar">' +
-        (route ? '<button class="nav-b sos" data-act="nav_sos">طوارئ</button>' : '') +
+        (route ? '<button class="nav-b sos" data-act="nav_sos">طوارئ</button>' : N.base.onLost ? '<button class="nav-b sos" data-act="nav_lost">طوارئ</button>' : '') +
         (hot ? '<a class="nav-b" href="tel:' + esc(hot) + '">' + ic('phone', 'sm') + '<span>اتصل بالمسؤول</span></a>' : '') +
         '<button class="nav-b" data-act="nav_voice" id="nv-voice"></button>' +
       '</div>';
@@ -7335,7 +7403,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   /* ---------- «أنا تايه» ---------- */
   H.nav_lost = function () {
     if (!N) return;
-    var p = N.pos, g = N.G || {}, route = N.mode === 'route', hot = N.base.hotline;
+    var p = N.pos, g = N.G || {}, route = N.mode === 'route', hot = N.base.hotline, canSend = route || !!N.base.onLost;
     var ll = p ? p.lat.toFixed(5) + ', ' + p.lng.toFixed(5) : '';
     var lg = leg(), hasRoad = lg && lg.roads.length && g.pr;
     speak(['n_lost'], 6);
@@ -7344,7 +7412,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       '<div class="lost-list">' +
       (hasRoad ? '<button class="lost-b go" data-act="nav_lost_road">' + glyph('straight') + '<span><b>رجّعني لأقرب نقطة على الطريق</b><small>الطريق المتسجّل على بعد ' + esc(fmtD(g.pr.d)) + '</small></span></button>' : '') +
       '<button class="lost-b" data-act="nav_back">' + glyph('uturn') + '<span><b>' + (N.back ? 'كمّل للوجهة' : 'رجّعني من نفس الطريق اللي جيت منه') + '</b><small>' + (N.back ? 'ارجع للتوجيه للمحطة' : 'على الأثر اللي الموبايل سجّله وانت ماشي') + '</small></span></button>' +
-      (route ? '<button class="lost-b red" data-act="nav_lost_send">' + ic('warn', 'sm') + '<span><b>ابعت مكاني للمسؤول</b><small>هيوصله تنبيه «ضياع في الطريق» ومعاه مكانك على الخريطة</small></span></button>' : '') +
+      (canSend ? '<button class="lost-b red" data-act="nav_lost_send">' + ic('warn', 'sm') + '<span><b>ابعت مكاني للمسؤول</b><small>' + (route ? 'هيوصله تنبيه «ضياع في الطريق» ومعاه مكانك على الخريطة' : 'هيوصله تنبيه «تاجر تايه» ومعاه مكانك ورقمك') + '</small></span></button>' : '') +
       (hot ? '<a class="lost-b dk" href="tel:' + esc(hot) + '">' + ic('phone', 'sm') + '<span><b>اتصل بالمسؤول</b><small dir="ltr">' + esc(hot) + '</small></span></a>' : '') +
       '</div>' +
       (ll ? '<div class="lost-ll"><div class="xs mut">مكانك دلوقتي — اقرأه للمسؤول في التليفون</div><b dir="ltr">' + esc(ll) + '</b><div class="row" style="gap:6px;justify-content:center;flex-wrap:wrap"><button class="btn xs gh" data-act="nav_copy_ll" data-ll="' + esc(ll) + '">انسخ</button><a class="btn xs gh" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=' + esc(ll.replace(' ', '')) + '">شوف مكانك على خرائط جوجل</a></div></div>' : '') +
@@ -7359,10 +7427,14 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     update();
   };
   H.nav_lost_send = function (el) {
-    if (!N || !A.routeCall) return;
+    if (!N) return;
+    var route = N.mode === 'route';
+    if (route ? !A.routeCall : !N.base.onLost) return;
     if (el) el.disabled = true;
     var p = N.pos || { lat: 0, lng: 0, acc: 1000 };
-    A.routeCall('routeEmergency', { lat: p.lat, lng: p.lng, acc: p.acc, reason: 'ضياع في الطريق' }).then(function (r) {
+    var req = route ? A.routeCall('routeEmergency', { lat: p.lat, lng: p.lng, acc: p.acc, reason: 'ضياع في الطريق' })
+      : N.base.onLost(N.pos ? { lat: N.pos.lat, lng: N.pos.lng, acc: N.pos.acc } : null, N.targets[N.idx] || null);
+    Promise.resolve(req).then(function (r) {
       if (el) el.disabled = false;
       if (!r || !r.ok) { A.toast((r && r.msg) || 'ماقدرناش نبعت دلوقتي (ممكن مافيش شبكة). اتصل بالمسؤول', 'err'); return; }
       A.closeSheet(); A.toast('اتبعت مكانك للمسؤول. خليك مكانك أو كمّل على الطريق', 'ok');
@@ -7472,7 +7544,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     if (!RC) return;
     if (!force && Date.now() - RC.savedTs < 5000) return;
     RC.savedTs = Date.now();
-    lsSet(KEY, JSON.stringify({ st: RC.st, pts: RC.pts, marks: RC.marks, t0: RC.t0, el: RC.el, ver: 1 }));
+    lsSet(KEY, JSON.stringify({ st: RC.st, pts: RC.pts, marks: RC.marks, t0: RC.t0, el: RC.el, zone: RC.zone || '', ver: 1 }));
   }
   function stored() { try { var o = JSON.parse(lsGet(KEY) || 'null'); return o && o.st && Array.isArray(o.pts) ? o : null; } catch (e) { return null; } }
 
@@ -7493,6 +7565,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   function start(st, from) {
     if (RC) stop();
     RC = { st: { id: st.id, name: st.name, lat: +st.lat, lng: +st.lng }, pts: from ? from.pts : [], marks: from ? from.marks : [], t0: from ? from.t0 : 0, el: from ? (from.el || 0) : 0,
+      zone: from ? (from.zone || '') : '', forceOk: false,
       state: from ? 'paused' : 'ready', pos: null, watch: null, savedTs: 0, wake: null, raf: 0, tick: null, gapWarn: '', endOk: false, busy: false, lastTs: 0 };
     if (!from) lsDel(KEY);
     build();
@@ -7651,25 +7724,49 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     if (dist(pts[0], RC.st) < dist(pts[pts.length - 1], RC.st)) { pts.reverse(); flipped = true; }
     var endD = dist(pts[pts.length - 1], RC.st);
     if (endD > 800) { A.toast('آخر الطريق بعيد عن المحطة ' + fmtD(endD) + '. كمّل التسجيل لحد المحطة', 'err'); if (RC.state === 'paused') H.rec_resume(); return; }
-    if (endD > 150 && !(el && el.dataset && el.dataset.force)) {
+    if (el && el.dataset && el.dataset.force) RC.forceOk = true;
+    if (endD > 150 && !RC.forceOk) {
       A.sheet('<h2>آخر الطريق بعيد شوية عن المحطة</h2><div class="sm" style="margin-bottom:10px">آخر نقطة متسجّلة على بعد ' + fmtD(endD) + ' من «' + esc(RC.st.name) + '». الأحسن تكمّل لحد باب المحطة.</div>' +
         '<button class="btn" data-act="rec_resume_cl">أكمّل التسجيل</button><button class="btn gh" style="margin-top:8px" data-act="rec_save" data-force="1">احفظ كده</button>');
       return;
     }
+    /* نوع الطريق: الديرتي بس هو اللي بيظهر للتاجر في «وصّلني» من الرئيسية */
+    if (!ZL[RC.zone]) { zoneSheet(); return; }
     A.closeSheet();
     var simp = simplify(pts, 3);
     RC.busy = true; if (el && el.disabled !== undefined) el.disabled = true;
-    A.call('sRoadSave', { sid: RC.st.id, pts: simp.map(function (q) { return [q.lat, q.lng]; }), marks: RC.marks }, { keepErr: true }).then(function (d) {
+    A.call('sRoadSave', { sid: RC.st.id, pts: simp.map(function (q) { return [q.lat, q.lng]; }), marks: RC.marks, zone: RC.zone }, { keepErr: true }).then(function (d) {
       if (!RC) return;
       RC.busy = false; if (el) el.disabled = false;
       if (!d || d.__err) { persist(true); return; }
-      var name = RC.st.name, sid = RC.st.id;
+      var name = RC.st.name, sid = RC.st.id, dirty = d.road.zone === 'dirty';
       lsDel(KEY); stop();
-      A.toast('اتحفظ الطريق لـ«' + name + '» (' + fmtD(d.road.lenM) + '، ' + d.road.marks.length + ' علامات). التجار هيتوجهوا عليه من دلوقتي' + (flipped ? '' : ''), 'ok');
+      A.toast('اتحفظ الطريق ' + (dirty ? 'الديرتي' : 'الكلين') + ' لـ«' + name + '» (' + fmtD(d.road.lenM) + '، ' + d.road.marks.length + ' علامات). ' + (dirty ? 'المحطة بقت ظاهرة للتجار في «وصّلني»' : 'مش هيظهر للتجار في «وصّلني»') + (flipped ? '' : ''), 'ok');
       refreshRoads(sid);
     });
   };
   H.rec_resume_cl = function () { A.closeSheet(); H.rec_resume(); };
+  var ZL = { dirty: 'ديرتي', clean: 'كلين' };
+  function zoneSheet() {
+    A.sheet('<h2>الطريق ده نوعه إيه؟</h2>' +
+      '<div class="sm mut" style="margin-bottom:10px">التاجر بيشوف في «وصّلني» المحطات اللي ليها طريق ديرتي بس، والملاحة بتمشّيه على الديرتي بس.</div>' +
+      '<div class="lost-list">' +
+      '<button class="lost-b zn-d" data-act="rec_zone" data-z="dirty"><span class="zn-dot d"></span><span><b>ديرتي</b><small>طريق التجار والعربيات اللي جاية من بره. يظهر للتاجر في «وصّلني»</small></span></button>' +
+      '<button class="lost-b zn-c" data-act="rec_zone" data-z="clean"><span class="zn-dot c"></span><span><b>كلين</b><small>طريق داخلي للفريق. مايظهرش للتجار في «وصّلني»</small></span></button>' +
+      '</div><button class="btn gh" data-act="closesheet" style="margin-top:10px">رجوع</button>');
+  }
+  H.rec_zone = function (el) {
+    if (!RC || !ZL[el.dataset.z]) return;
+    RC.zone = el.dataset.z; persist(true);
+    A.closeSheet(); H.rec_save(null);
+  };
+  function zoneChip(r, canEdit) {
+    var z = r.zone || '';
+    if (!canEdit) return '<span class="chip zn ' + (z || 'none') + '">' + (ZL[z] || 'من غير نوع') + '</span>';
+    return '<span class="zn-seg">' + ['dirty', 'clean'].map(function (k) {
+      return '<button class="chip zn ' + k + (z === k ? ' sel' : '') + '" data-act="fl_road_zone" data-id="' + esc(r.id) + '" data-z="' + k + '">' + ZL[k] + '</button>';
+    }).join('') + '</span>';
+  }
 
   /* ---------- طرق المحطة: عرض، تجربة، مسح ---------- */
   function stData() { return (S.fl && S.fl.st) || null; }
@@ -7687,12 +7784,13 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var x = d.stations.filter(function (y) { return y.id === el.dataset.id; })[0]; if (!x) return;
     var roads = (d.roads || []).filter(function (r) { return r.sid === x.id; });
     var rows = roads.map(function (r) {
-      return '<div class="fl-st"><div class="grow"><b>' + esc(r.name) + '</b><div class="xs mut">' + fmtD(r.lenM) + ' · ' + (r.marks || []).length + ' علامات' + (r.ts ? ' · ' + esc(A.ago ? A.ago(r.ts) : '') : '') + '</div></div>' +
+      return '<div class="fl-st"><div class="grow"><b>' + esc(r.name) + '</b><div class="xs mut">' + fmtD(r.lenM) + ' · ' + (r.marks || []).length + ' علامات' + (r.ts ? ' · ' + esc(A.ago ? A.ago(r.ts) : '') : '') + '</div><div style="margin-top:6px">' + zoneChip(r, d.canEdit) + '</div></div>' +
         '<button class="btn xs ok" data-act="fl_road_try" data-id="' + esc(r.id) + '">جرّب الملاحة</button>' +
         (d.canEdit ? '<button class="btn xs gh" data-act="fl_road_del" data-id="' + esc(r.id) + '">امسح</button>' : '') + '</div>';
     }).join('');
     A.sheet('<h2>طرق «' + esc(x.name) + '»</h2>' +
-      '<div class="xs mut" style="margin-bottom:8px">الطريق المتسجّل بيخلي الملاحة توجّه التاجر على نفس الطريق الحقيقي لفة بلفة، بدل خط مستقيم في الصحرا.</div>' +
+      '<div class="xs mut" style="margin-bottom:8px">الطريق المتسجّل بيخلي الملاحة توجّه التاجر على نفس الطريق الحقيقي لفة بلفة، بدل خط مستقيم في الصحرا. الطريق «الديرتي» بس هو اللي بيظهر للتاجر في «وصّلني» من الرئيسية.</div>' +
+      (roads.length && !roads.some(function (r) { return r.zone === 'dirty'; }) ? '<div class="rc-note">المحطة دي مش ظاهرة للتجار في «وصّلني» لحد ما يبقى ليها طريق ديرتي.</div>' : '') +
       (rows ? '<div class="fl-sts">' + rows + '</div>' : '<div class="card tc sm" style="margin:8px 0">لسه مافيش طريق متسجّل للمحطة دي.</div>') +
       (d.canEdit ? '<button class="btn" data-act="rec_new" data-id="' + esc(x.id) + '" style="margin-top:10px">' + ic('truck', 'sm') + 'سجّل طريق جديد بالعربية</button>' : '<div class="xs mut" style="margin-top:8px">تسجيل الطرق محتاج صلاحية «إدارة المحطات».</div>') +
       '<button class="btn gh" data-act="fl_stations" style="margin-top:8px">رجوع للمحطات</button>');
@@ -7709,6 +7807,16 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     A.closeSheet();
     A.nav.open({ mode: 'free', title: x.name, targets: [{ lat: x.lat, lng: x.lng, name: x.name, sid: x.id }], roads: [r] });
   };
+  H.fl_road_zone = function (el) {
+    var d = stData(), r = d && (d.roads || []).filter(function (y) { return y.id === el.dataset.id; })[0];
+    if (!r || r.zone === el.dataset.z) return;
+    el.disabled = true;
+    A.call('sRoadZone', { id: r.id, zone: el.dataset.z }).then(function (res) {
+      if (!res) { el.disabled = false; return; }
+      A.toast(el.dataset.z === 'dirty' ? 'الطريق بقى ديرتي — المحطة ظاهرة للتجار في «وصّلني»' : 'الطريق بقى كلين — مش هيظهر في «وصّلني»', 'ok');
+      refreshRoads(r.sid);
+    });
+  };
   H.fl_road_del = function (el) {
     if (!el.dataset.armed) { el.dataset.armed = '1'; el.textContent = 'متأكد؟'; el.classList.replace('gh', 'dk'); setTimeout(function () { delete el.dataset.armed; el.textContent = 'امسح'; el.classList.replace('dk', 'gh'); }, 3500); return; }
     var d = stData(), r = d && (d.roads || []).filter(function (y) { return y.id === el.dataset.id; })[0];
@@ -7716,6 +7824,166 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   };
 
   A.rec = { simplify: simplify, state: function () { return RC; }, stop: stop };
+})();
+
+/* ============================================================
+   «وصّلني» في الصفحة الرئيسية للتاجر (بعد رسالة الترحيب):
+   - التاجر يختار المحطة اللي رايح لها بنفسه، من غير ما المسؤول يبعتله خط أو رابط.
+   - القايمة فيها المحطات اللي ليها طريق «ديرتي» متسجّل بس، والملاحة بتمشّيه على الطرق الديرتي بس (لفة بلفة وبالصوت).
+   - «خط السير» اللي المسؤول كان بيبعته اتشال من التطبيق: «وصّلني» أغنى عنه.
+   - القايمة بتتحفظ على الموبايل، فتفتح حتى لو الشبكة ضعيفة عند بوابة القطاع.
+   - «أنا تايه» ← «ابعت مكاني للمسؤول»: تنبيه «تاجر تايه» بمكانه ورقمه لفريق الأسطول.
+   ============================================================ */
+(function () {
+  'use strict';
+  var A = window.APP, S = A.S, esc = A.esc, ic = A.ic, H = A.handlers, W = window;
+  var KEY = 'c3a_wsl_places', LAST = 'c3a_wsl_last', USED = 'c3a_wsl_used';
+  var FRESH_MS = 5 * 60000;
+  var R = 6371000, D2R = Math.PI / 180;
+  var ARROW = '<svg class="wsl-arw" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l7.6 18.2-7.6-3.9-7.6 3.9z"/></svg>';
+  var WS = { busy: false, at: 0, pos: null, posAsked: 0 };
+
+  function dist(a, b) {
+    var dLat = (b.lat - a.lat) * D2R, dLng = (b.lng - a.lng) * D2R;
+    var h = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(a.lat * D2R) * Math.cos(b.lat * D2R) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
+  }
+  function fmtD(m) { return m >= 1000 ? (Math.round(m / 100) / 10).toFixed(1) + ' كم' : Math.round(m) + ' م'; }
+  function cached() {
+    try { var o = JSON.parse(A.lsGet(KEY) || 'null'); return o && o.d && Array.isArray(o.d.stations) ? o : null; } catch (e) { return null; }
+  }
+  function data() { var c = cached(); return c ? c.d : null; }
+  function placeOf(id) { var d = data(); return d ? d.stations.filter(function (x) { return x.id === id; })[0] || null : null; }
+  function roadsOf(sid) { var d = data(); return d ? (d.roads || []).filter(function (r) { return r.sid === sid && r.zone === 'dirty'; }) : []; }
+  function sig(d) { return d ? JSON.stringify([d.stations.map(function (x) { return [x.id, x.name, x.nRoads]; }), (d.roads || []).map(function (r) { return r.id + ':' + r.ts; }), d.hotline]) : ''; }
+  function onHome() { return S.role === 'trader' && S.tab === 'today' && !S.sub && !(A.nav && A.nav.isOpen && A.nav.isOpen()); }
+
+  /* تحميل القايمة من الخادم (بهدوء). بيعيد رسم الرئيسية لو حاجة اتغيّرت */
+  function load(force) {
+    if (S.role !== 'trader' || WS.busy) return Promise.resolve(data());
+    var c = cached();
+    if (!force && c && Date.now() - (c.at || 0) < FRESH_MS) return Promise.resolve(c.d);
+    if (!force && Date.now() - WS.at < 30000) return Promise.resolve(c ? c.d : null);   // ماتكررش لو الشبكة واقعة
+    WS.busy = true; WS.at = Date.now();
+    return A.call('tNavPlaces', {}, { quiet: true }).then(function (d) {
+      WS.busy = false;
+      if (!d || !Array.isArray(d.stations)) return c ? c.d : null;
+      var changed = sig(d) !== sig(c && c.d);
+      A.lsSet(KEY, JSON.stringify({ at: Date.now(), d: d }));
+      if (changed) {
+        if (onHome() && A.renderView) A.renderView(true);
+        var box = document.getElementById('wsl-list'); if (box) box.outerHTML = A.fx ? A.fx(listHtml()) : listHtml();
+      }
+      return d;
+    }, function () { WS.busy = false; return c ? c.d : null; });
+  }
+  A.wslLoad = load;
+
+  function countTxt(n) { return n === 1 ? 'محطة واحدة ليها' : n === 2 ? 'محطتين ليهم' : n <= 10 ? n + ' محطات ليهم' : n + ' محطة ليهم'; }
+
+  /* ---------- البطاقة في الرئيسية ---------- */
+  A.wslCard = function () {
+    if (S.role !== 'trader') return '';
+    setTimeout(function () { load(false); }, 0);
+    var d = data(), n = d ? d.stations.length : -1, isNew = !A.lsGet(USED);
+    var last = A.lsGet(LAST), lp = last ? placeOf(last) : null;
+    var sub = n < 0 ? 'بنجهّز المحطات…' : n === 0 ? 'لسه مفيش طرق ديرتي متسجّلة. أول ما المشرف يسجّل طريق لمحطة هتلاقيها هنا' : 'اختار المحطة اللي رايح لها، وأنا أمشّيك على الطريق الديرتي لفة بلفة بالصوت';
+    return '<div class="wsl-home' + (n === 0 ? ' off' : '') + '" id="wsl-home">' +
+      '<button class="wsl-main" data-act="wsl_pick">' +
+        '<span class="wsl-ic">' + ARROW + '</span>' +
+        '<span class="grow"><b>وصّلني</b><small>' + esc(sub) + '</small></span>' + ic('fwd') +
+        (isNew && n !== 0 ? '<i class="wsl-new">جديد</i>' : '') +
+      '</button>' +
+      (lp ? '<button class="wsl-last" data-act="wsl_go" data-id="' + esc(lp.id) + '">' + ic('clock', 'sm') + '<span>آخر مرة: <b>' + esc(lp.name) + '</b></span></button>' : '') +
+      (n > 0 && !lp ? '<div class="wsl-foot">' + countTxt(n) + ' طريق ديرتي متسجّل</div>' : '') +
+    '</div>';
+  };
+
+  /* ---------- اختيار المحطة ---------- */
+  function kindIc(k) { return k === 'disinfect' ? ic('shield') : k === 'service' ? ic('truck') : ic('home'); }
+  function listHtml() {
+    var d = data();
+    if (!d) return '<div id="wsl-list" class="wsl-list"><div class="spin"></div></div>';
+    var list = d.stations.slice(), me = WS.pos;
+    if (me) list.sort(function (a, b) { return dist(me, a) - dist(me, b); });
+    if (!list.length) return '<div id="wsl-list" class="wsl-list"><div class="card tc sm">لسه مفيش محطة ليها طريق ديرتي متسجّل. لما المشرف يسجّل الطريق بالعربية ويحدده «ديرتي» هتظهر هنا.</div></div>';
+    return '<div id="wsl-list" class="wsl-list">' + list.map(function (x, i) {
+      var dd = me ? dist(me, x) : null;
+      return '<button class="wsl-row' + (me && i === 0 ? ' near' : '') + '" data-act="wsl_go" data-id="' + esc(x.id) + '">' +
+        '<span class="wsl-k ' + esc(x.kind || 'farm') + '">' + kindIc(x.kind) + '</span>' +
+        '<span class="grow"><b>' + esc(x.name) + '</b><small><span class="wsl-zone">ديرتي</span> طريق ' + esc(fmtD(x.lenM || 0)) + (x.nRoads > 1 ? ' · ' + x.nRoads + ' طرق' : '') + '</small></span>' +
+        (dd != null ? '<span class="wsl-d">' + esc(fmtD(dd)) + '<small>منك</small></span>' : '') +
+      '</button>';
+    }).join('') + '</div>';
+  }
+  function askPos() {
+    if (!navigator.geolocation || Date.now() - WS.posAsked < 20000) return;
+    WS.posAsked = Date.now();
+    try {
+      navigator.geolocation.getCurrentPosition(function (p) {
+        WS.pos = { lat: p.coords.latitude, lng: p.coords.longitude, acc: p.coords.accuracy || 100 };
+        var box = document.getElementById('wsl-list'); if (box) box.outerHTML = A.fx ? A.fx(listHtml()) : listHtml();
+      }, function () { /* من غير مكان: القايمة بترتيب المحطات */ }, { enableHighAccuracy: true, maximumAge: 120000, timeout: 12000 });
+    } catch (e) { /* ignore */ }
+  }
+  H.wsl_pick = function () {
+    var d = data();
+    if (d && !d.stations.length) {
+      load(true);
+      return A.sheet('<h2>وصّلني</h2>' +
+        '<p class="sm">لسه مفيش محطة ليها طريق «ديرتي» متسجّل. المشرف بيسوق الطريق مرة واحدة بالعربية والتطبيق بيسجّله، وبعدها المحطة بتظهر هنا على طول.</p>' +
+        '<p class="sm mut">ولو تايه دلوقتي: زرار «طوارئ» في الرئيسية بيبعت مكانك للمسؤول.</p>' +
+        (d.hotline ? '<a class="btn dk" href="tel:' + esc(d.hotline) + '">' + ic('phone', 'sm') + 'اتصل بالمسؤول</a><div style="height:8px"></div>' : '') +
+        '<button class="btn gh" data-act="closesheet">تمام</button>');
+    }
+    A.sheet('<h2 style="margin-bottom:2px">رايح فين؟</h2>' +
+      '<div class="xs mut">المحطات اللي ليها طريق ديرتي متسجّل. الملاحة هتمشّيك على الطريق الديرتي بس، لحد باب المحطة.</div>' +
+      listHtml() +
+      '<button class="btn gh" data-act="closesheet">إلغاء</button>');
+    askPos();
+    load(!d || Date.now() - ((cached() || {}).at || 0) > 60000);
+  };
+
+  /* «أنا تايه» ← «ابعت مكاني للمسؤول» من غير خط سير */
+  function lostSend(pos, tgt, from) {
+    var p = { sid: (tgt && tgt.sid) || '', dest: (tgt && tgt.name) || '' };
+    if (from) p.from = from;
+    if (pos) { p.lat = pos.lat; p.lng = pos.lng; p.acc = pos.acc; }
+    return A.rawCall('tNavLost', p).then(function (r) {
+      if (r && r.err === 'auth') return { ok: false, msg: 'سجّل دخولك من جديد وابعت تاني، أو اتصل بالمسؤول' };
+      return r;
+    });
+  }
+  /* «طوارئ» ← «ابعت مكاني للمسؤول» من الرئيسية (من غير ملاحة): نفس تنبيه «تاجر تايه» بمكانه الحالي */
+  H.wsl_here = function (el) {
+    if (el) { el.disabled = true; el.dataset.t = el.dataset.t || el.innerHTML; el.innerHTML = 'بنحدد مكانك…'; }
+    var done = function (pos) {
+      lostSend(pos, null, 'sos').then(function (r) {
+        if (el) { el.disabled = false; el.innerHTML = el.dataset.t; }
+        if (!r || !r.ok) { A.toast((r && r.msg) || 'ماقدرناش نبعت دلوقتي (ممكن مافيش شبكة). اتصل بالإسعاف أو بالمسؤول', 'err'); return; }
+        A.closeSheet();
+        var hot = r.data && r.data.hotline;
+        A.toast(pos ? 'اتبعت مكانك للمسؤول. خليك في مكان آمن' : 'اتبعت للمسؤول، بس الموقع مقفول على موبايلك. شغّله لو تقدر', pos ? 'ok' : 'err');
+        if (hot) A.sheet('<h3 style="margin:0 0 6px">اتبعت للمسؤول</h3><p class="sm">لو محتاج تكلّمه على طول:</p><a class="btn dk" href="tel:' + esc(hot) + '">' + ic('phone', 'sm') + 'اتصل بالمسؤول</a><div style="height:8px"></div><button class="btn gh" data-act="closesheet">تمام</button>');
+      });
+    };
+    if (!navigator.geolocation) return done(null);
+    try {
+      navigator.geolocation.getCurrentPosition(function (p) { done({ lat: p.coords.latitude, lng: p.coords.longitude, acc: Math.round(p.coords.accuracy || 100) }); },
+        function () { done(null); }, { enableHighAccuracy: true, maximumAge: 30000, timeout: 12000 });
+    } catch (e) { done(null); }
+  };
+  H.wsl_go = function (el) {
+    var id = el && el.dataset ? el.dataset.id : '', x = placeOf(id), roads = roadsOf(id), d = data() || {};
+    if (!x || !roads.length) { A.toast('المحطة دي مالهاش طريق ديرتي متسجّل دلوقتي. اختار محطة تانية', 'err'); load(true); return; }
+    if (!A.nav || !A.nav.open) { A.toast('الملاحة مش متاحة على الجهاز ده', 'err'); return; }
+    A.lsSet(LAST, x.id); A.lsSet(USED, '1');
+    A.closeSheet();
+    var card = document.getElementById('wsl-home'); if (card) card.outerHTML = A.fx(A.wslCard());   // «آخر مرة» تبقى جاهزة لما يقفل الملاحة
+    A.nav.open({ mode: 'free', title: x.name, targets: [{ lat: x.lat, lng: x.lng, name: x.name, sid: x.id }], roads: roads, hotline: d.hotline || '', onLost: lostSend });
+  };
+
+  A.wsl = { data: data, load: load, roadsOf: roadsOf, listHtml: listHtml };
 })();
 
 /* ============================================================
@@ -7891,15 +8159,17 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       return '<div class="row" style="padding:7px 0;border-bottom:1px solid var(--line)"><b class="grow sm">' + esc(x.name || '—') + '</b><span class="xs mut">' + x.routes + ' خط</span><span class="xs mut">' + (x.avgMin === null ? '—' : x.avgMin + ' د') + '</span><span class="chip ' + (x.offPct >= 20 ? 'bad' : '') + '">خروج ' + pc(x.offPct) + '</span></div>';
     }).join('') : '<div class="xs mut">مفيش حركة في الفترة دي.</div>';
     var rep = d.repeats.length ? '<div class="xs" style="margin-top:10px"><b>خطوط متكررة:</b> ' + d.repeats.map(function (r) { return esc(r.title) + ' (' + r.count + ')'; }).join('، ') + '</div>' : '';
+    /* «خط السير» اتشال: أرقام الرحلات والخروج بتظهر بس لو فيه خطوط قديمة في الفترة */
+    var old = d.routes ? '<div class="kpi" style="margin-top:8px">' + kpi(num(d.trips), 'رحلة مكتملة (خطوط قديمة)') + kpi(d.avgMin === null ? '—' : d.avgMin + ' د', 'متوسط المدة') + kpi(pc(d.offPct), 'نقاط خارج الخط', d.offPct >= 10 ? 'red-d' : 'ok') + '</div>' +
+      '<div class="sec-t" style="margin-top:12px">أكتر السواقين خروجًا عن الخط</div>' + drivers + rep : '';
     return '<div class="segs" style="margin-bottom:8px">' + days + '</div>' +
-      '<div class="kpi">' + kpi(num(d.trips), 'رحلة مكتملة') + kpi(d.avgMin === null ? '—' : d.avgMin + ' د', 'متوسط المدة') + kpi(pc(d.offPct), 'نقاط خارج الخط', d.offPct >= 10 ? 'red-d' : 'ok') + kpi(num(d.alerts.open), 'تنبيه مفتوح', d.alerts.open ? 'red-d' : '') + kpi(num(d.alerts.sos), 'طوارئ') + '</div>' +
-      '<div class="sec-t" style="margin-top:12px">أكتر السواقين خروجًا عن الخط</div>' + drivers + rep;
+      '<div class="kpi">' + kpi(num(d.alerts.sos), 'طلبات مساعدة (تايه وطوارئ)', d.alerts.sos ? 'red-d' : '') + kpi(num(d.alerts.open), 'لسه مفتوحة', d.alerts.open ? 'red-d' : 'ok') + '</div>' + old;
   }
   var prevFleet = ST.fleet;
   if (prevFleet) ST.fleet = function () {
     var h = prevFleet();
     if (!isOps()) return h;
-    return h + '<div class="card"><div class="row sp" style="margin-bottom:8px"><b>تحليلات الأسطول</b><span class="xs mut">آخر تحديث الآن</span></div><div id="fstats">' + (S.fstats ? fleetCard(S.fstats) : '<div class="spin"></div>') + '</div></div>';
+    return h + '<div class="card"><div class="row sp" style="margin-bottom:8px"><b>طلبات المساعدة من الطريق</b><span class="xs mut">آخر تحديث الآن</span></div><div id="fstats">' + (S.fstats ? fleetCard(S.fstats) : '<div class="spin"></div>') + '</div></div>';
   };
   var prevFleetPost = SP.fleet;
   SP.fleet = function (sub) {
@@ -7992,9 +8262,9 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
 
 /* ============================================================
    أدوات ظاهرة للتاجر والموظف:
-   - «خط السير» و«طوارئ» للتاجر: في أول «اليوم» وفي بلاطات الصور.
+   - «طوارئ» للتاجر: في أول «اليوم» وفي بلاطات الصور («خط السير» اتشال: «وصّلني» أغنى عنه).
    - «الإشعارات»: تفعيل وتجربة من «حسابي» (التاجر) ومن جرس الرأس (الموظف)، وتنبيه لطيف في «اليوم».
-   - شاشة خط السير: زر رجوع للحساب لو فيه دخول محفوظ على الجهاز.
+   - شاشة خط السير (روابط قديمة بس): زر رجوع للحساب لو فيه دخول محفوظ على الجهاز.
    - رقم الإصدار في الإعدادات وفي ورقة الإشعارات.
    الإشعارات تشتغل بعد ضبط window.__FCM_WEB في config.js ومفتاح FCM_SERVICE_ACCOUNT في الخادم.
    ============================================================ */
@@ -8117,63 +8387,18 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   };
   H.push_later = function () { A.lsSet(SNOOZE, String(Date.now())); var n = document.getElementById('push-nudge'); if (n) n.parentNode.removeChild(n); };
 
-  /* ---------- خط السير والطوارئ للتاجر ---------- */
-  /* الخطوط اللي الإدارة بعتتها للتاجر بتيجي مع بيانات «اليوم» (home.routes) وتظهر له أول ما يفتح التطبيق */
-  function myRoutes() { return (S.home && S.home.routes) || []; }
-  var LIVE = { active: 1, off_route: 1, emergency: 1 };
-  var RST = { planned: ['لسه ماتبدأش', ''], active: ['شغالة', 'ok'], off_route: ['خارج الخط', 'warn'], emergency: ['طوارئ', 'red'] };
-  function savedRoute() { return A.secLoad('c3a_route').then(function (t) { return t || ''; }, function () { return ''; }); }
-  function openLink(tok) { W.location.href = W.location.pathname + '?r=' + encodeURIComponent(tok); }
-  function openInApp(id) { A.closeSheet(); if (A.cleanup) A.cleanup(); A.startRoute('', id); W.scrollTo(0, 0); }
-  H.tr_open = function (el) { openInApp(el.dataset.id); };
-  H.tr_route = function () {
-    A.closeSheet();
-    var list = myRoutes();
-    if (list.length === 1) return openInApp(list[0].id);
-    if (list.length > 1) {
-      return A.sheet('<h3 style="margin:0 0 8px">خطوط السير بتاعتك</h3>' + list.map(routeRow).join('') + '<button class="btn gh" data-act="sheet_close">قفل</button>');
-    }
-    savedRoute().then(function (tok) {
-      if (tok) return openLink(tok);
-      A.sheet('<h3 style="margin:0 0 6px">خط السير</h3>' +
-        '<p class="sm">لسه مفيش خط سير ليك. لما مسؤول الأمن الحيوي يبعتلك محطة أو خط، هيظهر هنا وفي أول «اليوم» على طول، ولو الإشعارات مفعّلة هيوصلك إشعار.</p>' +
-        '<p class="sm">منه تضغط «ابدأ الرحلة»، والتطبيق يرسم الطريق من مكانك للمحطة، وتلاقي زرار «طوارئ» طول الرحلة.</p>' +
-        '<button class="btn gh" data-act="sheet_close">تمام</button>');
-    });
-  };
-  function routeRow(r) {
-    var st = RST[r.status] || RST.planned;
-    return '<div class="card tr-route' + (LIVE[r.status] ? ' live' : '') + '"><div class="row sp" style="gap:8px"><b>' + esc(r.title) + '</b><span class="chip ' + st[1] + '">' + st[0] + '</span></div>' +
-      (r.stops && r.stops.length ? '<div class="xs mut" style="margin:4px 0 8px">' + r.stops.map(esc).join(' ← ') + '</div>' : '') +
-      '<button class="btn ' + (LIVE[r.status] ? '' : 'dk') + '" data-act="tr_open" data-id="' + esc(r.id) + '">' + ic('truck', 'sm') + (LIVE[r.status] ? 'كمّل الرحلة' : 'افتح خط السير') + '</button></div>';
-  }
-  function routesCard() {
-    var list = myRoutes();
-    if (!list.length) return '';
-    return '<div class="tr-routes"><div class="sec-t" style="margin-top:0">' + (list.length > 1 ? 'خطوط سير ليك' : 'خط سير ليك') + '</div>' + list.map(routeRow).join('') + '</div>';
-  }
-  /* تحديث خفيف للخطوط وانت فاتح «اليوم» (مرة كل دقيقة على الأكثر) */
-  var rtAt = 0;
-  function refreshRoutes() {
-    if (S.role !== 'trader' || Date.now() - rtAt < 60000) return;
-    rtAt = Date.now();
-    call('tRoutes', {}, { quiet: true }).then(function (d) {
-      if (!d || !S.home) return;
-      var before = JSON.stringify(myRoutes()), after = JSON.stringify(d.routes || []);
-      S.home.routes = d.routes || [];
-      if (before !== after && S.tab === 'today' && !S.sub && A.renderView) A.renderView(true);
-    });
-  }
+  /* ---------- الطوارئ للتاجر ---------- */
+  /* «خط السير» اتشال من التطبيق: «وصّلني» في الرئيسية أغنى عنه (التاجر بيختار المحطة بنفسه).
+     روابط الخطوط القديمة (?r=) لسه بتفتح لحد ما تخلص، من 20_shell و48_fleet */
+  H.tr_route = function () { A.closeSheet(); if (H.wsl_pick) H.wsl_pick(); };   // أي زرار قديم في نسخة مخزّنة يفتح «وصّلني»
+  H.tr_open = function (el) { A.closeSheet(); if (A.cleanup) A.cleanup(); A.startRoute('', el.dataset.id); W.scrollTo(0, 0); };
   H.tr_sos = function () {
-    var list = myRoutes().filter(function (r) { return LIVE[r.status]; });
-    savedRoute().then(function (tok) {
-      var hasRoute = list.length || tok;
-      A.sheet('<h3 style="margin:0 0 6px;color:var(--red)">طوارئ</h3>' +
-        (hasRoute ? '<p class="sm">لو انت في رحلة على خط السير: افتح الخط واضغط زرار «طوارئ» الأحمر، ومكانك بيوصل للمسؤول فورًا.</p><button class="btn" data-act="' + (list.length ? 'tr_open" data-id="' + esc(list[0].id) : 'tr_route') + '">' + ic('truck', 'sm') + 'افتح خط السير</button><div style="height:10px"></div>' : '') +
-        '<p class="sm">أو ابعت بلاغ عاجل لفريق الأمن الحيوي. بيوصل للمسؤولين على طول على الموبايل والبريد.</p>' +
-        '<button class="btn ' + (hasRoute ? 'dk' : '') + '" data-act="tr_urgent">' + ic('warn', 'sm') + 'ابعت بلاغ عاجل</button>' +
-        '<p class="xs mut" style="margin-top:10px">لو فيه خطر على حياة حد: اتصل بالإسعاف 123 أو النجدة 122 الأول.</p>');
-    });
+    A.sheet('<h3 style="margin:0 0 6px;color:var(--red)">طوارئ</h3>' +
+      '<p class="sm">لو تايه أو محتاج مساعدة في الطريق: ابعت مكانك للمسؤول، وهيوصله تنبيه فيه اسمك ورقمك ومكانك على الخريطة.</p>' +
+      '<button class="btn" data-act="wsl_here">' + ic('warn', 'sm') + 'ابعت مكاني للمسؤول</button><div style="height:10px"></div>' +
+      '<p class="sm">أو ابعت بلاغ عاجل لفريق الأمن الحيوي. بيوصل للمسؤولين على طول على الموبايل والبريد.</p>' +
+      '<button class="btn dk" data-act="tr_urgent">' + ic('chat', 'sm') + 'ابعت بلاغ عاجل</button>' +
+      '<p class="xs mut" style="margin-top:10px">لو فيه خطر على حياة حد: اتصل بالإسعاف 123 أو النجدة 122 الأول.</p>');
   };
   H.tr_urgent = function () {
     A.closeSheet();
@@ -8182,16 +8407,17 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     call('ticketList', {}, { quiet: true }).then(function (d) { if (d) S.tickets = d; open(); });
   };
   function quickRow() {
-    return '<div class="tq"><button class="btn rt" data-act="tr_route">' + ic('truck', 'sm') + 'خط السير</button><button class="btn sos" data-act="tr_sos">' + ic('warn', 'sm') + 'طوارئ</button></div>';
+    return '<div class="tq one"><button class="btn sos" data-act="tr_sos">' + ic('warn', 'sm') + 'طوارئ</button></div>';
   }
 
-  /* «اليوم»: الخطوط المبعوتة أول حاجة، وبعدها زرار الخط والطوارئ (في الصور ليهم بلاطات) */
+  /* «اليوم»: «وصّلني» أول حاجة، وبعدها زرار الطوارئ (في الصور ليها بلاطة) */
   var prevToday = V.today;
   V.today = function () {
     var base = prevToday();
     var pic = A.picMode && A.picMode() && !S.picDetail;
-    setTimeout(refreshRoutes, 0);
-    return routesCard() + nudge() + (pic ? '' : quickRow()) + base;
+    /* «وصّلني»: في الكلام فوق زرار الطوارئ، وفي الصور جوه الرئيسية تحت خطوة النهاردة (44_picture) */
+    var wsl = !pic && !(A.picMode && A.picMode()) && A.wslCard ? A.wslCard() : '';
+    return wsl + nudge() + (pic ? '' : quickRow()) + base;
   };
 
   /* «حسابي»: بطاقة الإشعارات في البطاقة الأولى لو محتاجة تفعيل، ودايمًا في الإعدادات مع رقم الإصدار */
