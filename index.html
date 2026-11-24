@@ -1,4 +1,4 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#242424"><title>شريك الدفاع | كايرو ثري ايه</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"><script>window.__BUILD='2026-10-26.667614';</script><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="شريك الدفاع"><meta name="apple-mobile-web-app-status-bar-style" content="default"><script src="config.js"></script><script>if('serviceWorker' in navigator){window.addEventListener('load',function(){var sw=navigator.serviceWorker,had=!!sw.controller,done=false;sw.addEventListener('controllerchange',function(){if(had&&!done){done=true;location.reload();}had=true;});sw.register('sw.js').then(function(r){var last=Date.now();document.addEventListener('visibilitychange',function(){if(!document.hidden&&Date.now()-last>1800000){last=Date.now();r.update().catch(function(){});}});}).catch(function(){});});}</script></head><body><style>:root{
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#242424"><title>شريك الدفاع | كايرو ثري ايه</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"><script>window.__BUILD='2026-11-24.1d2f4d';</script><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="شريك الدفاع"><meta name="apple-mobile-web-app-status-bar-style" content="default"><script src="config.js"></script><script>if('serviceWorker' in navigator){window.addEventListener('load',function(){var sw=navigator.serviceWorker,had=!!sw.controller,done=false;sw.addEventListener('controllerchange',function(){if(had&&!done){done=true;location.reload();}had=true;});sw.register('sw.js').then(function(r){var last=Date.now();document.addEventListener('visibilitychange',function(){if(!document.hidden&&Date.now()-last>1800000){last=Date.now();r.update().catch(function(){});}});}).catch(function(){});});}</script></head><body><style>:root{
   --red:#EA2329;--red-d:#B81E25;--ink:#242424;--gray:#6D6E71;
   --bg:#F4F4F5;--card:#fff;--line:#E4E4E6;--soft:#F0F0F2;--txt:#242424;--mut:#6D6E71;
   --ok:#2E9E5B;--ok-bg:#E6F5EC;--warn:#C98200;--warn-bg:#FFF4D9;--bad-bg:#FDE8E9;
@@ -479,6 +479,7 @@ body.picmode .tabs .i{width:28px;height:28px}
 .nv-msub{font-size:14px;font-weight:700;opacity:.93;line-height:1.35;margin-top:2px}
 .nv-msub:empty{display:none}
 .nv-msub .nav-wb{margin-top:6px}
+.nav-wb.nav-ret{display:block;width:100%;margin-top:10px;background:#2FD27A;color:#04210F;font-size:16px;padding:12px}
 .nv-then{display:flex;align-items:center;gap:6px;align-self:flex-start;margin:-8px 18px 0;background:var(--mgo);color:#fff;border-radius:0 0 14px 14px;padding:4px 12px 5px;font-size:13px;font-weight:800;flex:none}
 .nv-then:empty{display:none}
 .nv-then i{display:inline-flex;width:22px;height:22px}.nv-then i svg{width:100%;height:100%}
@@ -636,10 +637,57 @@ button.chip.zn.clean.sel{background:#1F6FFF;border-color:#1F6FFF;color:#fff}
 .chip.zn.dirty{color:#B26A00}.chip.zn.clean{color:#1F6FFF}.chip.zn.none{color:var(--mut)}
 button.chip.zn.sel{color:#fff}
 .rc-note{background:var(--warn-bg);color:var(--warn);border-radius:12px;padding:8px 12px;font-weight:800;font-size:13px;margin-bottom:8px}
+.rc-draft{border:2px solid var(--warn);font-size:14px}.rc-draft .xs{font-weight:600;color:var(--txt)}.rc-draft .btn{width:100%}.fl-nodirty{margin-top:8px}.chip.bio-src{background:var(--soft);color:var(--mut);font-size:11px}
 .fl-sos.lost .fl-btns .btn{flex:1 1 auto}
 
 .fl-calm{margin:6px 0;display:flex;flex-direction:column;gap:4px;border-style:dashed}
 .fl-stbtn.dk{width:100%;margin:8px 0}
+
+/* ============================================================
+   شكل اللاب لحسابات الفريق (html.desk): المشرف والمسؤول والمدير والإدارة العليا على شاشة 1024+
+   قايمة ثابتة على اليمين، ورأس الصفحة بعرض المحتوى، والمحتوى عريض بأعمدة. الموبايل زي ما هو.
+   ============================================================ */
+.tbrand{display:none}
+.dgrid{display:flex;flex-direction:column;gap:14px}
+html.desk .dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px;align-items:start}
+html.desk{--side:252px;--hdr-h:68px}
+html.desk #app{max-width:none;box-shadow:none;padding-right:var(--side);min-height:100vh}
+html.desk .hdr{padding:12px 32px;min-height:68px}
+html.desk .hdr .logo{display:none}
+html.desk .hdr .ttl{font-size:20px}
+html.desk .hdr .sub{font-size:13px}
+html.desk .tabs{top:0;bottom:0;right:0;left:auto;transform:none;width:var(--side);height:auto;padding:0 14px 18px;flex-direction:column;gap:4px;border-top:0;border-left:1px solid var(--line);z-index:25;justify-content:flex-start;overflow-y:auto}
+html.desk .tbrand{display:flex;align-items:center;gap:10px;height:72px;margin:0 -14px 14px;padding:0 16px;background:var(--hdr);color:#fff;flex:none;border-bottom:4px solid var(--red)}
+html.desk .tbrand img{height:34px;width:auto;flex:none}
+html.desk .tbrand div{display:flex;flex-direction:column;min-width:0;line-height:1.3}
+html.desk .tbrand b{font-size:15px;font-weight:800}
+html.desk .tbrand span{font-size:12px;color:#BDBDC0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html.desk .tabs button{flex:none;flex-direction:row;justify-content:flex-start;gap:12px;height:50px;padding:0 14px;border-radius:12px;font-size:15.5px;color:var(--txt)}
+html.desk .tabs button:hover{background:var(--soft)}
+html.desk .tabs button.on{background:var(--soft);color:var(--red)}
+html.desk .tabs button.on:before{top:11px;bottom:11px;right:0;width:4px;height:auto;border-radius:4px 0 0 4px}
+html.desk .tabs .tdot{position:static;margin-inline-start:auto}
+html.desk #view{width:100%;max-width:1240px;margin:0 auto;padding:26px 32px 56px;gap:16px}
+html.desk .segs{margin:-26px -32px 0;padding:12px 32px 11px}
+html.desk .kpi{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+html.desk .kpi .k{padding:16px}
+html.desk .kpi .k b{font-size:30px}
+html.desk .grid2.wide-3{grid-template-columns:repeat(3,1fr)}
+html.desk .fmap{height:min(62vh,600px)}
+html.desk #fl-sos,html.desk #rwlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:12px;align-items:start}
+html.desk #fl-list,html.desk #fl-alerts{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:12px;align-items:start}
+html.desk #fl-list>.sec-t,html.desk #fl-alerts>.sec-t{grid-column:1/-1}
+html.desk .fl-sts{max-height:60vh}
+html.desk .bub{max-width:62%}
+html.desk .ovl{align-items:center;padding:24px}
+html.desk .sheet{width:min(660px,100%);border-radius:20px;max-height:88vh;padding:22px 26px 24px}
+html.desk .sheet .grab{display:none}
+html.desk .tkt:hover{border-color:var(--mut)}
+html.desk #toast{top:84px}
+@media (min-width:1500px){html.desk #view{max-width:1400px}}
+
+/* «الإدارة العليا»: مشاهدة بس */
+html.ro [data-act="fl_resolve"],html.ro [data-act="fl_resolve_go"]{display:none!important}
 </style><div id="app"></div><div id="toast"></div><script>window.__STATIC={
 "ranks": [
 {
@@ -2596,8 +2644,29 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     { id: 'gate', t: 'البوابة', i: 'shield' }, { id: 'inbox', t: 'الرسائل', i: 'chat' }, { id: 'farms', t: 'المزارع', i: 'truck' }, { id: 'market', t: 'السوق', i: 'trend' }, { id: 'dash', t: 'اللوحة', i: 'chart' }
   ];
 
+  /* ---------- شكل اللاب لحسابات الفريق ----------
+     المشرف والمسؤول والمدير والإدارة العليا على شاشة 1024 بكسل أو أعرض: قايمة جانبية ومحتوى عريض.
+     المعاون والتجار بيفضلوا بشكل الموبايل دايمًا. التبديل بالـCSS بس (html.desk)، فمفيش إعادة رسم مع تغيير حجم الشاشة */
+  var DESK_ROLES = { supervisor: 1, admin: 1, manager: 1, exec: 1 }, DESK_MIN = 1024;
+  function deskOn() { return S.role === 'staff' && !!(S.staff && DESK_ROLES[S.staff.role]) && window.innerWidth >= DESK_MIN; }
+  function deskSync() {
+    var el = document.documentElement, on = deskOn();
+    if (el.classList.contains('desk') !== on) {
+      el.classList.toggle('desk', on);
+      /* الخريطة لازم تعرف مقاسها الجديد */
+      setTimeout(function () { try { if (A.fleetMap && A.fleetMap.m) A.fleetMap.m.map.invalidateSize(); } catch (e) { /* ignore */ } }, 80);
+      /* جوه صفحة فرعية: القايمة الجانبية بتظهر في اللاب بس، فنعيد رسم الإطار لما الشاشة تعدّي الحد */
+      if (S.role === 'staff' && S.ssub && document.getElementById('view') && A.screens.staff) setTimeout(function () { A.screens.staff(); }, 0);
+    }
+    el.classList.toggle('ro', S.role === 'staff' && !!(S.staff && S.staff.role === 'exec'));
+  }
+  var deskT = null;
+  window.addEventListener('resize', function () { clearTimeout(deskT); deskT = setTimeout(deskSync, 120); });
+  A.deskSync = deskSync; A.isDesk = function () { return document.documentElement.classList.contains('desk'); };
+
   /* ---------- الرسم الرئيسي ---------- */
   function renderInner() {
+    deskSync();
     var app = $('#app');
     if (S.booting) { app.innerHTML = splash(); return; }
     if (S.reconnect && !S.role) { app.innerHTML = A.reconnectView(); return; }
@@ -2626,8 +2695,8 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var back = opts.back ? '<button class="ib" data-act="back" aria-label="رجوع">' + ic('back') + '</button>' : '<img class="logo" src="' + A.IMG.wordmark_dark + '" alt="العدو غير المرئي" style="height:38px">';
     return '<header class="hdr">' + back + '<div class="ttl">' + esc(opts.title || 'شريك الدفاع') + (opts.sub ? '<span class="sub">' + esc(opts.sub) + '</span>' : '') + '</div>' + (opts.right || '') + '</header>' + (opts.staff ? '<div class="staffbar"></div>' : '');
   }
-  function tabbar(list, cur, act, badges) {
-    return '<nav class="tabs">' + list.map(function (t) {
+  function tabbar(list, cur, act, badges, head) {
+    return '<nav class="tabs">' + (head || '') + list.map(function (t) {
       var b = badges && badges[t.id] ? '<span class="tdot">' + badges[t.id] + '</span>' : '';
       return '<button class="' + (t.id === cur ? 'on' : '') + '" data-act="' + act + '" data-id="' + t.id + '">' + ic(t.i) + '<span>' + t.t + '</span>' + b + '</button>';
     }).join('') + '</nav>';
@@ -4083,13 +4152,15 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
 (function () {
   'use strict';
   var A = window.APP, S = A.S, esc = A.esc, ic = A.ic, $ = A.$, call = A.call, H = A.handlers, num = A.num;
-  var LVL = { assistant: 1, supervisor: 2, manager: 3, admin: 4 };
+  var LVL = { assistant: 1, supervisor: 2, manager: 3, admin: 4, exec: 1 };
   S.g = { q: '', list: null, sel: null, checks: {}, wait: '', note: '', farm: '', result: null };
 
   function lvl() { return LVL[(S.staff || {}).role] || 1; }
   /* الصلاحيات تأتي من الخادم مع بيانات الموظف (sMe) */
   function can(k) { var p = (S.staff && S.staff.perms) || []; return p.indexOf(k) >= 0; }
   A.can = can;
+  /* «الإدارة العليا»: مشاهدة بس، فأزرار التعديل مابتظهرش (والخادم بيرفضها برضه) */
+  A.ro = function () { return !!(S.staff && S.staff.role === 'exec'); };
   function tabOk(t) {
     if (t.id === 'market') return can('prices.publish') || can('prices.approve');
     if (t.id === 'gate' || t.id === 'inbox' || t.id === 'farms' || t.id === 'dash' || t.id === 'fleet') return can(t.id);
@@ -4110,8 +4181,15 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var right = '<button class="ib" data-act="logout" aria-label="خروج">' + ic('out') + '</button>';
     var hdr = ss ? A.header({ back: true, title: ss.title || '', staff: true }) : A.header({ title: st.title, sub: st.roleLabel + (st.farmId ? ' · مزرعة ' + st.farmId : ''), right: right, staff: true });
     var tabs = A.STABS.filter(tabOk);
-    if (!ss && tabs.length && !tabs.some(function (t) { return t.id === S.stab; })) S.stab = tabs[0].id;
-    app.innerHTML = hdr + '<main id="view" class="' + (ss ? 'notab' : '') + '"></main>' + (ss ? '' : A.tabbar(tabs, S.stab, 'stab', { inbox: (S.sinbox && S.sinbox.unread) || 0, market: (S.sme && S.sme.mkPending) || 0 })) + (window.__DEMO && A.demoFab ? A.demoFab() : '');
+    if (!ss && tabs.length && !tabs.some(function (t) { return t.id === S.stab; })) {
+      /* «الإدارة العليا» بتبدأ من اللوحة؛ الباقي من أول تبويب */
+      S.stab = A.ro() && tabs.some(function (t) { return t.id === 'dash'; }) ? 'dash' : tabs[0].id;
+    }
+    /* رأس القايمة الجانبية (بيظهر في شكل اللاب بس) */
+    var brand = '<div class="tbrand"><img src="' + A.IMG.wordmark_dark + '" alt="العدو غير المرئي"><div><b>شريك الدفاع</b><span>' + esc(st.name || '') + '</span></div></div>';
+    if (A.deskSync) A.deskSync();
+    var side = ss && A.isDesk && A.isDesk();   // في اللاب القايمة بتفضل ظاهرة حتى جوه الصفحات الفرعية
+    app.innerHTML = hdr + '<main id="view" class="' + (ss && !side ? 'notab' : '') + '"></main>' + (ss && !side ? '' : A.tabbar(tabs, S.stab, 'stab', { inbox: (S.sinbox && S.sinbox.unread) || 0, market: (S.sme && S.sme.mkPending) || 0 }, brand)) + (window.__DEMO && A.demoFab ? A.demoFab() : '');
     sView();
   };
   /* noPost: تحديث العرض بعد وصول بيانات بدون إعادة طلبها (يمنع حلقة طلبات لا تنتهي) */
@@ -4266,10 +4344,12 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var out = ['<div class="row"><div class="grow row" style="gap:6px">' + chips + '</div><button class="btn sm gh" data-act="s_refresh">' + ic('clock', 'sm') + 'تحديث</button></div>'];
     if (!d) return out.join('') + A.loading();
     if (!d.tickets.length) out.push('<div class="card tc mut">مفيش رسائل هنا.</div>');
+    out.push('<div class="dgrid">');
     d.tickets.forEach(function (t) {
       var lv = t.level >= 2 ? '<span class="lvl lvl2">مصعّدة للمدير</span>' : t.level === 1 ? '<span class="lvl lvl1">مصعّدة للمشرف</span>' : '';
       out.push('<button class="tkt ' + (t.unread ? 'un' : '') + '" data-act="s_open" data-id="' + t.id + '"><div class="grow"><div class="row" style="gap:6px;flex-wrap:wrap"><span class="chip dk">' + esc(t.typeLabel) + '</span>' + lv + (t.overdue ? '<span class="chip bad">' + ic('clock', 'sm') + 'متأخرة ' + t.hours + ' س</span>' : '') + (t.status !== 'open' ? '<span class="chip ok">' + (t.status === 'resolved' ? 'اتحلّت' : 'تم الرد') + '</span>' : '') + '</div><b style="display:block;margin-top:6px">' + esc(t.subject) + '</b><div class="xs mut">' + esc(t.trader) + (t.plate ? ' · ' + esc(t.plate) : '') + (t.farmId ? ' · مزرعة ' + esc(t.farmId) : '') + ' · ' + A.ago(t.lastTs) + '</div></div>' + ic('fwd') + '</button>');
     });
+    out.push('</div>');
     return out.join('');
   };
   SP.inbox = function () { loadInbox(true).then(function () { if (!S.ssub && S.stab === 'inbox') { sView(true); updateBadge(); } }); };
@@ -4312,10 +4392,10 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   ST.farms = function () {
     var farms = (S.sme && S.sme.farms) || [], st = S.staff;
     var tone = { ready: 'ok', limited: 'warn', closed: 'bad' };
-    return '<div class="notice">' + ic('truck') + '<div>حالة المزرعة بتظهر للتجار في شاشة «اليوم». حدّثها أول الصبح وكل ما تتغير. لو عدّى عليها 24 ساعة من غير تحديث بتظهر «—».</div></div>' + farms.map(function (f) {
+    return '<div class="notice">' + ic('truck') + '<div>حالة المزرعة بتظهر للتجار في شاشة «اليوم». حدّثها أول الصبح وكل ما تتغير. لو عدّى عليها 24 ساعة من غير تحديث بتظهر «—».</div></div><div class="dgrid">' + farms.map(function (f) {
       var mine = can('farms') && (st.role !== 'assistant' || !st.farmId || st.farmId === f.id);
       return '<div class="card col" style="gap:8px"><div class="row sp"><b style="font-size:17px">' + esc(f.name) + '</b><span class="chip ' + (f.tone === 'good' ? 'ok' : f.tone === 'warn' ? 'warn' : f.tone === 'bad' ? 'bad' : '') + '">' + esc(f.label) + '</span></div>' + (mine ? '<div class="seg">' + [['ready', 'جاهزة'], ['limited', 'محدود'], ['closed', 'مغلقة']].map(function (x) { return '<button data-act="f_set" data-id="' + f.id + '" data-s="' + x[0] + '" class="' + ((f.status === x[0]) ? 'on' : '') + '">' + x[1] + '</button>'; }).join('') + '</div><input class="in" id="fn_' + f.id + '" maxlength="80" placeholder="ملاحظة قصيرة (اختياري)" value="' + esc(f.note || '') + '">' : '<div class="xs mut">تحديثها من معاون المزرعة نفسها.</div>') + '<div class="xs mut">' + (f.ts ? 'آخر تحديث ' + A.ago(f.ts) : 'لم تُحدَّث') + '</div></div>';
-    }).join('');
+    }).join('') + '</div>';
   };
   H.f_set = function (el) {
     var id = el.dataset.id, note = (document.getElementById('fn_' + id) || {}).value || '';
@@ -4568,7 +4648,8 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var roleOpts = d.roles.map(function (r) { return '<option value="' + r.id + '"' + (f.role === r.id ? ' selected' : '') + '>' + esc(r.label) + '</option>'; }).join('');
     var farmOpts = '<option value="">—</option>' + d.farms.map(function (x) { return '<option value="' + esc(x.id) + '"' + (String(f.farmId) === String(x.id) ? ' selected' : '') + '>' + esc(x.name) + '</option>'; }).join('');
     var groups = [], gi = {};
-    d.catalog.forEach(function (p) { if (!(p.group in gi)) { gi[p.group] = groups.length; groups.push({ g: p.group, items: [] }); } groups[gi[p.group]].items.push(p); });
+    var lim = f.role === 'exec' && d.limits && d.limits.exec;
+    d.catalog.forEach(function (p) { if (lim && lim.indexOf(p.key) < 0) return; if (!(p.group in gi)) { gi[p.group] = groups.length; groups.push({ g: p.group, items: [] }); } groups[gi[p.group]].items.push(p); });
     var perms = groups.map(function (gr) {
       return '<div class="sec-t">' + esc(gr.g) + '</div><div class="card col" style="gap:12px">' + gr.items.map(function (p) {
         return '<label class="chk"><input type="checkbox" data-pk="' + p.key + '"' + ((f.perms || []).indexOf(p.key) >= 0 ? ' checked' : '') + '><span>' + esc(p.label) + '</span></label>';
@@ -4583,6 +4664,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       fld('t_phone', 'رقم الموبايل (هو اسم الدخول)', f.phone, 'tel', ' dir="ltr" inputmode="tel"') +
       fld('t_email', 'البريد للتنبيهات والتقرير (اختياري)', f.email, 'email', ' dir="ltr"') +
       '<div class="fld"><label for="t_role">الدور</label><select id="t_role" class="in">' + roleOpts + '</select></div>' +
+      (f.role === 'exec' ? '<div class="rc-note" style="font-weight:700">حساب للمشاهدة بس: بيشوف لوحة المؤشرات والتقرير الأسبوعي والتجار والجوائز والأسطول، من غير أي تعديل، ومن غير تنبيهات التشغيل. والتقرير الأسبوعي بيوصله على بريده لو كتبته.</div>' : '') +
       (f.role === 'assistant' ? '<div class="fld"><label for="t_farm">المزرعة</label><select id="t_farm" class="in">' + farmOpts + '</select></div>' : '') +
       (isNew ? fld('t_pin', 'الرمز السري (من 4 إلى 6 أرقام)', '', 'password', ' inputmode="numeric" maxlength="6" dir="ltr"')
              : fld('t_pin', 'رمز جديد (اتركه فارغًا لو مش عايز تغيّره)', '', 'password', ' inputmode="numeric" maxlength="6" dir="ltr"')) +
@@ -4764,17 +4846,23 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     return '<div class="row" style="gap:10px;margin:4px 0"><span class="chip' + (n ? ' red' : '') + '">' + ic('bell', 'sm') + ' ' + num(n) + ' جديد</span><div class="grow"></div>' + pbtn + '</div>';
   }
 
+  function flManage(d) {
+    var nst = (d.stations || []).length;
+    var manage = (d.canManage || d.canStations) ? '<button class="btn dk fl-stbtn" data-act="fl_stations">' + ic('truck', 'sm') + 'المحطات والطرق المتسجّلة (' + num(nst) + ')</button>' : '';
+    /* «وصّلني» عند التاجر بتعرض المحطات اللي ليها طريق ديرتي بس: لو مفيش ولا واحد، نقول للفريق صراحة */
+    if (manage && nst && !(d.roads || []).some(function (r) { return r.zone === 'dirty'; })) manage += '<div class="rc-note fl-nodirty">«وصّلني» فاضية عند التجار: مفيش طريق «ديرتي» لأي محطة، لا هنا ولا في «منظومة الأمن الحيوي». سجّل الطريق الديرتي في المنظومة أو من «المحطات والطرق».</div>';
+    return manage;
+  }
+
   A.STABS.splice(4, 0, { id: 'fleet', t: 'الأسطول', i: 'truck' });
   A.staffST.fleet = function () {
     var d = S.fl.data;
     if (!d) return '<div class="spin"></div>';
-    var nst = (d.stations || []).length;
     /* «خط السير» اتشال من التطبيق («وصّلني» أغنى عنه): الأسطول بقى للمحطات والطرق الديرتي وطلبات المساعدة */
-    var manage = (d.canManage || d.canStations) ? '<button class="btn dk fl-stbtn" data-act="fl_stations">' + ic('truck', 'sm') + 'المحطات والطرق المتسجّلة (' + num(nst) + ')</button>' : '';
-    return flBell() + flStats(d) + '<div id="fl-sos">' + flSos(d) + '</div>' +
+    return flBell() + '<div id="fl-draft">' + (A.recDraftBox ? A.recDraftBox() : '') + '</div>' + flStats(d) + '<div id="fl-sos">' + flSos(d) + '</div>' +
       '<div class="fl-mapbox"><div id="fmap" class="fmap"></div></div>' +
       '<div class="xs mut" style="margin:4px 2px">النقط الملوّنة هي المحطات. الطريق البني هو الديرتي اللي التجار بيتوجّهوا عليه في «وصّلني»، والأزرق كلين. الدايرة الحمرا تاجر طلب مساعدة.</div>' +
-      manage + '<div id="fl-list">' + flList(d) + '</div>' +
+      '<div id="fl-man">' + flManage(d) + '</div><div id="fl-list">' + flList(d) + '</div>' +
       '<div id="fl-alerts">' + flAlerts(d) + '</div>';
   };
   A.staffSP.fleet = function () {
@@ -4845,6 +4933,8 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var d = S.fl.data; if (!d) return;
     var s = document.getElementById('fl-sos'); if (s) s.innerHTML = flSos(d);
     var l = document.getElementById('fl-list'); if (l) l.innerHTML = flList(d);
+    var mn = document.getElementById('fl-man'); if (mn) mn.innerHTML = flManage(d);
+    var dr = document.getElementById('fl-draft'); if (dr && A.recDraftBox) dr.innerHTML = A.recDraftBox();
     var a = document.getElementById('fl-alerts'); if (a) a.innerHTML = flAlerts(d);
     var c = document.querySelector('#view .fl-chips'); if (c) c.outerHTML = flStats(d);
     if (A.fleetMap && document.getElementById('fmap') === A.fleetMap.el) drawFleetMap(A.fleetMap.m);
@@ -5023,7 +5113,9 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
           (x.active ? '<button class="btn xs ok" data-act="fl_st_go" data-id="' + esc(x.id) + '">وصّلني</button>' : '') +
           (d.canEdit ? '<button class="btn xs gh" data-act="fl_st_edit" data-id="' + esc(x.id) + '">تعديل</button>' : '') + '</div>';
       }).join('');
-      A.sheet('<h2>المحطات والطرق المتسجّلة</h2>' +
+      var nDirty = d.stations.filter(function (x) { return x.active && (d.roads || []).some(function (r) { return r.sid === x.id && r.zone === 'dirty'; }); }).length;
+      A.sheet('<h2>المحطات والطرق المتسجّلة</h2>' + (A.recDraftBox ? A.recDraftBox() : '') +
+        (!nDirty ? '<div class="rc-note">لسه مفيش ولا محطة ليها طريق «ديرتي» محفوظ، فـ«وصّلني» فاضية عند التجار. ' + (d.canEdit ? 'اضغط «سجّل طريق» جنب المحطة، سوق الطريق بالعربية لحد المحطة، وبعدين «احفظ» واختار «ديرتي».' : 'تسجيل الطرق محتاج صلاحية «إدارة المحطات».') + '</div>' : '') +
         '<div class="xs mut" style="margin-bottom:8px">المحطات اللي التجار بيروحوها. ' + (d.canEdit ? 'تقدر تضيف وتعدّل وتخفي، وتسجّل الطريق الحقيقي لكل محطة بالعربية عشان الملاحة توجّه التجار عليه لفة بلفة.' : 'التعديل محتاج صلاحية «إدارة المحطات» من مدير الإدارة.') + '</div>' +
         (d.canEdit ? '<button class="btn dk sm" data-act="fl_st_edit" data-id="">' + ic('plus', 'sm') + 'محطة جديدة</button>' : '') +
         '<div class="fl-sts">' + rows + '</div><button class="btn gh" data-act="closesheet" style="margin-top:10px">قفل</button>');
@@ -5110,6 +5202,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
 
   /* ---------- حل الطوارئ والتنبيهات ---------- */
   H.fl_resolve = function (el) {
+    if (A.ro && A.ro()) return;   // «الإدارة العليا» مشاهدة بس
     A.sheet('<h2>تم التأكد من السائق؟</h2><div class="xs mut" style="margin-bottom:8px">اكتب خلاصة سريعة: وصلت له؟ حصل إيه؟ هيتقفل التنبيه ويطمّن السائق.</div>' +
       '<textarea id="fl_note" class="in" rows="3" maxlength="120" placeholder="مثال: وصلنا له، عطل بسيط وتم إصلاحه"></textarea>' +
       '<div class="grid2" style="margin-top:12px"><button class="btn ok" data-act="fl_resolve_go" data-id="' + esc(el.dataset.id) + '">تم الحل وإغلاق التنبيه</button><button class="btn gh" data-act="closesheet">إلغاء</button></div>');
@@ -5813,7 +5906,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       ['n_on_line', 'رجعت على الخط. كمّل.'], ['n_correct', 'إنت ماشي صح.'], ['n_farther', 'إنت بتبعد عن'], ['n_look_arrow', 'بص على السهم.'],
       ['n_weak', 'إشارة الموقع ضعيفة. لو تقدر، اقف في مكان مفتوح.'], ['n_far_gm', 'افتح خرائط جوجل لحد هناك، ولما تقرّب أنا هكمّل معاك.'],
       ['n_far_gm2', 'افتح خرائط جوجل للطريق العمومي.'], ['n_lost', 'ولا يهمك. اقف على جنب في مكان آمن، وأنا هرجّعك.'], ['n_sent', 'اتبعت مكانك للمسؤول.'],
-      ['n_voice_on', 'الصوت رجع.'], ['n_back_dest', 'رجعنا للوجهة.'], ['n_trail', 'هرجّعك على نفس الأثر اللي جيت منه، لفة بلفة.'], ['n_station', 'المحطة'],
+      ['n_voice_on', 'الصوت رجع.'], ['n_back_dest', 'رجعنا للوجهة.'], ['n_trail', 'هرجّعك على نفس الأثر اللي جيت منه، لفة بلفة.'], ['n_ret', 'الرجوع على نفس الطريق الديرتي اللي جيت منه، لفة بلفة.'], ['n_ret_done', 'وصلت لأول الطريق الديرتي. حمد الله على السلامة.'], ['n_station', 'المحطة'],
       ['sd_front', 'قدامك'], ['sd_back', 'وراك'], ['sd_right', 'على يمينك'], ['sd_left', 'على شمالك'],
       ['dir0', 'ناحية الشمال'], ['dir1', 'ناحية الشمال الشرقي'], ['dir2', 'ناحية الشرق'], ['dir3', 'ناحية الجنوب الشرقي'], ['dir4', 'ناحية الجنوب'],
       ['dir5', 'ناحية الجنوب الغربي'], ['dir6', 'ناحية الغرب'], ['dir7', 'ناحية الشمال الغربي'],
@@ -6382,6 +6475,15 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     rd.man = maneuvers(rd);
     return rd;
   }
+  /* الرجوع من المحطة: نفس الطريق الديرتي بالعكس (من باب المحطة لأول الطريق)، والعلامات بنفس أماكنها */
+  function revInput(r) {
+    var raw = r.pts || (CU.polyDec ? CU.polyDec(r.poly) : []);
+    if (!raw || raw.length < 2) return null;
+    var n = raw.length;
+    return { id: (r.id || '') + ':ret', sid: 'ret', name: 'رجوع: ' + (r.name || 'الطريق الديرتي'), pts: raw.slice().reverse(),
+      marks: (r.marks || []).map(function (m) { return { i: n - 1 - Math.round(+m.i || 0), k: m.k, t: m.t }; }) };
+  }
+  function retTarget(ri) { var a = ri.pts[ri.pts.length - 1], p = Array.isArray(a) ? { lat: +a[0], lng: +a[1] } : { lat: +a.lat, lng: +a.lng }; return { lat: p.lat, lng: p.lng, name: 'أول الطريق الديرتي', sid: 'ret' }; }
   function idxAt(rd, s) {
     var lo = 0, hi = rd.cum.length - 2;
     while (lo < hi) { var mid = (lo + hi + 1) >> 1; if (rd.cum[mid] <= s) lo = mid; else hi = mid - 1; }
@@ -6634,6 +6736,9 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       if (!base) { A.toast('الخط ده لسه مافيهوش نقط للملاحة', 'err'); return false; }
     } else {
       if (!opts.targets || !opts.targets.length) return false;
+      var ri = opts.ret ? revInput((opts.roads || [])[0] || {}) : null;
+      if (opts.ret && !ri) return false;
+      if (ri) opts = { mode: opts.mode, title: 'رجوع من «' + (opts.title || opts.targets[0].name) + '»', targets: [retTarget(ri)], roads: [ri], hotline: opts.hotline, onLost: opts.onLost, ret: true };
       base = { targets: opts.targets.map(function (p) { return { lat: +p.lat, lng: +p.lng, name: String(p.name || 'الوجهة'), sid: p.sid || '' }; }), start: null, all: opts.targets, roads: opts.roads || [], title: opts.title || opts.targets[0].name, key: 'free:' + opts.targets.map(function (p) { return (+p.lat).toFixed(4) + ',' + (+p.lng).toFixed(4); }).join('|'), corridor: 0, hotline: opts.hotline || '',
         onLost: typeof opts.onLost === 'function' ? opts.onLost : null };   // «وصّلني» من الرئيسية: «ابعت مكاني للمسؤول» من غير خط سير
     }
@@ -6645,13 +6750,17 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
       watch: null, tick: null, turn: '', turnTs: 0, turnSaid: '', turnSaidTs: 0, ms: {}, hist: [], lastD: null, lastSaidTs: Date.now(),
       voice: lsGet('c3a_nav_voice') !== '0', view: lsGet('c3a_nav_view') === 'map' ? 'map' : '3d', night: isNight(), said: [], arrivedTs: 0, done: false, off: false, offTs: 0,
       weakTs: 0, weakSaid: false, farTs: 0, farSaid: 0, noVoice: false, gpsErr: '', wake: null, back: null, introDone: false, compSeen: false, compAsked: false,
-      G: null, camH: null, chev: 0, raf: 0, lastFrame: 0, said3: {}, wrongTs: 0, wrongSaid: 0, totalMax: 0, farSaidK: '', rotA: 0, lastManN: -1, okSaidTs: 0
+      G: null, camH: null, chev: 0, raf: 0, lastFrame: 0, said3: {}, wrongTs: 0, wrongSaid: 0, totalMax: 0, farSaidK: '', rotA: 0, lastManN: -1, okSaidTs: 0,
+      ret: !!opts.ret, retFrom: null
     };
     trailLoad(N.trailKey);
     build();
     if (navigator.geolocation) N.watch = navigator.geolocation.watchPosition(onPos, onGpsErr, { enableHighAccuracy: true, maximumAge: 1000, timeout: 20000 });
     else N.gpsErr = 'none';
-    if (compassNeedsAsk()) askCompass(); else compassOn();
+    // البوصلة: نسمع دايمًا. كروم الجديد عنده requestPermission وبيرجّع «prompt» من غير لمسة، فكانت البوصلة بتفضل مقفولة.
+    // الآيفون مش هيبعت قراءات غير بعد الإذن، وزرار «شغّل البوصلة» بيطلبه بلمسة.
+    compassOn();
+    if (compassNeedsAsk()) askCompass();
     N.tick = setInterval(update, 400);
     wake();
     document.addEventListener('visibilitychange', onVis);
@@ -6776,7 +6885,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     ssSet('c3a_nav_idx_' + N.key, '0');
     setTxt('nv-arr-n', was.name);
     buzz([200, 100, 200, 100, 600]);
-    speak(N.back ? ['n_back_done'] : ['n_dest', ST(was), 'n_salama'], 5);
+    speak(N.back ? ['n_back_done'] : N.ret ? ['n_ret_done'] : ['n_dest', ST(was), 'n_salama'], 5);
   }
 
   /* ---------- قلب الملاحة: بيحسب «إنت فين من الطريق» واللفة الجاية ---------- */
@@ -6835,7 +6944,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     if (N.pend && now >= VO.until) { var pd = N.pend; N.pend = null; if (now - pd.ts < 8000) speak(pd.tokens, pd.pri); }
     var nav = document.getElementById('nav');
     nav.className = 'nav ' + (N.night ? 'night' : 'day') + (N.done ? ' done' : '') + (N.view === 'map' ? ' vmap' : '');
-    setTxt('nv-lbl', N.back ? 'راجع على أثرك لـ' : (N.done ? 'وصلت' : 'رايح لـ'));
+    setTxt('nv-lbl', N.back ? 'راجع على أثرك لـ' : N.ret && !N.done ? 'راجع على نفس الطريق لـ' : (N.done ? 'وصلت' : 'رايح لـ'));
     setTxt('nv-name', tg ? tg.name : '');
     setTxt('nv-step', N.targets.length > 1 ? 'النقطة ' + (N.idx + 1) + ' من ' + N.targets.length + (N.back ? '' : ' · ' + (N.title || '')) : (N.title && tg && N.title !== tg.name && N.title !== 'إلى ' + tg.name ? N.title : ''));
     show('nv-next', N.idx < N.targets.length - 1 && !N.done && !N.back);
@@ -6864,7 +6973,10 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
 
     if (N.done) {
       N.G = { kind: 'done', tg: tg, d: 0, rem: 0 };
-      card('done', 'arrive', null, N.back ? 'رجعت لأول نقطة بدأت منها' : 'وصلت لوجهتك', N.back ? 'لو لسه مش عارف مكانك، كلّم المسؤول أو ابعت طوارئ.' : (N.mode === 'route' ? 'لو خلّصت مشوارك، اقفل الملاحة وانهي الرحلة من الشاشة اللي ورا.' : ''), '');
+      var rr = !N.back && !N.ret ? retRoad() : null;
+      card('done', 'arrive', null, N.back ? 'رجعت لأول نقطة بدأت منها' : N.ret ? 'وصلت لأول الطريق الديرتي' : 'وصلت لوجهتك',
+        N.back ? 'لو لسه مش عارف مكانك، كلّم المسؤول أو ابعت طوارئ.' : N.ret ? 'حمد الله على السلامة.' : rr ? 'لما تخلّص، الرجوع بيكون على نفس الطريق الديرتي اللي جيت منه.' : (N.mode === 'route' ? 'لو خلّصت مشوارك، اقفل الملاحة وانهي الرحلة من الشاشة اللي ورا.' : ''),
+        rr ? ' <button class="nav-wb nav-ret" data-act="nav_return">ارجع على نفس الطريق</button>' : '');
       setTxt('nv-dist', '0 م'); setTxt('nv-eta', ''); setHtml('nv-trend', ''); setHtml('nv-then', ''); setHtml('nv-chip', ''); setHtml('nv-far', '');
       progress(0);
       return;
@@ -7484,6 +7596,30 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     update();
   };
 
+  /* الطريق اللي التاجر جه عليه للمحطة (آخر طريق مشي عليه في المرحلة دي) */
+  function retRoad() {
+    if (!N) return null;
+    var lg = N.legs[N.idx]; if (!lg || !lg.roads.length) return null;
+    var rd = lg.road || lg.roads[0];
+    return rd && !rd.trail ? rd : null;
+  }
+  /* الرجوع من المحطة على نفس الطريق الديرتي اللي جه عليه، بالعكس ولفة بلفة */
+  H.nav_return = function () {
+    A.closeSheet();
+    var rd = retRoad(); if (!rd) return;
+    var ri = revInput({ id: rd.id, name: rd.name, pts: rd.pts, marks: rd.marks.map(function (m) {
+      var j = idxAt(rd, m.s); if (j + 1 < rd.cum.length && rd.cum[j + 1] <= m.s) j++;   // رقم النقطة اللي عليها العلامة
+      return { i: j, k: m.k, t: m.t };
+    }) });
+    if (!ri) return;
+    var r2 = mkRoad(ri);
+    N.retFrom = { title: N.title }; N.ret = true;
+    N.targets = [retTarget(ri)]; N.legs = [{ roads: [r2], road: null, onRoad: false, everOn: false, sLast: null, offTs: 0, offSaid: 0, joinSaid: 0 }];
+    N.idx = 0; N.prevPt = N.pos; N.done = false; N.arrivedTs = 0; N.totalMax = 0; N.title = 'رجوع من «' + (N.title || '') + '»'; resetLegVoice();
+    speak(['n_ret'], 6);
+    update();
+  };
+
   A.nav = {
     open: open, close: close, isOpen: function () { return !!N; },
     state: function () { return N; },
@@ -7521,8 +7657,12 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   function fmtD(m) { return m >= 1000 ? (Math.round(m / 100) / 10).toFixed(1) + ' كم' : Math.round(m) + ' م'; }
   function lenOf(pts) { var L = 0; for (var i = 1; i < pts.length; i++) L += dist(pts[i - 1], pts[i]); return L; }
   /* تبسيط المسار (Douglas–Peucker) بسماحية بالمتر: بيشيل النقط الزيادة على الخط المستقيم ويسيب اللفات */
-  function simplify(pts, tol) {
+  /* maxSeg: أطول جزء مسموح بين نقطتين بعد التبسيط. من غيره الطريق المستقيم في الصحرا كان بيتختصر لنقطتين بينهم كيلومترات،
+     والخادم كان بيرفضه على إنه «قفزة» في الإشارة، فالطريق عمره ما كان بيتحفظ */
+  var MAX_SEG = 400, GAP_MAX = 3000;
+  function simplify(pts, tol, maxSeg) {
     if (pts.length < 3) return pts.slice();
+    maxSeg = maxSeg || MAX_SEG;
     var o = pts[0], xy = pts.map(function (p) { return local(o, p); }), keep = new Array(pts.length), stack = [[0, pts.length - 1]];
     keep[0] = keep[pts.length - 1] = true;
     while (stack.length) {
@@ -7531,9 +7671,16 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
         var px = xy[i].x - ax, py = xy[i].y - ay, t = L2 ? Math.max(0, Math.min(1, (px * dx + py * dy) / L2)) : 0, ex = px - t * dx, ey = py - t * dy, d = Math.sqrt(ex * ex + ey * ey);
         if (d > bd) { bd = d; best = i; }
       }
+      if (best < 0 && b - a > 1 && L2 > maxSeg * maxSeg) best = (a + b) >> 1;   // جزء مستقيم طويل: نسيب نقطة في النص
       if (best > 0) { keep[best] = true; stack.push([a, best], [best, b]); }
     }
     return pts.filter(function (p, i) { return keep[i]; });
+  }
+  /* أكبر قفزة حقيقية بين نقطتين متتاليتين في التسجيل نفسه (الإشارة ضاعت أو إيقاف مؤقت وسواقة لمكان تاني) */
+  function bigGap(pts) {
+    var at = -1, g = 0;
+    for (var i = 1; i < pts.length; i++) { var d = dist(pts[i - 1], pts[i]); if (d > GAP_MAX && d > g) { g = d; at = i; } }
+    return at < 0 ? null : { at: at, m: g };
   }
   function lsGet(k) { try { return W.localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { W.localStorage.setItem(k, v); } catch (e) { /* ignore */ } }
@@ -7562,6 +7709,29 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
   var RC0 = null;
   H.rec_go = function (el) { A.closeSheet(); var o = stored(); start(RC0, el.dataset.m === 'resume' ? o : null); };
 
+  /* تسجيل اتقفل قبل «احفظ» (الشاشة اتقفلت، النت قطع، التطبيق اتقفل): بيفضل على الموبايل ده بس ومايوصلش للتجار.
+     نوري تنبيه في الأسطول عشان يكمّله ويحفظه، بدل ما يفضل مستخبي لحد ما يفتح نفس المحطة بالصدفة */
+  A.recDraft = function () {
+    if (RC) return null;
+    var o = stored();
+    if (!o || o.pts.length < 2) return null;
+    var m = lenOf(o.pts);
+    return m < 30 ? null : { sid: o.st.id, name: o.st.name, m: m, len: fmtD(m) };
+  };
+  A.recDraftBox = function () {
+    var dr = A.recDraft(); if (!dr) return '';
+    return '<div class="rc-note rc-draft"><b>فيه طريق متسجّل على الموبايل ده وماتحفظش</b>' +
+      '<div class="xs" style="margin:4px 0 8px">«' + esc(dr.name) + '» · ' + esc(dr.len) + '. التجار مش هيشوفوه في «وصّلني» غير لما تحفظه وتختار «ديرتي».</div>' +
+      '<button class="btn ok sm" data-act="rec_draft">كمّل واحفظ الطريق</button></div>';
+  };
+  H.rec_draft = function () {
+    var o = stored(); if (!o || !o.st) return;
+    A.closeSheet();
+    var all = (S.fl && S.fl.st && S.fl.st.stations) || (S.fl && S.fl.data && S.fl.data.stations) || [];
+    var x = all.filter(function (y) { return y.id === o.st.id; })[0];
+    A.recOpen(x || o.st);
+  };
+
   function start(st, from) {
     if (RC) stop();
     RC = { st: { id: st.id, name: st.name, lat: +st.lat, lng: +st.lng }, pts: from ? from.pts : [], marks: from ? from.marks : [], t0: from ? from.t0 : 0, el: from ? (from.el || 0) : 0,
@@ -7584,6 +7754,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     document.removeEventListener('visibilitychange', onVis);
     var el = document.getElementById('rec'); if (el) el.parentNode.removeChild(el);
     RC = null;
+    var hb = document.getElementById('fl-draft'); if (hb) hb.innerHTML = A.recDraftBox();
   }
   function wake() { try { if (navigator.wakeLock && !document.hidden && RC) navigator.wakeLock.request('screen').then(function (l) { if (RC) RC.wake = l; }, function () { /* اختياري */ }); } catch (e) { /* ignore */ } }
   function onVis() { if (RC && !document.hidden) { wake(); paint(); } }
@@ -7724,6 +7895,15 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     if (dist(pts[0], RC.st) < dist(pts[pts.length - 1], RC.st)) { pts.reverse(); flipped = true; }
     var endD = dist(pts[pts.length - 1], RC.st);
     if (endD > 800) { A.toast('آخر الطريق بعيد عن المحطة ' + fmtD(endD) + '. كمّل التسجيل لحد المحطة', 'err'); if (RC.state === 'paused') H.rec_resume(); return; }
+    var gp = bigGap(pts);
+    if (gp) {
+      var tail = pts.slice(gp.at), tl = lenOf(tail);
+      A.sheet('<h2>فيه قفزة في التسجيل</h2><div class="sm" style="margin-bottom:10px">إشارة الموقع ضاعت (أو التسجيل اتوقف واتكمّل من مكان تاني)، فيه ' + fmtD(gp.m) + ' مااتسجّلوش. الخادم مش هيقبل الطريق كده.</div>' +
+        (tl >= 100 ? '<button class="btn" data-act="rec_tail">احفظ الجزء الأخير بس (' + fmtD(tl) + ' لحد المحطة)</button>' : '') +
+        '<button class="btn gh" style="margin-top:8px" data-act="rec_restart">ابدأ التسجيل من الأول</button><button class="btn gh" style="margin-top:8px" data-act="closesheet">رجوع</button>');
+      RC.tail = { pts: flipped ? tail.slice().reverse() : tail };
+      return;
+    }
     if (el && el.dataset && el.dataset.force) RC.forceOk = true;
     if (endD > 150 && !RC.forceOk) {
       A.sheet('<h2>آخر الطريق بعيد شوية عن المحطة</h2><div class="sm" style="margin-bottom:10px">آخر نقطة متسجّلة على بعد ' + fmtD(endD) + ' من «' + esc(RC.st.name) + '». الأحسن تكمّل لحد باب المحطة.</div>' +
@@ -7746,6 +7926,12 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     });
   };
   H.rec_resume_cl = function () { A.closeSheet(); H.rec_resume(); };
+  H.rec_tail = function () {
+    if (!RC || !RC.tail) return;
+    RC.pts = RC.tail.pts; RC.tail = null; persist(true);
+    A.closeSheet(); paint(); H.rec_save(null);
+  };
+  H.rec_restart = function () { var st = RC && RC.st; A.closeSheet(); if (st) start(st, null); };
   var ZL = { dirty: 'ديرتي', clean: 'كلين' };
   function zoneSheet() {
     A.sheet('<h2>الطريق ده نوعه إيه؟</h2>' +
@@ -7784,12 +7970,15 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var x = d.stations.filter(function (y) { return y.id === el.dataset.id; })[0]; if (!x) return;
     var roads = (d.roads || []).filter(function (r) { return r.sid === x.id; });
     var rows = roads.map(function (r) {
-      return '<div class="fl-st"><div class="grow"><b>' + esc(r.name) + '</b><div class="xs mut">' + fmtD(r.lenM) + ' · ' + (r.marks || []).length + ' علامات' + (r.ts ? ' · ' + esc(A.ago ? A.ago(r.ts) : '') : '') + '</div><div style="margin-top:6px">' + zoneChip(r, d.canEdit) + '</div></div>' +
+      /* الطرق اللي جاية من «منظومة الأمن الحيوي» بتتعرض هنا وبتتعدّل من هناك بس */
+      var bio = r.src === 'bio', mine = d.canEdit && !bio;
+      return '<div class="fl-st"><div class="grow"><b>' + esc(r.name) + '</b><div class="xs mut">' + fmtD(r.lenM) + ' · ' + (r.marks || []).length + ' علامات' + (r.ts ? ' · ' + esc(A.ago ? A.ago(r.ts) : '') : '') + (bio && r.by ? ' · ' + esc(r.by) : '') + '</div><div style="margin-top:6px">' + zoneChip(r, mine) + (bio ? ' <span class="chip bio-src">من المنظومة</span>' : '') + '</div></div>' +
         '<button class="btn xs ok" data-act="fl_road_try" data-id="' + esc(r.id) + '">جرّب الملاحة</button>' +
-        (d.canEdit ? '<button class="btn xs gh" data-act="fl_road_del" data-id="' + esc(r.id) + '">امسح</button>' : '') + '</div>';
+        (mine ? '<button class="btn xs gh" data-act="fl_road_del" data-id="' + esc(r.id) + '">امسح</button>' : '') + '</div>';
     }).join('');
     A.sheet('<h2>طرق «' + esc(x.name) + '»</h2>' +
-      '<div class="xs mut" style="margin-bottom:8px">الطريق المتسجّل بيخلي الملاحة توجّه التاجر على نفس الطريق الحقيقي لفة بلفة، بدل خط مستقيم في الصحرا. الطريق «الديرتي» بس هو اللي بيظهر للتاجر في «وصّلني» من الرئيسية.</div>' +
+      '<div class="xs mut" style="margin-bottom:8px">الطريق المتسجّل بيخلي الملاحة توجّه التاجر على نفس الطريق الحقيقي لفة بلفة، بدل خط مستقيم في الصحرا. الطريق «الديرتي» بس هو اللي بيظهر للتاجر في «وصّلني» من الرئيسية.' +
+        (roads.some(function (r) { return r.src === 'bio'; }) ? ' الطرق اللي عليها «من المنظومة» اتسجّلت في «منظومة الأمن الحيوي» وبتظهر هنا لوحدها، وتعديلها من هناك.' : '') + '</div>' +
       (roads.length && !roads.some(function (r) { return r.zone === 'dirty'; }) ? '<div class="rc-note">المحطة دي مش ظاهرة للتجار في «وصّلني» لحد ما يبقى ليها طريق ديرتي.</div>' : '') +
       (rows ? '<div class="fl-sts">' + rows + '</div>' : '<div class="card tc sm" style="margin:8px 0">لسه مافيش طريق متسجّل للمحطة دي.</div>') +
       (d.canEdit ? '<button class="btn" data-act="rec_new" data-id="' + esc(x.id) + '" style="margin-top:10px">' + ic('truck', 'sm') + 'سجّل طريق جديد بالعربية</button>' : '<div class="xs mut" style="margin-top:8px">تسجيل الطرق محتاج صلاحية «إدارة المحطات».</div>') +
@@ -7917,13 +8106,14 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     }).join('') + '</div>';
   }
   function askPos() {
-    if (!navigator.geolocation || Date.now() - WS.posAsked < 20000) return;
+    if (!navigator.geolocation || Date.now() - WS.posAsked < 10000) return;
     WS.posAsked = Date.now();
     try {
+      /* مكان حديث (مش أقدم من 15 ثانية): عشان نعرف لو هو عند المحطة دلوقتي وعايز يرجع */
       navigator.geolocation.getCurrentPosition(function (p) {
-        WS.pos = { lat: p.coords.latitude, lng: p.coords.longitude, acc: p.coords.accuracy || 100 };
+        WS.pos = { lat: p.coords.latitude, lng: p.coords.longitude, acc: p.coords.accuracy || 100, ts: Date.now() };
         var box = document.getElementById('wsl-list'); if (box) box.outerHTML = A.fx ? A.fx(listHtml()) : listHtml();
-      }, function () { /* من غير مكان: القايمة بترتيب المحطات */ }, { enableHighAccuracy: true, maximumAge: 120000, timeout: 12000 });
+      }, function () { /* من غير مكان: القايمة بترتيب المحطات */ }, { enableHighAccuracy: true, maximumAge: 15000, timeout: 12000 });
     } catch (e) { /* ignore */ }
   }
   H.wsl_pick = function () {
@@ -7937,7 +8127,7 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
         '<button class="btn gh" data-act="closesheet">تمام</button>');
     }
     A.sheet('<h2 style="margin-bottom:2px">رايح فين؟</h2>' +
-      '<div class="xs mut">المحطات اللي ليها طريق ديرتي متسجّل. الملاحة هتمشّيك على الطريق الديرتي بس، لحد باب المحطة.</div>' +
+      '<div class="xs mut">المحطات اللي ليها طريق ديرتي متسجّل. الملاحة هتمشّيك على الطريق الديرتي بس لحد باب المحطة، والرجوع على نفس الطريق.</div>' +
       listHtml() +
       '<button class="btn gh" data-act="closesheet">إلغاء</button>');
     askPos();
@@ -7977,13 +8167,21 @@ var C3A = (typeof C3A !== 'undefined') ? C3A : {};
     var id = el && el.dataset ? el.dataset.id : '', x = placeOf(id), roads = roadsOf(id), d = data() || {};
     if (!x || !roads.length) { A.toast('المحطة دي مالهاش طريق ديرتي متسجّل دلوقتي. اختار محطة تانية', 'err'); load(true); return; }
     if (!A.nav || !A.nav.open) { A.toast('الملاحة مش متاحة على الجهاز ده', 'err'); return; }
+    /* لو هو عند المحطة أصلًا: غالبًا خلّص وعايز يرجع. الرجوع على نفس الطريق الديرتي اللي جه عليه، بالعكس */
+    var m = (el && el.dataset && el.dataset.m) || '';
+    if (!m && WS.pos && Date.now() - (WS.pos.ts || 0) < 180000 && dist(WS.pos, x) <= 400) {
+      return A.sheet('<h2>إنت عند «' + esc(x.name) + '»</h2>' +
+        '<p class="sm">رايح للمحطة ولا خلّصت وراجع؟ الرجوع بيكون على نفس الطريق الديرتي اللي جيت منه.</p>' +
+        '<button class="btn ok" data-act="wsl_go" data-id="' + esc(x.id) + '" data-m="ret">ارجع على نفس الطريق الديرتي</button>' +
+        '<button class="btn gh" style="margin-top:8px" data-act="wsl_go" data-id="' + esc(x.id) + '" data-m="go">وصّلني للمحطة</button>');
+    }
     A.lsSet(LAST, x.id); A.lsSet(USED, '1');
     A.closeSheet();
     var card = document.getElementById('wsl-home'); if (card) card.outerHTML = A.fx(A.wslCard());   // «آخر مرة» تبقى جاهزة لما يقفل الملاحة
-    A.nav.open({ mode: 'free', title: x.name, targets: [{ lat: x.lat, lng: x.lng, name: x.name, sid: x.id }], roads: roads, hotline: d.hotline || '', onLost: lostSend });
+    A.nav.open({ mode: 'free', title: x.name, targets: [{ lat: x.lat, lng: x.lng, name: x.name, sid: x.id }], roads: roads, hotline: d.hotline || '', onLost: lostSend, ret: m === 'ret' });
   };
 
-  A.wsl = { data: data, load: load, roadsOf: roadsOf, listHtml: listHtml };
+  A.wsl = { data: data, load: load, roadsOf: roadsOf, listHtml: listHtml, state: function () { return WS; } };
 })();
 
 /* ============================================================
