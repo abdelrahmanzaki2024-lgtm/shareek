@@ -1,125 +1,70 @@
-/* عامل الخدمة: تشغيل التطبيق دون إنترنت + استقبال الإشعارات الفورية والقرار منها مباشرة */
-var CACHE = 'bio-v36-17';
-var SHELL = ['./', 'index.html', 'reports.html', 'wassalni.html', 'styles.css', 'fonts.css', 'app.js', 'core.js', 'config.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png', 'icons/favicon-32.png', 'icons/icon-maskable-192.png', 'icons/icon-maskable-512.png', 'logo.png'];
-importScripts('config.js');
+/* عامل الخدمة: يخزّن الواجهة ليفتح التطبيق المثبّت حتى مع ضعف الإنترنت.
+   بيانات التجار والأسعار لا تُخزَّن أبدًا: طلبات الخادم كلها POST ولا يتدخل فيها العامل. */
+const CACHE = 'c3a-shareek-930b192e';
+const SHELL = ['./', './index.html', './config.js', './manifest.webmanifest',
+  './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png'];
 
-self.addEventListener('install', function (e) {
-  e.waitUntil(caches.open(CACHE).then(function (c) { return Promise.all(SHELL.map(function (u) { return c.add(new Request(u, { cache: 'reload' })).catch(function () {}); })); }).then(function () { return self.skipWaiting(); }));
+/* كل ملف يُخزَّن على حدة: ملف واحد ناقص لا يُفشل تثبيت العامل كله (لو فشل التثبيت لا يعمل التطبيق كتطبيق مثبّت).
+   cache: 'reload' يتخطى ذاكرة المتصفح المؤقتة (GitHub Pages يحتفظ بالملف 10 دقايق)، فالنسخة المخزّنة هي الجديدة فعلًا */
+self.addEventListener('install', (e) => {
+  e.waitUntil(caches.open(CACHE)
+    .then((c) => Promise.all(SHELL.map((u) => fetch(new Request(u, { cache: 'reload' }))
+      .then((r) => (r.ok ? c.put(u, r) : null)).catch(() => null))))
+    .then(() => self.skipWaiting()));
 });
-self.addEventListener('activate', function (e) {
-  e.waitUntil(caches.keys().then(function (ks) { return Promise.all(ks.filter(function (k) { return k !== CACHE; }).map(function (k) { return caches.delete(k); })); }).then(function () { return self.clients.claim(); }));
+
+/* عند وصول إصدار جديد: تُمسح النسخ القديمة ويتحكم العامل الجديد فورًا. الصفحة نفسها تعيد تحميل نفسها مرة واحدة
+   لما تلاحظ تغيّر العامل (controllerchange في index.html)، فلا يفضل حد على إصدار قديم */
+self.addEventListener('activate', (e) => {
+  e.waitUntil(caches.keys()
+    .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+    .then(() => self.clients.claim()));
 });
-self.addEventListener('fetch', function (e) {
-  var req = e.request, url = new URL(req.url);
-  if (req.method !== 'GET' || /script\.google(usercontent)?\.com|googleapis\.com\/(?!css)|fcm|firebaseinstallations/.test(url.href)) return;
-  // ملفات التطبيق: من الشبكة أولاً ثم المحفوظ. المكتبات والخطوط: المحفوظ أولاً
-  var sameOrigin = url.origin === self.location.origin;
-  if (sameOrigin) {
-    // 36.3 السرعة: ملفات التطبيق (js/css/صور) بتتفتح من المحفوظ على الجهاز فوراً، وفي الخلفية بتتحدّث من الخادم للمرة الجاية.
-    // أي إصدار جديد بيغيّر اسم CACHE هنا، فعامل الخدمة الجديد بينزّل كل الملفات طازة ويعيد فتح التطبيق لوحده.
-    if (req.mode === 'navigate') {
-      // الصفحة نفسها: من الشبكة لو ردّت في 3 ثواني، وإلا المحفوظ
-      var net = fetch(req).then(function (res) { if (res && res.ok) { var copy = res.clone(); caches.open(CACHE).then(function (c) { c.put('index.html', copy); }); } return res; });
-      e.respondWith(new Promise(function (ok) {
-        var done = false, t = setTimeout(function () { caches.match('index.html').then(function (r) { if (r && !done) { done = true; ok(r); } }); }, 3000);
-        net.then(function (r) { if (!done) { done = true; clearTimeout(t); ok(r); } }).catch(function () { caches.match(req, { ignoreSearch: true }).then(function (r) { return r || caches.match('index.html'); }).then(function (r) { if (!done) { done = true; clearTimeout(t); ok(r); } }); });
-      }));
-      return;
+
+self.addEventListener('fetch', (e) => {
+  const req = e.request;
+  if (req.method !== 'GET') return;
+  if (new URL(req.url).origin !== self.location.origin) return;
+  /* الشبكة أولًا مع تحقق من الخادم (no-cache) حتى تصل التحديثات فورًا، ثم النسخة المخزّنة عند انقطاع الإنترنت.
+     طلبات فتح الصفحة لا تقبل خيارات مع الطلب نفسه، فتُطلب بالرابط */
+  const net = req.mode === 'navigate'
+    ? fetch(req.url, { cache: 'no-cache', credentials: 'same-origin' })
+    : fetch(req, { cache: 'no-cache' });
+  e.respondWith(net
+    .then((res) => { if (res.ok) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(req, copy)); } return res; })
+    .catch(() => caches.match(req).then((r) => r || caches.match('./index.html'))));
+});
+
+/* إشعارات الدفع: تظهر على الموبايل والتطبيق مقفول أو مفتوح.
+   الحمولة من خادم الإرسال (push.relayUrl): { title, body, data:{kind, routeId, alertId}, priority }.
+   لا يُرسل داخل الإشعار أي رقم تليفون أو رمز خط السير. */
+self.addEventListener('push', (e) => {
+  let d = {};
+  try { d = e.data ? e.data.json() : {}; } catch (err) { d = { body: e.data ? e.data.text() : '' }; }
+  /* FCM يضع العنوان والنص في data أو في notification حسب نوع الرسالة: نقرأ الأماكن كلها */
+  const n = d.notification || {};
+  const data = d.data || {};
+  const urgent = data.urgent === '1' || data.kind === 'alert_sos' || d.priority === 'high';
+  const title = String(data.title || n.title || d.title || 'شريك الدفاع').slice(0, 120);
+  const opts = {
+    body: String(data.body || n.body || d.body || '').slice(0, 300),
+    icon: './icons/icon-192.png',
+    badge: './icons/icon-192.png',
+    tag: data.routeId ? 'route-' + String(data.routeId).slice(0, 40) : 'c3a-general',
+    renotify: true,
+    requireInteraction: urgent,
+    vibrate: urgent ? [400, 150, 400, 150, 400] : [200, 100, 200],
+    data: { url: './' }
+  };
+  e.waitUntil(self.registration.showNotification(title, opts));
+});
+
+self.addEventListener('notificationclick', (e) => {
+  e.notification.close();
+  e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
+    for (const c of list) {
+      if (new URL(c.url).origin === self.location.origin && 'focus' in c) return c.focus();
     }
-    var upd = fetch(new Request(req, { cache: 'no-cache' })).then(function (res) { if (res && res.ok) { var copy = res.clone(); caches.open(CACHE).then(function (c) { c.put(req, copy); }); } return res; });
-    e.respondWith(caches.match(req, { ignoreSearch: true }).then(function (hit) {
-      if (hit) { e.waitUntil(upd.catch(function () {})); return hit; }
-      return upd.catch(function () { return caches.match('index.html'); });
-    }));
-  } else if (/unpkg\.com|cdnjs\.cloudflare\.com|fonts\.(googleapis|gstatic)\.com|gstatic\.com\/firebasejs/.test(url.href)) {
-    e.respondWith(caches.match(req).then(function (hit) {
-      var net = fetch(req).then(function (res) { var copy = res.clone(); caches.open(CACHE).then(function (c) { c.put(req, copy); }); return res; }).catch(function () { return hit; });
-      return hit || net;
-    }));
-  }
-});
-
-/* ---------- الإشعارات ---------- */
-var CFG = self.BIO_CONFIG || {};
-/* v33.1: استقبال إشعارات FCM مباشرة (رسائل data) من غير مكتبة Firebase داخل عامل الخدمة،
-   علشان الإعدادات تتحفظ من داخل التطبيق ومش لازم تتكتب في config.js */
-self.addEventListener('push', function (e) {
-  var p = {}; try { p = e.data ? e.data.json() : {}; } catch (x) { p = { title: 'الأمن الحيوي', body: e.data ? e.data.text() : '' }; }
-  var d = p.data || (p.notification ? { title: p.notification.title, body: p.notification.body } : p);
-  e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(function (cs) {
-    cs.forEach(function (c) { try { c.postMessage({ push: d }); } catch (x) {} });
-    return show(d);
+    return self.clients.openWindow('./');
   }));
 });
-function show(d) {
-  var urgent = d.kind === 'request' || d.kind === 'violation' || d.kind === 'report' || d.kind === 'escalation' || /عاجل/.test(d.title || '');
-  var bul = d.kind === 'bulletin'; if (bul && d.level && d.level !== 'عادي') urgent = true; // v33: رسائل الإدارة
-  var wa = d.kind === 'washstop' || d.level === 'مغسلة'; // 36.13.1: إنذار المغسلة: يفضل ظاهر وبيرن ويهتز مع كل تكرار
-  if (wa) { urgent = true; bul = false; }
-  return self.registration.showNotification(d.title || 'الأمن الحيوي', {
-    body: d.body || '', dir: 'rtl', lang: 'ar', icon: 'icons/icon-192.png', badge: 'icons/icon-192.png',
-    tag: wa ? 'wash-alert' : d.approvalId || d.reportId || (bul && d.msgId ? 'msg-' + d.msgId : '') || d.kind || 'bio', renotify: true, requireInteraction: urgent, silent: false, vibrate: wa ? [900, 250, 900, 250, 900, 250, 1500] : bul ? (d.level === 'عاجل' ? [400, 150, 400, 150, 700] : [220, 100, 220, 100, 220]) : [200, 100, 200],
-    image: /^https:\/\//.test(d.img || '') ? d.img : undefined,
-    data: d, actions: wa ? [{ action: 'wa-open', title: 'افتح واسمع الرسالة' }] : d.kind === 'request' && d.approvalId ? [{ action: 'approve', title: 'موافقة' }, { action: 'reject', title: 'رفض' }]
-      : (d.kind === 'report' || d.kind === 'escalation') && d.reportId ? [{ action: 'r-ack', title: 'تم الاستلام' }, { action: 'r-alert', title: 'رفع إنذار على الموقع' }] : []
-  });
-}
-function kvGet(key) {
-  return new Promise(function (res) {
-    var r = indexedDB.open('bio-biosecurity', 1);
-    r.onupgradeneeded = function () { r.result.createObjectStore('kv'); };
-    r.onsuccess = function () { try { var q = r.result.transaction('kv').objectStore('kv').get(key); q.onsuccess = function () { res(q.result); }; q.onerror = function () { res(null); }; } catch (e) { res(null); } };
-    r.onerror = function () { res(null); };
-  });
-}
-self.addEventListener('notificationclick', function (e) {
-  var d = e.notification.data || {};
-  e.notification.close();
-  if ((e.action === 'approve' || e.action === 'reject') && d.approvalId) {
-    e.waitUntil(kvGet('session').then(function (s) {
-      if (!s || !CFG.API_URL) throw new Error('افتح التطبيق للقرار');
-      return fetch(CFG.API_URL, { method: 'POST', body: JSON.stringify({ fn: 'decide', args: [s.pin, d.approvalId, e.action === 'approve'] }) }).then(function (r) { return r.json(); });
-    }).then(function (r) {
-      var txt = r && r.ok ? r.data.status + (r.data.already ? ' (سبق البت فيه)' : '') : (r && r.error) || 'تعذر تسجيل القرار';
-      return self.registration.showNotification('القرار: ' + txt, { body: d.title || '', dir: 'rtl', lang: 'ar', icon: 'icons/icon-192.png', tag: d.approvalId });
-    }).catch(function (err) { return openApp('#requests'); }));
-    return;
-  }
-  if ((e.action === 'r-ack' || e.action === 'r-alert') && d.reportId) {
-    e.waitUntil(kvGet('session').then(function (s) {
-      if (!s || !CFG.API_URL) throw new Error('open');
-      return fetch(CFG.API_URL, { method: 'POST', body: JSON.stringify({ fn: 'reportAct', args: [s.pin, d.reportId, e.action === 'r-ack' ? 'استلام' : 'إنذار', 'من الإشعار'] }) }).then(function (r) { return r.json(); });
-    }).then(function (r) {
-      var txt = r && r.ok ? (e.action === 'r-ack' ? 'تم الاستلام ووصل لفرد الأمن' : 'رُفع الإنذار على الموقع وأُبلغت البوابات') : (r && r.error) || 'تعذر تسجيل الإجراء';
-      return self.registration.showNotification(txt, { body: d.title || '', dir: 'rtl', lang: 'ar', icon: 'icons/icon-192.png', tag: d.reportId });
-    }).catch(function () { return openApp('#comms'); }));
-    return;
-  }
-  /* v33.3: رسالة الإدارة تفتح على الرسالة نفسها (تظهر الأول بالشكل الكبير، وبعدها تفضل في «رسائل الإدارة») */
-  var route = d.route || '#';
-  if (d.kind === 'washstop' || d.level === 'مغسلة') route = '#wash';
-  if (d.kind === 'bulletin' && d.msgId && !/^#inbox\/m\//.test(route)) route = '#inbox/m/' + d.msgId;
-  e.waitUntil(kvSet('pendingRoute', { route: route, t: Date.now() }).then(function () { return openApp(route); }));
-});
-function kvSet(key, val) {
-  return new Promise(function (res) {
-    try {
-      var r = indexedDB.open('bio-biosecurity', 1);
-      r.onupgradeneeded = function () { r.result.createObjectStore('kv'); };
-      r.onsuccess = function () { try { var tx = r.result.transaction('kv', 'readwrite'); tx.objectStore('kv').put(val, key); tx.oncomplete = function () { res(); }; tx.onerror = function () { res(); }; } catch (e) { res(); } };
-      r.onerror = function () { res(); };
-    } catch (e) { res(); }
-  });
-}
-/** يفتح التطبيق على المسار: لو التطبيق مفتوح يروح له (النافذة الرئيسية بس، مش إطار التقارير)، ولو مقفول يفتحه */
-function openApp(route) {
-  var url = new URL('./' + (route || ''), self.registration.scope).href;
-  return self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(function (cs) {
-    var top = cs.filter(function (c) { return c.frameType !== 'nested' && c.url.indexOf(self.registration.scope) === 0 && !/reports\.html/.test(c.url); })[0];
-    if (top) {
-      try { top.postMessage({ route: route, sync: true }); } catch (x) {}
-      return (top.focus ? top.focus() : Promise.resolve()).catch(function () { return self.clients.openWindow(url); });
-    }
-    return self.clients.openWindow(url);
-  });
-}
